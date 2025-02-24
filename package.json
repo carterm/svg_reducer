@@ -1,0 +1,22 @@
+{
+  "name": "svg_reducer",
+  "version": "0.0.1",
+  "description": "reduce svgs",
+  "scripts": {
+    "start": "npm run reduce",
+    "reduce": "node reduce.cjs",
+    "GIT cleanup": "git clean -fd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carterm/svg_reducer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "8.57.1",
+    "eslint-plugin-jsdoc": "^48.2.0",
+    "prettier": "^3.3.2"
+  }
+}
