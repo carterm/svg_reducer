@@ -16,5 +16,6 @@
   },
   "css.validate": false,
 
-  "search.useIgnoreFiles": true
+  "search.useIgnoreFiles": true,
+  "prettier.documentSelectors": ["**/web.config", "**/*.svg", "**/*.xml"]
 }

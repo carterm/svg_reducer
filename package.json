@@ -4,7 +4,7 @@
   "description": "reduce svgs",
   "scripts": {
     "start": "npm run reduce",
-    "reduce": "node reduce.cjs",
+    "reduce": "node reduce.cjs sample.svg reduced.svg",
     "GIT cleanup": "git clean -fd"
   },
   "repository": {
