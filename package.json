@@ -12,7 +12,11 @@
     "url": "https://github.com/carterm/svg_reducer.git"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Carter Medlin",
+    "email": "carter.medlin@gmail.com",
+    "url": "https://github.com/carterm"
+  },
   "license": "MIT",
   "devDependencies": {
     "eslint": "8.57.1",
