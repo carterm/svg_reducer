@@ -50,6 +50,8 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       if (!d) return;
 
       d = d.replace(/,/g, " "); // Replace commas with spaces
+      d = d.replace(/h0(?![\d.])/g, ""); // Remove "h" followed by the number 0, but not if followed by a digit or a decimal
+      d = d.replace(/s0 0 0 0(?![\d.])/g, "");
       pathElement.setAttribute("d", d);
     });
 
