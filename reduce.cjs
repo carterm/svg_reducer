@@ -31,8 +31,9 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       process.exit(1);
     }
 
-    // Remove line breaks
-    const transformedData = data.replace(/\r?\n|\r/g, "");
+    const transformedData = data
+      .replace(/\r?\n|\r/g, "") // Remove line breaks
+      .replace(/\s{2,}/g, " "); // Replace 2 or more whitespace chars with a single space
 
     // Write to the output file
     fs.writeFile(outputFile, transformedData, "utf8", writeErr => {
@@ -49,7 +50,9 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       );
       const reductionPercent =
         ((data.length - transformedData.length) / data.length) * 100;
-      console.log(`Reduction: \t\t${chalk.yellow(reductionPercent.toFixed(2))}%`);
+      console.log(
+        `Reduction: \t\t${chalk.yellow(reductionPercent.toFixed(2))}%`
+      );
     });
   });
 });
