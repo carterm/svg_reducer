@@ -1,6 +1,7 @@
 //@ts-check
 const fs = require("node:fs");
 const path = require("node:path");
+const chalk = require("chalk");
 
 // Get command line arguments
 const args = process.argv.slice(2);
@@ -39,12 +40,16 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
         console.error(`Error writing the output file: ${writeErr.message}`);
         process.exit(1);
       }
-
       console.log(`Successfully transformed and saved to ${outputFile}`);
-      console.log(`Original file size: ${data.length.toLocaleString()} bytes`);
-      console.log(`Transformed file size: ${transformedData.length.toLocaleString()} bytes`);
-      const reductionPercent = ((data.length - transformedData.length) / data.length) * 100;
-      console.log(`Reduction: ${reductionPercent.toFixed(2)}%`);
+      console.log(
+        `Original file size: \t${chalk.blue(data.length.toLocaleString())} bytes`
+      );
+      console.log(
+        `Transformed file size: \t${chalk.green(transformedData.length.toLocaleString())} bytes`
+      );
+      const reductionPercent =
+        ((data.length - transformedData.length) / data.length) * 100;
+      console.log(`Reduction: \t\t${chalk.yellow(reductionPercent.toFixed(2))}%`);
     });
   });
 });
