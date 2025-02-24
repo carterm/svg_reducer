@@ -37,7 +37,9 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     const document = dom.window.document;
 
     // Group <path> elements by class
-    const pathElements = Array.from(document.querySelectorAll("path[class]"));
+    const pathElements = Array.from(
+      document.querySelectorAll("path[class], polygon[class]")
+    );
     const classMap = {};
 
     pathElements.forEach(pathElem => {
@@ -56,6 +58,8 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       console.error(`Missing SVG element`);
       process.exit(1);
     }
+
+    svgElement.removeAttribute("id");
 
     Object.values(classMap).forEach(gElement => {
       svgElement.appendChild(gElement);
