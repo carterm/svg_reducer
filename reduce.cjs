@@ -45,25 +45,33 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     svgElement.removeAttribute("id");
     svgElement.removeAttribute("data-name");
 
-    // Group <path> elements by class
-    const pathElements = Array.from(
-      document.querySelectorAll("path[class], polygon[class]")
+    const targetElements = Array.from(
+      svgElement.querySelectorAll("path, polygon")
     );
-    const classMap = {};
 
-    pathElements.forEach(pathElem => {
-      const className = pathElem.getAttribute("class");
-      pathElem.removeAttribute("class");
-      if (!classMap[className]) {
-        classMap[className] = document.createElement("g");
-        classMap[className].setAttribute("class", className);
-      }
-      classMap[className].appendChild(pathElem);
-    });
+    targetElements.forEach(targetElement => {
+      const siblings = [
+        ...(targetElement.parentElement?.children || [])
+      ].filter(x => x !== targetElement);
 
-    // Append the new <g> elements to the document
-    Object.values(classMap).forEach(gElement => {
-      svgElement.appendChild(gElement);
+      [...targetElement.attributes].forEach(attr => {
+        // Search for a sibling with the same attribute value
+        const matchingSiblings = siblings.filter(
+          sibling => sibling.getAttribute(attr.name) === attr.value
+        );
+
+        if (matchingSiblings.length) {
+          const newG = document.createElement("g");
+          newG.setAttribute(attr.name, attr.value);
+          targetElement.parentElement?.insertBefore(newG, targetElement);
+
+          [targetElement, ...matchingSiblings].forEach(sibling => {
+            sibling.removeAttribute(attr.name);
+
+            newG.appendChild(sibling);
+          });
+        }
+      });
     });
 
     // Serialize the SVG element
