@@ -45,11 +45,16 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     svgElement.removeAttribute("id");
     svgElement.removeAttribute("data-name");
 
-    const targetElements = Array.from(
-      svgElement.querySelectorAll("path, polygon")
-    );
+    [...svgElement.querySelectorAll("path")].forEach(pathElement => {
+      let d = pathElement.getAttribute("d");
+      if (!d) return;
 
-    targetElements.forEach(targetElement => {
+      d = d.replace(/,/g, " "); // Replace commas with spaces
+      pathElement.setAttribute("d", d);
+    });
+
+    // Push common attributes to "g" elements
+    [...svgElement.querySelectorAll("path, polygon")].forEach(targetElement => {
       const siblings = [
         ...(targetElement.parentElement?.children || [])
       ].filter(x => x !== targetElement);
