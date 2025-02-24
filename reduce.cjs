@@ -36,6 +36,15 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     const dom = new JSDOM(data);
     const document = dom.window.document;
 
+    const svgElement = document.querySelector("svg");
+    if (!svgElement) {
+      console.error(`Missing SVG element`);
+      process.exit(1);
+    }
+
+    svgElement.removeAttribute("id");
+    svgElement.removeAttribute("data-name");
+
     // Group <path> elements by class
     const pathElements = Array.from(
       document.querySelectorAll("path[class], polygon[class]")
@@ -53,21 +62,11 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     });
 
     // Append the new <g> elements to the document
-    const svgElement = document.querySelector("svg");
-    if (!svgElement) {
-      console.error(`Missing SVG element`);
-      process.exit(1);
-    }
-
-    svgElement.removeAttribute("id");
-    svgElement.removeAttribute("data-name");
-
     Object.values(classMap).forEach(gElement => {
       svgElement.appendChild(gElement);
     });
 
     // Serialize the SVG element
-
     const htmlOutput = svgElement.outerHTML;
 
     const transformedData = htmlOutput
