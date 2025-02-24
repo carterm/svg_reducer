@@ -41,6 +41,10 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       }
 
       console.log(`Successfully transformed and saved to ${outputFile}`);
+      console.log(`Original file size: ${data.length.toLocaleString()} bytes`);
+      console.log(`Transformed file size: ${transformedData.length.toLocaleString()} bytes`);
+      const reductionPercent = ((data.length - transformedData.length) / data.length) * 100;
+      console.log(`Reduction: ${reductionPercent.toFixed(2)}%`);
     });
   });
 });
