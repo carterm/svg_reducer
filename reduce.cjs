@@ -46,15 +46,27 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     svgElement.removeAttribute("data-name");
 
     [...svgElement.querySelectorAll("path")].forEach(pathElement => {
-      pathElement.setAttribute("transform", "scale(.01)");
-
       let d = pathElement.getAttribute("d");
       if (!d) return;
 
       d = d.replace(/,/g, " "); // Replace commas with spaces
       d = d.replace(/(\.\d+)(?=(\.\d+))/g, "$1 "); // Add space between decimals
+
+      let scale = 1;
+      d.match(/-?\d*\.?\d+/g)?.forEach(value => {
+        const val = parseFloat(value);
+        const decimalPlaces = (val.toString().split(".")[1] || "").length;
+        scale = Math.max(scale, Math.pow(10, decimalPlaces));
+      });
+      if (scale !== 1) {
+        pathElement.setAttribute(
+          "transform",
+          `scale(${(1 / scale).toString().replace(/^0\./, ".")})`
+        );
+      }
+
       d = d.replace(/-?\d*\.?\d+/g, match =>
-        Math.round((parseFloat(match) * 1000) / 10).toString()
+        Math.round((parseFloat(match) * 10 * scale) / 10).toString()
       ); // Round decimals to 1 decimal place
 
       d = d.replace(/h0(?![\d.])/g, ""); // Remove "h" followed by the number 0, but not if followed by a digit or a decimal
