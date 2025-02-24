@@ -46,12 +46,20 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     svgElement.removeAttribute("data-name");
 
     [...svgElement.querySelectorAll("path")].forEach(pathElement => {
+      pathElement.setAttribute("transform", "scale(.01)");
+
       let d = pathElement.getAttribute("d");
       if (!d) return;
 
       d = d.replace(/,/g, " "); // Replace commas with spaces
+      d = d.replace(/(\.\d+)(?=(\.\d+))/g, "$1 "); // Add space between decimals
+      d = d.replace(/-?\d*\.?\d+/g, match =>
+        Math.round((parseFloat(match) * 1000) / 10).toString()
+      ); // Round decimals to 1 decimal place
+
       d = d.replace(/h0(?![\d.])/g, ""); // Remove "h" followed by the number 0, but not if followed by a digit or a decimal
       d = d.replace(/s0 0 0 0(?![\d.])/g, "");
+      pathElement.removeAttribute("d");
       pathElement.setAttribute("d", d);
     });
 
