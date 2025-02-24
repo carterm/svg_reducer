@@ -60,6 +60,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     }
 
     svgElement.removeAttribute("id");
+    svgElement.removeAttribute("data-name");
 
     Object.values(classMap).forEach(gElement => {
       svgElement.appendChild(gElement);
