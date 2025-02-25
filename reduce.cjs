@@ -44,6 +44,18 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
     svgElement.removeAttribute("id");
     svgElement.removeAttribute("data-name");
+    if (["0", "0px"].includes(svgElement.getAttribute("x") || "")) {
+      svgElement.removeAttribute("x");
+    }
+    if (["0", "0px"].includes(svgElement.getAttribute("y") || "")) {
+      svgElement.removeAttribute("y");
+    }
+    svgElement.removeAttribute("xml:space");
+    svgElement.removeAttribute("xmlns:xlink");
+    svgElement.style.removeProperty("enable-background");
+    if (svgElement.getAttribute("style") === "") {
+      svgElement.removeAttribute("style");
+    }
 
     [...svgElement.querySelectorAll("path")].forEach(pathElement => {
       let d = pathElement.getAttribute("d");
