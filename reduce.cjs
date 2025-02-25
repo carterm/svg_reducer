@@ -74,7 +74,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = d.replace(/m[^clshv]*(m)/gim, "$1"); // Remove consecutive "M" commands
 
       //for dev
-      d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
+      //d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
 
       pathElement.removeAttribute("d");
       pathElement.setAttribute("d", d);
