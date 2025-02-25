@@ -4,8 +4,8 @@
   "description": "reduce svgs",
   "scripts": {
     "start": "npm run reduce1 && npm run reduce2",
-    "reduce1": "node reduce.cjs sample1.svg sample1-reduced.svg",
-    "reduce2": "node reduce.cjs sample2.svg sample2-reduced.svg",
+    "reduce1": "node reduce.cjs samples/sample1.svg samples/sample1-reduced.svg",
+    "reduce2": "node reduce.cjs samples/sample2.svg samples/sample2-reduced.svg",
     "GIT cleanup": "git clean -fd"
   },
   "repository": {
