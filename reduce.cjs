@@ -88,13 +88,15 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = d.replace(/c\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)\s+0/gm, "h$1"); //negative horizontal line
       d = d.replace(/c\s*0\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)/gm, "v$1"); //negative vertical line
 
-      d = d.replace(/c0 0 0 0 (\d+) (\d+)/gim, "l$1 $2"); // line
+      d = d.replace(/c0 0 0 0\s*(-?\d+)\s*(-?\d+)/gim, "l$1 $2"); // line
 
-      d = d.replace(/l0 (\d+)/gim, "v$1"); // line to vertical
-      d = d.replace(/l(\d+) 0/gim, "h$1"); // line to horizontal
+      d = d.replace(/l0 (\d+)/gm, "v$1"); // line to vertical
+      d = d.replace(/l(\d+) 0/gm, "h$1"); // line to horizontal
 
       d = d.replace(/h0(?![\d.])/gim, ""); // Remove "h" followed by the number 0, but not if followed by a digit or a decimal
       d = d.replace(/v0(?![\d.])/gim, ""); // Remove "v" followed by the number 0, but not if followed by a digit or a decimal
+
+      d = d.replace(/\s+-/gim, "-"); // Remove whitespace before negative numbers
 
       //for dev
       d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
