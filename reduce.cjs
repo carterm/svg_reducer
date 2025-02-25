@@ -71,7 +71,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
       d = d.replace(/h0(?![\d.])/g, ""); // Remove "h" followed by the number 0, but not if followed by a digit or a decimal
       d = d.replace(/s0 0 0 0(?![\d.])/g, "");
-      //d = d.replace(/m[^clshv]*(m)/gim, "$2"); // Remove consecutive "M" commands
+      d = d.replace(/m[^clshv]*(m)/gim, "$1"); // Remove consecutive "M" commands
 
       //for dev
       d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
