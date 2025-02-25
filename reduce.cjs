@@ -85,10 +85,8 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = d.replace(/s0 0 0 0(?![\d.])/gim, ""); // Remove "s" followed by 0 0 0 0, but not if followed by a digit or a decimal
       d = d.replace(/m[^clshv]*(m)/gim, "$1"); // Remove consecutive "M" commands
 
-      d = d.replace(/c\d+ 0 \d+ 0 (\d+) 0/gm, "h$1"); // horizontal line
-      d = d.replace(/c0 \d+ 0 \d+ 0 (\d+)/gm, "v$1"); // vertical line
-      d = d.replace(/c(?:0|-\d+) 0-\d+ 0-(\d+) 0/gm, "h-$1"); //negative horizontal line
-      d = d.replace(/c0(?:-\d+|\s0) 0-\d+ 0-(\d+)/gm, "v-$1"); //negative vertical line
+      d = d.replace(/c\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)\s+0/gm, "h$1"); //negative horizontal line
+      d = d.replace(/c\s*0\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)/gm, "v$1"); //negative vertical line
 
       d = d.replace(/c0 0 0 0 (\d+) (\d+)/gim, "l$1 $2"); // line
 
