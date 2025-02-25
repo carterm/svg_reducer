@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "reduce svgs",
   "scripts": {
-    "start": "npm run reduce1 && npm run reduce2",
+    "start": "npm run reduce1 && npm run reduce2 && npm run reduce3",
     "reduce1": "node reduce.cjs samples/sample1.svg samples/sample1-reduced.svg",
     "reduce2": "node reduce.cjs samples/sample2.svg samples/sample2-reduced.svg",
+    "reduce3": "node reduce.cjs samples/recovery-lineart.svg samples/recovery-lineart-reduced.svg",
     "GIT cleanup": "git clean -fd"
   },
   "repository": {
