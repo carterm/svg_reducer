@@ -63,6 +63,8 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = d.replace(/,/g, " "); // Replace commas with spaces
       d = d.replace(/(\.\d+)(?=(\.\d+))/g, "$1 "); // Add space between decimals
 
+      d = d.replace(/\s+([clshvm])/gim, "$1"); // Remove leading whitespace before commands
+
       let scale = 1;
       d.match(/-?\d*\.?\d+/g)?.forEach(value => {
         const val = parseFloat(value);
@@ -80,12 +82,12 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
         Math.round((parseFloat(match) * 10 * scale) / 10).toString()
       ); // Round decimals to 1 decimal place
 
-      d = d.replace(/h0(?![\d.])/g, ""); // Remove "h" followed by the number 0, but not if followed by a digit or a decimal
-      d = d.replace(/s0 0 0 0(?![\d.])/g, "");
+      d = d.replace(/h0(?![\d.])/gim, ""); // Remove "h" followed by the number 0, but not if followed by a digit or a decimal
+      d = d.replace(/s0 0 0 0(?![\d.])/gim, "");
       d = d.replace(/m[^clshv]*(m)/gim, "$1"); // Remove consecutive "M" commands
 
-      d = d.replace(/c\d+ 0 \d+ 0 (\d+) 0/, "h$1");
-      d = d.replace(/c(?:0|-\d+) 0-\d+ 0-(\d+) 0/, "h-$1");
+      d = d.replace(/c\d+ 0 \d+ 0 (\d+) 0/gim, "h$1");
+      d = d.replace(/c(?:0|-\d+) 0-\d+ 0-(\d+) 0/gim, "h-$1");
       //for dev
       d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
 
