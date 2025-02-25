@@ -82,7 +82,6 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
         Math.round((parseFloat(match) * 10 * scale) / 10).toString()
       ); // Round decimals to 1 decimal place
 
-      d = d.replace(/h0(?![\d.])/gim, ""); // Remove "h" followed by the number 0, but not if followed by a digit or a decimal
       d = d.replace(/s0 0 0 0(?![\d.])/gim, "");
       d = d.replace(/m[^clshv]*(m)/gim, "$1"); // Remove consecutive "M" commands
 
@@ -93,8 +92,14 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
       d = d.replace(/c0 0 0 0 (\d+) (\d+)/gim, "l$1 $2"); // line
 
+      d = d.replace(/l0 (\d+)/gim, "v$1"); // line to vertical
+      d = d.replace(/l(\d+) 0/gim, "h$1"); // line to horizontal
+
+      d = d.replace(/h0(?![\d.])/gim, ""); // Remove "h" followed by the number 0, but not if followed by a digit or a decimal
+      d = d.replace(/v0(?![\d.])/gim, ""); // Remove "v" followed by the number 0, but not if followed by a digit or a decimal
+
       //for dev
-      //d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
+      d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
 
       pathElement.removeAttribute("d");
       pathElement.setAttribute("d", d);
