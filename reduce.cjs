@@ -86,8 +86,11 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = d.replace(/s0 0 0 0(?![\d.])/gim, "");
       d = d.replace(/m[^clshv]*(m)/gim, "$1"); // Remove consecutive "M" commands
 
-      d = d.replace(/c\d+ 0 \d+ 0 (\d+) 0/gim, "h$1");
-      d = d.replace(/c(?:0|-\d+) 0-\d+ 0-(\d+) 0/gim, "h-$1");
+      d = d.replace(/c\d+ 0 \d+ 0 (\d+) 0/gim, "h$1"); // horizontal line
+      d = d.replace(/c(?:0|-\d+) 0-\d+ 0-(\d+) 0/gim, "h-$1"); //negative horizontal line
+
+      d = d.replace(/c0 0 0 0 (\d+) (\d+)/gim, "l$1 $2"); // line
+
       //for dev
       d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
 
