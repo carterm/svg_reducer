@@ -71,6 +71,11 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
       d = d.replace(/h0(?![\d.])/g, ""); // Remove "h" followed by the number 0, but not if followed by a digit or a decimal
       d = d.replace(/s0 0 0 0(?![\d.])/g, "");
+      //d = d.replace(/m[^clshv]*(m)/gim, "$2"); // Remove consecutive "M" commands
+
+      //for dev
+      d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
+
       pathElement.removeAttribute("d");
       pathElement.setAttribute("d", d);
     });
@@ -105,7 +110,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     const htmlOutput = svgElement.outerHTML;
 
     const transformedData = htmlOutput
-      .replace(/\r?\n|\r/g, "") // Remove line breaks
+      // .replace(/\r?\n|\r/g, "") // Remove line breaks
       .replace(/\s{2,}/g, " ") // Replace 2 or more whitespace chars with a single space
       .replace(/>\s+</g, "><"); // Remove all whitespace between ">" and "<"
 
