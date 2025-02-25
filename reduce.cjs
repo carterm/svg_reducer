@@ -86,9 +86,10 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = d.replace(/s0 0 0 0(?![\d.])/gim, "");
       d = d.replace(/m[^clshv]*(m)/gim, "$1"); // Remove consecutive "M" commands
 
-      d = d.replace(/c\d+ 0 \d+ 0 (\d+) 0/gim, "h$1"); // horizontal line
-      d = d.replace(/c(?:0|-\d+) 0-\d+ 0-(\d+) 0/gim, "h-$1"); //negative horizontal line
-      d = d.replace(/c0(?:-\d+|\s0) 0-\d+ 0-(\d+)/gim, "v-$1"); //negative vertical line
+      d = d.replace(/c\d+ 0 \d+ 0 (\d+) 0/gm, "h$1"); // horizontal line
+      d = d.replace(/c0 \d+ 0 \d+ 0 (\d+)/gm, "v$1"); // vertical line
+      d = d.replace(/c(?:0|-\d+) 0-\d+ 0-(\d+) 0/gm, "h-$1"); //negative horizontal line
+      d = d.replace(/c0(?:-\d+|\s0) 0-\d+ 0-(\d+)/gm, "v-$1"); //negative vertical line
 
       d = d.replace(/c0 0 0 0 (\d+) (\d+)/gim, "l$1 $2"); // line
 
