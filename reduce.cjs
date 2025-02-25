@@ -64,6 +64,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = d.replace(/(\.\d+)(?=(\.\d+))/g, "$1 "); // Add space between decimals
 
       d = d.replace(/\s+([clshvm])/gim, "$1"); // Remove leading whitespace before commands
+      d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
       let scale = 1;
       d.match(/-?\d*\.?\d+/g)?.forEach(value => {
