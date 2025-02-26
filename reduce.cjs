@@ -87,7 +87,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       ); // Round decimals to 1 decimal place
 
       d = d.replace(/s0 0 0 0(?![\d.])/gim, ""); // Remove "s" followed by 0 0 0 0, but not if followed by a digit or a decimal
-      d = d.replace(/m[^clshv]*(m)/gim, "$1"); // Remove consecutive "M" commands
+      d = d.replace(/m[^clshvz]*(m)/gim, "$1"); // Remove consecutive "M" commands
 
       d = d.replace(/c\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)\s+0/gm, "h$1"); //negative horizontal line
       d = d.replace(/c\s*0\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)/gm, "v$1"); //negative vertical line
@@ -117,12 +117,18 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = d.replace(/v-\d+(?:\s*v-\d+)+/gm, match => sumHV("v", match)); // Sum negative vertical lines
 
       d = d.replace(/(v|h)0(?![\d.])/gm, ""); // Remove "v" or "h" followed by the number 0, but not if followed by a digit or a decimal
-
       d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
-      //for dev
       if (devmode) {
         d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
+      }
+
+      d = d.replace(/c([^lshvzCLSHVZ]*)/gms, match =>
+        `c${match.replace(/c-/gms, "-")}`.replace(/cc/gms, "c")
+      ); // Combine consecutive "c" command codes
+
+      if (!devmode) {
+        d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers, after removing extra cs
       }
 
       pathElement.removeAttribute("d");
