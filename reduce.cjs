@@ -111,8 +111,10 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
         return `${hv}${sum}`;
       };
 
-      d = d.replace(/h-?\d+(?:\s*h-?\d+)+/gm, match => sumHV("h", match)); // Sum horizontal lines
-      d = d.replace(/v-?\d+(?:\s*v-?\d+)+/gm, match => sumHV("v", match)); // Sum vertical lines
+      d = d.replace(/h\d+(?:\s*h\d+)+/gm, match => sumHV("h", match)); // Sum positive horizontal lines
+      d = d.replace(/v\d+(?:\s*v\d+)+/gm, match => sumHV("v", match)); // Sum positive vertical lines
+      d = d.replace(/h-\d+(?:\s*h-\d+)+/gm, match => sumHV("h", match)); // Sum negative horizontal lines
+      d = d.replace(/v-\d+(?:\s*v-\d+)+/gm, match => sumHV("v", match)); // Sum negative vertical lines
 
       d = d.replace(/(v|h)0(?![\d.])/gm, ""); // Remove "v" or "h" followed by the number 0, but not if followed by a digit or a decimal
 
