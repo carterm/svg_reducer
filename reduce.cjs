@@ -3,6 +3,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const chalk = require("chalk");
 const { JSDOM } = require("jsdom");
+const devmode = true;
 
 // Get command line arguments
 const args = process.argv.slice(2);
@@ -118,7 +119,9 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
       //for dev
-      //d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
+      if (devmode) {
+        d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
+      }
 
       pathElement.removeAttribute("d");
       pathElement.setAttribute("d", d);
