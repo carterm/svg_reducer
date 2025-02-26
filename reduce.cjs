@@ -116,7 +116,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
       //for dev
-      //d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
+      d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
 
       pathElement.removeAttribute("d");
       pathElement.setAttribute("d", d);
