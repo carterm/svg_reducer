@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "description": "reduce svgs",
   "scripts": {
-    "start": "npm run reduce1 && npm run reduce2 && npm run reduce3 && npm run reduce4 && npm run reduce5",
+    "start": "npm run reduce1 && npm run reduce2 && npm run reduce3 && npm run reduce4 && npm run reduce5 && npm run reduce6",
     "reduce1": "node reduce.cjs samples/sample1.svg",
     "reduce2": "node reduce.cjs samples/sample2.svg",
     "reduce3": "node reduce.cjs samples/recovery-lineart.svg",
     "reduce4": "node reduce.cjs samples/recovery-finder-lineart.svg",
     "reduce5": "node reduce.cjs samples/volunteer-lineart.svg",
+    "reduce6": "node reduce.cjs samples/tractor-lineart.svg",
     "GIT cleanup": "git clean -fd"
   },
   "repository": {

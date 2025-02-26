@@ -4,6 +4,7 @@ const path = require("node:path");
 const chalk = require("chalk");
 const { JSDOM } = require("jsdom");
 const devmode = true;
+const maxDecimalPlaces = 2;
 
 // Get command line arguments
 const args = process.argv.slice(2);
@@ -15,9 +16,10 @@ if (args.length < 1) {
 }
 
 const inputFile = args[0];
-const outputFile = args.length > 1 
-  ? args[1] 
-  : path.join(path.dirname(inputFile), "output", path.basename(inputFile));
+const outputFile =
+  args.length > 1
+    ? args[1]
+    : path.join(path.dirname(inputFile), "output", path.basename(inputFile));
 
 // Create the necessary directories if they don't exist
 const outputDir = path.dirname(outputFile);
@@ -107,7 +109,10 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       let scale = 1;
       d.match(/-?\d*\.?\d+/g)?.forEach(value => {
         const val = parseFloat(value);
-        const decimalPlaces = (val.toString().split(".")[1] || "").length;
+        const decimalPlaces = Math.min(
+          maxDecimalPlaces,
+          (val.toString().split(".")[1] || "").length
+        );
         scale = Math.max(scale, Math.pow(10, decimalPlaces));
       });
       if (scale !== 1) {
@@ -115,6 +120,14 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
           "transform",
           `scale(${(1 / scale).toString().replace(/^0\./, ".")})`
         );
+
+        const strokeWidth = pathElement.getAttribute("stroke-width");
+        if (strokeWidth) {
+          pathElement.setAttribute(
+            "stroke-width",
+            (parseFloat(strokeWidth) * scale).toString()
+          );
+        }
       }
 
       d = d.replace(/-?\d*\.?\d+/g, match =>
