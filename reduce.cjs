@@ -59,6 +59,26 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       svgElement.removeAttribute("style");
     }
 
+    const styletags = svgElement.querySelectorAll("style");
+    styletags.forEach(styletag => {
+      const styleDOM = new JSDOM(
+        `<!DOCTYPE html><html><head>${styletag.outerHTML}</head></html>`
+      );
+
+      [...styleDOM.window.document.styleSheets].forEach(styleSheet => {
+        [...styleSheet.cssRules].forEach(rule => {
+          if (rule.cssText) {
+            svgElement
+              .querySelectorAll(rule["selectorText"])
+              .forEach(element => {
+                element.setAttribute("style", rule["style"].cssText);
+              });
+          }
+        });
+      });
+      styletag.remove();
+    });
+
     [...svgElement.querySelectorAll("path")].forEach(pathElement => {
       let d = pathElement.getAttribute("d") || "";
 
