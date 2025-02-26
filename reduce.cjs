@@ -15,8 +15,9 @@ if (args.length < 1) {
 }
 
 const inputFile = args[0];
-const outputFile =
-  args.length > 1 ? args[1] : inputFile.replace(/\.svg$/, "-reduced.svg");
+const outputFile = args.length > 1 
+  ? args[1] 
+  : path.join(path.dirname(inputFile), "output", path.basename(inputFile));
 
 // Create the necessary directories if they don't exist
 const outputDir = path.dirname(outputFile);
