@@ -89,7 +89,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = d.replace(/c\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)\s+0/gm, "h$1"); //negative horizontal line
       d = d.replace(/c\s*0\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)/gm, "v$1"); //negative vertical line
 
-      d = d.replace(/c0 0 0 0\s*(-?\d+)\s*(-?\d+)/gim, "l$1 $2"); // line
+      d = d.replace(/c0 0 0 0\s*(-?\d+)\s*(-?\d+)/gm, "l$1 $2"); // line
 
       d = d.replace(/l0\s*(-?\d+)/gm, "v$1"); // line to vertical
       d = d.replace(/l(-?\d+) 0/gm, "h$1"); // line to horizontal
