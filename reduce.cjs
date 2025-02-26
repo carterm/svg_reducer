@@ -53,6 +53,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     svgElement.removeAttribute("xml:space");
     svgElement.removeAttribute("xmlns:xlink");
     svgElement.style.removeProperty("enable-background");
+
     if (svgElement.getAttribute("style") === "") {
       svgElement.removeAttribute("style");
     }
@@ -154,9 +155,10 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
     const transformedData = htmlOutput
       // .replace(/\r?\n|\r/g, "") // Remove line breaks
-      .replace(/\s{2,}/g, " ") // Replace 2 or more whitespace chars with a single space
-      .replace(/>\s+</g, "><"); // Remove all whitespace between ">" and "<"
 
+      .replace(/\s{2,}/g, " ") // Replace 2 or more whitespace chars with a single space
+      .replace(/>\s+</g, "><") // Remove all whitespace between ">" and "<"
+      .replace(/><\/path>/g, "/>");
     // Write to the output file
     fs.writeFile(outputFile, transformedData, "utf8", writeErr => {
       if (writeErr) {
