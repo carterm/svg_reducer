@@ -60,8 +60,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     }
 
     [...svgElement.querySelectorAll("path")].forEach(pathElement => {
-      let d = pathElement.getAttribute("d");
-      if (!d) return;
+      let d = pathElement.getAttribute("d") || "";
 
       d = d.replace(/,/g, " "); // Replace commas with spaces
       d = d.replace(/(\.\d+)(?=(\.\d+))/g, "$1 "); // Add space between decimals
