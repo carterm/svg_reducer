@@ -124,7 +124,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
       d = d.replace(/c([^lshvzCLSHVZ]*)/gms, match =>
         `c${match.replace(/c-/gms, "-")}`.replace(/cc/gms, "c")
-      ); // Combine consecutive "c" command codes
+      ); // Combine consecutive "c-" command codes
 
       if (!devmode) {
         d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers, after removing extra cs
