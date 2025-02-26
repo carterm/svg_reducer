@@ -8,13 +8,14 @@ const { JSDOM } = require("jsdom");
 const args = process.argv.slice(2);
 
 // Check if correct number of arguments are provided
-if (args.length !== 2) {
-  console.error("Please provide an input file and an output file.");
+if (args.length < 1) {
+  console.error("Please provide an input file.");
   process.exit(1);
 }
 
 const inputFile = args[0];
-const outputFile = args[1];
+const outputFile =
+  args.length > 1 ? args[1] : inputFile.replace(/\.svg$/, "-reduced.svg");
 
 // Create the necessary directories if they don't exist
 const outputDir = path.dirname(outputFile);
