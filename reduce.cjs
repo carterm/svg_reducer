@@ -79,7 +79,22 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       styletag.remove();
     });
 
+    // Remove all classes, since the stylesheets have been removed
+    svgElement.querySelectorAll("[class]").forEach(element => {
+      element.removeAttribute("class");
+    });
+
     [...svgElement.querySelectorAll("path")].forEach(pathElement => {
+      // pull out style elements to make attributes
+      if (pathElement.style.fill) {
+        pathElement.setAttribute("fill", pathElement.style.fill);
+        pathElement.style.removeProperty("fill");
+      }
+
+      if (!pathElement.style.length) {
+        pathElement.removeAttribute("style");
+      }
+
       let d = pathElement.getAttribute("d") || "";
 
       d = d.replace(/,/g, " "); // Replace commas with spaces
