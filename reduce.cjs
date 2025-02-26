@@ -96,6 +96,14 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
       d = d.replace(/(v|h)0(?![\d.])/gm, ""); // Remove "v" or "h" followed by the number 0, but not if followed by a digit or a decimal
 
+      d = d.replace(/h-?\d+(?:\s*h-?\d+)+/gm, match => {
+        const sum = match
+          .split("h")
+          .filter(Boolean)
+          .reduce((acc, num) => acc + parseFloat(num), 0);
+        return `h${sum}`;
+      });
+
       d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
       //for dev
