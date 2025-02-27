@@ -229,7 +229,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
             "-"
           ); // Remove space before negative numbers
 
-          //Only use new command if it's shorter or same than the original
+          //Only use new command if it's shorter than the original
           return newCommand.length <= command.originalcommand.length
             ? newCommand
             : command.originalcommand;
