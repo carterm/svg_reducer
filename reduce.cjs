@@ -78,6 +78,29 @@ const processData = (/** @type {string} */ data) => {
     element.removeAttribute("class");
   });
 
+  // Remove all invisible elements
+  const isElementVisible = (/** @type {Element} */ element) => {
+    // Look up the parent chain for stroke, fill, or stroke-width atrributes
+    if (element.tagName.toLowerCase() === "svg") {
+      return true;
+    }
+
+    if (!element.parentElement || !isElementVisible(element.parentElement)) {
+      return false;
+    }
+
+    const fill = element.getAttribute("fill") || "none";
+    const stroke = element.getAttribute("stroke") || "none";
+    const strokeWidth = element.getAttribute("stroke-width") || "1";
+
+    return fill !== "none" || stroke !== "none" || parseFloat(strokeWidth) > 0;
+  };
+
+  // Look up the parent chain for stroke, fill, or stroke-width atrributes
+  [...svgElement.querySelectorAll("*")]
+    .filter(element => !isElementVisible(element))
+    .forEach(element => element.remove());
+
   // Merge all path elements with matching attributes (ignore "d" attribute) and first letter in "d" attribute is uppercase
   const pathsToMerge = [...svgElement.querySelectorAll("path")];
   for (let i = 0; i < pathsToMerge.length - 1; i++) {
