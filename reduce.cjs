@@ -359,9 +359,11 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       document.querySelectorAll("g").forEach(gElement => {
         const parent = gElement.parentElement;
         if (
+          // If the parent is a "g" element and has only one child
           parent?.tagName.toLowerCase() === "g" &&
           parent.childElementCount === 1
         ) {
+          // Move the attributes and children of the child "g" element to the parent "g" element
           gChangeDone = false;
           [...gElement.attributes].forEach(attr => {
             parent.setAttribute(attr.name, attr.value);
@@ -377,20 +379,30 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     if (svgElement.childElementCount === 1) {
       const child = svgElement.firstElementChild;
       if (child) {
-        const transform = child.getAttribute("transform");
+        let transform = child.getAttribute("transform");
         const viewbox = svgElement.getAttribute("viewBox");
 
+        // If the child has a scale transform and the viewBox is set
         if (transform && viewbox) {
-          const val = transform.match(/scale\((?<val>[^)]+)\)/)?.groups?.val;
+          const scaleMatch = transform.match(/scale\((?<val>[^)]+)\)/);
+          const val = scaleMatch?.groups?.val;
           if (val) {
             const scale = parseFloat(val);
             const [x, y, width, height] = viewbox.split(" ").map(parseFloat);
 
+            // Update the viewBox to reflect the new scale
             svgElement.setAttribute(
               "viewBox",
               `${x / scale} ${y / scale} ${width / scale} ${height / scale}`
             );
-            child.removeAttribute("transform");
+
+            // Remove the scale transform from the child
+            transform = transform.replace(scaleMatch[0], "");
+            if (transform.trim().length) {
+              child.setAttribute("transform", transform);
+            } else {
+              child.removeAttribute("transform");
+            }
           }
         }
       }
