@@ -5,6 +5,7 @@ const chalk = require("chalk");
 const { JSDOM } = require("jsdom");
 const devmode = true;
 const maxDecimalPlaces = 2;
+const removeExtraCs = true;
 
 // Get command line arguments
 const args = process.argv.slice(2);
@@ -168,22 +169,30 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
         const isAbsoluteCode = /[A-Z]/.test(command.code);
 
         command.code = command.code.toLowerCase();
+
+        if (command.code === "h") {
+          let foo = 1;
+        }
+
         command.coordinates.forEach(point => {
           if (isAbsoluteCode) {
             if (point.x) point.x -= pointLocation.x;
             if (point.y) point.y -= pointLocation.y;
           }
-          if (point.x) pointLocation.x += point.x;
-          if (point.y) pointLocation.y += point.y;
         });
+
+        const lastpoint = command.coordinates[command.coordinates.length - 1];
+
+        if (lastpoint.x) pointLocation.x += lastpoint.x;
+        if (lastpoint.y) pointLocation.y += lastpoint.y;
       });
 
       d = pathData
         .map(command => {
           const code = command.code;
-          const coordinates = command.coordinates.map(point => {
-            return `${point.x !== undefined ? point.x : ""} ${point.y !== undefined ? point.y : ""}`;
-          }); // Convert coordinates back to string
+          const coordinates = command.coordinates.map(
+            point => `${point.x ?? ""} ${point.y ?? ""}`
+          ); // Convert coordinates back to string
           return `${code}${coordinates.join(" ")}`;
         })
         .join("");
@@ -225,9 +234,11 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
         d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
       }
 
-      d = d.replace(/c([^lshvzCLSHVZ]*)/gms, match =>
-        `c${match.replace(/c-/gms, "-")}`.replace(/cc/gms, "c")
-      ); // Combine consecutive "c-" command codes
+      if (removeExtraCs) {
+        d = d.replace(/c([^lshvzCLSHVZ]*)/gms, match =>
+          `c${match.replace(/c-/gms, "-")}`.replace(/cc/gms, "c")
+        ); // Combine consecutive "c-" command codes
+      }
 
       if (!devmode) {
         d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers, after removing extra cs
