@@ -92,9 +92,9 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       element.removeAttribute("class");
     });
 
-    [...svgElement.querySelectorAll("path")].forEach(pathElement => {
+    svgElement.querySelectorAll("path").forEach(pathElement => {
       // pull out style elements to make attributes
-      Array.from(pathElement.style).forEach(attr => {
+      [...pathElement.style].forEach(attr => {
         if (pathElement.style[attr]) {
           pathElement.setAttribute(attr, pathElement.style[attr]);
           pathElement.style.removeProperty(attr);
@@ -342,7 +342,6 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
           gChangeDone = false;
           [...gElement.attributes].forEach(attr => {
             parent.setAttribute(attr.name, attr.value);
-            gElement.removeAttribute(attr.name);
           });
           while (gElement.firstChild) parent.appendChild(gElement.firstChild);
 
