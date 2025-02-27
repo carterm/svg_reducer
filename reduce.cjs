@@ -373,6 +373,29 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       });
     }
 
+    // apply the transform to the SVG viewbox if there is only one
+    if (svgElement.childElementCount === 1) {
+      const child = svgElement.firstElementChild;
+      if (child) {
+        const transform = child.getAttribute("transform");
+        const viewbox = svgElement.getAttribute("viewBox");
+
+        if (transform && viewbox) {
+          const val = transform.match(/scale\((?<val>[^)]+)\)/)?.groups?.val;
+          if (val) {
+            const scale = parseFloat(val);
+            const [x, y, width, height] = viewbox.split(" ").map(parseFloat);
+
+            svgElement.setAttribute(
+              "viewBox",
+              `${x / scale} ${y / scale} ${width / scale} ${height / scale}`
+            );
+            child.removeAttribute("transform");
+          }
+        }
+      }
+    }
+
     // Serialize the SVG element
     const htmlOutput = svgElement.outerHTML;
 
