@@ -153,6 +153,8 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
             coordinates = [{ x: parseInt(commanddata) }];
           } else if (code.toLowerCase() === "v") {
             coordinates = [{ y: parseInt(commanddata) }];
+          } else if (code.toLowerCase() === "z") {
+            //
           } else {
             const pairs = [
               ...commanddata.matchAll(/(?<x>-?\d+)\s*(?<y>-?\d+)/g)
@@ -231,11 +233,11 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
       if (devmode) {
-        d = d.replace(/([clshvm])/gim, "\n$1"); // Add newline before commands
+        d = d.replace(/([a-zA-z])/gim, "\n$1"); // Add newline before commands
       }
 
       if (removeExtraCs) {
-        d = d.replace(/c([^lshvzCLSHVZ]*)/gms, match =>
+        d = d.replace(/c([^lshvzmMCLSHVZ]*)/gms, match =>
           `c${match.replace(/c-/gms, "-")}`.replace(/cc/gms, "c")
         ); // Combine consecutive "c-" command codes
       }
