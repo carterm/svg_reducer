@@ -323,25 +323,46 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     }); //End push to common attributes
 
     // Combine nested "g" elements
-    let gElements = [...svgElement.querySelectorAll("g > g")];
-    while (gElements.length) {
-      gElements.forEach(gElement => {
-        const parent = gElement.parentElement;
-        if (parent) {
-          if (parent.childElementCount === 1) {
-            [...gElement.attributes].forEach(attr => {
-              parent.setAttribute(attr.name, attr.value);
-              gElement.removeAttribute(attr.name);
-            });
-            while (gElement.firstChild) {
-              parent.appendChild(gElement.firstChild);
-            }
-            gElement.remove();
-          }
+    // Select all "g" elements
+    const gElements = document.querySelectorAll("g");
+
+    // Create a new array to store the elements in the desired order
+    const orderedElements = [];
+
+    /**
+     * Process an SVG element and its children recursively.
+     * @param {Element} element - The SVG element to process.
+     */
+    function processElement(element) {
+      // Process the children first
+      [...element.children].forEach(child => {
+        if (child.tagName.toLowerCase() === "g") {
+          processElement(child);
         }
       });
-      gElements = [...svgElement.querySelectorAll("g > g")];
+      // Then process the element itself
+      orderedElements.push(element);
     }
+
+    // Process each "g" element
+    gElements.forEach(element => {
+      processElement(element);
+    });
+
+    orderedElements.forEach(gElement => {
+      const parent = gElement.parentElement;
+      if (parent?.tagName.toLowerCase() === "g") {
+        if (parent.childElementCount === 1) {
+          [...gElement.attributes].forEach(attr => {
+            parent.setAttribute(attr.name, attr.value);
+            gElement.removeAttribute(attr.name);
+          });
+          while (gElement.firstChild) {
+            parent.appendChild(gElement.firstChild);
+          }
+        }
+      }
+    });
 
     // Remove empty tags from dom
     svgElement.querySelectorAll("*").forEach(element => {
