@@ -92,6 +92,28 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       element.removeAttribute("class");
     });
 
+    // Merge all path elements with matching attributes (ignore "d" attribute) and first letter in "d" attribute is uppercase
+    const pathsToMerge = [...svgElement.querySelectorAll("path")];
+    for (let i = 1; i < pathsToMerge.length; i++) {
+      const previousPath = pathsToMerge[i - 1];
+      const currentPath = pathsToMerge[i];
+
+      if (
+        // Do both paths have the same attributes? Except for d
+        [...previousPath.attributes].every(
+          attr =>
+            attr.name === "d" ||
+            currentPath.getAttribute(attr.name) === attr.value
+        )
+      ) {
+        previousPath.setAttribute(
+          "d",
+          `${previousPath.getAttribute("d")}\n${currentPath.getAttribute("d")}`
+        );
+        currentPath.remove();
+      }
+    }
+
     svgElement.querySelectorAll("path").forEach(pathElement => {
       // pull out style elements to make attributes
       Array.from(pathElement.style).forEach(attr => {
