@@ -6,7 +6,7 @@ const { JSDOM } = require("jsdom");
 const devmode = true;
 const maxDecimalPlaces = 2;
 const removeExtraCs = true;
-const convertToRelative = false;
+const convertToRelative = true;
 
 // Get command line arguments
 const args = process.argv.slice(2);
@@ -139,7 +139,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       if (convertToRelative) {
         //Switch to relative commands
         /** @type {string[]} */
-        const allCommands = d.match(/[a-zA-Z][^a-zA-Z]+/g) || [];
+        const allCommands = d.match(/[a-zA-Z][^a-zA-Z]*/g) || [];
         const pathData = allCommands.map(command => {
           const code = command[0];
           const commanddata = command.slice(1).trim();
@@ -184,8 +184,8 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
           const lastpoint = command.coordinates[command.coordinates.length - 1];
 
-          if (lastpoint.x) pointLocation.x += lastpoint.x;
-          if (lastpoint.y) pointLocation.y += lastpoint.y;
+          if (lastpoint?.x) pointLocation.x += lastpoint.x;
+          if (lastpoint?.y) pointLocation.y += lastpoint.y;
         });
 
         d = pathData
