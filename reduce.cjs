@@ -282,7 +282,7 @@ const processData = (/** @type {string} */ data) => {
       })
       .join("");
 
-    d = d.replace(/s0 0 0 0(?![\d.])/gim, ""); // Remove "s" followed by 0 0 0 0, but not if followed by a digit or a decimal
+    d = d.replace(/s0 0\s*(-?\d+)\s*(-?\d+)/gm, "l$1 $2"); // line
     d = d.replace(/m[^clshvz]*(m)/gim, "$1"); // Remove consecutive "M" commands
 
     d = d.replace(/c\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)\s+0/gm, "h$1"); //negative horizontal line
