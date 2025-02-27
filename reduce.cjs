@@ -6,7 +6,7 @@ const { JSDOM } = require("jsdom");
 const devmode = true;
 const maxDecimalPlaces = 2;
 const removeExtraCs = true;
-const convertToRelative = false;
+const convertToRelative = true;
 
 // Get command line arguments
 const args = process.argv.slice(2);
@@ -167,19 +167,31 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
         return { code, coordinates };
       });
 
+      const commandsizes = { c: 3, s: 2, q: 2, t: 1, a: 7, l: 1 };
+
       //Split "c" commands into groups of 3
       for (let i = 0; i < pathData.length; i++) {
-        if (pathData[i].code === "c" && pathData[i].coordinates.length > 3) {
+        const code = pathData[i].code.toLowerCase();
+
+        /** @type {number} */
+        const commandsize = commandsizes[code];
+
+        if (pathData[i].coordinates.length > commandsize) {
           const newCommands = [];
-          for (let j = 0; j < pathData[i].coordinates.length; j += 3) {
+          for (
+            let j = 0;
+            j < pathData[i].coordinates.length;
+            j += commandsize
+          ) {
             newCommands.push({
-              code: "c",
-              coordinates: pathData[i].coordinates.slice(j, j + 3)
+              code,
+              coordinates: pathData[i].coordinates.slice(j, j + commandsize)
             });
           }
           pathData.splice(i, 1, ...newCommands);
         }
       }
+
       if (convertToRelative) {
         const pointLocation = { x: 0, y: 0 };
         pathData
