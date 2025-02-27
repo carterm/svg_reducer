@@ -337,7 +337,7 @@ const processData = (/** @type {string} */ data) => {
   }); //End Path loop
 
   // Push common attributes to "g" elements
-  svgElement.querySelectorAll("path, polygon").forEach(targetElement => {
+  svgElement.querySelectorAll("*").forEach(targetElement => {
     const siblings = [...(targetElement.parentElement?.children || [])].filter(
       x => x !== targetElement
     );
