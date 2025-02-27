@@ -94,7 +94,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
     svgElement.querySelectorAll("path").forEach(pathElement => {
       // pull out style elements to make attributes
-      [...pathElement.style].forEach(attr => {
+      Array.from(pathElement.style).forEach(attr => {
         if (pathElement.style[attr]) {
           pathElement.setAttribute(attr, pathElement.style[attr]);
           pathElement.style.removeProperty(attr);
