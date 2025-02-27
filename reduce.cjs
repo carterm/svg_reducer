@@ -79,20 +79,19 @@ const processData = (/** @type {string} */ data) => {
   });
 
   // pull out style elements to make attributes
-  /** @type {HTMLElement[]} */ ([...svgElement.querySelectorAll("*")]).forEach(
-    pathElement => {
-      Array.from(pathElement.style).forEach(attr => {
-        if (pathElement.style[attr]) {
-          pathElement.setAttribute(attr, pathElement.style[attr]);
-          pathElement.style.removeProperty(attr);
-        }
-      });
-
-      if (!pathElement.style.length) {
-        pathElement.removeAttribute("style");
+  /** @type {HTMLElement[]} */
+  ([...svgElement.querySelectorAll("*")]).forEach(pathElement => {
+    Array.from(pathElement.style).forEach(attr => {
+      if (pathElement.style[attr]) {
+        pathElement.setAttribute(attr, pathElement.style[attr]);
+        pathElement.style.removeProperty(attr);
       }
+    });
+
+    if (!pathElement.style.length) {
+      pathElement.removeAttribute("style");
     }
-  );
+  });
 
   // Remove all invisible elements
   const getVisibilityProperties = (/** @type {Element} */ element) => {
