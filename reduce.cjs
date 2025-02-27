@@ -297,7 +297,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     }); //End Path loop
 
     // Push common attributes to "g" elements
-    [...svgElement.querySelectorAll("path, polygon")].forEach(targetElement => {
+    svgElement.querySelectorAll("path, polygon").forEach(targetElement => {
       const siblings = [
         ...(targetElement.parentElement?.children || [])
       ].filter(x => x !== targetElement);
@@ -321,6 +321,19 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
         }
       });
     }); //End push to common attributes
+
+    // Combine nested "g" elements
+    svgElement.querySelectorAll("g").forEach(gElement => {
+      const parent = gElement.parentElement;
+      if (parent) {
+        if (parent.childElementCount === 1) {
+          [...gElement.attributes].forEach(attr => {
+            parent.setAttribute(attr.name, attr.value);
+            gElement.removeAttribute(attr.name);
+          });
+        }
+      }
+    });
 
     // Remove empty tags from dom
     svgElement.querySelectorAll("*").forEach(element => {
