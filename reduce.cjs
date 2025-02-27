@@ -218,6 +218,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
           });
       }
 
+      // render simplified path data
       d = pathData
         .map(command => {
           const code = command.code;
@@ -225,7 +226,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
             `${point.x ?? ""} ${point.y ?? ""}`.trim()
           ); // Convert coordinates back to string
           const newCommand = `${code}${coordinates.join(" ")}`.replace(
-            " -",
+            / -/g,
             "-"
           ); // Remove space before negative numbers
 
