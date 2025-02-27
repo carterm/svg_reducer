@@ -201,17 +201,16 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
             if (lastpoint?.x) pointLocation.x += lastpoint.x;
             if (lastpoint?.y) pointLocation.y += lastpoint.y;
           });
-
-        d = pathData
-          .map(command => {
-            const code = command.code;
-            const coordinates = command.coordinates.map(point =>
-              `${point.x ?? ""} ${point.y ?? ""}`.trim()
-            ); // Convert coordinates back to string
-            return `${code}${coordinates.join(" ")}`;
-          })
-          .join("");
       }
+      d = pathData
+        .map(command => {
+          const code = command.code;
+          const coordinates = command.coordinates.map(point =>
+            `${point.x ?? ""} ${point.y ?? ""}`.trim()
+          ); // Convert coordinates back to string
+          return `${code}${coordinates.join(" ")}`;
+        })
+        .join("");
 
       d = d.replace(/s0 0 0 0(?![\d.])/gim, ""); // Remove "s" followed by 0 0 0 0, but not if followed by a digit or a decimal
       d = d.replace(/m[^clshvz]*(m)/gim, "$1"); // Remove consecutive "M" commands
