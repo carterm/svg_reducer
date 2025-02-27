@@ -142,6 +142,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       const pathData = allCommands.map(command => {
         const code = command.trim()[0];
         const commanddata = command.replace(code, "").trim();
+        const originalcommand = `${code}${commanddata}`;
 
         /**
          * @type {{x?: number, y?: number}[]}
@@ -164,7 +165,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
           });
         }
 
-        return { code, coordinates };
+        return { code, coordinates, originalcommand };
       });
 
       const commandsizes = { c: 3, s: 2, q: 2, t: 1, a: 7, l: 1 };
@@ -172,6 +173,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       //Split "c" commands into groups of 3
       for (let i = 0; i < pathData.length; i++) {
         const code = pathData[i].code.toLowerCase();
+        const originalcommand = pathData[i].originalcommand;
 
         /** @type {number} */
         const commandsize = commandsizes[code];
@@ -185,7 +187,8 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
           ) {
             newCommands.push({
               code,
-              coordinates: pathData[i].coordinates.slice(j, j + commandsize)
+              coordinates: pathData[i].coordinates.slice(j, j + commandsize),
+              originalcommand
             });
           }
           pathData.splice(i, 1, ...newCommands);
@@ -214,13 +217,22 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
             if (lastpoint?.y) pointLocation.y += lastpoint.y;
           });
       }
+
       d = pathData
         .map(command => {
           const code = command.code;
           const coordinates = command.coordinates.map(point =>
             `${point.x ?? ""} ${point.y ?? ""}`.trim()
           ); // Convert coordinates back to string
-          return `${code}${coordinates.join(" ")}`;
+          const newCommand = `${code}${coordinates.join(" ")}`.replace(
+            " -",
+            "-"
+          ); // Remove space before negative numbers
+
+          //Only use new command if it's shorter or same than the original
+          return newCommand.length <= command.originalcommand.length
+            ? newCommand
+            : command.originalcommand;
         })
         .join("");
 
