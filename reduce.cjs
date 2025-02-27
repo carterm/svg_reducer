@@ -76,7 +76,10 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
             svgElement
               .querySelectorAll(rule["selectorText"])
               .forEach(element => {
-                element.setAttribute("style", rule["style"].cssText);
+                element.setAttribute(
+                  "style",
+                  element.style.cssText + rule["style"].cssText
+                );
               });
           }
         });
@@ -91,10 +94,12 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
     [...svgElement.querySelectorAll("path")].forEach(pathElement => {
       // pull out style elements to make attributes
-      if (pathElement.style.fill) {
-        pathElement.setAttribute("fill", pathElement.style.fill);
-        pathElement.style.removeProperty("fill");
-      }
+      Array.from(pathElement.style).forEach(attr => {
+        if (pathElement.style[attr]) {
+          pathElement.setAttribute(attr, pathElement.style[attr]);
+          pathElement.style.removeProperty(attr);
+        }
+      });
 
       if (!pathElement.style.length) {
         pathElement.removeAttribute("style");
