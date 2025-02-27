@@ -114,6 +114,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       }
     }
 
+    // Process all remaining path statements
     svgElement.querySelectorAll("path").forEach(pathElement => {
       // pull out style elements to make attributes
       Array.from(pathElement.style).forEach(attr => {
