@@ -323,17 +323,25 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
     }); //End push to common attributes
 
     // Combine nested "g" elements
-    svgElement.querySelectorAll("g").forEach(gElement => {
-      const parent = gElement.parentElement;
-      if (parent) {
-        if (parent.childElementCount === 1) {
-          [...gElement.attributes].forEach(attr => {
-            parent.setAttribute(attr.name, attr.value);
-            gElement.removeAttribute(attr.name);
-          });
+    let gElements = [...svgElement.querySelectorAll("g > g")];
+    while (gElements.length) {
+      gElements.forEach(gElement => {
+        const parent = gElement.parentElement;
+        if (parent) {
+          if (parent.childElementCount === 1) {
+            [...gElement.attributes].forEach(attr => {
+              parent.setAttribute(attr.name, attr.value);
+              gElement.removeAttribute(attr.name);
+            });
+            while (gElement.firstChild) {
+              parent.appendChild(gElement.firstChild);
+            }
+            gElement.remove();
+          }
         }
-      }
-    });
+      });
+      gElements = [...svgElement.querySelectorAll("g > g")];
+    }
 
     // Remove empty tags from dom
     svgElement.querySelectorAll("*").forEach(element => {
