@@ -94,21 +94,21 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
     // Merge all path elements with matching attributes (ignore "d" attribute) and first letter in "d" attribute is uppercase
     const pathsToMerge = [...svgElement.querySelectorAll("path")];
-    for (let i = 1; i < pathsToMerge.length; i++) {
-      const previousPath = pathsToMerge[i - 1];
+    for (let i = 0; i < pathsToMerge.length - 1; i++) {
+      const nextPath = pathsToMerge[i + 1];
       const currentPath = pathsToMerge[i];
 
       if (
         // Do both paths have the same attributes? Except for d
-        [...previousPath.attributes].every(
+        [...nextPath.attributes].every(
           attr =>
             attr.name === "d" ||
             currentPath.getAttribute(attr.name) === attr.value
         )
       ) {
-        previousPath.setAttribute(
+        nextPath.setAttribute(
           "d",
-          `${previousPath.getAttribute("d")}\n${currentPath.getAttribute("d")}`
+          `${currentPath.getAttribute("d")}\n${nextPath.getAttribute("d")}`
         );
         currentPath.remove();
       }
