@@ -6,7 +6,7 @@ const { JSDOM } = require("jsdom");
 const devmode = true;
 const maxDecimalPlaces = 2;
 const removeExtraCs = true;
-const convertToRelative = true;
+const convertToRelative = false;
 
 // Get command line arguments
 const args = process.argv.slice(2);
@@ -136,57 +136,71 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
         Math.round((parseFloat(match) * 10 * scale) / 10).toString()
       ); // Round decimals
 
-      if (convertToRelative) {
-        //Switch to relative commands
-        /** @type {string[]} */
-        const allCommands = d.match(/[a-zA-Z][^a-zA-Z]*/g) || [];
-        const pathData = allCommands.map(command => {
-          const code = command[0];
-          const commanddata = command.slice(1).trim();
+      //Switch to relative commands
+      /** @type {string[]} */
+      const allCommands = d.match(/[a-zA-Z][^a-zA-Z]*/g) || [];
+      const pathData = allCommands.map(command => {
+        const code = command.trim()[0];
+        const commanddata = command.replace(code, "").trim();
 
-          /**
-           * @type {{x?: number, y?: number}[]}
-           */
-          let coordinates = [];
+        /**
+         * @type {{x?: number, y?: number}[]}
+         */
+        let coordinates = [];
 
-          if (code.toLowerCase() === "h") {
-            coordinates = [{ x: parseInt(commanddata) }];
-          } else if (code.toLowerCase() === "v") {
-            coordinates = [{ y: parseInt(commanddata) }];
-          } else if (code.toLowerCase() === "z") {
-            //
-          } else {
-            const pairs = [
-              ...commanddata.matchAll(/(?<x>-?\d+)\s*(?<y>-?\d+)/g)
-            ];
+        if (code.toLowerCase() === "h") {
+          coordinates = [{ x: parseInt(commanddata) }];
+        } else if (code.toLowerCase() === "v") {
+          coordinates = [{ y: parseInt(commanddata) }];
+        } else if (code.toLowerCase() === "z") {
+          //
+        } else {
+          const pairs = [...commanddata.matchAll(/(?<x>-?\d+)\s*(?<y>-?\d+)/g)];
 
-            coordinates = pairs.map(pair => {
-              const groups = pair.groups || {};
+          coordinates = pairs.map(pair => {
+            const groups = pair.groups || {};
 
-              return { x: parseInt(groups["x"]), y: parseInt(groups["y"]) };
+            return { x: parseInt(groups["x"]), y: parseInt(groups["y"]) };
+          });
+        }
+
+        return { code, coordinates };
+      });
+
+      //Split "c" commands into groups of 3
+      for (let i = 0; i < pathData.length; i++) {
+        if (pathData[i].code === "c" && pathData[i].coordinates.length > 3) {
+          const newCommands = [];
+          for (let j = 0; j < pathData[i].coordinates.length; j += 3) {
+            newCommands.push({
+              code: "c",
+              coordinates: pathData[i].coordinates.slice(j, j + 3)
             });
           }
-
-          return { code, coordinates };
-        });
-
+          pathData.splice(i, 1, ...newCommands);
+        }
+      }
+      if (convertToRelative) {
         const pointLocation = { x: 0, y: 0 };
-        pathData.forEach(command => {
-          const isAbsoluteCode = /[A-Z]/.test(command.code);
+        pathData
+          .filter(x => x.code.toLowerCase() !== "z")
+          .forEach(command => {
+            const isAbsoluteCode = /[A-Z]/.test(command.code);
 
-          command.code = command.code.toLowerCase();
-          command.coordinates.forEach(point => {
-            if (isAbsoluteCode) {
-              if (point.x) point.x -= pointLocation.x;
-              if (point.y) point.y -= pointLocation.y;
-            }
+            command.code = command.code.toLowerCase();
+            command.coordinates.forEach(point => {
+              if (isAbsoluteCode) {
+                if (point.x) point.x -= pointLocation.x;
+                if (point.y) point.y -= pointLocation.y;
+              }
+            });
+
+            const lastpoint =
+              command.coordinates[command.coordinates.length - 1];
+
+            if (lastpoint?.x) pointLocation.x += lastpoint.x;
+            if (lastpoint?.y) pointLocation.y += lastpoint.y;
           });
-
-          const lastpoint = command.coordinates[command.coordinates.length - 1];
-
-          if (lastpoint?.x) pointLocation.x += lastpoint.x;
-          if (lastpoint?.y) pointLocation.y += lastpoint.y;
-        });
 
         d = pathData
           .map(command => {
