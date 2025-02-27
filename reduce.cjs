@@ -78,28 +78,54 @@ const processData = (/** @type {string} */ data) => {
     element.removeAttribute("class");
   });
 
+  // pull out style elements to make attributes
+  /** @type {HTMLElement[]} */ ([...svgElement.querySelectorAll("*")]).forEach(
+    pathElement => {
+      Array.from(pathElement.style).forEach(attr => {
+        if (pathElement.style[attr]) {
+          pathElement.setAttribute(attr, pathElement.style[attr]);
+          pathElement.style.removeProperty(attr);
+        }
+      });
+
+      if (!pathElement.style.length) {
+        pathElement.removeAttribute("style");
+      }
+    }
+  );
+
   // Remove all invisible elements
-  const isElementVisible = (/** @type {Element} */ element) => {
+  const getVisibilityProperties = (/** @type {Element} */ element) => {
     // Look up the parent chain for stroke, fill, or stroke-width atrributes
-    if (element.tagName.toLowerCase() === "svg") {
-      return true;
-    }
 
-    if (!element.parentElement || !isElementVisible(element.parentElement)) {
-      return false;
-    }
+    const parent = element.parentElement;
 
-    const fill = element.getAttribute("fill") || "none";
-    const stroke = element.getAttribute("stroke") || "none";
-    const strokeWidth = element.getAttribute("stroke-width") || "1";
+    let props = parent
+      ? getVisibilityProperties(parent)
+      : {
+          fill: "none",
+          stroke: "none",
+          strokeWidth: 1
+        };
 
-    return fill !== "none" || stroke !== "none" || parseFloat(strokeWidth) > 0;
+    props.fill = element.getAttribute("fill") || props.fill;
+    props.stroke = element.getAttribute("stroke") || props.stroke;
+    props.strokeWidth =
+      element.getAttribute("stroke-width") || props.strokeWidth;
+
+    return props;
   };
 
   // Look up the parent chain for stroke, fill, or stroke-width atrributes
-  [...svgElement.querySelectorAll("*")]
-    .filter(element => !isElementVisible(element))
-    .forEach(element => element.remove());
+  [...svgElement.querySelectorAll("*")].forEach(element => {
+    const props = getVisibilityProperties(element);
+    if (
+      props.fill === "none" &&
+      (props.stroke === "none" || props.strokeWidth === "0")
+    ) {
+      element.remove();
+    }
+  });
 
   // Merge all path elements with matching attributes (ignore "d" attribute) and first letter in "d" attribute is uppercase
   const pathsToMerge = [...svgElement.querySelectorAll("path")];
@@ -125,18 +151,6 @@ const processData = (/** @type {string} */ data) => {
 
   // Process all remaining path statements
   svgElement.querySelectorAll("path").forEach(pathElement => {
-    // pull out style elements to make attributes
-    Array.from(pathElement.style).forEach(attr => {
-      if (pathElement.style[attr]) {
-        pathElement.setAttribute(attr, pathElement.style[attr]);
-        pathElement.style.removeProperty(attr);
-      }
-    });
-
-    if (!pathElement.style.length) {
-      pathElement.removeAttribute("style");
-    }
-
     let d = pathElement.getAttribute("d") || "";
 
     d = d.replace(/,/g, " "); // Replace commas with spaces
