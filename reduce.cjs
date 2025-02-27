@@ -132,7 +132,61 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
       d = d.replace(/-?\d*\.?\d+/g, match =>
         Math.round((parseFloat(match) * 10 * scale) / 10).toString()
-      ); // Round decimals to 1 decimal place
+      ); // Round decimals
+
+      //Switch to relative commands
+      /** @type {string[]} */
+      const allCommands = d.match(/[a-zA-Z][^a-zA-Z]+/g) || [];
+      const pathData = allCommands.map(command => {
+        const code = command[0];
+        const commanddata = command.slice(1).trim();
+
+        /**
+         * @type {{x?: number, y?: number}[]}
+         */
+        let coordinates = [];
+
+        if (code.toLowerCase() === "h") {
+          coordinates = [{ x: parseInt(commanddata) }];
+        } else if (code.toLowerCase() === "v") {
+          coordinates = [{ y: parseInt(commanddata) }];
+        } else {
+          /** @type {string[]} */
+          const pairs = commanddata.match(/(-?\d+)\s*(-?\d+)/g) || [];
+          coordinates = pairs.map(pair => {
+            const coords = pair.split(" ");
+
+            return { x: parseInt(coords[0]), y: parseInt(coords[1]) };
+          });
+        }
+
+        return { code, coordinates };
+      });
+
+      const pointLocation = { x: 0, y: 0 };
+      pathData.forEach(command => {
+        const isAbsoluteCode = /[A-Z]/.test(command.code);
+
+        command.code = command.code.toLowerCase();
+        command.coordinates.forEach(point => {
+          if (isAbsoluteCode) {
+            if (point.x) point.x -= pointLocation.x;
+            if (point.y) point.y -= pointLocation.y;
+          }
+          if (point.x) pointLocation.x += point.x;
+          if (point.y) pointLocation.y += point.y;
+        });
+      });
+
+      d = pathData
+        .map(command => {
+          const code = command.code;
+          const coordinates = command.coordinates.map(point => {
+            return `${point.x} ${point.y}`;
+          }); // Convert coordinates back to string
+          return `${code}${coordinates.join(" ")}`;
+        })
+        .join("");
 
       d = d.replace(/s0 0 0 0(?![\d.])/gim, ""); // Remove "s" followed by 0 0 0 0, but not if followed by a digit or a decimal
       d = d.replace(/m[^clshvz]*(m)/gim, "$1"); // Remove consecutive "M" commands
