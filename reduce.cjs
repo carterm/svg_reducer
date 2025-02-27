@@ -322,54 +322,34 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       });
     }); //End push to common attributes
 
-    // Combine nested "g" elements
-    // Select all "g" elements
-    const gElements = document.querySelectorAll("g");
-
-    // Create a new array to store the elements in the desired order
-    const orderedElements = [];
-
-    /**
-     * Process an SVG element and its children recursively.
-     * @param {Element} element - The SVG element to process.
-     */
-    function processElement(element) {
-      // Process the children first
-      [...element.children].forEach(child => {
-        if (child.tagName.toLowerCase() === "g") {
-          processElement(child);
-        }
-      });
-      // Then process the element itself
-      orderedElements.push(element);
-    }
-
-    // Process each "g" element
-    gElements.forEach(element => {
-      processElement(element);
-    });
-
-    orderedElements.forEach(gElement => {
-      const parent = gElement.parentElement;
-      if (parent?.tagName.toLowerCase() === "g") {
-        if (parent.childElementCount === 1) {
-          [...gElement.attributes].forEach(attr => {
-            parent.setAttribute(attr.name, attr.value);
-            gElement.removeAttribute(attr.name);
-          });
-          while (gElement.firstChild) {
-            parent.appendChild(gElement.firstChild);
-          }
-        }
-      }
-    });
-
     // Remove empty tags from dom
     svgElement.querySelectorAll("*").forEach(element => {
       if (!element.hasAttributes() && !element.innerHTML.trim().length) {
         element.remove();
       }
     });
+
+    // Merge nested "g" elements
+    let gChangeDone = false;
+    while (!gChangeDone) {
+      gChangeDone = true;
+      document.querySelectorAll("g").forEach(gElement => {
+        const parent = gElement.parentElement;
+        if (
+          parent?.tagName.toLowerCase() === "g" &&
+          parent.childElementCount === 1
+        ) {
+          gChangeDone = false;
+          [...gElement.attributes].forEach(attr => {
+            parent.setAttribute(attr.name, attr.value);
+            gElement.removeAttribute(attr.name);
+          });
+          while (gElement.firstChild) parent.appendChild(gElement.firstChild);
+
+          gElement.remove();
+        }
+      });
+    }
 
     // Serialize the SVG element
     const htmlOutput = svgElement.outerHTML;
