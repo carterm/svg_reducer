@@ -182,7 +182,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
         .map(command => {
           const code = command.code;
           const coordinates = command.coordinates.map(point => {
-            return `${point.x} ${point.y}`;
+            return `${point.x !== undefined ? point.x : ""} ${point.y !== undefined ? point.y : ""}`;
           }); // Convert coordinates back to string
           return `${code}${coordinates.join(" ")}`;
         })
