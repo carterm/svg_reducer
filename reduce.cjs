@@ -169,11 +169,6 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
         const isAbsoluteCode = /[A-Z]/.test(command.code);
 
         command.code = command.code.toLowerCase();
-
-        if (command.code === "h") {
-          let foo = 1;
-        }
-
         command.coordinates.forEach(point => {
           if (isAbsoluteCode) {
             if (point.x) point.x -= pointLocation.x;
@@ -190,8 +185,8 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       d = pathData
         .map(command => {
           const code = command.code;
-          const coordinates = command.coordinates.map(
-            point => `${point.x ?? ""} ${point.y ?? ""}`
+          const coordinates = command.coordinates.map(point =>
+            `${point.x ?? ""} ${point.y ?? ""}`.trim()
           ); // Convert coordinates back to string
           return `${code}${coordinates.join(" ")}`;
         })
