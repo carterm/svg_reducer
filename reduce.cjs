@@ -294,7 +294,7 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
 
       pathElement.removeAttribute("d");
       pathElement.setAttribute("d", d);
-    });
+    }); //End Path loop
 
     // Push common attributes to "g" elements
     [...svgElement.querySelectorAll("path, polygon")].forEach(targetElement => {
@@ -320,6 +320,13 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
           });
         }
       });
+    }); //End push to common attributes
+
+    // Remove empty tags from dom
+    svgElement.querySelectorAll("*").forEach(element => {
+      if (!element.hasAttributes() && !element.innerHTML.trim().length) {
+        element.remove();
+      }
     });
 
     // Serialize the SVG element
