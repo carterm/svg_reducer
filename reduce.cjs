@@ -262,9 +262,12 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
       }
 
       if (removeExtraCs) {
-        d = d.replace(/c([^lshvzmMCLSHVZ]*)/gms, match =>
+        d = d.replace(/c([^lshvzmA-Z]*)/gms, match =>
           `c${match.replace(/c-/gms, "-")}`.replace(/cc/gms, "c")
         ); // Combine consecutive "c-" command codes
+        d = d.replace(/l([^cshvzmA-Z]*)/gms, match =>
+          `l${match.replace(/l-/gms, "-")}`.replace(/ll/gms, "l")
+        ); // Combine consecutive "l-" command codes
       }
 
       if (!devmode) {
