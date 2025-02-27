@@ -6,6 +6,7 @@ const { JSDOM } = require("jsdom");
 const devmode = true;
 const maxDecimalPlaces = 2;
 const removeExtraCs = true;
+const convertToRelative = false;
 
 // Get command line arguments
 const args = process.argv.slice(2);
@@ -135,62 +136,66 @@ fs.mkdir(outputDir, { recursive: true }, mkdirErr => {
         Math.round((parseFloat(match) * 10 * scale) / 10).toString()
       ); // Round decimals
 
-      //Switch to relative commands
-      /** @type {string[]} */
-      const allCommands = d.match(/[a-zA-Z][^a-zA-Z]+/g) || [];
-      const pathData = allCommands.map(command => {
-        const code = command[0];
-        const commanddata = command.slice(1).trim();
+      if (convertToRelative) {
+        //Switch to relative commands
+        /** @type {string[]} */
+        const allCommands = d.match(/[a-zA-Z][^a-zA-Z]+/g) || [];
+        const pathData = allCommands.map(command => {
+          const code = command[0];
+          const commanddata = command.slice(1).trim();
 
-        /**
-         * @type {{x?: number, y?: number}[]}
-         */
-        let coordinates = [];
+          /**
+           * @type {{x?: number, y?: number}[]}
+           */
+          let coordinates = [];
 
-        if (code.toLowerCase() === "h") {
-          coordinates = [{ x: parseInt(commanddata) }];
-        } else if (code.toLowerCase() === "v") {
-          coordinates = [{ y: parseInt(commanddata) }];
-        } else {
-          /** @type {string[]} */
-          const pairs = commanddata.match(/(-?\d+)\s*(-?\d+)/g) || [];
-          coordinates = pairs.map(pair => {
-            const coords = pair.split(" ");
+          if (code.toLowerCase() === "h") {
+            coordinates = [{ x: parseInt(commanddata) }];
+          } else if (code.toLowerCase() === "v") {
+            coordinates = [{ y: parseInt(commanddata) }];
+          } else {
+            const pairs = [
+              ...commanddata.matchAll(/(?<x>-?\d+)\s*(?<y>-?\d+)/g)
+            ];
 
-            return { x: parseInt(coords[0]), y: parseInt(coords[1]) };
-          });
-        }
+            coordinates = pairs.map(pair => {
+              const groups = pair.groups || {};
 
-        return { code, coordinates };
-      });
-
-      const pointLocation = { x: 0, y: 0 };
-      pathData.forEach(command => {
-        const isAbsoluteCode = /[A-Z]/.test(command.code);
-
-        command.code = command.code.toLowerCase();
-        command.coordinates.forEach(point => {
-          if (isAbsoluteCode) {
-            if (point.x) point.x -= pointLocation.x;
-            if (point.y) point.y -= pointLocation.y;
+              return { x: parseInt(groups["x"]), y: parseInt(groups["y"]) };
+            });
           }
+
+          return { code, coordinates };
         });
 
-        const lastpoint = command.coordinates[command.coordinates.length - 1];
+        const pointLocation = { x: 0, y: 0 };
+        pathData.forEach(command => {
+          const isAbsoluteCode = /[A-Z]/.test(command.code);
 
-        if (lastpoint.x) pointLocation.x += lastpoint.x;
-        if (lastpoint.y) pointLocation.y += lastpoint.y;
-      });
+          command.code = command.code.toLowerCase();
+          command.coordinates.forEach(point => {
+            if (isAbsoluteCode) {
+              if (point.x) point.x -= pointLocation.x;
+              if (point.y) point.y -= pointLocation.y;
+            }
+          });
 
-      d = pathData
-        .map(command => {
-          const code = command.code;
-          const coordinates = command.coordinates.map(point =>
-            `${point.x ?? ""} ${point.y ?? ""}`.trim()
-          ); // Convert coordinates back to string
-          return `${code}${coordinates.join(" ")}`;
-        })
-        .join("");
+          const lastpoint = command.coordinates[command.coordinates.length - 1];
+
+          if (lastpoint.x) pointLocation.x += lastpoint.x;
+          if (lastpoint.y) pointLocation.y += lastpoint.y;
+        });
+
+        d = pathData
+          .map(command => {
+            const code = command.code;
+            const coordinates = command.coordinates.map(point =>
+              `${point.x ?? ""} ${point.y ?? ""}`.trim()
+            ); // Convert coordinates back to string
+            return `${code}${coordinates.join(" ")}`;
+          })
+          .join("");
+      }
 
       d = d.replace(/s0 0 0 0(?![\d.])/gim, ""); // Remove "s" followed by 0 0 0 0, but not if followed by a digit or a decimal
       d = d.replace(/m[^clshvz]*(m)/gim, "$1"); // Remove consecutive "M" commands
