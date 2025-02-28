@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "reduce svgs",
   "scripts": {
-    "start": "npm run reduce1 && npm run reduce2 && npm run reduce3 && npm run reduce4 && npm run reduce5 && npm run reduce6 && npm run reduce7",
+    "start": "npm run reduce1 && npm run reduce2 && npm run reduce3 && npm run reduce4 && npm run reduce5 && npm run reduce6 && npm run reduce7 && npm run reduce8",
     "reduce1": "node reduce.cjs samples/sample1.svg",
     "reduce2": "node reduce.cjs samples/sample2.svg",
     "reduce3": "node reduce.cjs samples/recovery-lineart.svg",

@@ -450,10 +450,10 @@ const processData = (/** @type {string} */ data) => {
           newG.setAttribute(attr.name, attr.value);
           targetElement.parentElement?.insertBefore(newG, targetElement);
 
-          [targetElement, ...matchingSiblings].forEach(sibling => {
-            sibling.removeAttribute(attr.name);
+          [targetElement, ...matchingSiblings].forEach(sibling2 => {
+            sibling2.removeAttribute(attr.name);
 
-            newG.appendChild(sibling);
+            newG.appendChild(sibling2);
           });
         }
       });
