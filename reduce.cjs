@@ -286,6 +286,7 @@ const processData = (/** @type {string} */ data) => {
 
     d = d.replace(/m[^clshvz]*(m)/gim, "$1"); // Remove consecutive "M" commands
 
+    //s curve with no curve before it
     d = d.replace(/([h|v|l][^a-zA-Z]+)s([^a-zA-Z]+)/gm, "$1c0 0 $2"); //independent curve
 
     d = d.replaceAll(
@@ -293,7 +294,11 @@ const processData = (/** @type {string} */ data) => {
       (match, ...params) => {
         const [x0, y0, x1, y1, x2, y2] = params.map(parseFloat);
 
-        if (x0 === 0 && y0 === 0 && y1 / x1 === y2 / x2) {
+        if (
+          x0 === 0 &&
+          y0 === 0 &&
+          ((x1 === 0 && y1 === 0) || y1 / x1 === y2 / x2)
+        ) {
           return `l${x2} ${y2}`;
         } else if (
           x0 === 0 &&
@@ -317,7 +322,11 @@ const processData = (/** @type {string} */ data) => {
       }
     );
 
-    d = d.replace(/c0 0 0 0\s*(-?\d+)\s*(-?\d+)/gm, "l$1 $2"); // line
+    //left over "c" curves with no curve before it can be an s curve
+    d = d.replace(
+      /([h|v|l][^a-zA-Z]+)c\s*0\s*0\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
+      "$1s$2 $3 $4 $5"
+    );
 
     d = d.replace(/l0\s*(-?\d+)/gm, "v$1"); // line to vertical
     d = d.replace(/l(-?\d+) 0/gm, "h$1"); // line to horizontal
