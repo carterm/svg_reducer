@@ -284,7 +284,9 @@ const processData = (/** @type {string} */ data) => {
 
     d = d.replace(/s0 0\s*(-?\d+)\s*(-?\d+)/gm, "l$1 $2"); // line
 
-    d = d.replace(/m[^clshvz]*(m)/gim, "$1"); // Remove consecutive "M" commands
+    //d = d.replace(/m[^clshvz]*(m)/gim, "$1"); // Remove consecutive "M" commands
+
+    //d = d.replace(/m[^clshvz]*(m)/gim, "$1"); // Remove consecutive "M" commands
 
     //s curve with no curve before it
     d = d.replace(/([h|v|l][^a-zA-Z]+)s([^a-zA-Z]+)/gm, "$1c0 0 $2"); //independent curve
@@ -293,32 +295,29 @@ const processData = (/** @type {string} */ data) => {
       /c\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
       (match, ...params) => {
         const [x0, y0, x1, y1, x2, y2] = params.map(parseFloat);
+        if (x0 === 0 && y0 === 0) {
+          if ((x1 === 0 && y1 === 0) || y1 / x1 === y2 / x2)
+            return `l${x2} ${y2}`;
 
+          if (x2 === 0 && y2 === 0) return "";
+        }
         if (
-          x0 === 0 &&
-          y0 === 0 &&
-          ((x1 === 0 && y1 === 0) || y1 / x1 === y2 / x2)
-        ) {
-          return `l${x2} ${y2}`;
-        } else if (
           x0 === 0 &&
           x1 === 0 &&
           x2 === 0 &&
           ((y0 <= y1 && y1 <= y2) || (y0 >= y1 && y1 >= y2))
-        ) {
+        )
           return `v${y2}`;
-        } else if (
+
+        if (
           y0 === 0 &&
           y1 === 0 &&
           y2 === 0 &&
           ((x0 <= x1 && x1 <= x2) || (x0 >= x1 && x1 >= x2))
-        ) {
+        )
           return `h${x2}`;
-        } else if (x0 === 0 && y0 === 0 && x2 === 0 && y2 === 0) {
-          return "";
-        } else {
-          return match;
-        }
+
+        return match;
       }
     );
 
@@ -352,6 +351,9 @@ const processData = (/** @type {string} */ data) => {
 
     d = d.replace(/(v|h)0(?![\d.])/gm, ""); // Remove "v" or "h" followed by the number 0, but not if followed by a digit or a decimal
     d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
+
+    // Remove "z" commands that follow a "m" command
+    d = d.replace(/(m|M[^a-zA-Z]+)(Z|z)/gim, "$1");
 
     if (devmode) {
       d = d.replace(/([a-zA-z])/gim, "\n$1"); // Add newline before commands
