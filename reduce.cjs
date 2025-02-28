@@ -282,11 +282,14 @@ const processData = (/** @type {string} */ data) => {
         const coordinates = command.coordinates.map(point =>
           `${point.x ?? ""} ${point.y ?? ""}`.trim()
         ); // Convert coordinates back to string
-        const newCommand =
-          `${code}${coordinates.join(" ")}${command.z ? "z" : ""}`.replace(
-            / -/g,
-            "-"
-          ); // Remove space before negative numbers
+        const z = command.z ? "z" : "";
+        const newCommand = `${code}${coordinates.join(" ")}${z}`.replace(
+          / -/g,
+          "-"
+        ); // Remove space before negative numbers
+
+        //return newCommand;
+        command.originalcommand += z;
 
         //Only use new command if it's shorter than the original
         return newCommand.length <= command.originalcommand.length
