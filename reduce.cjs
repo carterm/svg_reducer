@@ -289,9 +289,9 @@ const processData = (/** @type {string} */ data) => {
     d = d.replace(/([h|v|l][^a-zA-Z]+)s([^a-zA-Z]+)/gm, "$1c0 0 $2"); //independent curve
 
     d = d.replaceAll(
-      /c0 0\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
-      (match, x1, y1, x2, y2) => {
-        if (x1 === x2 && y1 === y2) {
+      /c\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
+      (match, x0, y0, x1, y1, x2, y2) => {
+        if (x0 === "0" && y0 === "0" && x1 === x2 && y1 === y2) {
           return `l${x1} ${y1}`;
         } else {
           return match;
