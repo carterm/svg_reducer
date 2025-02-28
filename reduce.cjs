@@ -433,17 +433,17 @@ const processData = (/** @type {string} */ data) => {
 
   // Push common attributes to "g" elements
   svgElement.querySelectorAll("*").forEach(targetElement => {
-    const siblings = [...(targetElement.parentElement?.children || [])].filter(
-      x => x !== targetElement
-    );
-
     [...targetElement.attributes]
       .filter(attr => shareableAttributes.includes(attr.name))
       .forEach(attr => {
         // Search for a sibling with the same attribute value
-        const matchingSiblings = siblings.filter(
-          sibling => sibling.getAttribute(attr.name) === attr.value
-        );
+        const matchingSiblings = [];
+        let sibling = targetElement.nextElementSibling;
+
+        while (sibling?.getAttribute(attr.name) === attr.value) {
+          matchingSiblings.push(sibling);
+          sibling = sibling.nextElementSibling;
+        }
 
         if (matchingSiblings.length) {
           const newG = document.createElement("g");
