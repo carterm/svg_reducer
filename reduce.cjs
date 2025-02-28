@@ -218,7 +218,7 @@ const processData = (/** @type {string} */ data) => {
       return { code, coordinates, originalcommand, z: false };
     });
 
-    const commandsizes = { c: 3, s: 2, l: 1, m: 1, z: 0 };
+    const commandsizes = { c: 3, s: 2, l: 1, m: 1 };
 
     //Split "c" commands into groups of 3
     for (let i = 0; i < pathData.length; i++) {
@@ -268,7 +268,6 @@ const processData = (/** @type {string} */ data) => {
     for (let i = 1; i < pathData.length; i++) {
       const code = pathData[i].code.toLowerCase();
 
-      // remove "z" commands that follow a "m" command
       if (code === "z") {
         pathData[i - 1].z = true;
         pathData.splice(i, 1);
