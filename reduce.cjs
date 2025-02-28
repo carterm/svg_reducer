@@ -369,7 +369,19 @@ const processData = (/** @type {string} */ data) => {
     d = d.replace(/(m[^a-z]+)z/gim, "$1");
 
     // merge consecutive "m" commands
-    //d = d.replace(/m([^a-z]+)m/gim, "m$1");
+    d = d.replace(/m[^clshvA-Z]+(?:\s*m[^clshvA-Z]+)+/gm, match => {
+      const [...moves] = match.matchAll(/m\s*(?<x>-?\d+)\s*(?<y>-?\d+)/gim);
+      let combinedMove = moves.reduce(
+        (acc, move) => {
+          const groups = move.groups || {};
+          acc.x += parseFloat(groups.x);
+          acc.y += parseFloat(groups.y);
+          return acc;
+        },
+        { x: 0, y: 0 }
+      );
+      return `m${combinedMove.x} ${combinedMove.y}`;
+    });
 
     if (devmode) {
       d = d.replace(/([a-zA-z])/gim, "\n$1"); // Add newline before commands
