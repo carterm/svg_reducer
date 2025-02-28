@@ -182,7 +182,7 @@ const processData = (/** @type {string} */ data) => {
       );
 
       const props = getVisibilityProperties(pathElement);
-      if (props.stroke !== "none") {
+      if (props.stroke !== "none" || pathElement.hasAttribute("stroke-width")) {
         pathElement.setAttribute(
           "stroke-width",
           (props.strokeWidth * scale).toString()
