@@ -283,7 +283,21 @@ const processData = (/** @type {string} */ data) => {
       .join("");
 
     d = d.replace(/s0 0\s*(-?\d+)\s*(-?\d+)/gm, "l$1 $2"); // line
+
     d = d.replace(/m[^clshvz]*(m)/gim, "$1"); // Remove consecutive "M" commands
+
+    d = d.replace(/([h|v|l][^a-zA-Z]+)s([^a-zA-Z]+)/gm, "$1c0 0 $2"); //independent curve
+
+    d = d.replaceAll(
+      /c0 0\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
+      (match, x1, y1, x2, y2) => {
+        if (x1 === x2 && y1 === y2) {
+          return `l${x1} ${y1}`;
+        } else {
+          return match;
+        }
+      }
+    );
 
     d = d.replace(/c\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)\s+0/gm, "h$1"); //negative horizontal line
     d = d.replace(/c\s*0\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)/gm, "v$1"); //negative vertical line
