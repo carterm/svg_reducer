@@ -344,9 +344,6 @@ const processData = (/** @type {string} */ data) => {
       return `${hv}${sum}`;
     };
 
-    // Remove "z" commands that follow a "m" command
-    d = d.replace(/(m|M[^a-zA-Z]+)(Z|z)/gim, "$1");
-
     d = d.replace(/h\d+(?:\s*h\d+)+/gm, match => sumHV("h", match)); // Sum positive horizontal lines
     d = d.replace(/v\d+(?:\s*v\d+)+/gm, match => sumHV("v", match)); // Sum positive vertical lines
     d = d.replace(/h-\d+(?:\s*h-\d+)+/gm, match => sumHV("h", match)); // Sum negative horizontal lines
@@ -354,6 +351,9 @@ const processData = (/** @type {string} */ data) => {
 
     d = d.replace(/(v|h)0(?![\d.])/gm, ""); // Remove "v" or "h" followed by the number 0, but not if followed by a digit or a decimal
     d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
+
+    // Remove "z" commands that follow a "m" command
+    d = d.replace(/(m|M[^a-zA-Z]+)(Z|z)/gim, "$1");
 
     if (devmode) {
       d = d.replace(/([a-zA-z])/gim, "\n$1"); // Add newline before commands
