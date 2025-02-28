@@ -294,14 +294,25 @@ const processData = (/** @type {string} */ data) => {
         const [x0, y0, x1, y1, x2, y2] = params.map(parseFloat);
         if (x0 === 0 && y0 === 0 && x1 === x2 && y1 === y2) {
           return `l${x1} ${y1}`;
+        } else if (
+          x0 === 0 &&
+          x1 === 0 &&
+          x2 === 0 &&
+          ((y0 >= y1 && y1 >= y2) || (y0 <= y1 && y1 <= y2))
+        ) {
+          return `l${x2} ${y2}`;
+        } else if (
+          y0 === 0 &&
+          y1 === 0 &&
+          y2 === 0 &&
+          ((x0 >= x1 && x1 >= x2) || (x0 <= x1 && x1 <= x2))
+        ) {
+          return `l${x2} ${y2}`;
         } else {
           return match;
         }
       }
     );
-
-    d = d.replace(/c\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)\s+0/gm, "h$1"); //negative horizontal line
-    d = d.replace(/c\s*0\s*-?\d+\s+0\s*-?\d+\s+0\s*(-?\d+)/gm, "v$1"); //negative vertical line
 
     d = d.replace(/c0 0 0 0\s*(-?\d+)\s*(-?\d+)/gm, "l$1 $2"); // line
 
