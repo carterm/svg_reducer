@@ -26,7 +26,7 @@ const outputFile =
 // Create the necessary directories if they don't exist
 const outputDir = path.dirname(outputFile);
 
-const gAttributes = ["stroke", "stroke-width", "fill"];
+const shareableAttributes = ["stroke", "stroke-width", "fill", "transform"];
 
 const processData = (/** @type {string} */ data) => {
   // Parse the transformed data as HTML
@@ -96,7 +96,12 @@ const processData = (/** @type {string} */ data) => {
   });
 
   // Remove all invisible elements
-  const getVisibilityProperties = (/** @type {Element} */ element) => {
+  /**
+   * Recursively retrieves the visibility properties (fill, stroke, stroke-width) of an SVG element by traversing up its parent chain.
+   * @param {Element} element - The SVG element to retrieve visibility properties for.
+   * @returns {{ fill: string, stroke: string, strokeWidth: number }} - The visibility properties of the element.
+   */
+  const getVisibilityProperties = element => {
     // Look up the parent chain for stroke, fill, or stroke-width atrributes
 
     const parent = element.parentElement;
@@ -111,8 +116,9 @@ const processData = (/** @type {string} */ data) => {
 
     props.fill = element.getAttribute("fill") || props.fill;
     props.stroke = element.getAttribute("stroke") || props.stroke;
-    props.strokeWidth =
-      element.getAttribute("stroke-width") || props.strokeWidth;
+    props.strokeWidth = parseFloat(
+      element.getAttribute("stroke-width") || props.strokeWidth.toString()
+    );
 
     return props;
   };
@@ -122,7 +128,7 @@ const processData = (/** @type {string} */ data) => {
     const props = getVisibilityProperties(element);
     if (
       props.fill === "none" &&
-      (props.stroke === "none" || props.strokeWidth === "0")
+      (props.stroke === "none" || props.strokeWidth === 0)
     ) {
       element.remove();
     }
@@ -175,11 +181,11 @@ const processData = (/** @type {string} */ data) => {
         `scale(${(1 / scale).toString().replace(/^0\./, ".")})`
       );
 
-      const strokeWidth = pathElement.getAttribute("stroke-width");
-      if (strokeWidth) {
+      const props = getVisibilityProperties(pathElement);
+      if (props.stroke !== "none") {
         pathElement.setAttribute(
           "stroke-width",
-          (parseFloat(strokeWidth) * scale).toString()
+          (props.strokeWidth * scale).toString()
         );
       }
     }
@@ -412,7 +418,7 @@ const processData = (/** @type {string} */ data) => {
     );
 
     [...targetElement.attributes]
-      .filter(attr => gAttributes.includes(attr.name))
+      .filter(attr => shareableAttributes.includes(attr.name))
       .forEach(attr => {
         // Search for a sibling with the same attribute value
         const matchingSiblings = siblings.filter(

@@ -1,19 +1,16 @@
-<svg viewBox="0 0 364 231" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path
-    stroke="#EDEDEF"
-    stroke-width="100"
-    transform="scale(.01)"
-    d="
+<svg viewBox="0 0 364 231" fill="none" xmlns="http://www.w3.org/2000/svg"><g transform="scale(.01)"><g stroke-width="100"><path stroke="#EDEDEF" d="
 m50 16275
 h36300
 M50 10475
 h36300
 M50 13375
-h36300" />
-  <g fill="#046B99">
-    <path
-      transform="scale(.01)"
-      d="
+h36300"/><path stroke="#D4D4D7" d="
+m12100 7275
+v3800
+m11950-3800
+v8000"/><path stroke="#3B3A48" d="
+m50 19175
+h36300"/></g><g fill="#046B99"><path d="
 m4436 21088
 c-54 0-104-10-151-31
 -47-21-85-50-115-88
@@ -419,10 +416,7 @@ c0-60-13-107-37-140
 c0 35 5 67 14 97
 c10 30 25 55 45 73
 c20 18 45 28 75 28
-z" />
-    <path
-      transform="scale(.01)"
-      d="
+z"/><path d="
 m2491 2675
 v-758
 h-181
@@ -545,10 +539,7 @@ v-163
 h154
 v163
 h-154
-z" />
-    <path
-      transform="scale(.01)"
-      d="
+z"/><path d="
 m21839 2690
 c-67 0-128-10-185-30
 -57-21-106-49-148-84
@@ -661,12 +652,7 @@ v-163
 h155
 v163
 h-155
-z" />
-  </g>
-  <g fill="#3B3A48">
-    <path
-      transform="scale(.01)"
-      d="
+z"/></g><g fill="#3B3A48"><path d="
 m11464 21075
 v-691
 h-167
@@ -815,10 +801,7 @@ c0-71-15-127-44-169
 c0 44 6 85 20 121
 c13 37 32 66 58 87
 c26 22 59 33 97 33
-z" />
-    <path
-      transform="scale(.01)"
-      d="
+z"/><path d="
 m6622 2675
 V1663
 h325
@@ -1233,10 +1216,7 @@ c-7-4-17-6-28-7
 -11 21-16 47-16 77
 v450
 h-129
-z" />
-    <path
-      transform="scale(.01)"
-      d="
+z"/><path d="
 m25179 2675
 l1-1012
 h132
@@ -1647,48 +1627,4 @@ c0-42-7-79-21-112
 -45 0-83 11-113 33
 -29 22-52 49-66 83
 -15 34-22 69-21 105
-z" />
-  </g>
-  <g fill="#82B5CC">
-    <rect x="65.5" y="147.75" width="14" height="39" rx="4" />
-    <rect x="89.5" y="128.75" width="14" height="58" rx="4" />
-    <rect x="41.5" y="162.75" width="14" height="24" rx="4" />
-    <rect x="113.5" y="115.75" width="14" height="71" rx="4" />
-    <rect x="161.5" y="115.75" width="14" height="71" rx="4" />
-    <rect x="137.5" y="115.75" width="14" height="71" rx="4" />
-    <rect x="185.5" y="123.75" width="14" height="63" rx="4" />
-    <rect x="209.5" y="142.75" width="14" height="44" rx="4" />
-  </g>
-  <g fill="#D4D4D7">
-    <rect x="233.5" y="157.75" width="14" height="30" rx="4" />
-    <rect x="257.5" y="157.75" width="14" height="30" rx="4" />
-  </g>
-  <g stroke="#D4D4D7">
-    <path
-      transform="scale(.01)"
-      d="
-m12100 7275
-v3800
-m11950-3800
-v8000" />
-    <rect x="12" y="1.25" width="134" height="66" rx="3.5" />
-    <rect x="203" y="1.25" width="134" height="66" rx="3.5" />
-  </g>
-  <g stroke="#3B3A48">
-    <line x1="25" y1="191.75" x2="25" y2="194.75" />
-    <line x1="49" y1="191.75" x2="49" y2="194.75" />
-    <line x1="121" y1="191.75" x2="121" y2="194.75" />
-    <line x1="193" y1="191.75" x2="193" y2="194.75" />
-    <line x1="265" y1="191.75" x2="265" y2="194.75" />
-    <line x1="337" y1="191.75" x2="337" y2="194.75" />
-    <path
-      transform="scale(.01)"
-      d="
-m50 19175
-h36300" />
-  </g>
-  <g stroke="#046B99">
-    <line x1="49" y1="187.75" x2="49" y2="195.75" />
-    <line x1="289.5" y1="188" x2="289.5" y2="196" />
-  </g>
-</svg>
+z"/></g></g><g fill="#82B5CC"><rect x="65.5" y="147.75" width="14" height="39" rx="4"/><rect x="89.5" y="128.75" width="14" height="58" rx="4"/><rect x="41.5" y="162.75" width="14" height="24" rx="4"/><rect x="113.5" y="115.75" width="14" height="71" rx="4"/><rect x="161.5" y="115.75" width="14" height="71" rx="4"/><rect x="137.5" y="115.75" width="14" height="71" rx="4"/><rect x="185.5" y="123.75" width="14" height="63" rx="4"/><rect x="209.5" y="142.75" width="14" height="44" rx="4"/></g><g fill="#D4D4D7"><rect x="233.5" y="157.75" width="14" height="30" rx="4"/><rect x="257.5" y="157.75" width="14" height="30" rx="4"/></g><g stroke="#D4D4D7"><rect x="12" y="1.25" width="134" height="66" rx="3.5"/><rect x="203" y="1.25" width="134" height="66" rx="3.5"/></g><g stroke="#3B3A48"><line x1="25" y1="191.75" x2="25" y2="194.75"/><line x1="49" y1="191.75" x2="49" y2="194.75"/><line x1="121" y1="191.75" x2="121" y2="194.75"/><line x1="193" y1="191.75" x2="193" y2="194.75"/><line x1="265" y1="191.75" x2="265" y2="194.75"/><line x1="337" y1="191.75" x2="337" y2="194.75"/></g><g stroke="#046B99"><line x1="49" y1="187.75" x2="49" y2="195.75"/><line x1="289.5" y1="188" x2="289.5" y2="196"/></g></svg>
