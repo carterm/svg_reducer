@@ -366,7 +366,10 @@ const processData = (/** @type {string} */ data) => {
     d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
     // Remove "z" commands that follow a "m" command
-    d = d.replace(/(m[^a-z]+)z/gim, "$1");
+    d = d.replace(/(m[^a-y]+)z/gim, "$1");
+
+    // Remove "m" at the end of the path
+    d = d.replace(/m[^clshv]+$/gim, "");
 
     // merge consecutive "m" commands
     d = d.replace(/m[^clshvA-Z]+(?:\s*m[^clshvA-Z]+)+/gm, match => {
