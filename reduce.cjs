@@ -96,7 +96,6 @@ const processData = (/** @type {string} */ data) => {
   });
 
   //Convert lines to paths
-
   [...svgElement.querySelectorAll("line")].forEach(lineElement => {
     const pathElement = /** @type {SVGPathElement} */ (
       /** @type {unknown} */ (document.createElement("path"))
@@ -104,7 +103,7 @@ const processData = (/** @type {string} */ data) => {
 
     pathElement.setAttribute(
       "d",
-      `M${lineElement.getAttribute("x1")} ${lineElement.getAttribute("y1")} L${lineElement.getAttribute("x2")} ${lineElement.getAttribute("y2")}`
+      `M${lineElement.getAttribute("x1")} ${lineElement.getAttribute("y1")}L${lineElement.getAttribute("x2")} ${lineElement.getAttribute("y2")}`
     );
     [...lineElement.attributes].forEach(attr => {
       if (shareableAttributes.includes(attr.name)) {
