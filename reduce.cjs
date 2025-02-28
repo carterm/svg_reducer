@@ -288,13 +288,10 @@ const processData = (/** @type {string} */ data) => {
           "-"
         ); // Remove space before negative numbers
 
-        //return newCommand;
-        command.originalcommand += z;
+        const original = command.originalcommand + z;
 
         //Only use new command if it's shorter than the original
-        return newCommand.length <= command.originalcommand.length
-          ? newCommand
-          : command.originalcommand;
+        return newCommand.length <= original.length ? newCommand : original;
       })
       .join("");
 
