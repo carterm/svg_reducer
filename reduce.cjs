@@ -26,6 +26,8 @@ const outputFile =
 // Create the necessary directories if they don't exist
 const outputDir = path.dirname(outputFile);
 
+const gAttributes = ["stroke", "stroke-width", "fill"];
+
 const processData = (/** @type {string} */ data) => {
   // Parse the transformed data as HTML
   const dom = new JSDOM(data);
@@ -409,24 +411,26 @@ const processData = (/** @type {string} */ data) => {
       x => x !== targetElement
     );
 
-    [...targetElement.attributes].forEach(attr => {
-      // Search for a sibling with the same attribute value
-      const matchingSiblings = siblings.filter(
-        sibling => sibling.getAttribute(attr.name) === attr.value
-      );
+    [...targetElement.attributes]
+      .filter(attr => gAttributes.includes(attr.name))
+      .forEach(attr => {
+        // Search for a sibling with the same attribute value
+        const matchingSiblings = siblings.filter(
+          sibling => sibling.getAttribute(attr.name) === attr.value
+        );
 
-      if (matchingSiblings.length) {
-        const newG = document.createElement("g");
-        newG.setAttribute(attr.name, attr.value);
-        targetElement.parentElement?.insertBefore(newG, targetElement);
+        if (matchingSiblings.length) {
+          const newG = document.createElement("g");
+          newG.setAttribute(attr.name, attr.value);
+          targetElement.parentElement?.insertBefore(newG, targetElement);
 
-        [targetElement, ...matchingSiblings].forEach(sibling => {
-          sibling.removeAttribute(attr.name);
+          [targetElement, ...matchingSiblings].forEach(sibling => {
+            sibling.removeAttribute(attr.name);
 
-          newG.appendChild(sibling);
-        });
-      }
-    });
+            newG.appendChild(sibling);
+          });
+        }
+      });
   }); //End push to common attributes
 
   // Remove empty tags from dom
@@ -499,7 +503,7 @@ const processData = (/** @type {string} */ data) => {
 
       .replace(/\s{2,}/g, " ") // Replace 2 or more whitespace chars with a single space
       .replace(/>\s+</g, "><") // Remove all whitespace between ">" and "<"
-      .replace(/><\/path>/g, "/>")
+      .replace(/><\/(path|line|rect)>/g, "/>")
   );
 };
 
