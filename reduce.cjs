@@ -290,8 +290,9 @@ const processData = (/** @type {string} */ data) => {
 
     d = d.replaceAll(
       /c\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
-      (match, x0, y0, x1, y1, x2, y2) => {
-        if (x0 === "0" && y0 === "0" && x1 === x2 && y1 === y2) {
+      (match, ...params) => {
+        const [x0, y0, x1, y1, x2, y2] = params.map(parseFloat);
+        if (x0 === 0 && y0 === 0 && x1 === x2 && y1 === y2) {
           return `l${x1} ${y1}`;
         } else {
           return match;
