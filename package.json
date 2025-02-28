@@ -11,7 +11,7 @@
     "reduce5": "node reduce.cjs samples/volunteer-lineart.svg",
     "reduce6": "node reduce.cjs samples/tractor-lineart.svg",
     "reduce7": "node reduce.cjs samples/topic9-lineart.svg",
-    "reduce8": "node reduce.cjs samples/LA-fires-get-help-in-person-wait-times-placeholder.svg",
+    "reduce8": "node reduce.cjs samples/wait-times.svg",
     "GIT cleanup": "git clean -fd"
   },
   "repository": {

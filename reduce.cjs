@@ -95,6 +95,27 @@ const processData = (/** @type {string} */ data) => {
     }
   });
 
+  //Convert lines to paths
+
+  [...svgElement.querySelectorAll("line")].forEach(lineElement => {
+    const pathElement = /** @type {SVGPathElement} */ (
+      /** @type {unknown} */ (document.createElement("path"))
+    );
+
+    pathElement.setAttribute(
+      "d",
+      `M${lineElement.getAttribute("x1")} ${lineElement.getAttribute("y1")} L${lineElement.getAttribute("x2")} ${lineElement.getAttribute("y2")}`
+    );
+    [...lineElement.attributes].forEach(attr => {
+      if (shareableAttributes.includes(attr.name)) {
+        pathElement.setAttribute(attr.name, attr.value);
+      }
+    });
+
+    lineElement.parentElement?.insertBefore(pathElement, lineElement);
+    lineElement.remove();
+  });
+
   // Remove all invisible elements
   /**
    * Recursively retrieves the visibility properties (fill, stroke, stroke-width) of an SVG element by traversing up its parent chain.
