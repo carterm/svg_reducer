@@ -297,10 +297,6 @@ const processData = (/** @type {string} */ data) => {
 
     d = d.replace(/s0 0\s*(-?\d+)\s*(-?\d+)/gm, "l$1 $2"); // line
 
-    //d = d.replace(/m[^clshvz]*(m)/gim, "$1"); // Remove consecutive "M" commands
-
-    //d = d.replace(/m[^clshvz]*(m)/gim, "$1"); // Remove consecutive "M" commands
-
     //s curve with no curve before it
     d = d.replace(/([h|v|l][^a-zA-Z]+)s([^a-zA-Z]+)/gm, "$1c0 0 $2"); //independent curve
 
