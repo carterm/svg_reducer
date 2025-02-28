@@ -155,7 +155,7 @@ const processData = (/** @type {string} */ data) => {
     d = d.replace(/,/g, " "); // Replace commas with spaces
     d = d.replace(/(\.\d+)(?=(\.\d+))/g, "$1 "); // Add space between decimals
 
-    d = d.replace(/\s+([clshvm])/gim, "$1"); // Remove leading whitespace before commands
+    d = d.replace(/\s+([clshvmz])/gim, "$1"); // Remove leading whitespace before commands
     d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
     let scale = 1;
@@ -218,7 +218,7 @@ const processData = (/** @type {string} */ data) => {
       return { code, coordinates, originalcommand };
     });
 
-    const commandsizes = { c: 3, s: 2, q: 2, t: 1, a: 7, l: 1 };
+    const commandsizes = { c: 3, s: 2, l: 1, m: 1, z: 0 };
 
     //Split "c" commands into groups of 3
     for (let i = 0; i < pathData.length; i++) {
@@ -262,6 +262,19 @@ const processData = (/** @type {string} */ data) => {
           if (lastpoint?.y) pointLocation.y += lastpoint.y;
         });
     }
+
+    /*
+    // Do some cleanup before rending the simplified path data
+    for (let i = 1; i < pathData.length; i++) {
+      const code = pathData[i].code.toLowerCase();
+
+      // remove "z" commands that follow a "m" command
+      if (code === "z" && pathData[i - 1].code.toLowerCase() === "m") {
+        pathData.splice(i, 1);
+        i--;
+      }
+    }
+    */
 
     // render simplified path data
     d = pathData
@@ -353,7 +366,10 @@ const processData = (/** @type {string} */ data) => {
     d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
     // Remove "z" commands that follow a "m" command
-    d = d.replace(/(m|M[^a-zA-Z]+)(Z|z)/gim, "$1");
+    d = d.replace(/(m[^a-z]+)z/gim, "$1");
+
+    // merge consecutive "m" commands
+    //d = d.replace(/m([^a-z]+)m/gim, "m$1");
 
     if (devmode) {
       d = d.replace(/([a-zA-z])/gim, "\n$1"); // Add newline before commands
