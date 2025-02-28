@@ -293,11 +293,22 @@ const processData = (/** @type {string} */ data) => {
       (match, ...params) => {
         const [x0, y0, x1, y1, x2, y2] = params.map(parseFloat);
 
-        const slope1 = (y1 - y0) / (x1 - x0);
-        const slope2 = (y2 - y0) / (x2 - x0);
-
-        if (slope1 === slope2) {
+        if (x0 === 0 && y0 === 0 && y1 / x1 === y2 / x2) {
           return `l${x2} ${y2}`;
+        } else if (
+          x0 === 0 &&
+          x1 === 0 &&
+          x2 === 0 &&
+          ((y0 <= y1 && y1 <= y2) || (y0 >= y1 && y1 >= y2))
+        ) {
+          return `v${y2}`;
+        } else if (
+          y0 === 0 &&
+          y1 === 0 &&
+          y2 === 0 &&
+          ((x0 <= x1 && x1 <= x2) || (x0 >= x1 && x1 >= x2))
+        ) {
+          return `h${x2}`;
         } else if (x0 === 0 && y0 === 0 && x2 === 0 && y2 === 0) {
           return "";
         } else {
