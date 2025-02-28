@@ -215,7 +215,7 @@ const processData = (/** @type {string} */ data) => {
         });
       }
 
-      return { code, coordinates, originalcommand };
+      return { code, coordinates, originalcommand, z: false };
     });
 
     const commandsizes = { c: 3, s: 2, l: 1, m: 1, z: 0 };
@@ -234,7 +234,8 @@ const processData = (/** @type {string} */ data) => {
           newCommands.push({
             code,
             coordinates: pathData[i].coordinates.slice(j, j + commandsize),
-            originalcommand
+            originalcommand,
+            z: false
           });
         }
         pathData.splice(i, 1, ...newCommands);
@@ -263,18 +264,17 @@ const processData = (/** @type {string} */ data) => {
         });
     }
 
-    /*
     // Do some cleanup before rending the simplified path data
     for (let i = 1; i < pathData.length; i++) {
       const code = pathData[i].code.toLowerCase();
 
       // remove "z" commands that follow a "m" command
-      if (code === "z" && pathData[i - 1].code.toLowerCase() === "m") {
+      if (code === "z") {
+        pathData[i - 1].z = true;
         pathData.splice(i, 1);
         i--;
       }
     }
-    */
 
     // render simplified path data
     d = pathData
@@ -283,10 +283,11 @@ const processData = (/** @type {string} */ data) => {
         const coordinates = command.coordinates.map(point =>
           `${point.x ?? ""} ${point.y ?? ""}`.trim()
         ); // Convert coordinates back to string
-        const newCommand = `${code}${coordinates.join(" ")}`.replace(
-          / -/g,
-          "-"
-        ); // Remove space before negative numbers
+        const newCommand =
+          `${code}${coordinates.join(" ")}${command.z ? "z" : ""}`.replace(
+            / -/g,
+            "-"
+          ); // Remove space before negative numbers
 
         //Only use new command if it's shorter than the original
         return newCommand.length <= command.originalcommand.length
