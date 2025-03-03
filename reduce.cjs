@@ -293,11 +293,11 @@ const processData = (/** @type {string} */ data) => {
                 p3.x !== undefined &&
                 p3.y !== undefined
               ) {
-                p2.x -= p1.x;
-                p2.y -= p1.y;
+                p2.x -= pointLocation.x;
+                p2.y -= pointLocation.y;
 
-                p3.x -= p1.x;
-                p3.y -= p1.y;
+                p3.x -= pointLocation.x;
+                p3.y -= pointLocation.y;
 
                 p1.x -= pointLocation.x;
                 p1.y -= pointLocation.y;
