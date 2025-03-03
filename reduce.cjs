@@ -8,6 +8,7 @@ const maxDecimalPlaces = 2;
 const removeExtraCs = true;
 const convertToRelative = true;
 const mergePaths = false;
+const keepSmallerCommand = false;
 
 // Get command line arguments
 const args = process.argv.slice(2);
@@ -281,12 +282,35 @@ const processData = (/** @type {string} */ data) => {
           const isAbsoluteCode = /[A-Z]/.test(command.code);
 
           command.code = command.code.toLowerCase();
-          command.coordinates.forEach(point => {
-            if (isAbsoluteCode) {
-              if (point.x) point.x -= pointLocation.x;
-              if (point.y) point.y -= pointLocation.y;
+          if (isAbsoluteCode) {
+            if (command.code === "c") {
+              const [p1, p2, p3] = command.coordinates;
+              if (
+                p2.x !== undefined &&
+                p2.y !== undefined &&
+                p1.x !== undefined &&
+                p1.y !== undefined &&
+                p3.x !== undefined &&
+                p3.y !== undefined
+              ) {
+                p2.x -= p1.x;
+                p2.y -= p1.y;
+
+                p3.x -= p1.x;
+                p3.y -= p1.y;
+
+                p1.x -= pointLocation.x;
+                p1.y -= pointLocation.y;
+              }
+            } else {
+              command.coordinates.forEach(point => {
+                if (isAbsoluteCode) {
+                  if (point.x !== undefined) point.x -= pointLocation.x;
+                  if (point.y !== undefined) point.y -= pointLocation.y;
+                }
+              });
             }
-          });
+          }
 
           const lastpoint = command.coordinates[command.coordinates.length - 1];
 
@@ -319,10 +343,14 @@ const processData = (/** @type {string} */ data) => {
           "-"
         ); // Remove space before negative numbers
 
-        const original = command.originalcommand + z;
+        if (keepSmallerCommand) {
+          const original = command.originalcommand + z;
 
-        //Only use new command if it's shorter than the original
-        return newCommand.length <= original.length ? newCommand : original;
+          //Only use new command if it's shorter than the original
+          return newCommand.length <= original.length ? newCommand : original;
+        } else {
+          return newCommand;
+        }
       })
       .join("");
 
