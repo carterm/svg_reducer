@@ -144,7 +144,7 @@ const processData = (/** @type {string} */ data) => {
   };
 
   // Look up the parent chain for stroke, fill, or stroke-width atrributes
-  [...svgElement.querySelectorAll("*")].forEach(element => {
+  [...svgElement.querySelectorAll("path")].forEach(element => {
     const props = getVisibilityProperties(element);
     if (
       props.fill === "none" &&
