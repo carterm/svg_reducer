@@ -7,8 +7,8 @@ const devmode = true;
 const maxDecimalPlaces = 2;
 const removeExtraCs = true;
 const convertToRelative = true;
-const mergePaths = false;
-const keepSmallerCommand = false;
+const mergePaths = true;
+const keepSmallerCommand = true;
 
 // Get command line arguments
 const args = process.argv.slice(2);
@@ -283,33 +283,10 @@ const processData = (/** @type {string} */ data) => {
 
           command.code = command.code.toLowerCase();
           if (isAbsoluteCode) {
-            if (command.code === "c") {
-              const [p1, p2, p3] = command.coordinates;
-              if (
-                p2.x !== undefined &&
-                p2.y !== undefined &&
-                p1.x !== undefined &&
-                p1.y !== undefined &&
-                p3.x !== undefined &&
-                p3.y !== undefined
-              ) {
-                p2.x -= pointLocation.x;
-                p2.y -= pointLocation.y;
-
-                p3.x -= pointLocation.x;
-                p3.y -= pointLocation.y;
-
-                p1.x -= pointLocation.x;
-                p1.y -= pointLocation.y;
-              }
-            } else {
-              command.coordinates.forEach(point => {
-                if (point.x !== undefined && point.y !== undefined) {
-                  point.x -= pointLocation.x;
-                  point.y -= pointLocation.y;
-                }
-              });
-            }
+            command.coordinates.forEach(point => {
+              if (point.x !== undefined) point.x -= pointLocation.x;
+              if (point.y !== undefined) point.y -= pointLocation.y;
+            });
           }
 
           const lastpoint = command.coordinates[command.coordinates.length - 1];
