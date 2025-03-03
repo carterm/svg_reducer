@@ -304,9 +304,9 @@ const processData = (/** @type {string} */ data) => {
               }
             } else {
               command.coordinates.forEach(point => {
-                if (isAbsoluteCode) {
-                  if (point.x !== undefined) point.x -= pointLocation.x;
-                  if (point.y !== undefined) point.y -= pointLocation.y;
+                if (point.x !== undefined && point.y !== undefined) {
+                  point.x -= pointLocation.x;
+                  point.y -= pointLocation.y;
                 }
               });
             }
