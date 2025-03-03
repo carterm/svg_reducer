@@ -281,8 +281,8 @@ const processData = (/** @type {string} */ data) => {
         .forEach(command => {
           const isAbsoluteCode = /[A-Z]/.test(command.code);
 
-          command.code = command.code.toLowerCase();
           if (isAbsoluteCode) {
+            command.code = command.code.toLowerCase();
             command.coordinates.forEach(point => {
               if (point.x !== undefined) point.x -= pointLocation.x;
               if (point.y !== undefined) point.y -= pointLocation.y;
