@@ -41,7 +41,7 @@ const processData = (/** @type {string} */ data) => {
     process.exit(1);
   }
 
-  svgElement
+  document
     .querySelectorAll("*")
     .forEach(element => element.removeAttribute("id"));
   svgElement.removeAttribute("data-name");
@@ -483,16 +483,16 @@ const processData = (/** @type {string} */ data) => {
     document.querySelectorAll("g").forEach(gElement => {
       const parent = gElement.parentElement;
       if (
-        // If the parent is a "g" element and has only one child
-        parent?.tagName.toLowerCase() === "g" &&
-        parent.childElementCount === 1
+        // If the parent is a "g" element and has only one child or no attributes
+        parent?.childElementCount === 1 ||
+        gElement.attributes.length === 0
       ) {
         // Move the attributes and children of the child "g" element to the parent "g" element
         gChangeDone = false;
         [...gElement.attributes].forEach(attr => {
-          parent.setAttribute(attr.name, attr.value);
+          parent?.setAttribute(attr.name, attr.value);
         });
-        while (gElement.firstChild) parent.appendChild(gElement.firstChild);
+        while (gElement.firstChild) parent?.appendChild(gElement.firstChild);
 
         gElement.remove();
       }
