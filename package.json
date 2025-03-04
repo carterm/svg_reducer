@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "reduce svgs",
   "scripts": {
-    "start": "npm run reduce1 && npm run reduce2 && npm run reduce3 && npm run reduce4 && npm run reduce5 && npm run reduce6 && npm run reduce7 && npm run reduce8  && npm run reduce9",
+    "start": "npm run reduce1 && npm run reduce2 && npm run reduce3 && npm run reduce4 && npm run reduce5 && npm run reduce6 && npm run reduce7 && npm run reduce8 && npm run reduce9 && npm run reduce10",
     "reduce1": "node reduce.cjs samples/sample1.svg",
     "reduce2": "node reduce.cjs samples/sample2.svg",
     "reduce3": "node reduce.cjs samples/recovery-lineart.svg",
@@ -13,6 +13,7 @@
     "reduce7": "node reduce.cjs samples/topic9-lineart.svg",
     "reduce8": "node reduce.cjs samples/wait-times.svg",
     "reduce9": "node reduce.cjs samples/cagov-logo-white.svg",
+    "reduce10": "node reduce.cjs samples/cagov-logo-white2.svg",
     "GIT cleanup": "git clean -fd"
   },
   "repository": {
