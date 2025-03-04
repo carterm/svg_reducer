@@ -119,6 +119,44 @@ const processData = (/** @type {string} */ data) => {
     lineElement.remove();
   });
 
+  //Convert simple rects to paths
+  [...svgElement.querySelectorAll("rect")].forEach(rectElement => {
+    const pathElement = /** @type {SVGPathElement} */ (
+      /** @type {unknown} */ (document.createElement("path"))
+    );
+
+    if (!rectElement.getAttribute("rx") && !rectElement.getAttribute("ry")) {
+      // Simple rectangle
+      //<rect fill="black" width="149.31" height="83.66" />
+      // to...
+      //<path fill="black" d="M0 0 H149.31 V83.66 H0 Z" />
+
+      const [rectWidth, rectHeight, rectX, rectY] = [
+        "width",
+        "height",
+        "x",
+        "y"
+      ].map(attr => {
+        const value = parseFloat(rectElement.getAttribute(attr) || "0");
+        return isNaN(value) ? 0 : value;
+      });
+
+      pathElement.setAttribute(
+        "d",
+        `M${rectX} ${rectY}H${rectX + rectWidth}V${rectY + rectHeight}H${rectX}Z`
+      );
+
+      [...rectElement.attributes].forEach(attr => {
+        if (shareableAttributes.includes(attr.name)) {
+          pathElement.setAttribute(attr.name, attr.value);
+        }
+      });
+
+      rectElement.parentElement?.insertBefore(pathElement, rectElement);
+      rectElement.remove();
+    }
+  });
+
   // Remove all invisible elements
   /**
    * Recursively retrieves the visibility properties (fill, stroke, stroke-width) of an SVG element by traversing up its parent chain.
@@ -167,10 +205,14 @@ const processData = (/** @type {string} */ data) => {
 
       if (
         // Do both paths have the same attributes? Except for d
-        [...nextPath.attributes].every(
+        [
+          ...new Set(
+            [...nextPath.attributes, ...currentPath.attributes].map(x => x.name)
+          )
+        ].every(
           attr =>
-            attr.name === "d" ||
-            currentPath.getAttribute(attr.name) === attr.value
+            attr === "d" ||
+            currentPath.getAttribute(attr) === nextPath.getAttribute(attr)
         )
       ) {
         nextPath.setAttribute(
