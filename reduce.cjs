@@ -218,9 +218,12 @@ const processData = (/** @type {string} */ data) => {
               currentPath.getAttribute(name) === nextPath.getAttribute(name)
           )
       ) {
+        //Make sure the first M command is uppercase when merging
+        const nextD = (nextPath.getAttribute("d") || "").replace(/m/, "M");
+
         nextPath.setAttribute(
           "d",
-          `${currentPath.getAttribute("d")}\n${nextPath.getAttribute("d")}`
+          `${currentPath.getAttribute("d")}\n${nextD}`
         );
         currentPath.remove();
       }
