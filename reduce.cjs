@@ -545,7 +545,6 @@ const processData = (/** @type {string} */ data) => {
   }
 
   // apply the transform to the SVG viewbox if all children have the same scale transform
-
   const svgChildren = [...svgElement.children];
   if (
     svgChildren
@@ -563,7 +562,7 @@ const processData = (/** @type {string} */ data) => {
         transform.replace(scaleMatch[0], "").trim().length === 0
       ) {
         const viewbox = svgElement.getAttribute("viewBox");
-        const val = scaleMatch?.groups?.val;
+        const val = scaleMatch.groups?.val;
         if (val && viewbox) {
           const [x, y, width, height] = viewbox.split(" ").map(parseFloat);
 
