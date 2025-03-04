@@ -334,6 +334,7 @@ const processData = (/** @type {string} */ data) => {
         } else {
           const isAbsoluteCode = /[A-Z]/.test(command.code);
 
+          // Convert absolute commands, except the first one, to relative
           if (isAbsoluteCode && i > 0) {
             command.code = command.code.toLowerCase();
             command.coordinates.forEach(point => {
