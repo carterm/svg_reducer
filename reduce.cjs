@@ -328,7 +328,7 @@ const processData = (/** @type {string} */ data) => {
         .forEach(command => {
           const isAbsoluteCode = /[A-Z]/.test(command.code);
 
-          if (isAbsoluteCode && command.code !== "M") {
+          if (isAbsoluteCode) {
             command.code = command.code.toLowerCase();
             command.coordinates.forEach(point => {
               if (point.x !== undefined) point.x -= pointLocation.x;
@@ -345,9 +345,7 @@ const processData = (/** @type {string} */ data) => {
 
     // Do some cleanup before rending the simplified path data
     for (let i = 1; i < pathData.length; i++) {
-      const code = pathData[i].code.toLowerCase();
-
-      if (code === "z") {
+      if (pathData[i].code.toLowerCase() === "z") {
         pathData[i - 1].z = true;
         pathData.splice(i, 1);
         i--;
