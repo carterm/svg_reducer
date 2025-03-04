@@ -207,13 +207,16 @@ const processData = (/** @type {string} */ data) => {
         // Do both paths have the same attributes? Except for d
         [
           ...new Set(
-            [...nextPath.attributes, ...currentPath.attributes].map(x => x.name)
+            [...nextPath.attributes, ...currentPath.attributes].map(
+              attr => attr.name
+            )
           )
-        ].every(
-          attr =>
-            attr === "d" ||
-            currentPath.getAttribute(attr) === nextPath.getAttribute(attr)
-        )
+        ]
+          .filter(name => name !== "d")
+          .every(
+            name =>
+              currentPath.getAttribute(name) === nextPath.getAttribute(name)
+          )
       ) {
         nextPath.setAttribute(
           "d",
@@ -541,34 +544,40 @@ const processData = (/** @type {string} */ data) => {
     });
   }
 
-  // apply the transform to the SVG viewbox if there is only one
-  if (svgElement.childElementCount === 1) {
-    const child = svgElement.firstElementChild;
-    if (child) {
-      let transform = child.getAttribute("transform");
-      const viewbox = svgElement.getAttribute("viewBox");
+  // apply the transform to the SVG viewbox if all children have the same scale transform
 
-      // If the child has a scale transform and the viewBox is set
-      if (transform && viewbox) {
-        const scaleMatch = transform.match(/scale\((?<val>[^)]+)\)/);
+  const svgChildren = [...svgElement.children];
+  if (
+    svgChildren
+      .map(x => x.getAttribute("transform"))
+      .every((transform, _i, a) => transform === a[0])
+  ) {
+    // Check if the transform is only a scale transform
+    const transform = svgChildren[0].getAttribute("transform");
+    if (transform) {
+      const scaleMatch = transform.match(/scale\((?<val>[^)]+)\)/);
+
+      // Check if the transform is only a scale transform
+      if (
+        scaleMatch &&
+        transform.replace(scaleMatch[0], "").trim().length === 0
+      ) {
+        const viewbox = svgElement.getAttribute("viewBox");
         const val = scaleMatch?.groups?.val;
-        if (val) {
-          const scale = parseFloat(val);
+        if (val && viewbox) {
           const [x, y, width, height] = viewbox.split(" ").map(parseFloat);
 
           // Update the viewBox to reflect the new scale
+          const scale = parseFloat(val);
           svgElement.setAttribute(
             "viewBox",
             `${x / scale} ${y / scale} ${width / scale} ${height / scale}`
           );
 
-          // Remove the scale transform from the child
-          transform = transform.replace(scaleMatch[0], "");
-          if (transform.trim().length) {
-            child.setAttribute("transform", transform);
-          } else {
+          svgChildren.forEach(child => {
+            // Remove the scale transform from the child
             child.removeAttribute("transform");
-          }
+          });
         }
       }
     }
