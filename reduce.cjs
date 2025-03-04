@@ -265,7 +265,7 @@ const processData = (/** @type {string} */ data) => {
       Math.round((parseFloat(match) * 10 * scale) / 10).toString()
     ); // Round decimals
 
-    //Switch to relative commands
+    // Simplify path data
     /** @type {string[]} */
     const allCommands = d.match(/[a-zA-Z][^a-zA-Z]*/g) || [];
     const pathData = allCommands.map(command => {
@@ -301,7 +301,7 @@ const processData = (/** @type {string} */ data) => {
 
     //Split "c" commands into groups of 3
     for (let i = 0; i < pathData.length; i++) {
-      const code = pathData[i].code.toLowerCase();
+      const code = pathData[i].code;
       const originalcommand = pathData[i].originalcommand;
 
       /** @type {number} */
