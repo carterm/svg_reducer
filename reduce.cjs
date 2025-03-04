@@ -484,15 +484,15 @@ const processData = (/** @type {string} */ data) => {
       const parent = gElement.parentElement;
       if (
         // If the parent is a "g" element and has only one child or no attributes
-        parent?.childElementCount === 1 ||
-        gElement.attributes.length === 0
+        parent &&
+        (parent.childElementCount === 1 || gElement.attributes.length === 0)
       ) {
         // Move the attributes and children of the child "g" element to the parent "g" element
         gChangeDone = false;
         [...gElement.attributes].forEach(attr => {
-          parent?.setAttribute(attr.name, attr.value);
+          parent.setAttribute(attr.name, attr.value);
         });
-        while (gElement.firstChild) parent?.appendChild(gElement.firstChild);
+        while (gElement.firstChild) parent.appendChild(gElement.firstChild);
 
         gElement.remove();
       }
