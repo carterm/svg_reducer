@@ -327,14 +327,14 @@ const processData = (/** @type {string} */ data) => {
     if (convertToRelative) {
       const startLocation = { x: 0, y: 0 };
       const pointLocation = { x: 0, y: 0 };
-      pathData.forEach(command => {
+      pathData.forEach((command, i) => {
         if (command.code.toLowerCase() === "z") {
           pointLocation.x = startLocation.x;
           pointLocation.y = startLocation.y;
         } else {
           const isAbsoluteCode = /[A-Z]/.test(command.code);
 
-          if (isAbsoluteCode) {
+          if (isAbsoluteCode && i > 0) {
             command.code = command.code.toLowerCase();
             command.coordinates.forEach(point => {
               if (point.x !== undefined) point.x -= pointLocation.x;

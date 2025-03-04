@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 15 378 210"><path fill="#000" d="
-m0 15
+M0 15
 h378
 v210
 H0
 z"/><g fill="#FFF"><path d="
-m135 100
+M135 100
 l-7-20
 -7 20
 h-21
