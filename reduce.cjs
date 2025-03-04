@@ -325,10 +325,13 @@ const processData = (/** @type {string} */ data) => {
     }
 
     if (convertToRelative) {
+      const startLocation = { x: 0, y: 0 };
       const pointLocation = { x: 0, y: 0 };
-      pathData
-        .filter(x => x.code.toLowerCase() !== "z")
-        .forEach(command => {
+      pathData.forEach(command => {
+        if (command.code.toLowerCase() === "z") {
+          pointLocation.x = startLocation.x;
+          pointLocation.y = startLocation.y;
+        } else {
           const isAbsoluteCode = /[A-Z]/.test(command.code);
 
           if (isAbsoluteCode) {
@@ -343,7 +346,13 @@ const processData = (/** @type {string} */ data) => {
 
           if (lastpoint?.x) pointLocation.x += lastpoint.x;
           if (lastpoint?.y) pointLocation.y += lastpoint.y;
-        });
+
+          if (command.code.toLowerCase() === "m") {
+            startLocation.x = pointLocation.x;
+            startLocation.y = pointLocation.y;
+          }
+        }
+      });
     }
 
     // Do some cleanup before rending the simplified path data
