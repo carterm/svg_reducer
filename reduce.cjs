@@ -555,6 +555,18 @@ const processData = (/** @type {string} */ data) => {
     });
   }
 
+  // Remove "g" elements with only one child
+  document.querySelectorAll("g > *:only-child").forEach(onlychild => {
+    const gElement = onlychild.parentElement;
+    if (gElement?.parentElement) {
+      [...gElement.attributes].forEach(attr => {
+        onlychild.setAttribute(attr.name, attr.value);
+      });
+      gElement.parentElement.insertBefore(onlychild, gElement);
+      gElement.remove();
+    }
+  });
+
   // apply the transform to the SVG viewbox if all children have the same scale transform
   const svgChildren = [...svgElement.children];
   if (
