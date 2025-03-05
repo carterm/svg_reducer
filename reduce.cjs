@@ -493,7 +493,6 @@ const processData = (/** @type {string} */ data) => {
       d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers, after removing extra cs
     }
 
-    pathElement.removeAttribute("d");
     pathElement.setAttribute("d", d);
   }); //End Path loop
 
@@ -564,6 +563,15 @@ const processData = (/** @type {string} */ data) => {
       });
       gElement.parentElement.insertBefore(onlychild, gElement);
       gElement.remove();
+    }
+  });
+
+  // put path "d" attributes in the correct order
+  document.querySelectorAll("path").forEach(pathElement => {
+    const d = pathElement.getAttribute("d");
+    if (d) {
+      pathElement.removeAttribute("d");
+      pathElement.setAttribute("d", d);
     }
   });
 
