@@ -3,18 +3,9 @@
   "version": "0.0.1",
   "description": "reduce svgs",
   "scripts": {
-    "start": "npm run reduce1 && npm run reduce2 && npm run reduce3 && npm run reduce4 && npm run reduce5 && npm run reduce6 && npm run reduce7 && npm run reduce8 && npm run reduce9 && npm run reduce10 && npm run reduce11",
-    "reduce1": "node reduce.cjs --input samples/sample1.svg --dev",
-    "reduce2": "node reduce.cjs --input samples/sample2.svg --dev",
-    "reduce3": "node reduce.cjs --input samples/recovery-lineart.svg --dev",
-    "reduce4": "node reduce.cjs --input samples/recovery-finder-lineart.svg --dev",
-    "reduce5": "node reduce.cjs --input samples/volunteer-lineart.svg --dev",
-    "reduce6": "node reduce.cjs --input samples/tractor-lineart.svg --dev",
-    "reduce7": "node reduce.cjs --input samples/topic9-lineart.svg --dev",
-    "reduce8": "node reduce.cjs --input samples/wait-times.svg --dev",
-    "reduce9": "node reduce.cjs --input samples/cagov-logo-white.svg --dev",
-    "reduce10": "node reduce.cjs --input samples/cagov-logo-white2.svg --dev",
-    "reduce11": "node reduce.cjs --input 'samples/cagov-font*' --m 0 --dev",
+    "start": "npm run run_default && npm run run_zero_decimals",
+    "run_default": "node reduce.cjs --input 'samples/default/*' --dev",
+    "run_zero_decimals": "node reduce.cjs --input 'samples/zero_decimals/*' --m 0 --dev",
     "GIT cleanup": "git clean -fd"
   },
   "repository": {
