@@ -3,6 +3,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 const chalk = require("chalk");
 const { JSDOM } = require("jsdom");
+const yargs = require("yargs");
+const { globStream } = require("glob");
 
 const removeExtraCs = true;
 const convertToRelative = true;
@@ -10,9 +12,6 @@ const mergePaths = true;
 const keepSmallerCommand = true;
 
 const shareableAttributes = ["stroke", "stroke-width", "fill", "transform"];
-
-const yargs = require("yargs");
-const { globStream } = require("glob");
 
 // Configure your command-line options
 const argv = yargs
@@ -40,13 +39,13 @@ const argv = yargs
 
 // Access the options
 /** @type {boolean} */
-let devmode = argv["dev"] ?? false;
+const devmode = argv["dev"];
 if (devmode) {
   console.log("Developer mode is enabled!");
 }
 
 /** @type {number} */
-let maxDecimalPlaces = argv["maxDecimalPlaces"];
+const maxDecimalPlaces = argv["maxDecimalPlaces"];
 console.log(`Maximum decimal places set to: ${maxDecimalPlaces}`);
 
 // Use glob to find matching files
@@ -713,5 +712,5 @@ stream.on("error", err => {
 
 // Signal completion
 stream.on("end", () => {
-  console.log("File processing complete!");
+  console.log("Done.");
 });
