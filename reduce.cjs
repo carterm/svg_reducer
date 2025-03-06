@@ -4,7 +4,8 @@ const path = require("node:path");
 const chalk = require("chalk");
 const yargs = require("yargs");
 const { globStream } = require("glob");
-const { processData } = require("./process-svg.cjs");
+const { processSvg } = require("./process-svg.cjs");
+const { processJson } = require("./process-json.cjs");
 
 // Configure your command-line options
 const argv = yargs
@@ -72,7 +73,9 @@ stream.on("data", inputFile => {
         process.exit(1);
       }
 
-      const htmlOutput = processData(data, processOptions);
+      const htmlOutput = inputFile.endsWith(".json")
+        ? processJson(data, processOptions)
+        : processSvg(data, processOptions);
 
       // Write to the output file
       fs.writeFile(outputFile, htmlOutput, "utf8", writeErr => {

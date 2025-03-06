@@ -23,7 +23,7 @@ const shareableAttributes = ["stroke", "stroke-width", "fill", "transform"];
  * @param {processDataOptions} options
  * @returns
  */
-const processData = (/** @type {string} */ data, options) => {
+const processSvg = (/** @type {string} */ data, options) => {
   // Parse the transformed data as HTML
   const dom = new JSDOM(data);
   const document = dom.window.document;
@@ -333,4 +333,4 @@ const processData = (/** @type {string} */ data, options) => {
   );
 };
 
-module.exports = { processData };
+module.exports = { processSvg };
