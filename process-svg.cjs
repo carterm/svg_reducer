@@ -325,7 +325,7 @@ const processData = (/** @type {string} */ data, options) => {
     svgElement.outerHTML
       // .replace(/\r?\n|\r/g, "") // Remove line breaks
 
-      .replace(/\s{2,}/g, " ") // Replace 2 or more whitespace chars with a single space
+      //.replace(/\s{2,}/g, " ") // Replace 2 or more whitespace chars with a single space
       .replace(/>\s+</g, "><") // Remove all whitespace between ">" and "<"
       .replace(/><\/(path|line|rect)>/g, "/>")
   );
