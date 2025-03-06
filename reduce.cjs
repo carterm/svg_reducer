@@ -50,8 +50,6 @@ const stream = globStream(inputPattern, globOptions);
 
 // Process each file in the stream
 stream.on("data", inputFile => {
-  console.log(`Matched file: ${inputFile}`);
-
   const outputFile = path.join(
     path.dirname(inputFile),
     "output",
@@ -82,7 +80,7 @@ stream.on("data", inputFile => {
           console.error(`Error writing the output file: ${writeErr.message}`);
           process.exit(1);
         }
-        console.log(`Successfully transformed and saved to ${outputFile}`);
+        console.log(`${chalk.green(outputFile)}`);
         console.log(
           `Original file size: \t${chalk.blue(data.length.toLocaleString())} bytes`
         );
@@ -102,9 +100,4 @@ stream.on("data", inputFile => {
 // Handle errors
 stream.on("error", err => {
   console.error(`Error: ${err}`);
-});
-
-// Signal completion
-stream.on("end", () => {
-  console.log("Done.");
 });
