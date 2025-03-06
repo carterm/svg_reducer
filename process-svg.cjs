@@ -28,6 +28,25 @@ const processSvg = (/** @type {string} */ data, options) => {
   const dom = new JSDOM(data);
   const document = dom.window.document;
 
+  // Remove all HTML comments
+  // Function to remove all comment nodes
+  function removeComments(node) {
+    const comments = [];
+    const treeWalker = document.createTreeWalker(
+      node,
+      128, //NodeFilter.SHOW_COMMENT,
+      null
+    );
+
+    while (treeWalker.nextNode()) {
+      comments.push(treeWalker.currentNode);
+    }
+
+    comments.forEach(comment => comment.parentNode?.removeChild(comment));
+  }
+  // Call the function to clean the document
+  removeComments(document);
+
   const svgElement = document.querySelector("svg");
   if (!svgElement) {
     console.error(`Missing SVG element`);
