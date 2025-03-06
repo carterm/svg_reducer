@@ -29,23 +29,13 @@ const processSvg = (/** @type {string} */ data, options) => {
   const document = dom.window.document;
 
   // Remove all HTML comments
-  // Function to remove all comment nodes
-  function removeComments(node) {
-    const comments = [];
-    const treeWalker = document.createTreeWalker(
-      node,
-      128, //NodeFilter.SHOW_COMMENT,
-      null
-    );
-
-    while (treeWalker.nextNode()) {
-      comments.push(treeWalker.currentNode);
-    }
-
-    comments.forEach(comment => comment.parentNode?.removeChild(comment));
-  }
-  // Call the function to clean the document
-  removeComments(document);
+  document.querySelectorAll("*").forEach(node => {
+    [...node.childNodes].forEach(child => {
+      if (child.nodeType === dom.window.Node.COMMENT_NODE) {
+        child.remove();
+      }
+    });
+  });
 
   const svgElement = document.querySelector("svg");
   if (!svgElement) {
