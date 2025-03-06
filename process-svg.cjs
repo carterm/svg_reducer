@@ -232,11 +232,13 @@ const processData = (/** @type {string} */ data, options) => {
   }); //End push to common attributes
 
   // Remove empty tags from dom
-  svgElement.querySelectorAll("*").forEach(element => {
-    if (!element.hasAttributes() && !element.innerHTML.trim().length) {
+  [...svgElement.querySelectorAll("*")]
+    .filter(
+      element => !element.hasAttributes() && !element.innerHTML.trim().length
+    )
+    .forEach(element => {
       element.remove();
-    }
-  });
+    });
 
   // Merge nested "g" elements
   let gChangeDone = false;
