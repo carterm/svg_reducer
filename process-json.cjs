@@ -13,6 +13,23 @@ const {
  */
 const processJson = (/** @type {string} */ data, options) => {
   const json = JSON.parse(data);
+  [...json.icons].forEach(icon => {
+    const joinall = false;
+
+    if (joinall) {
+      const d = [...icon.icon.paths].join("");
+      const newd = processPathD(d, options);
+      icon.icon.paths = [newd];
+    } else {
+      [...icon.icon.paths].forEach((path, i) => {
+        icon.icon.paths[i] = processPathD(path, options);
+      });
+    }
+
+    //console.log(`${icon.properties.name} saved ${icon.icon.paths.length - newd.length}`);
+
+    let p = 1;
+  });
 
   return JSON.stringify(json, null, 2);
 };

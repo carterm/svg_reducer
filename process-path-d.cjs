@@ -17,8 +17,8 @@ const processPathD = (d, options, pathElement) => {
   d = d.replace(/\s+([clshvmz])/gim, "$1"); // Remove leading whitespace before commands
   d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
-  // If the element is specified, scale the path data and stroke width
   if (pathElement) {
+    // If the element is specified, scale the path data and stroke width
     let scale = 1;
     d.match(/-?\d*\.?\d+/g)?.forEach(value => {
       const val = parseFloat(value);
@@ -46,6 +46,11 @@ const processPathD = (d, options, pathElement) => {
     d = d.replace(/-?\d*\.?\d+/g, match =>
       Math.round((parseFloat(match) * 10 * scale) / 10).toString()
     ); // Round decimals
+  } else {
+    d = d.replace(/-?\d*\.?\d+/g, match => {
+      const num = parseFloat(match);
+      return Math.round(num).toString();
+    }); // Round to options.maxDecimalPlaces
   }
 
   // Simplify path data
