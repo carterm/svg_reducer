@@ -171,7 +171,7 @@ const processData = (/** @type {string} */ data) => {
     let props = parent
       ? getVisibilityProperties(parent)
       : {
-          fill: "none",
+          fill: "black",
           stroke: "none",
           strokeWidth: 1
         };
