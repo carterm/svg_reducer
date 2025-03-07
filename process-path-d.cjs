@@ -17,9 +17,10 @@ const processPathD = (d, options, pathElement) => {
   d = d.replace(/\s+([clshvmz])/gim, "$1"); // Remove leading whitespace before commands
   d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
+  let scale = 1;
+
   if (pathElement) {
     // If the element is specified, scale the path data and stroke width
-    let scale = 1;
     d.match(/-?\d*\.?\d+/g)?.forEach(value => {
       const val = parseFloat(value);
       const decimalPlaces = Math.min(
@@ -42,15 +43,6 @@ const processPathD = (d, options, pathElement) => {
         );
       }
     }
-
-    d = d.replace(/-?\d*\.?\d+/g, match =>
-      Math.round((parseFloat(match) * 10 * scale) / 10).toString()
-    ); // Round decimals
-  } else {
-    d = d.replace(/-?\d*\.?\d+/g, match => {
-      const num = parseFloat(match);
-      return Math.round(num).toString();
-    }); // Round to options.maxDecimalPlaces
   }
 
   // Simplify path data
@@ -67,22 +59,32 @@ const processPathD = (d, options, pathElement) => {
     let coordinates = [];
 
     if (code.toLowerCase() === "h") {
-      coordinates = [{ x: parseInt(commanddata) }];
+      coordinates = [{ x: parseFloat(commanddata) }];
     } else if (code.toLowerCase() === "v") {
-      coordinates = [{ y: parseInt(commanddata) }];
+      coordinates = [{ y: parseFloat(commanddata) }];
     } else if (code.toLowerCase() === "z") {
       //
     } else {
-      const pairs = [...commanddata.matchAll(/(?<x>-?\d+)\s*(?<y>-?\d+)/g)];
+      const pairs = [
+        ...commanddata.matchAll(/(?<x>-?[.\d]+)\s*(?<y>-?[.\d]+)/g)
+      ];
 
       coordinates = pairs.map(pair => {
         const groups = pair.groups || {};
 
-        return { x: parseInt(groups["x"]), y: parseInt(groups["y"]) };
+        return { x: parseFloat(groups["x"]), y: parseFloat(groups["y"]) };
       });
     }
 
     return { code, coordinates, originalcommand, z: false };
+  });
+
+  //Do rounding here
+  pathData.forEach(command => {
+    command.coordinates.forEach(point => {
+      if (point.x !== undefined) point.x = Math.round(point.x * scale) / scale;
+      if (point.y !== undefined) point.y = Math.round(point.y * scale) / scale;
+    });
   });
 
   const commandsizes = { c: 3, s: 2, l: 1, m: 1 };
