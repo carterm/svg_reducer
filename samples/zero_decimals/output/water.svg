@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path d="
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <path
+    d="
 M500 894
 v57
 c0 19-16 35-35 35
@@ -27,4 +29,5 @@ c40 0 73-33 73-73
 v-44
 c-15-3-28-8-40-14
 l1 1
-z"/></svg>
+z" />
+</svg>
