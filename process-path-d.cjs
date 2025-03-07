@@ -29,6 +29,7 @@ const processPathD = (d, options, pathElement) => {
      */
     let coordinates = [];
 
+    // TODO: Known issue.  Sequential "h" and "v" commands are not being split into separate commands
     if (code.toLowerCase() === "h") {
       coordinates = [{ x: parseFloat(commanddata) }];
     } else if (code.toLowerCase() === "v") {
