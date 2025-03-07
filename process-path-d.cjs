@@ -17,44 +17,15 @@ const processPathD = (d, options, pathElement) => {
   d = d.replace(/\s+([clshvmz])/gim, "$1"); // Remove leading whitespace before commands
   d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
-  let scale = 1;
-
-  if (pathElement) {
-    // If the element is specified, scale the path data and stroke width
-    d.match(/-?\d*\.?\d+/g)?.forEach(value => {
-      const val = parseFloat(value);
-      const decimalPlaces = Math.min(
-        options.maxDecimalPlaces,
-        (val.toString().split(".")[1] || "").length
-      );
-      scale = Math.max(scale, Math.pow(10, decimalPlaces));
-    });
-    if (scale !== 1) {
-      pathElement.setAttribute(
-        "transform",
-        `scale(${(1 / scale).toString().replace(/^0\./, ".")})`
-      );
-
-      const props = getVisibilityProperties(pathElement);
-      if (props.stroke !== "none" || pathElement.hasAttribute("stroke-width")) {
-        pathElement.setAttribute(
-          "stroke-width",
-          (props.strokeWidth * scale).toString()
-        );
-      }
-    }
-  }
-
   // Simplify path data
   /** @type {string[]} */
   const allCommands = d.match(/[a-zA-Z][^a-zA-Z]*/g) || [];
   const pathData = allCommands.map(command => {
     const code = command.trim()[0];
     const commanddata = command.replace(code, "").trim();
-    const originalcommand = `${code}${commanddata}`;
 
     /**
-     * @type {{x?: number, y?: number}[]}
+     * @type {{x?: number, y?: number, absx?: number, absy?: number}[]}
      */
     let coordinates = [];
 
@@ -72,19 +43,14 @@ const processPathD = (d, options, pathElement) => {
       coordinates = pairs.map(pair => {
         const groups = pair.groups || {};
 
-        return { x: parseFloat(groups["x"]), y: parseFloat(groups["y"]) };
+        return {
+          x: parseFloat(groups["x"]),
+          y: parseFloat(groups["y"])
+        };
       });
     }
 
-    return { code, coordinates, originalcommand, z: false };
-  });
-
-  //Do rounding here
-  pathData.forEach(command => {
-    command.coordinates.forEach(point => {
-      if (point.x !== undefined) point.x = Math.round(point.x * scale) / scale;
-      if (point.y !== undefined) point.y = Math.round(point.y * scale) / scale;
-    });
+    return { code, coordinates, z: false, abs: /[A-Z]/.test(code) };
   });
 
   const commandsizes = { c: 3, s: 2, l: 1, m: 1 };
@@ -92,7 +58,6 @@ const processPathD = (d, options, pathElement) => {
   //Split "c" commands into groups of 3
   for (let i = 0; i < pathData.length; i++) {
     const code = pathData[i].code;
-    const originalcommand = pathData[i].originalcommand;
 
     /** @type {number} */
     const commandsize = commandsizes[code];
@@ -103,13 +68,65 @@ const processPathD = (d, options, pathElement) => {
         newCommands.push({
           code,
           coordinates: pathData[i].coordinates.slice(j, j + commandsize),
-          originalcommand,
-          z: false
+          z: false,
+          abs: pathData[i].abs
         });
       }
       pathData.splice(i, 1, ...newCommands);
     }
   }
+
+  // find scale
+  let scale = 1;
+  pathData.forEach(command => {
+    if (pathElement) {
+      // If the element is specified, scale the path data and stroke width
+
+      // Find the most decimal places in the path data
+      command.coordinates.forEach(point => {
+        [point.x, point.y].forEach(val => {
+          const decimalPlaces = Math.min(
+            options.maxDecimalPlaces,
+            (val?.toString().split(".")[1] || "").length
+          );
+          scale = Math.max(scale, Math.pow(10, decimalPlaces));
+        });
+      });
+    }
+  });
+
+  if (scale !== 1) {
+    if (pathElement) {
+      pathElement.setAttribute(
+        "transform",
+        `scale(${(1 / scale).toString().replace(/^0\./, ".")})`
+      );
+
+      const props = getVisibilityProperties(pathElement);
+      if (props.stroke !== "none" || pathElement.hasAttribute("stroke-width")) {
+        pathElement.setAttribute(
+          "stroke-width",
+          (props.strokeWidth * scale).toString()
+        );
+      }
+    }
+  }
+  // scale is determined.  Round and scale
+  pathData.forEach(command => {
+    command.coordinates.forEach(point => {
+      if (pathElement) {
+        if (point.x !== undefined) point.x = Math.round(point.x * scale);
+        if (point.y !== undefined) point.y = Math.round(point.y * scale);
+      } else {
+        const scaleFactor = Math.pow(options.maxDecimalPlaces, 10);
+
+        if (point.x !== undefined)
+          point.x = Math.round(point.x * scaleFactor) / scaleFactor;
+        if (point.y !== undefined)
+          point.y = Math.round(point.y * scaleFactor) / scaleFactor;
+      }
+    });
+  });
 
   if (convertToRelative) {
     const startLocation = { x: 0, y: 0 };
@@ -119,12 +136,12 @@ const processPathD = (d, options, pathElement) => {
         pointLocation.x = startLocation.x;
         pointLocation.y = startLocation.y;
       } else {
-        const isAbsoluteCode = /[A-Z]/.test(command.code);
-
         // Convert absolute commands, except the first one, to relative
-        if (isAbsoluteCode && i > 0) {
+        if (command.abs && i > 0) {
           command.code = command.code.toLowerCase();
           command.coordinates.forEach(point => {
+            point.absx = point.x;
+            point.absy = point.y;
             if (point.x !== undefined) point.x -= pointLocation.x;
             if (point.y !== undefined) point.y -= pointLocation.y;
           });
@@ -165,11 +182,17 @@ const processPathD = (d, options, pathElement) => {
         "-"
       ); // Remove space before negative numbers
 
-      if (keepSmallerCommand) {
-        const original = command.originalcommand + z;
+      if (command.abs && keepSmallerCommand) {
+        const absCoordinates = command.coordinates.map(point =>
+          `${point.absx ?? point.x ?? ""} ${point.absy ?? point.y ?? ""}`.trim()
+        ); // Convert coordinates back to string
+        const absCommand =
+          `${code.toUpperCase()}${absCoordinates.join(" ")}${z}`.replace(
+            / -/g,
+            "-"
+          ); // Remove space before negative numbers
 
-        //Only use new command if it's shorter than the original
-        return newCommand.length <= original.length ? newCommand : original;
+        return absCommand.length < newCommand.length ? absCommand : newCommand;
       } else {
         return newCommand;
       }
