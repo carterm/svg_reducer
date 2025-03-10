@@ -1,9 +1,6 @@
 //@ts-check
 
-const {
-  processPathD,
-  getVisibilityProperties
-} = require("./process-path-d.cjs");
+const { processPathD } = require("./process-path-d.cjs");
 
 /**
  *
@@ -27,8 +24,6 @@ const processJson = (/** @type {string} */ data, options) => {
     }
 
     //console.log(`${icon.properties.name} saved ${icon.icon.paths.length - newd.length}`);
-
-    let p = 1;
   });
 
   return JSON.stringify(json, null, 2);
