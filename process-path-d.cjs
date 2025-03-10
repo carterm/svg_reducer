@@ -52,7 +52,7 @@ const processPathD = (d, options, pathElement) => {
     return { code, coordinates, z: false, abs: /[A-Z]/.test(code) };
   });
 
-  const commandsizes = { c: 3, s: 2, l: 1, m: 1, h:1, v:1 };
+  const commandsizes = { c: 3, q: 2, s: 2, l: 1, m: 1, h: 1, v: 1 };
 
   //Split "c" commands into groups of 3
   for (let i = 0; i < pathData.length; i++) {
@@ -290,10 +290,10 @@ const processPathD = (d, options, pathElement) => {
   }
 
   if (removeExtraCs) {
-    d = d.replace(/c([^lshvzmA-Z]*)/gms, match =>
+    d = d.replace(/c([^lshvzqmA-Z]*)/gms, match =>
       `c${match.replace(/c-/gms, "-")}`.replace(/cc/gms, "c")
     ); // Combine consecutive "c-" command codes
-    d = d.replace(/l([^cshvzmA-Z]*)/gms, match =>
+    d = d.replace(/l([^cshvzqmA-Z]*)/gms, match =>
       `l${match.replace(/l-/gms, "-")}`.replace(/ll/gms, "l")
     ); // Combine consecutive "l-" command codes
   }
