@@ -24,37 +24,35 @@ const processPathD = (d, options, pathElement) => {
     const code = command.trim()[0];
     const commanddata = command.replace(code, "").trim();
 
+    //Collect all the digits in the command
+    const digits = [...commanddata.matchAll(/\s*-?[.\d]+\s*/g)].map(x =>
+      parseFloat(x[0])
+    );
+
     /**
      * @type {{x?: number, y?: number, absx?: number, absy?: number}[]}
      */
     let coordinates = [];
 
-    // TODO: Known issue.  Sequential "h" and "v" commands are not being split into separate commands
     if (code.toLowerCase() === "h") {
-      coordinates = [{ x: parseFloat(commanddata) }];
+      coordinates = digits.map(x => ({ x }));
     } else if (code.toLowerCase() === "v") {
-      coordinates = [{ y: parseFloat(commanddata) }];
+      coordinates = digits.map(y => ({ y }));
     } else if (code.toLowerCase() === "z") {
       //
     } else {
-      const pairs = [
-        ...commanddata.matchAll(/(?<x>-?[.\d]+)\s*(?<y>-?[.\d]+)/g)
-      ];
-
-      coordinates = pairs.map(pair => {
-        const groups = pair.groups || {};
-
-        return {
-          x: parseFloat(groups["x"]),
-          y: parseFloat(groups["y"])
-        };
-      });
+      for (let i = 0; i < digits.length; i += 2) {
+        if (i + 1 < digits.length) {
+          // Check to ensure there is a pair
+          coordinates.push({ x: digits[i], y: digits[i + 1] });
+        }
+      }
     }
 
     return { code, coordinates, z: false, abs: /[A-Z]/.test(code) };
   });
 
-  const commandsizes = { c: 3, s: 2, l: 1, m: 1 };
+  const commandsizes = { c: 3, s: 2, l: 1, m: 1, h:1, v:1 };
 
   //Split "c" commands into groups of 3
   for (let i = 0; i < pathData.length; i++) {
