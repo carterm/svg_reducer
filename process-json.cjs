@@ -2,6 +2,8 @@
 
 const { processPathD } = require("./process-path-d.cjs");
 
+const joinPaths = false;
+
 /**
  *
  * @param {string} data
@@ -11,9 +13,7 @@ const { processPathD } = require("./process-path-d.cjs");
 const processJson = (/** @type {string} */ data, options) => {
   const json = JSON.parse(data);
   [...json.icons].forEach(icon => {
-    const joinall = false;
-
-    if (joinall) {
+    if (joinPaths) {
       const d = [...icon.icon.paths].join("");
       const newd = processPathD(d, options);
       icon.icon.paths = [newd];
