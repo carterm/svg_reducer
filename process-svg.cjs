@@ -44,8 +44,9 @@ const processSvg = (/** @type {string} */ data, options) => {
   }
 
   document
-    .querySelectorAll("*")
+    .querySelectorAll("[id]")
     .forEach(element => element.removeAttribute("id"));
+
   svgElement.removeAttribute("data-name");
   ["x", "y"].forEach(attr => {
     if (["0", "0px"].includes(svgElement.getAttribute(attr) || "")) {
