@@ -53,7 +53,10 @@ const processSvg = (/** @type {string} */ data, options) => {
     }
   });
   svgElement.removeAttribute("xml:space");
-  svgElement.removeAttribute("xmlns:xlink");
+  if(!svgElement.innerHTML.includes("xlink:")) {
+    svgElement.removeAttribute("xmlns:xlink");
+  }
+
   svgElement.style.removeProperty("enable-background");
 
   if (svgElement.getAttribute("style") === "") {
