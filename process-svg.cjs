@@ -14,6 +14,9 @@ const {
 } = require("./process-path-d.cjs");
 
 const mergePaths = true;
+const removeStyles = true;
+const styleToAttributes = false;
+const ConvertLinesToPaths = false;
 
 const shareableAttributes = ["stroke", "stroke-width", "fill", "transform"];
 
@@ -43,9 +46,12 @@ const processSvg = (/** @type {string} */ data, options) => {
     process.exit(1);
   }
 
-  document
-    .querySelectorAll("[id]")
-    .forEach(element => element.removeAttribute("id"));
+  // Only remove ids that aren't used in the SVG
+  document.querySelectorAll("[id]").forEach(element => {
+    if (!svgElement.innerHTML.includes(`#${element.id}`)) {
+      element.removeAttribute("id");
+    }
+  });
 
   svgElement.removeAttribute("data-name");
   ["x", "y"].forEach(attr => {
@@ -54,7 +60,7 @@ const processSvg = (/** @type {string} */ data, options) => {
     }
   });
   svgElement.removeAttribute("xml:space");
-  if(!svgElement.innerHTML.includes("xlink:")) {
+  if (!svgElement.innerHTML.includes("xlink:")) {
     svgElement.removeAttribute("xmlns:xlink");
   }
 
@@ -64,105 +70,112 @@ const processSvg = (/** @type {string} */ data, options) => {
     svgElement.removeAttribute("style");
   }
 
-  const styletags = svgElement.querySelectorAll("style");
-  styletags.forEach(styletag => {
-    const styleDOM = new JSDOM(
-      `<!DOCTYPE html><html><head>${styletag.outerHTML}</head></html>`
-    );
+  if (removeStyles) {
+    const styletags = svgElement.querySelectorAll("style");
+    styletags.forEach(styletag => {
+      const styleDOM = new JSDOM(
+        `<!DOCTYPE html><html><head>${styletag.outerHTML}</head></html>`
+      );
 
-    [...styleDOM.window.document.styleSheets].forEach(styleSheet => {
-      [...styleSheet.cssRules].forEach(rule => {
-        if (rule.cssText) {
-          svgElement.querySelectorAll(rule["selectorText"]).forEach(element => {
-            element.setAttribute(
-              "style",
-              element.style.cssText + rule["style"].cssText
-            );
-          });
+      [...styleDOM.window.document.styleSheets].forEach(styleSheet => {
+        [...styleSheet.cssRules].forEach(rule => {
+          if (rule.cssText) {
+            svgElement
+              .querySelectorAll(rule["selectorText"])
+              .forEach(element => {
+                element.setAttribute(
+                  "style",
+                  element.style.cssText + rule["style"].cssText
+                );
+              });
+          }
+        });
+      });
+      styletag.remove();
+    });
+
+    // Remove all classes, since the stylesheets have been removed
+    svgElement.querySelectorAll("[class]").forEach(element => {
+      element.removeAttribute("class");
+    });
+  }
+
+  if (styleToAttributes) {
+    // pull out style elements to make attributes
+    /** @type {HTMLElement[]} */
+    ([...svgElement.querySelectorAll("*")]).forEach(element => {
+      Array.from(element.style).forEach(attr => {
+        if (element.style[attr]) {
+          element.setAttribute(attr, element.style[attr]);
+          element.style.removeProperty(attr);
         }
       });
-    });
-    styletag.remove();
-  });
 
-  // Remove all classes, since the stylesheets have been removed
-  svgElement.querySelectorAll("[class]").forEach(element => {
-    element.removeAttribute("class");
-  });
-
-  // pull out style elements to make attributes
-  /** @type {HTMLElement[]} */
-  ([...svgElement.querySelectorAll("*")]).forEach(element => {
-    Array.from(element.style).forEach(attr => {
-      if (element.style[attr]) {
-        element.setAttribute(attr, element.style[attr]);
-        element.style.removeProperty(attr);
+      if (!element.style.length) {
+        element.removeAttribute("style");
       }
     });
-
-    if (!element.style.length) {
-      element.removeAttribute("style");
-    }
-  });
+  }
 
   //Convert lines to paths
-  [...svgElement.querySelectorAll("line")].forEach(lineElement => {
-    const pathElement = /** @type {SVGPathElement} */ (
-      /** @type {unknown} */ (document.createElement("path"))
-    );
-
-    pathElement.setAttribute(
-      "d",
-      `M${lineElement.getAttribute("x1")} ${lineElement.getAttribute("y1")}L${lineElement.getAttribute("x2")} ${lineElement.getAttribute("y2")}`
-    );
-    [...lineElement.attributes].forEach(attr => {
-      if (shareableAttributes.includes(attr.name)) {
-        pathElement.setAttribute(attr.name, attr.value);
-      }
-    });
-
-    lineElement.parentElement?.insertBefore(pathElement, lineElement);
-    lineElement.remove();
-  });
-
-  //Convert simple rects to paths
-  [...svgElement.querySelectorAll("rect")].forEach(rectElement => {
-    const pathElement = /** @type {SVGPathElement} */ (
-      /** @type {unknown} */ (document.createElement("path"))
-    );
-
-    if (!rectElement.getAttribute("rx") && !rectElement.getAttribute("ry")) {
-      // Simple rectangle
-      //<rect fill="black" width="149.31" height="83.66" />
-      // to...
-      //<path fill="black" d="M0 0 H149.31 V83.66 H0 Z" />
-
-      const [rectWidth, rectHeight, rectX, rectY] = [
-        "width",
-        "height",
-        "x",
-        "y"
-      ].map(attr => {
-        const value = parseFloat(rectElement.getAttribute(attr) || "0");
-        return isNaN(value) ? 0 : value;
-      });
+  if (ConvertLinesToPaths) {
+    [...svgElement.querySelectorAll("line")].forEach(lineElement => {
+      const pathElement = /** @type {SVGPathElement} */ (
+        /** @type {unknown} */ (document.createElement("path"))
+      );
 
       pathElement.setAttribute(
         "d",
-        `M${rectX} ${rectY}H${rectX + rectWidth}V${rectY + rectHeight}H${rectX}Z`
+        `M${lineElement.getAttribute("x1")} ${lineElement.getAttribute("y1")}L${lineElement.getAttribute("x2")} ${lineElement.getAttribute("y2")}`
       );
-
-      [...rectElement.attributes].forEach(attr => {
+      [...lineElement.attributes].forEach(attr => {
         if (shareableAttributes.includes(attr.name)) {
           pathElement.setAttribute(attr.name, attr.value);
         }
       });
 
-      rectElement.parentElement?.insertBefore(pathElement, rectElement);
-      rectElement.remove();
-    }
-  });
+      lineElement.parentElement?.insertBefore(pathElement, lineElement);
+      lineElement.remove();
+    });
 
+    //Convert simple rects to paths
+    [...svgElement.querySelectorAll("rect")].forEach(rectElement => {
+      const pathElement = /** @type {SVGPathElement} */ (
+        /** @type {unknown} */ (document.createElement("path"))
+      );
+
+      if (!rectElement.getAttribute("rx") && !rectElement.getAttribute("ry")) {
+        // Simple rectangle
+        //<rect fill="black" width="149.31" height="83.66" />
+        // to...
+        //<path fill="black" d="M0 0 H149.31 V83.66 H0 Z" />
+
+        const [rectWidth, rectHeight, rectX, rectY] = [
+          "width",
+          "height",
+          "x",
+          "y"
+        ].map(attr => {
+          const value = parseFloat(rectElement.getAttribute(attr) || "0");
+          return isNaN(value) ? 0 : value;
+        });
+
+        pathElement.setAttribute(
+          "d",
+          `M${rectX} ${rectY}H${rectX + rectWidth}V${rectY + rectHeight}H${rectX}Z`
+        );
+
+        [...rectElement.attributes].forEach(attr => {
+          if (shareableAttributes.includes(attr.name)) {
+            pathElement.setAttribute(attr.name, attr.value);
+          }
+        });
+
+        rectElement.parentElement?.insertBefore(pathElement, rectElement);
+        rectElement.remove();
+      }
+    });
+  }
   // Look up the parent chain for stroke, fill, or stroke-width atrributes
   [...svgElement.querySelectorAll("path")].forEach(element => {
     const props = getVisibilityProperties(element);
