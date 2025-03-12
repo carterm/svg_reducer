@@ -13,10 +13,10 @@ const {
   getVisibilityProperties
 } = require("./process-path-d.cjs");
 
-const mergePaths = true;
+const mergePaths = false;
 const removeStyles = true;
-const styleToAttributes = false;
-const styleAttributeMap = ["fill"];
+const styleToAttributes = true;
+const styleAttributeMap = ["fill", "opacity"];
 const ConvertLinesToPaths = false;
 
 const shareableAttributes = ["stroke", "stroke-width", "fill", "transform"];
@@ -286,7 +286,13 @@ const processSvg = (/** @type {string} */ data, options) => {
       if (
         // If the parent is a "g" element and has only one child or no attributes
         parent &&
-        (parent.childElementCount === 1 || gElement.attributes.length === 0)
+        (parent.childElementCount === 1 || gElement.attributes.length === 0) &&
+        [...parent.attributes].every(attr =>
+          shareableAttributes.includes(attr.name)
+        ) &&
+        [...gElement.attributes].every(attr =>
+          shareableAttributes.includes(attr.name)
+        )
       ) {
         // Move the attributes and children of the child "g" element to the parent "g" element
         gChangeDone = false;
@@ -304,11 +310,16 @@ const processSvg = (/** @type {string} */ data, options) => {
   document.querySelectorAll("g > *:only-child").forEach(onlychild => {
     const gElement = onlychild.parentElement;
     if (gElement?.parentElement) {
-      [...gElement.attributes].forEach(attr => {
-        onlychild.setAttribute(attr.name, attr.value);
-      });
-      gElement.parentElement.insertBefore(onlychild, gElement);
-      gElement.remove();
+      [...gElement.attributes]
+        .filter(attr => shareableAttributes.includes(attr.name))
+        .forEach(attr => {
+          onlychild.setAttribute(attr.name, attr.value);
+        });
+
+      if (gElement.attributes.length === 0) {
+        gElement.parentElement.insertBefore(onlychild, gElement);
+        gElement.remove();
+      }
     }
   });
 
