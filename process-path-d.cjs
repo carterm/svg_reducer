@@ -3,6 +3,7 @@
 const removeExtraCs = true;
 const convertToRelative = true;
 const keepSmallerCommand = true;
+const scalepoints = false;
 
 /**
  *
@@ -75,57 +76,62 @@ const processPathD = (d, options, pathElement) => {
     }
   }
 
-  // find scale
-  let scale = 1;
-  pathData.forEach(command => {
-    if (pathElement) {
-      // If the element is specified, scale the path data and stroke width
-
-      // Find the most decimal places in the path data
-      command.coordinates.forEach(point => {
-        [point.x, point.y].forEach(val => {
-          const decimalPlaces = Math.min(
-            options.maxDecimalPlaces,
-            (val?.toString().split(".")[1] || "").length
-          );
-          scale = Math.max(scale, Math.pow(10, decimalPlaces));
-        });
-      });
-    }
-  });
-
-  if (scale !== 1) {
-    if (pathElement) {
-      pathElement.setAttribute(
-        "transform",
-        `scale(${(1 / scale).toString().replace(/^0\./, ".")})`
-      );
-
-      const props = getVisibilityProperties(pathElement);
-      if (props.stroke !== "none" || pathElement.hasAttribute("stroke-width")) {
-        pathElement.setAttribute(
-          "stroke-width",
-          (props.strokeWidth * scale).toString()
-        );
-      }
-    }
-  }
-  // scale is determined.  Round and scale
-  pathData.forEach(command => {
-    command.coordinates.forEach(point => {
+  if (scalepoints) {
+    // find scale
+    let scale = 1;
+    pathData.forEach(command => {
       if (pathElement) {
-        if (point.x !== undefined) point.x = Math.round(point.x * scale);
-        if (point.y !== undefined) point.y = Math.round(point.y * scale);
-      } else {
-        const scaleFactor = Math.pow(options.maxDecimalPlaces, 10);
+        // If the element is specified, scale the path data and stroke width
 
-        if (point.x !== undefined)
-          point.x = Math.round(point.x * scaleFactor) / scaleFactor;
-        if (point.y !== undefined)
-          point.y = Math.round(point.y * scaleFactor) / scaleFactor;
+        // Find the most decimal places in the path data
+        command.coordinates.forEach(point => {
+          [point.x, point.y].forEach(val => {
+            const decimalPlaces = Math.min(
+              options.maxDecimalPlaces,
+              (val?.toString().split(".")[1] || "").length
+            );
+            scale = Math.max(scale, Math.pow(10, decimalPlaces));
+          });
+        });
       }
     });
-  });
+
+    if (scale !== 1) {
+      if (pathElement) {
+        pathElement.setAttribute(
+          "transform",
+          `scale(${(1 / scale).toString().replace(/^0\./, ".")})`
+        );
+
+        const props = getVisibilityProperties(pathElement);
+        if (
+          props.stroke !== "none" ||
+          pathElement.hasAttribute("stroke-width")
+        ) {
+          pathElement.setAttribute(
+            "stroke-width",
+            (props.strokeWidth * scale).toString()
+          );
+        }
+      }
+    }
+    // scale is determined.  Round and scale
+    pathData.forEach(command => {
+      command.coordinates.forEach(point => {
+        if (pathElement) {
+          if (point.x !== undefined) point.x = Math.round(point.x * scale);
+          if (point.y !== undefined) point.y = Math.round(point.y * scale);
+        } else {
+          const scaleFactor = Math.pow(options.maxDecimalPlaces, 10);
+
+          if (point.x !== undefined)
+            point.x = Math.round(point.x * scaleFactor) / scaleFactor;
+          if (point.y !== undefined)
+            point.y = Math.round(point.y * scaleFactor) / scaleFactor;
+        }
+      });
+    });
+  }
 
   if (convertToRelative) {
     const startLocation = { x: 0, y: 0 };

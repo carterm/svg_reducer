@@ -16,6 +16,7 @@ const {
 const mergePaths = true;
 const removeStyles = true;
 const styleToAttributes = false;
+const styleAttributeMap = ["fill"];
 const ConvertLinesToPaths = false;
 
 const shareableAttributes = ["stroke", "stroke-width", "fill", "transform"];
@@ -52,6 +53,16 @@ const processSvg = (/** @type {string} */ data, options) => {
       element.removeAttribute("id");
     }
   });
+
+  // Move all gradients with IDs to the DEF area
+  const defsElement =
+    svgElement.querySelector("defs") || document.createElement("defs");
+  document.querySelectorAll("[id]").forEach(element => {
+    defsElement.appendChild(element);
+  });
+  if (!defsElement.parentElement && defsElement.childElementCount) {
+    svgElement.insertBefore(defsElement, svgElement.firstChild);
+  }
 
   svgElement.removeAttribute("data-name");
   ["x", "y"].forEach(attr => {
@@ -105,7 +116,7 @@ const processSvg = (/** @type {string} */ data, options) => {
     /** @type {HTMLElement[]} */
     ([...svgElement.querySelectorAll("*")]).forEach(element => {
       Array.from(element.style).forEach(attr => {
-        if (element.style[attr]) {
+        if (styleAttributeMap.includes(attr) && element.style[attr]) {
           element.setAttribute(attr, element.style[attr]);
           element.style.removeProperty(attr);
         }
