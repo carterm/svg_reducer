@@ -328,39 +328,8 @@ const processSvg = (/** @type {string} */ data, options) => {
         });
     }); //End push to common attributes
   }
-  // Merge nested "g" elements into their parent "g" elements
-  let gChangeDone = false;
-  while (!gChangeDone) {
-    gChangeDone = true;
-    document.querySelectorAll("g > g").forEach(gElement => {
-      const parent = gElement.parentElement;
-      if (
-        // If the parent has only one child or no attributes
-        parent &&
-        parent.childElementCount === 1
-      ) {
-        // Move the attributes and children of the child "g" element to the parent "g" element
-
-        [...gElement.attributes].forEach(attr => {
-          const parentValue = parent.getAttribute(attr.name);
-
-          if (!parentValue || parentValue === attr.value) {
-            parent.setAttribute(attr.name, attr.value);
-            gElement.removeAttribute(attr.name);
-          }
-        });
-
-        if (!gElement.hasAttributes()) {
-          while (gElement.firstChild) parent.appendChild(gElement.firstChild);
-          gChangeDone = false;
-          gElement.remove();
-        }
-      }
-    });
-  }
 
   // Remove "g" elements with only one child by pushing all their attributes down to their child
-
   document.querySelectorAll("g").forEach(gElement => {
     if (gElement.parentElement && gElement.children.length === 1) {
       const onlychild = gElement.children[0];
