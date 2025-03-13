@@ -405,7 +405,7 @@ const processSvg = (/** @type {string} */ data, options) => {
 
       //.replace(/\s{2,}/g, " ") // Replace 2 or more whitespace chars with a single space
       .replace(/>\s+</g, "><") // Remove all whitespace between ">" and "<"
-      .replace(/><\/(path|line|rect|stop)>/g, "/>")
+      .replace(/><\/(path|line|rect|stop|use)>/g, "/>") // Replace closing tags with self-closing tags
   );
 };
 
