@@ -117,9 +117,8 @@ const processPathD = (d, options, pathElement) => {
         // Find any fill gradients and scale them
 
         if (props.fill.startsWith("url(")) {
-          const id = props.fill.replace("url(", "").replace(")", "");
-          /** @type {SVGLinearGradientElement | null} */
-          const gradient = pathElement.ownerDocument.querySelector(id);
+          const idQuery = props.fill.replace("url(", "").replace(")", "");
+          const gradient = pathElement.ownerDocument.querySelector(idQuery);
           if (gradient) {
             //Scale all the numbers in the transform
             const transform = gradient.getAttribute("gradientTransform");
@@ -130,6 +129,7 @@ const processPathD = (d, options, pathElement) => {
 
               gradient.setAttribute("gradientTransform", newTransform);
             } else {
+              // No Transform, Scale the x1, y1, x2, y2 attributes
               [...gradient.attributes]
                 .filter(attr => ["x1", "y1", "x2", "y2"].includes(attr.name))
                 .forEach(attr => {
