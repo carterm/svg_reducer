@@ -16,7 +16,7 @@ const {
 const mergePaths = false;
 const removeStyles = true;
 const styleToAttributes = true;
-const styleAttributeMap = ["fill", "opacity"];
+const styleAttributeMap = ["fill", "opacity", "stop-color"];
 const ConvertLinesToPaths = false;
 
 const shareableAttributes = ["stroke", "stroke-width", "fill", "transform"];
@@ -131,6 +131,26 @@ const processSvg = (/** @type {string} */ data, options) => {
       }
     });
   }
+
+  //Convert RGB colors to hex
+  [...svgElement.querySelectorAll("*")].forEach(element => {
+    [...element.attributes].forEach(attr => {
+      if (attr.value.match(/rgb\(/)) {
+        const rgb = attr.value
+          .replace(/rgb\(/, "")
+          .replace(/\)/, "")
+          .split(",")
+          .map(x => parseInt(x, 10));
+        const hex = `#${rgb
+          .map(x => {
+            const hex2 = x.toString(16);
+            return hex2.length === 1 ? `0${hex2}` : hex2;
+          })
+          .join("")}`;
+        element.setAttribute(attr.name, hex);
+      }
+    });
+  });
 
   //Convert lines to paths
   if (ConvertLinesToPaths) {
