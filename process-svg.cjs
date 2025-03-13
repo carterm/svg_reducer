@@ -66,6 +66,22 @@ const processSvg = (/** @type {string} */ data, options) => {
     .querySelectorAll("stop[offset='0']")
     .forEach(stopElement => stopElement.removeAttribute("offset"));
 
+  //find "USE" elements and replace them with the actual content
+  document.querySelectorAll("use").forEach(useElement => {
+    const href = useElement.getAttribute("xlink:href");
+    if (href) {
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        const prt = useElement.parentElement;
+        if (prt) {
+          prt.insertBefore(targetElement, useElement);
+          useElement.remove();
+          targetElement.removeAttribute("id");
+        }
+      }
+    }
+  }); // End USE loop
+
   // Move all gradients with IDs to the DEF area
   const defsElement =
     svgElement.querySelector("svg > defs") || document.createElement("defs");
