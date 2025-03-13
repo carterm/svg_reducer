@@ -5,6 +5,7 @@
  * @typedef {object} processDataOptions
  * @property {boolean} devmode - Whether to enable development mode.
  * @property {number} maxDecimalPlaces - The maximum number of decimal places to retain.
+ * @property {boolean} noPathsMerge - Whether to merge paths with matching attributes.
  */
 
 const { JSDOM } = require("jsdom");
@@ -13,7 +14,18 @@ const {
   getVisibilityProperties
 } = require("./process-path-d.cjs");
 
-const mergePaths = true;
+const ConvertLinesToPaths = true;
+const removeStyles = true;
+const styleToAttributes = true;
+const styleAttributeMap = [
+  "fill",
+  "opacity",
+  "stop-color",
+  "stroke",
+  "stroke-width",
+  "stroke-miterlimit",
+  "clip-path"
+];
 
 const shareableAttributes = ["stroke", "stroke-width", "fill", "transform"];
 
@@ -43,9 +55,44 @@ const processSvg = (/** @type {string} */ data, options) => {
     process.exit(1);
   }
 
+  //remove "offest=0" from gradientTransform stops
   document
-    .querySelectorAll("*")
-    .forEach(element => element.removeAttribute("id"));
+    .querySelectorAll("stop[offset='0']")
+    .forEach(stopElement => stopElement.removeAttribute("offset"));
+
+  // Only remove ids that aren't used in the SVG
+  document.querySelectorAll("[id]").forEach(element => {
+    if (!svgElement.innerHTML.includes(`#${element.id}`)) {
+      element.removeAttribute("id");
+    }
+  });
+
+  // Move all gradients with IDs to the DEF area
+  const defsElement =
+    svgElement.querySelector("svg > defs") || document.createElement("defs");
+  document.querySelectorAll("[id]").forEach(element => {
+    defsElement.appendChild(element);
+  });
+  if (!defsElement.parentElement && defsElement.childElementCount) {
+    svgElement.insertBefore(defsElement, svgElement.firstChild);
+  }
+
+  //find "USE" elements and replace them with the actual content
+  document.querySelectorAll("use").forEach(useElement => {
+    const href = useElement.getAttribute("xlink:href");
+    if (href) {
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        const prt = useElement.parentElement;
+        if (prt) {
+          prt.insertBefore(targetElement, useElement);
+          useElement.remove();
+          targetElement.removeAttribute("id");
+        }
+      }
+    }
+  }); // End USE loop
+
   svgElement.removeAttribute("data-name");
   ["x", "y"].forEach(attr => {
     if (["0", "0px"].includes(svgElement.getAttribute(attr) || "")) {
@@ -53,7 +100,7 @@ const processSvg = (/** @type {string} */ data, options) => {
     }
   });
   svgElement.removeAttribute("xml:space");
-  if(!svgElement.innerHTML.includes("xlink:")) {
+  if (!svgElement.innerHTML.includes("xlink:")) {
     svgElement.removeAttribute("xmlns:xlink");
   }
 
@@ -63,105 +110,133 @@ const processSvg = (/** @type {string} */ data, options) => {
     svgElement.removeAttribute("style");
   }
 
-  const styletags = svgElement.querySelectorAll("style");
-  styletags.forEach(styletag => {
-    const styleDOM = new JSDOM(
-      `<!DOCTYPE html><html><head>${styletag.outerHTML}</head></html>`
-    );
+  if (removeStyles) {
+    const styletags = svgElement.querySelectorAll("style");
+    styletags.forEach(styletag => {
+      const styleDOM = new JSDOM(
+        `<!DOCTYPE html><html><head>${styletag.outerHTML}</head></html>`
+      );
 
-    [...styleDOM.window.document.styleSheets].forEach(styleSheet => {
-      [...styleSheet.cssRules].forEach(rule => {
-        if (rule.cssText) {
-          svgElement.querySelectorAll(rule["selectorText"]).forEach(element => {
-            element.setAttribute(
-              "style",
-              element.style.cssText + rule["style"].cssText
-            );
-          });
+      [...styleDOM.window.document.styleSheets].forEach(styleSheet => {
+        [...styleSheet.cssRules].forEach(rule => {
+          if (rule.cssText) {
+            svgElement
+              .querySelectorAll(rule["selectorText"])
+              .forEach(element => {
+                element.setAttribute(
+                  "style",
+                  element.style.cssText + rule["style"].cssText
+                );
+              });
+          }
+        });
+      });
+      styletag.remove();
+    });
+
+    // Remove all classes, since the stylesheets have been removed
+    svgElement.querySelectorAll("[class]").forEach(element => {
+      element.removeAttribute("class");
+    });
+  }
+
+  if (styleToAttributes) {
+    // pull out style elements to make attributes
+    /** @type {HTMLElement[]} */
+    ([...svgElement.querySelectorAll("*")]).forEach(element => {
+      Array.from(element.style).forEach(attr => {
+        if (styleAttributeMap.includes(attr) && element.style[attr]) {
+          element.setAttribute(attr, element.style[attr]);
+          element.style.removeProperty(attr);
+        }
+
+        if (["enable-background"].includes(attr)) {
+          element.style.removeProperty(attr);
         }
       });
-    });
-    styletag.remove();
-  });
 
-  // Remove all classes, since the stylesheets have been removed
-  svgElement.querySelectorAll("[class]").forEach(element => {
-    element.removeAttribute("class");
-  });
-
-  // pull out style elements to make attributes
-  /** @type {HTMLElement[]} */
-  ([...svgElement.querySelectorAll("*")]).forEach(element => {
-    Array.from(element.style).forEach(attr => {
-      if (element.style[attr]) {
-        element.setAttribute(attr, element.style[attr]);
-        element.style.removeProperty(attr);
+      if (!element.style.length) {
+        element.removeAttribute("style");
       }
     });
+  }
 
-    if (!element.style.length) {
-      element.removeAttribute("style");
-    }
-  });
+  //Convert RGB colors to hex
+  [...svgElement.querySelectorAll("*")].forEach(element =>
+    [...element.attributes]
+      .filter(attr => attr.value.match(/rgb\(/))
+      .forEach(attr =>
+        element.setAttribute(
+          attr.name,
+          `#${attr.value
+            .replace(/rgb\(/, "")
+            .replace(/\)/, "")
+            .split(",")
+            .map(x => parseInt(x, 10).toString(16).padStart(2, "0"))
+            .join("")}`
+        )
+      )
+  );
 
   //Convert lines to paths
-  [...svgElement.querySelectorAll("line")].forEach(lineElement => {
-    const pathElement = /** @type {SVGPathElement} */ (
-      /** @type {unknown} */ (document.createElement("path"))
-    );
-
-    pathElement.setAttribute(
-      "d",
-      `M${lineElement.getAttribute("x1")} ${lineElement.getAttribute("y1")}L${lineElement.getAttribute("x2")} ${lineElement.getAttribute("y2")}`
-    );
-    [...lineElement.attributes].forEach(attr => {
-      if (shareableAttributes.includes(attr.name)) {
-        pathElement.setAttribute(attr.name, attr.value);
-      }
-    });
-
-    lineElement.parentElement?.insertBefore(pathElement, lineElement);
-    lineElement.remove();
-  });
-
-  //Convert simple rects to paths
-  [...svgElement.querySelectorAll("rect")].forEach(rectElement => {
-    const pathElement = /** @type {SVGPathElement} */ (
-      /** @type {unknown} */ (document.createElement("path"))
-    );
-
-    if (!rectElement.getAttribute("rx") && !rectElement.getAttribute("ry")) {
-      // Simple rectangle
-      //<rect fill="black" width="149.31" height="83.66" />
-      // to...
-      //<path fill="black" d="M0 0 H149.31 V83.66 H0 Z" />
-
-      const [rectWidth, rectHeight, rectX, rectY] = [
-        "width",
-        "height",
-        "x",
-        "y"
-      ].map(attr => {
-        const value = parseFloat(rectElement.getAttribute(attr) || "0");
-        return isNaN(value) ? 0 : value;
-      });
+  if (ConvertLinesToPaths) {
+    [...svgElement.querySelectorAll("line")].forEach(lineElement => {
+      const pathElement = /** @type {SVGPathElement} */ (
+        /** @type {unknown} */ (document.createElement("path"))
+      );
 
       pathElement.setAttribute(
         "d",
-        `M${rectX} ${rectY}H${rectX + rectWidth}V${rectY + rectHeight}H${rectX}Z`
+        `M${lineElement.getAttribute("x1")} ${lineElement.getAttribute("y1")}L${lineElement.getAttribute("x2")} ${lineElement.getAttribute("y2")}`
       );
-
-      [...rectElement.attributes].forEach(attr => {
+      [...lineElement.attributes].forEach(attr => {
         if (shareableAttributes.includes(attr.name)) {
           pathElement.setAttribute(attr.name, attr.value);
         }
       });
 
-      rectElement.parentElement?.insertBefore(pathElement, rectElement);
-      rectElement.remove();
-    }
-  });
+      lineElement.parentElement?.insertBefore(pathElement, lineElement);
+      lineElement.remove();
+    });
 
+    //Convert simple rects to paths
+    [...svgElement.querySelectorAll("rect")].forEach(rectElement => {
+      const pathElement = /** @type {SVGPathElement} */ (
+        /** @type {unknown} */ (document.createElement("path"))
+      );
+
+      if (!rectElement.getAttribute("rx") && !rectElement.getAttribute("ry")) {
+        // Simple rectangle
+        //<rect fill="black" width="149.31" height="83.66" />
+        // to...
+        //<path fill="black" d="M0 0 H149.31 V83.66 H0 Z" />
+
+        const [rectWidth, rectHeight, rectX, rectY] = [
+          "width",
+          "height",
+          "x",
+          "y"
+        ].map(attr => {
+          const value = parseFloat(rectElement.getAttribute(attr) || "0");
+          return isNaN(value) ? 0 : value;
+        });
+
+        pathElement.setAttribute(
+          "d",
+          `M${rectX} ${rectY}H${rectX + rectWidth}V${rectY + rectHeight}H${rectX}Z`
+        );
+
+        [...rectElement.attributes].forEach(attr => {
+          if (shareableAttributes.includes(attr.name)) {
+            pathElement.setAttribute(attr.name, attr.value);
+          }
+        });
+
+        rectElement.parentElement?.insertBefore(pathElement, rectElement);
+        rectElement.remove();
+      }
+    });
+  }
   // Look up the parent chain for stroke, fill, or stroke-width atrributes
   [...svgElement.querySelectorAll("path")].forEach(element => {
     const props = getVisibilityProperties(element);
@@ -173,7 +248,7 @@ const processSvg = (/** @type {string} */ data, options) => {
     }
   });
 
-  if (mergePaths) {
+  if (!options.noPathsMerge) {
     // Merge all path elements with matching attributes (ignore "d" attribute) and first letter in "d" attribute is uppercase
     const pathsToMerge = [...svgElement.querySelectorAll("path")];
     for (let i = 0; i < pathsToMerge.length - 1; i++) {
@@ -261,7 +336,13 @@ const processSvg = (/** @type {string} */ data, options) => {
       if (
         // If the parent is a "g" element and has only one child or no attributes
         parent &&
-        (parent.childElementCount === 1 || gElement.attributes.length === 0)
+        (parent.childElementCount === 1 || gElement.attributes.length === 0) &&
+        [...parent.attributes].every(attr =>
+          shareableAttributes.includes(attr.name)
+        ) &&
+        [...gElement.attributes].every(attr =>
+          shareableAttributes.includes(attr.name)
+        )
       ) {
         // Move the attributes and children of the child "g" element to the parent "g" element
         gChangeDone = false;
@@ -279,11 +360,17 @@ const processSvg = (/** @type {string} */ data, options) => {
   document.querySelectorAll("g > *:only-child").forEach(onlychild => {
     const gElement = onlychild.parentElement;
     if (gElement?.parentElement) {
-      [...gElement.attributes].forEach(attr => {
-        onlychild.setAttribute(attr.name, attr.value);
-      });
-      gElement.parentElement.insertBefore(onlychild, gElement);
-      gElement.remove();
+      [...gElement.attributes]
+        .filter(attr => shareableAttributes.includes(attr.name))
+        .forEach(attr => {
+          onlychild.setAttribute(attr.name, attr.value);
+          gElement.removeAttribute(attr.name);
+        });
+
+      if (gElement.attributes.length === 0) {
+        gElement.parentElement.insertBefore(onlychild, gElement);
+        gElement.remove();
+      }
     }
   });
 
@@ -341,7 +428,7 @@ const processSvg = (/** @type {string} */ data, options) => {
 
       //.replace(/\s{2,}/g, " ") // Replace 2 or more whitespace chars with a single space
       .replace(/>\s+</g, "><") // Remove all whitespace between ">" and "<"
-      .replace(/><\/(path|line|rect)>/g, "/>")
+      .replace(/><\/(path|line|rect|stop|use)>/g, "/>") // Replace closing tags with self-closing tags
   );
 };
 

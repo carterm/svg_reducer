@@ -15,6 +15,12 @@ const argv = yargs
     description: "Enable developer mode",
     default: false // Default is `false`
   })
+  .option("noPathsMerge", {
+    alias: "np",
+    type: "boolean",
+    description: "No merge paths",
+    default: false // Default is `false`
+  })
   .option("maxDecimalPlaces", {
     alias: "m",
     type: "number",
@@ -34,7 +40,8 @@ const argv = yargs
 /** @type {import("./process-svg.cjs").processDataOptions} */
 const processOptions = {
   devmode: argv["dev"],
-  maxDecimalPlaces: argv["maxDecimalPlaces"]
+  maxDecimalPlaces: argv["maxDecimalPlaces"],
+  noPathsMerge: argv["noPathsMerge"]
 };
 
 // Use glob to find matching files
