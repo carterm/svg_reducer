@@ -27,7 +27,13 @@ const styleAttributeMap = [
   "clip-path"
 ];
 
-const shareableAttributes = ["stroke", "stroke-width", "fill", "transform"];
+const shareableAttributes = [
+  "stroke",
+  "stroke-width",
+  "fill",
+  "transform",
+  "opacity"
+];
 
 /**
  *
@@ -291,33 +297,37 @@ const processSvg = (/** @type {string} */ data, options) => {
   }); //End Path loop
 
   // Push common attributes to new parent "g" elements
-  svgElement.querySelectorAll("*").forEach(targetElement => {
-    [...targetElement.attributes]
-      .filter(attr => shareableAttributes.includes(attr.name))
-      .forEach(attr => {
-        // Search for a sibling with the same attribute value
-        const matchingSiblings = [];
-        let sibling = targetElement.nextElementSibling;
+  let gMakeGDone = false;
+  while (!gMakeGDone) {
+    gMakeGDone = true;
+    svgElement.querySelectorAll("*").forEach(targetElement => {
+      [...targetElement.attributes]
+        .filter(attr => shareableAttributes.includes(attr.name))
+        .forEach(attr => {
+          // Search for a sibling with the same attribute value
+          const matchingSiblings = [];
+          let sibling = targetElement.nextElementSibling;
 
-        while (sibling?.getAttribute(attr.name) === attr.value) {
-          matchingSiblings.push(sibling);
-          sibling = sibling.nextElementSibling;
-        }
+          while (sibling?.getAttribute(attr.name) === attr.value) {
+            matchingSiblings.push(sibling);
+            sibling = sibling.nextElementSibling;
+          }
 
-        if (matchingSiblings.length) {
-          const newG = document.createElement("g");
-          newG.setAttribute(attr.name, attr.value);
-          targetElement.parentElement?.insertBefore(newG, targetElement);
+          if (matchingSiblings.length) {
+            gMakeGDone = false;
+            const newG = document.createElement("g");
+            newG.setAttribute(attr.name, attr.value);
+            targetElement.parentElement?.insertBefore(newG, targetElement);
 
-          [targetElement, ...matchingSiblings].forEach(sibling2 => {
-            sibling2.removeAttribute(attr.name);
+            [targetElement, ...matchingSiblings].forEach(sibling2 => {
+              sibling2.removeAttribute(attr.name);
 
-            newG.appendChild(sibling2);
-          });
-        }
-      });
-  }); //End push to common attributes
-
+              newG.appendChild(sibling2);
+            });
+          }
+        });
+    }); //End push to common attributes
+  }
   // Merge nested "g" elements into their parent "g" elements
   let gChangeDone = false;
   while (!gChangeDone) {
