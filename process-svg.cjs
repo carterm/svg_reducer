@@ -325,19 +325,26 @@ const processSvg = (/** @type {string} */ data, options) => {
     document.querySelectorAll("g > g").forEach(gElement => {
       const parent = gElement.parentElement;
       if (
-        // If the parent is a "g" element and has only one child or no attributes
+        // If the parent has only one child or no attributes
         parent &&
-        (parent.childElementCount === 1 || gElement.attributes.length === 0)
+        parent.childElementCount === 1
       ) {
         // Move the attributes and children of the child "g" element to the parent "g" element
-        gChangeDone = false;
-        [...gElement.attributes].forEach(attr => {
-          if (!parent.hasAttribute(attr.name))
-            parent.setAttribute(attr.name, attr.value);
-        });
-        while (gElement.firstChild) parent.appendChild(gElement.firstChild);
 
-        gElement.remove();
+        [...gElement.attributes].forEach(attr => {
+          const parentValue = parent.getAttribute(attr.name);
+
+          if (!parentValue || parentValue === attr.value) {
+            parent.setAttribute(attr.name, attr.value);
+            gElement.removeAttribute(attr.name);
+          }
+        });
+
+        if (!gElement.hasAttributes()) {
+          while (gElement.firstChild) parent.appendChild(gElement.firstChild);
+          gChangeDone = false;
+          gElement.remove();
+        }
       }
     });
   }
