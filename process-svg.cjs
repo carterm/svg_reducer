@@ -5,6 +5,7 @@
  * @typedef {object} processDataOptions
  * @property {boolean} devmode - Whether to enable development mode.
  * @property {number} maxDecimalPlaces - The maximum number of decimal places to retain.
+ * @property {boolean} noPathsMerge - Whether to merge paths with matching attributes.
  */
 
 const { JSDOM } = require("jsdom");
@@ -14,7 +15,6 @@ const {
 } = require("./process-path-d.cjs");
 
 const ConvertLinesToPaths = true;
-const mergePaths = false;
 const removeStyles = true;
 const styleToAttributes = true;
 const styleAttributeMap = [
@@ -247,7 +247,7 @@ const processSvg = (/** @type {string} */ data, options) => {
     }
   });
 
-  if (mergePaths) {
+  if (!options.noPathsMerge) {
     // Merge all path elements with matching attributes (ignore "d" attribute) and first letter in "d" attribute is uppercase
     const pathsToMerge = [...svgElement.querySelectorAll("path")];
     for (let i = 0; i < pathsToMerge.length - 1; i++) {
