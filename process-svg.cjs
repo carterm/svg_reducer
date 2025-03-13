@@ -13,6 +13,7 @@ const {
   getVisibilityProperties
 } = require("./process-path-d.cjs");
 
+const ConvertLinesToPaths = true;
 const mergePaths = false;
 const removeStyles = true;
 const styleToAttributes = true;
@@ -24,7 +25,6 @@ const styleAttributeMap = [
   "stroke-miterlimit",
   "clip-path"
 ];
-const ConvertLinesToPaths = false;
 
 const shareableAttributes = ["stroke", "stroke-width", "fill", "transform"];
 
