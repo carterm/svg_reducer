@@ -1,6 +1,6 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 421.8">
   <defs>
-    <clipPath id="SVGID_2_"><rect x="3.5" y="7" width="592.1" height="408.4" /></clipPath>
+    <clipPath id="SVGID_2_"><path transform="scale(.1)" d="M35 70h5921v4084H35z" /></clipPath>
     <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="308.5985" y1="105.1687" x2="716.926" y2="16.0748" gradientTransform="matrix(10 0 0 -10 -1560 2560)">
       <stop stop-color="#8f92c1" />
       <stop offset="1" stop-color="#c7e0a0" />

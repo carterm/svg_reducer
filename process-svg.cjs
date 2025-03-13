@@ -59,6 +59,13 @@ const processSvg = (/** @type {string} */ data, options) => {
     .querySelectorAll("stop[offset='0']")
     .forEach(stopElement => stopElement.removeAttribute("offset"));
 
+  // Only remove ids that aren't used in the SVG
+  document.querySelectorAll("[id]").forEach(element => {
+    if (!svgElement.innerHTML.includes(`#${element.id}`)) {
+      element.removeAttribute("id");
+    }
+  });
+
   // Move all gradients with IDs to the DEF area
   const defsElement =
     svgElement.querySelector("svg > defs") || document.createElement("defs");
@@ -79,6 +86,7 @@ const processSvg = (/** @type {string} */ data, options) => {
         if (prt) {
           prt.insertBefore(targetElement, useElement);
           useElement.remove();
+          targetElement.removeAttribute("id");
         }
       }
     }
@@ -168,13 +176,6 @@ const processSvg = (/** @type {string} */ data, options) => {
         )
       )
   );
-
-  // Only remove ids that aren't used in the SVG
-  document.querySelectorAll("[id]").forEach(element => {
-    if (!svgElement.innerHTML.includes(`#${element.id}`)) {
-      element.removeAttribute("id");
-    }
-  });
 
   //Convert lines to paths
   if (ConvertLinesToPaths) {
