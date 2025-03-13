@@ -22,6 +22,7 @@ const styleAttributeMap = [
   "opacity",
   "stop-color",
   "stroke",
+  "stroke-width",
   "stroke-miterlimit",
   "clip-path"
 ];
@@ -363,6 +364,7 @@ const processSvg = (/** @type {string} */ data, options) => {
         .filter(attr => shareableAttributes.includes(attr.name))
         .forEach(attr => {
           onlychild.setAttribute(attr.name, attr.value);
+          gElement.removeAttribute(attr.name);
         });
 
       if (gElement.attributes.length === 0) {
