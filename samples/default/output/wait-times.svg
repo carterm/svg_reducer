@@ -1625,7 +1625,7 @@ c0-42-7-79-21-112
 -45 0-83 11-113 33
 -29 22-52 49-66 83
 -15 34-22 69-21 105
-z"/></g><rect x="203" y="1.25" width="134" height="66" rx="3.5" stroke="#D4D4D7"/><g transform="scale(.01)" stroke-width="100"><path stroke="#3B3A48" d="
+z"/></g><rect x="203" y="1.25" width="134" height="66" rx="3.5" stroke="#D4D4D7"/><g stroke-width="100" transform="scale(.01)"><path stroke="#3B3A48" d="
 M2500 19175
 v300
 m2400-300
