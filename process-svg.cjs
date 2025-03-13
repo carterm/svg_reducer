@@ -290,7 +290,7 @@ const processSvg = (/** @type {string} */ data, options) => {
     );
   }); //End Path loop
 
-  // Push common attributes to "g" elements
+  // Push common attributes to new parent "g" elements
   svgElement.querySelectorAll("*").forEach(targetElement => {
     [...targetElement.attributes]
       .filter(attr => shareableAttributes.includes(attr.name))
@@ -318,15 +318,6 @@ const processSvg = (/** @type {string} */ data, options) => {
       });
   }); //End push to common attributes
 
-  // Remove empty tags from dom
-  [...svgElement.querySelectorAll("*")]
-    .filter(
-      element => !element.hasAttributes() && !element.innerHTML.trim().length
-    )
-    .forEach(element => {
-      element.remove();
-    });
-
   // Merge nested "g" elements
   let gChangeDone = false;
   while (!gChangeDone) {
@@ -347,7 +338,8 @@ const processSvg = (/** @type {string} */ data, options) => {
         // Move the attributes and children of the child "g" element to the parent "g" element
         gChangeDone = false;
         [...gElement.attributes].forEach(attr => {
-          parent.setAttribute(attr.name, attr.value);
+          if (!parent.hasAttribute(attr.name))
+            parent.setAttribute(attr.name, attr.value);
         });
         while (gElement.firstChild) parent.appendChild(gElement.firstChild);
 
@@ -356,16 +348,17 @@ const processSvg = (/** @type {string} */ data, options) => {
     });
   }
 
-  // Remove "g" elements with only one child
+  // Remove "g" elements with only one child by pushing all their attributes down to their child
   document.querySelectorAll("g > *:only-child").forEach(onlychild => {
     const gElement = onlychild.parentElement;
     if (gElement?.parentElement) {
-      [...gElement.attributes]
-        .filter(attr => shareableAttributes.includes(attr.name))
-        .forEach(attr => {
+      [...gElement.attributes].forEach(attr => {
+        const childAttr = onlychild.getAttribute(attr.name);
+        if (!childAttr || childAttr === attr.value) {
           onlychild.setAttribute(attr.name, attr.value);
           gElement.removeAttribute(attr.name);
-        });
+        }
+      });
 
       if (gElement.attributes.length === 0) {
         gElement.parentElement.insertBefore(onlychild, gElement);
@@ -373,6 +366,15 @@ const processSvg = (/** @type {string} */ data, options) => {
       }
     }
   });
+
+  // Remove empty tags from dom
+  [...svgElement.querySelectorAll("*")]
+    .filter(
+      element => !element.hasAttributes() && !element.innerHTML.trim().length
+    )
+    .forEach(element => {
+      element.remove();
+    });
 
   // put path "d" attributes in the correct order
   document.querySelectorAll("path").forEach(pathElement => {
