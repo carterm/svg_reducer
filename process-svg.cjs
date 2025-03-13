@@ -120,6 +120,10 @@ const processSvg = (/** @type {string} */ data, options) => {
           element.setAttribute(attr, element.style[attr]);
           element.style.removeProperty(attr);
         }
+
+        if (["enable-background"].includes(attr)) {
+          element.style.removeProperty(attr);
+        }
       });
 
       if (!element.style.length) {
