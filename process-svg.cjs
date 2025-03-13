@@ -318,22 +318,16 @@ const processSvg = (/** @type {string} */ data, options) => {
       });
   }); //End push to common attributes
 
-  // Merge nested "g" elements
+  // Merge nested "g" elements into their parent "g" elements
   let gChangeDone = false;
   while (!gChangeDone) {
     gChangeDone = true;
-    document.querySelectorAll("g").forEach(gElement => {
+    document.querySelectorAll("g > g").forEach(gElement => {
       const parent = gElement.parentElement;
       if (
         // If the parent is a "g" element and has only one child or no attributes
         parent &&
-        (parent.childElementCount === 1 || gElement.attributes.length === 0) &&
-        [...parent.attributes].every(attr =>
-          shareableAttributes.includes(attr.name)
-        ) &&
-        [...gElement.attributes].every(attr =>
-          shareableAttributes.includes(attr.name)
-        )
+        (parent.childElementCount === 1 || gElement.attributes.length === 0)
       ) {
         // Move the attributes and children of the child "g" element to the parent "g" element
         gChangeDone = false;
@@ -349,9 +343,10 @@ const processSvg = (/** @type {string} */ data, options) => {
   }
 
   // Remove "g" elements with only one child by pushing all their attributes down to their child
-  document.querySelectorAll("g > *:only-child").forEach(onlychild => {
-    const gElement = onlychild.parentElement;
-    if (gElement?.parentElement) {
+
+  document.querySelectorAll("g").forEach(gElement => {
+    if (gElement.parentElement && gElement.children.length === 1) {
+      const onlychild = gElement.children[0];
       [...gElement.attributes].forEach(attr => {
         const childAttr = onlychild.getAttribute(attr.name);
         if (!childAttr || childAttr === attr.value) {
