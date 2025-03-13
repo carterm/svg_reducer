@@ -61,6 +61,11 @@ const processSvg = (/** @type {string} */ data, options) => {
     }
   });
 
+  //remove "offest=0" from gradientTransform stops
+  document
+    .querySelectorAll("stop[offset='0']")
+    .forEach(stopElement => stopElement.removeAttribute("offset"));
+
   // Move all gradients with IDs to the DEF area
   const defsElement =
     svgElement.querySelector("svg > defs") || document.createElement("defs");
