@@ -3,7 +3,7 @@
 const removeExtraCs = true;
 const convertToRelative = true;
 const keepSmallerCommand = true;
-const scalepoints = false;
+const scalepoints = true;
 
 /**
  *
@@ -112,6 +112,31 @@ const processPathD = (d, options, pathElement) => {
             "stroke-width",
             (props.strokeWidth * scale).toString()
           );
+        }
+
+        // Find any fill gradients and scale them
+
+        if (props.fill.startsWith("url(")) {
+          const id = props.fill.replace("url(", "").replace(")", "");
+          /** @type {SVGLinearGradientElement | null} */
+          const gradient = pathElement.ownerDocument.querySelector(id);
+          if (gradient) {
+            //Scale all the numbers in the transform
+            const transform = gradient.getAttribute("gradientTransform");
+            if (transform) {
+              const newTransform = transform.replaceAll(/-?\d+\.?\d*/g, match =>
+                (parseFloat(match) * scale).toString()
+              );
+
+              gradient.setAttribute("gradientTransform", newTransform);
+            } else {
+              [...gradient.attributes]
+                .filter(attr => ["x1", "y1", "x2", "y2"].includes(attr.name))
+                .forEach(attr => {
+                  attr.value = (parseFloat(attr.value) * scale).toString();
+                });
+            }
+          }
         }
       }
     }
