@@ -16,7 +16,7 @@ const {
 const mergePaths = false;
 const removeStyles = true;
 const styleToAttributes = true;
-const styleAttributeMap = ["fill", "opacity", "stop-color"];
+const styleAttributeMap = ["fill", "opacity", "stop-color", "stroke"];
 const ConvertLinesToPaths = false;
 
 const shareableAttributes = ["stroke", "stroke-width", "fill", "transform"];
