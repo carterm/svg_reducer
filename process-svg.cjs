@@ -133,24 +133,21 @@ const processSvg = (/** @type {string} */ data, options) => {
   }
 
   //Convert RGB colors to hex
-  [...svgElement.querySelectorAll("*")].forEach(element => {
-    [...element.attributes].forEach(attr => {
-      if (attr.value.match(/rgb\(/)) {
-        const rgb = attr.value
-          .replace(/rgb\(/, "")
-          .replace(/\)/, "")
-          .split(",")
-          .map(x => parseInt(x, 10));
-        const hex = `#${rgb
-          .map(x => {
-            const hex2 = x.toString(16);
-            return hex2.length === 1 ? `0${hex2}` : hex2;
-          })
-          .join("")}`;
-        element.setAttribute(attr.name, hex);
-      }
-    });
-  });
+  [...svgElement.querySelectorAll("*")].forEach(element =>
+    [...element.attributes]
+      .filter(attr => attr.value.match(/rgb\(/))
+      .forEach(attr =>
+        element.setAttribute(
+          attr.name,
+          `#${attr.value
+            .replace(/rgb\(/, "")
+            .replace(/\)/, "")
+            .split(",")
+            .map(x => parseInt(x, 10).toString(16).padStart(2, "0"))
+            .join("")}`
+        )
+      )
+  );
 
   //Convert lines to paths
   if (ConvertLinesToPaths) {
