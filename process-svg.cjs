@@ -54,17 +54,20 @@ const processSvg = (/** @type {string} */ data, options) => {
     process.exit(1);
   }
 
-  // Only remove ids that aren't used in the SVG
-  document.querySelectorAll("[id]").forEach(element => {
-    if (!svgElement.innerHTML.includes(`#${element.id}`)) {
-      element.removeAttribute("id");
-    }
-  });
-
   //remove "offest=0" from gradientTransform stops
   document
     .querySelectorAll("stop[offset='0']")
     .forEach(stopElement => stopElement.removeAttribute("offset"));
+
+  // Move all gradients with IDs to the DEF area
+  const defsElement =
+    svgElement.querySelector("svg > defs") || document.createElement("defs");
+  document.querySelectorAll("[id]").forEach(element => {
+    defsElement.appendChild(element);
+  });
+  if (!defsElement.parentElement && defsElement.childElementCount) {
+    svgElement.insertBefore(defsElement, svgElement.firstChild);
+  }
 
   //find "USE" elements and replace them with the actual content
   document.querySelectorAll("use").forEach(useElement => {
@@ -76,21 +79,10 @@ const processSvg = (/** @type {string} */ data, options) => {
         if (prt) {
           prt.insertBefore(targetElement, useElement);
           useElement.remove();
-          targetElement.removeAttribute("id");
         }
       }
     }
   }); // End USE loop
-
-  // Move all gradients with IDs to the DEF area
-  const defsElement =
-    svgElement.querySelector("svg > defs") || document.createElement("defs");
-  document.querySelectorAll("[id]").forEach(element => {
-    defsElement.appendChild(element);
-  });
-  if (!defsElement.parentElement && defsElement.childElementCount) {
-    svgElement.insertBefore(defsElement, svgElement.firstChild);
-  }
 
   svgElement.removeAttribute("data-name");
   ["x", "y"].forEach(attr => {
@@ -176,6 +168,13 @@ const processSvg = (/** @type {string} */ data, options) => {
         )
       )
   );
+
+  // Only remove ids that aren't used in the SVG
+  document.querySelectorAll("[id]").forEach(element => {
+    if (!svgElement.innerHTML.includes(`#${element.id}`)) {
+      element.removeAttribute("id");
+    }
+  });
 
   //Convert lines to paths
   if (ConvertLinesToPaths) {
