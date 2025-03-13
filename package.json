@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "description": "reduce svgs",
   "scripts": {
-    "start": "npm run run_default && npm run run_zero_decimals && npm run run_json",
+    "start": "npm run run_default && npm run run_zero_decimals && npm run run_json && npm run run_no_merge",
     "special": "node reduce.cjs --input 'samples/default/banner-image.svg' --np",
     "run_default": "node reduce.cjs --input 'samples/default/*' --dev",
     "run_zero_decimals": "node reduce.cjs --input 'samples/zero_decimals/*' --m 0 --dev",
     "run_json": "node reduce.cjs --input 'samples/json/*' --m 1",
     "run_recovery": "node reduce.cjs --input 'samples/default/recovery-lineart.svg' --dev",
+    "run_no_merge": "node reduce.cjs --input 'samples/no_merge/*' --np --dev",
     "GIT cleanup": "git clean -fd"
   },
   "repository": {
