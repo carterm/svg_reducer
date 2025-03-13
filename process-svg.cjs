@@ -21,7 +21,8 @@ const styleAttributeMap = [
   "opacity",
   "stop-color",
   "stroke",
-  "stroke-miterlimit"
+  "stroke-miterlimit",
+  "clip-path"
 ];
 const ConvertLinesToPaths = false;
 
@@ -62,7 +63,7 @@ const processSvg = (/** @type {string} */ data, options) => {
 
   // Move all gradients with IDs to the DEF area
   const defsElement =
-    svgElement.querySelector("defs") || document.createElement("defs");
+    svgElement.querySelector("svg > defs") || document.createElement("defs");
   document.querySelectorAll("[id]").forEach(element => {
     defsElement.appendChild(element);
   });
@@ -404,7 +405,7 @@ const processSvg = (/** @type {string} */ data, options) => {
 
       //.replace(/\s{2,}/g, " ") // Replace 2 or more whitespace chars with a single space
       .replace(/>\s+</g, "><") // Remove all whitespace between ">" and "<"
-      .replace(/><\/(path|line|rect)>/g, "/>")
+      .replace(/><\/(path|line|rect|stop)>/g, "/>")
   );
 };
 
