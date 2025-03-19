@@ -370,6 +370,25 @@ const processSvg = (/** @type {string} */ data, options) => {
     return didSomething;
   };
 
+  const removeEmptyGs = () => {
+    let didSomething = false;
+    svgElement.querySelectorAll("g").forEach(gElement => {
+      if (gElement.attributes.length === 0) {
+        didSomething = true;
+        //move all child elements to the parent
+        [...gElement.children].forEach(child => {
+          gElement.parentElement?.insertBefore(child, gElement);
+        });
+        gElement.remove();
+      }
+    });
+    return didSomething;
+  };
+
+  while (removeEmptyGs()) {
+    // Keep removing empty "g" elements until no more removals
+  }
+
   while (extractCommonAttributesToGs()) {
     // Keep extracting common attributes until no more extractions
   }
@@ -400,6 +419,10 @@ const processSvg = (/** @type {string} */ data, options) => {
         }
       });
     }
+  }
+
+  while (removeEmptyGs()) {
+    // Keep removing empty "g" elements until no more removals
   }
 
   while (extractCommonAttributesToGs()) {
