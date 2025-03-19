@@ -296,39 +296,43 @@ const processSvg = (/** @type {string} */ data, options) => {
     );
   }); //End Path loop
 
-  // extract common attributes to new parent "g" elements
-  svgElement.querySelectorAll("*").forEach(targetElement => {
-    [...targetElement.attributes]
-      .filter(attr => shareableAttributes.includes(attr.name))
-      .forEach(attr => {
-        // Search for a sibling with the same attribute value
-        const matchingSiblings = [];
-        let sibling = targetElement.nextElementSibling;
+  const extractCommonAttributesToGs = () => {
+    let didSomething = false;
+    // extract common attributes to new parent "g" elements
+    svgElement.querySelectorAll("*").forEach(targetElement => {
+      [...targetElement.attributes]
+        .filter(attr => shareableAttributes.includes(attr.name))
+        .forEach(attr => {
+          // Search for a sibling with the same attribute value
+          const matchingSiblings = [];
+          let sibling = targetElement.nextElementSibling;
 
-        while (sibling?.getAttribute(attr.name) === attr.value) {
-          matchingSiblings.push(sibling);
-          sibling = sibling.nextElementSibling;
-        }
+          while (sibling?.getAttribute(attr.name) === attr.value) {
+            matchingSiblings.push(sibling);
+            sibling = sibling.nextElementSibling;
+          }
 
-        if (matchingSiblings.length) {
-          const newG = document.createElement("g");
-          newG.setAttribute(attr.name, attr.value);
-          targetElement.parentElement?.insertBefore(newG, targetElement);
+          if (matchingSiblings.length) {
+            didSomething = true;
+            const newG = document.createElement("g");
+            newG.setAttribute(attr.name, attr.value);
+            targetElement.parentElement?.insertBefore(newG, targetElement);
 
-          [targetElement, ...matchingSiblings].forEach(sibling2 => {
-            sibling2.removeAttribute(attr.name);
+            [targetElement, ...matchingSiblings].forEach(sibling2 => {
+              sibling2.removeAttribute(attr.name);
 
-            newG.appendChild(sibling2);
-          });
-        }
-      });
-  }); //End push to common attributes
+              newG.appendChild(sibling2);
+            });
+          }
+        });
+    }); //End push to common attributes
 
-  // Merge sibling "g" elements with the same attributes
-  let gElementMergeDidSomething = true;
-  while (gElementMergeDidSomething) {
-    gElementMergeDidSomething = false;
+    return didSomething;
+  };
 
+  const mergeSiblingGs = () => {
+    // Merge sibling "g" elements with the same attributes
+    let didSomething = false;
     svgElement.querySelectorAll("g + g").forEach(gElement => {
       const gElementSibling = gElement.previousElementSibling;
       if (gElementSibling) {
@@ -359,32 +363,51 @@ const processSvg = (/** @type {string} */ data, options) => {
 
           gElement.remove();
 
-          gElementMergeDidSomething = true;
+          didSomething = true;
         }
       }
     });
+    return didSomething;
+  };
+
+  while (extractCommonAttributesToGs()) {
+    // Keep extracting common attributes until no more extractions
+  }
+
+  while (mergeSiblingGs()) {
+    // Keep merging sibling "g" elements with the same attributes until no more merges
   }
 
   const PushGAttributesDown = true; //Push attributes
   if (PushGAttributesDown) {
-    // Remove "g" elements with only one child by pushing all their attributes down to their child
-    document.querySelectorAll("g").forEach(gElement => {
-      if (gElement.parentElement && gElement.children.length === 1) {
-        const onlychild = gElement.children[0];
-        [...gElement.attributes].forEach(attr => {
-          const childAttr = onlychild.getAttribute(attr.name);
-          if (!childAttr || childAttr === attr.value) {
-            onlychild.setAttribute(attr.name, attr.value);
-            gElement.removeAttribute(attr.name);
-          }
-        });
+    for (let i = 0; i < 10; i++) {
+      // Remove "g" elements with only one child by pushing all their attributes down to their child
+      document.querySelectorAll("g").forEach(gElement => {
+        if (gElement.parentElement && gElement.children.length === 1) {
+          const onlychild = gElement.children[0];
+          [...gElement.attributes].forEach(attr => {
+            const childAttr = onlychild.getAttribute(attr.name);
+            if (!childAttr || childAttr === attr.value) {
+              onlychild.setAttribute(attr.name, attr.value);
+              gElement.removeAttribute(attr.name);
+            }
+          });
 
-        if (gElement.attributes.length === 0) {
-          gElement.parentElement.insertBefore(onlychild, gElement);
-          gElement.remove();
+          if (gElement.attributes.length === 0) {
+            gElement.parentElement.insertBefore(onlychild, gElement);
+            gElement.remove();
+          }
         }
-      }
-    });
+      });
+    }
+  }
+
+  while (extractCommonAttributesToGs()) {
+    // Keep extracting common attributes until no more extractions
+  }
+
+  while (mergeSiblingGs()) {
+    // Keep merging sibling "g" elements with the same attributes until no more merges
   }
 
   // Remove empty tags from dom
