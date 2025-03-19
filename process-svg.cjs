@@ -28,11 +28,11 @@ const styleAttributeMap = [
 ];
 
 const shareableAttributes = [
+  "opacity",
   "stroke",
   "stroke-width",
   "fill",
-  "transform",
-  "opacity"
+  "transform"
 ];
 
 /**
@@ -324,30 +324,68 @@ const processSvg = (/** @type {string} */ data, options) => {
       });
   }); //End push to common attributes
 
-  document.querySelectorAll("g").forEach(gElement => {
-    if (gElement.hasAttribute("transform")) {
-      let x = 1;
-    }
-  });
+  // Merge sibling "g" elements with the same attributes
+  let gElementMergeDidSomething = true;
+  while (gElementMergeDidSomething) {
+    gElementMergeDidSomething = false;
 
-  // Remove "g" elements with only one child by pushing all their attributes down to their child
-  document.querySelectorAll("g").forEach(gElement => {
-    if (gElement.parentElement && gElement.children.length === 1) {
-      const onlychild = gElement.children[0];
-      [...gElement.attributes].forEach(attr => {
-        const childAttr = onlychild.getAttribute(attr.name);
-        if (!childAttr || childAttr === attr.value) {
-          onlychild.setAttribute(attr.name, attr.value);
-          gElement.removeAttribute(attr.name);
+    svgElement.querySelectorAll("g + g").forEach(gElement => {
+      const gElementSibling = gElement.previousElementSibling;
+      if (gElementSibling) {
+        const gElementAttributes = [...gElement.attributes];
+        const gElementSiblingAttributes = [...gElementSibling.attributes];
+
+        const distinctAttributes = [
+          ...new Set(
+            [...gElementAttributes, ...gElementSiblingAttributes].map(
+              attr => attr.name
+            )
+          )
+        ];
+
+        if (
+          distinctAttributes.length === gElementAttributes.length &&
+          distinctAttributes.length === gElementSiblingAttributes.length &&
+          gElementAttributes.every(attr =>
+            gElementSiblingAttributes.find(
+              attr2 => attr2.name === attr.name && attr2.value === attr.value
+            )
+          )
+        ) {
+          // Pull the sibling (from before/above) into the current element
+          [...gElement.children].forEach(child => {
+            gElementSibling.appendChild(child);
+          });
+
+          gElement.remove();
+
+          gElementMergeDidSomething = true;
         }
-      });
-
-      if (gElement.attributes.length === 0) {
-        gElement.parentElement.insertBefore(onlychild, gElement);
-        gElement.remove();
       }
-    }
-  });
+    });
+  }
+
+  const PushGAttributesDown = true; //Push attributes
+  if (PushGAttributesDown) {
+    // Remove "g" elements with only one child by pushing all their attributes down to their child
+    document.querySelectorAll("g").forEach(gElement => {
+      if (gElement.parentElement && gElement.children.length === 1) {
+        const onlychild = gElement.children[0];
+        [...gElement.attributes].forEach(attr => {
+          const childAttr = onlychild.getAttribute(attr.name);
+          if (!childAttr || childAttr === attr.value) {
+            onlychild.setAttribute(attr.name, attr.value);
+            gElement.removeAttribute(attr.name);
+          }
+        });
+
+        if (gElement.attributes.length === 0) {
+          gElement.parentElement.insertBefore(onlychild, gElement);
+          gElement.remove();
+        }
+      }
+    });
+  }
 
   // Remove empty tags from dom
   [...svgElement.querySelectorAll("*")]
