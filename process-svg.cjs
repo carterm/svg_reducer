@@ -370,7 +370,7 @@ const processSvg = (/** @type {string} */ data, options) => {
     return didSomething;
   };
 
-  const removeEmptyGs = () => {
+  const removeUselessGs = () => {
     let didSomething = false;
     svgElement.querySelectorAll("g").forEach(gElement => {
       if (gElement.attributes.length === 0) {
@@ -385,51 +385,55 @@ const processSvg = (/** @type {string} */ data, options) => {
     return didSomething;
   };
 
-  while (removeEmptyGs()) {
-    // Keep removing empty "g" elements until no more removals
-  }
-
-  while (extractCommonAttributesToGs()) {
-    // Keep extracting common attributes until no more extractions
-  }
-
-  while (mergeSiblingGs()) {
-    // Keep merging sibling "g" elements with the same attributes until no more merges
-  }
-
-  const PushGAttributesDown = true; //Push attributes
-  if (PushGAttributesDown) {
+  const pushGAttributesDown = () => {
+    let didSomething = false;
     for (let i = 0; i < 10; i++) {
       // Remove "g" elements with only one child by pushing all their attributes down to their child
-      document.querySelectorAll("g").forEach(gElement => {
+      svgElement.querySelectorAll("g").forEach(gElement => {
         if (gElement.parentElement && gElement.children.length === 1) {
           const onlychild = gElement.children[0];
           [...gElement.attributes].forEach(attr => {
             const childAttr = onlychild.getAttribute(attr.name);
             if (!childAttr || childAttr === attr.value) {
+              didSomething = true;
               onlychild.setAttribute(attr.name, attr.value);
               gElement.removeAttribute(attr.name);
             }
           });
 
           if (gElement.attributes.length === 0) {
+            didSomething = true;
             gElement.parentElement.insertBefore(onlychild, gElement);
             gElement.remove();
           }
         }
       });
     }
-  }
+    return didSomething;
+  };
 
   while (extractCommonAttributesToGs()) {
+    console.log("extractCommonAttributesToGs");
     // Keep extracting common attributes until no more extractions
   }
 
   while (mergeSiblingGs()) {
+    console.log("mergeSiblingGs");
     // Keep merging sibling "g" elements with the same attributes until no more merges
   }
 
-  while (removeEmptyGs()) {
+  while (pushGAttributesDown()) {
+    console.log("pushGAttributesDown");
+    // Keep pushing attributes down until no more pushes
+  }
+
+  while (extractCommonAttributesToGs()) {
+    console.log("extractCommonAttributesToGs");
+    // Keep extracting common attributes until no more extractions
+  }
+
+  while (removeUselessGs()) {
+    console.log("removeUselessGs");
     // Keep removing empty "g" elements until no more removals
   }
 
