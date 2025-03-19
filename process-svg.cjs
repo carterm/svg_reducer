@@ -421,16 +421,16 @@ const processSvg = (/** @type {string} */ data, options) => {
     }
   }
 
-  while (removeEmptyGs()) {
-    // Keep removing empty "g" elements until no more removals
-  }
-
   while (extractCommonAttributesToGs()) {
     // Keep extracting common attributes until no more extractions
   }
 
   while (mergeSiblingGs()) {
     // Keep merging sibling "g" elements with the same attributes until no more merges
+  }
+
+  while (removeEmptyGs()) {
+    // Keep removing empty "g" elements until no more removals
   }
 
   // Remove empty tags from dom
