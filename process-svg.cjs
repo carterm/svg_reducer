@@ -387,28 +387,28 @@ const processSvg = (/** @type {string} */ data, options) => {
 
   const pushGAttributesDown = () => {
     let didSomething = false;
-    for (let i = 0; i < 10; i++) {
-      // Remove "g" elements with only one child by pushing all their attributes down to their child
-      svgElement.querySelectorAll("g").forEach(gElement => {
-        if (gElement.parentElement && gElement.children.length === 1) {
-          const onlychild = gElement.children[0];
-          [...gElement.attributes].forEach(attr => {
-            const childAttr = onlychild.getAttribute(attr.name);
-            if (!childAttr || childAttr === attr.value) {
-              didSomething = true;
-              onlychild.setAttribute(attr.name, attr.value);
-              gElement.removeAttribute(attr.name);
-            }
-          });
 
-          if (gElement.attributes.length === 0) {
+    // Remove "g" elements with only one child by pushing all their attributes down to their child
+    svgElement.querySelectorAll("g").forEach(gElement => {
+      if (gElement.parentElement && gElement.children.length === 1) {
+        const onlychild = gElement.children[0];
+        [...gElement.attributes].forEach(attr => {
+          const childAttr = onlychild.getAttribute(attr.name);
+          if (!childAttr || childAttr === attr.value) {
             didSomething = true;
-            gElement.parentElement.insertBefore(onlychild, gElement);
-            gElement.remove();
+            onlychild.setAttribute(attr.name, attr.value);
+            gElement.removeAttribute(attr.name);
           }
+        });
+
+        if (gElement.attributes.length === 0) {
+          didSomething = true;
+          gElement.parentElement.insertBefore(onlychild, gElement);
+          gElement.remove();
         }
-      });
-    }
+      }
+    });
+
     return didSomething;
   };
 
