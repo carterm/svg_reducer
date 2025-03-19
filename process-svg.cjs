@@ -389,9 +389,9 @@ const processSvg = (/** @type {string} */ data, options) => {
     let didSomething = false;
 
     // Remove "g" elements with only one child by pushing all their attributes down to their child
-    svgElement.querySelectorAll("g").forEach(gElement => {
-      if (gElement.parentElement && gElement.children.length === 1) {
-        const onlychild = gElement.children[0];
+    svgElement.querySelectorAll("g > *:only-child").forEach(onlychild => {
+      const gElement = onlychild.parentElement;
+      if (gElement?.parentElement) {
         [...gElement.attributes].forEach(attr => {
           const childAttr = onlychild.getAttribute(attr.name);
           if (!childAttr || childAttr === attr.value) {
