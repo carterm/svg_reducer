@@ -4,7 +4,7 @@
  * Processes SVG data by performing various transformations and optimizations.
  * @typedef {object} fileOptions
  * @property {string} name
- * @property {{pattern:string,replacement:string}[]} replacements
+ * @property {{text:string | null,pattern:string | null,replacement:string}[]} replacements
  */
 
 /**
@@ -58,9 +58,10 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
   if (fileOptions) {
     fileOptions.replacements.forEach(replacement => {
-      const pat = new RegExp(replacement.pattern, "g");
-
-      data = data.replace(pat, replacement.replacement);
+      const pat = replacement.pattern
+        ? new RegExp(replacement.pattern, "g")
+        : replacement.text;
+      if (pat) data = data.replace(pat, replacement.replacement);
     });
   }
 
@@ -530,6 +531,9 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   // Some cleanup
   svgElement.querySelectorAll("[data-scaled]").forEach(element => {
     element.removeAttribute("data-scaled");
+  });
+  svgElement.querySelectorAll("[data-no-merge]").forEach(element => {
+    element.removeAttribute("data-no-merge");
   });
 
   // Return serialized HTML

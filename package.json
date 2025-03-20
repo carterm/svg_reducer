@@ -4,7 +4,7 @@
   "description": "reduce svgs",
   "scripts": {
     "start": "npm run run_default && npm run run_zero_decimals && npm run run_json && npm run run_no_merge",
-    "special": "node reduce.cjs --input 'samples/no_merge/*.svg' --np --o 'svg_options.json'",
+    "special": "node reduce.cjs --input 'samples/no_merge/*.svg' --o 'svg_options.json'",
     "run_default": "node reduce.cjs --input 'samples/default/*' --dev",
     "run_zero_decimals": "node reduce.cjs --input 'samples/zero_decimals/*' --m 0 --dev",
     "run_json": "node reduce.cjs --input 'samples/json/*' --m 1",
