@@ -43,10 +43,6 @@
       <stop stop-color="#a8a9ac" />
       <stop offset="1" stop-color="#7797ce" />
     </linearGradient>
-    <linearGradient id="SVGID_13_" gradientUnits="userSpaceOnUse" x1="3130" y1="2510" x2="3440" y2="2510">
-      <stop stop-color="#a8a9ac" />
-      <stop offset="1" stop-color="#7797ce" />
-    </linearGradient>
     <linearGradient id="SVGID_14_" gradientUnits="userSpaceOnUse" x1="1780" y1="3200" x2="4000" y2="3200">
       <stop stop-color="#bd8a5e" />
       <stop offset="0.97" stop-color="#8b5f3c" />
@@ -2083,7 +2079,7 @@
         <path d="M3047 2864c-11 0-19-10-19-23v-530c0-13 9-23 19-23c11 0 19 10 19 23v530c1 13-8 23-19 23z" />
       </g>
       <path fill="#ECEDF3" d="M3292 2206v682l-158 108-1 1-186-30l1-49l3-739l4-4-43-8-4 703l4-703-65-11v794l-1 1-163-27v-796l172-176l114 151l18 23l10 13l6 8l7 10l146 25h1l135 24z" />
-      <path fill="url(#SVGID_13_)" d="M3134 2205v792l308-181v-660l-135-126-173 175z" />
+      <path fill="url(#SVGID_12_)" d="M3134 2205v792l308-181v-660l-135-126-173 175z" />
       <path fill="#FDC88B" d="M3307 2030l-149 153-23 23-174-30-6-1-43-8-65-11-164-29l172-176l452 79z" />
       <g fill="#CCCED8">
         <path d="M2955 2174l-4 4-3 739v4l-41-8v-43l4-703l44 7z" />

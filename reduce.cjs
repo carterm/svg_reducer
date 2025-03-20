@@ -34,6 +34,12 @@ const argv = yargs
     demandOption: true,
     requiresArg: true
   })
+  .option("options", {
+    alias: "o",
+    type: "string",
+    description: "conversion options",
+    requiresArg: true
+  })
   .help() // Add the --help flag
   .alias("help", "h").argv; // Shortcut for help
 
@@ -41,8 +47,14 @@ const argv = yargs
 const processOptions = {
   devmode: argv["dev"],
   maxDecimalPlaces: argv["maxDecimalPlaces"],
-  noPathsMerge: argv["noPathsMerge"]
+  noPathsMerge: argv["noPathsMerge"],
+  optionsPath: argv["options"]
 };
+
+if (processOptions.optionsPath) {
+  const options = require(`./${processOptions.optionsPath}`);
+  Object.assign(processOptions, options);
+}
 
 // Use glob to find matching files
 /** @type {string} */
@@ -82,7 +94,7 @@ stream.on("data", inputFile => {
 
       const htmlOutput = inputFile.endsWith(".json")
         ? processJson(data, processOptions)
-        : processSvg(data, processOptions);
+        : processSvg(data, processOptions, inputFile);
 
       // Write to the output file
       fs.writeFile(outputFile, htmlOutput, "utf8", writeErr => {

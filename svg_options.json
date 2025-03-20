@@ -1,0 +1,13 @@
+{
+  "fileOptions": [
+    {
+      "name": "banner-image",
+      "replacements": [
+        {
+          "pattern": "url\\(#SVGID_13_\\)",
+          "replacement": "url(#SVGID_12_)"
+        }
+      ]
+    }
+  ]
+}

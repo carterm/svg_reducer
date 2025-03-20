@@ -2,10 +2,19 @@
 
 /**
  * Processes SVG data by performing various transformations and optimizations.
+ * @typedef {object} fileOptions
+ * @property {string} name
+ * @property {{pattern:string,replacement:string}[]} replacements
+ */
+
+/**
+ * Processes SVG data by performing various transformations and optimizations.
  * @typedef {object} processDataOptions
  * @property {boolean} devmode - Whether to enable development mode.
  * @property {number} maxDecimalPlaces - The maximum number of decimal places to retain.
  * @property {boolean} noPathsMerge - Whether to merge paths with matching attributes.
+ * @property {string} optionsPath - conversion options
+ * @property {fileOptions[]} [fileOptions] - individual data for each file
  */
 
 const { JSDOM } = require("jsdom");
@@ -39,9 +48,22 @@ const shareableAttributes = [
  *
  * @param {string} data
  * @param {processDataOptions} options
+ * @param {string} inputFile
  * @returns
  */
-const processSvg = (/** @type {string} */ data, options) => {
+const processSvg = (/** @type {string} */ data, options, inputFile) => {
+  const fileOptions = options.fileOptions?.find(x =>
+    inputFile.includes(x.name)
+  );
+
+  if (fileOptions) {
+    fileOptions.replacements.forEach(replacement => {
+      const pat = new RegExp(replacement.pattern, "g");
+
+      data = data.replace(pat, replacement.replacement);
+    });
+  }
+
   // Parse the transformed data as HTML
   const dom = new JSDOM(data);
   const document = dom.window.document;
@@ -68,12 +90,21 @@ const processSvg = (/** @type {string} */ data, options) => {
     }
   });
 
+  //remove gradients that are not used (no ids)
+  svgElement
+    .querySelectorAll("linearGradient:not([id]), radialGradient:not([id])")
+    .forEach(gradient => {
+      gradient.remove();
+    });
+
   // Move all gradients with IDs to the DEF area
   const defsElement =
     svgElement.querySelector("svg > defs") || document.createElement("defs");
-  svgElement.querySelectorAll("[id]").forEach(element => {
-    defsElement.appendChild(element);
-  });
+  svgElement
+    .querySelectorAll("linearGradient, radialGradient, clipPath")
+    .forEach(element => {
+      defsElement.appendChild(element);
+    });
   if (!defsElement.parentElement && defsElement.childElementCount) {
     // Put the defs element at the beginning of the SVG
     svgElement.insertBefore(defsElement, svgElement.firstChild);
