@@ -75,13 +75,48 @@ const processSvg = (/** @type {string} */ data, options) => {
     defsElement.appendChild(element);
   });
   if (!defsElement.parentElement && defsElement.childElementCount) {
+    // Put the defs element at the beginning of the SVG
     svgElement.insertBefore(defsElement, svgElement.firstChild);
   }
 
-  //remove "offest=0" from gradientTransform stops
+  //Apply the gradientTransform to the gradient coordinates
+  const coordinateNames = ["x1", "y1", "x2", "y2"];
   svgElement
-    .querySelectorAll("defs > linearGradient > stop[offset='0']")
-    .forEach(stopElement => stopElement.removeAttribute("offset"));
+    .querySelectorAll("svg > defs > linearGradient")
+    .forEach(gradient => {
+      //remove "offest=0" from gradientTransform stops
+      gradient
+        .querySelectorAll("stop[offset='0']")
+        .forEach(stopElement => stopElement.removeAttribute("offset"));
+
+      const [x1, y1, x2, y2] = coordinateNames
+        .map(field => gradient.getAttribute(field))
+        .filter(x => x !== null)
+        .map(parseFloat);
+
+      const transform = gradient.getAttribute("gradientTransform");
+
+      if (transform?.startsWith("matrix")) {
+        const match = transform.match(/matrix\(([^)]+)\)/);
+        if (match) {
+          const [a, b, c, d, e, f] = match[1].split(" ").map(parseFloat);
+
+          // Apply the matrix transformation to each coordinate
+          const newX1 = a * x1 + c * y1 + e;
+          const newY1 = b * x1 + d * y1 + f;
+          const newX2 = a * x2 + c * y2 + e;
+          const newY2 = b * x2 + d * y2 + f;
+
+          // Update the gradient with the transformed coordinates
+          [newX1, newY1, newX2, newY2].forEach((val, i) => {
+            gradient.setAttribute(coordinateNames[i], val.toFixed(0));
+          });
+
+          // Remove the gradientTransform attribute as it's now applied
+          gradient.removeAttribute("gradientTransform");
+        }
+      }
+    });
 
   //find "USE" elements and replace them with the actual content
   svgElement.querySelectorAll("use").forEach(useElement => {
