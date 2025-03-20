@@ -6,6 +6,10 @@
         {
           "text": "d=\"M103.8,214.8c0,3.6-2",
           "replacement": "data-no-merge=\"true\" d=\"M103.8,214.8c0,3.6-2"
+        },
+        {
+          "pattern": "#ffffff|#FFFFFF",
+          "replacement": "#fff"
         }
       ]
     }
