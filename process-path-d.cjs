@@ -7,20 +7,20 @@ const scalepoints = true;
 
 /**
  *
- * @param {string} d
+ * @param {string} pathD
  * @param {import("./process-svg.cjs").processDataOptions} options
  * @param {SVGPathElement} [pathElement]
  */
-const processPathD = (d, options, pathElement) => {
-  d = d.replace(/,/g, " "); // Replace commas with spaces
-  d = d.replace(/(\.\d+)(?=(\.\d+))/g, "$1 "); // Add space between decimals
+const processPathD = (pathD, options, pathElement) => {
+  pathD = pathD.replace(/,/g, " "); // Replace commas with spaces
+  pathD = pathD.replace(/(\.\d+)(?=(\.\d+))/g, "$1 "); // Add space between decimals
 
-  d = d.replace(/\s+([clshvmz])/gim, "$1"); // Remove leading whitespace before commands
-  d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
+  pathD = pathD.replace(/\s+([clshvmz])/gim, "$1"); // Remove leading whitespace before commands
+  pathD = pathD.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
   // Simplify path data
   /** @type {string[]} */
-  const allCommands = d.match(/[a-zA-Z][^a-zA-Z]*/g) || [];
+  const allCommands = pathD.match(/[a-zA-Z][^a-zA-Z]*/g) || [];
   const pathData = allCommands.map(command => {
     const code = command.trim()[0];
     const commanddata = command.replace(code, "").trim();
@@ -230,7 +230,7 @@ const processPathD = (d, options, pathElement) => {
   }
 
   // render simplified path data
-  d = pathData
+  pathD = pathData
     .map(command => {
       const code = command.code;
       const coordinates = command.coordinates.map(point =>
@@ -259,12 +259,12 @@ const processPathD = (d, options, pathElement) => {
     })
     .join("");
 
-  d = d.replace(/s0 0\s*(-?\d+)\s*(-?\d+)/gm, "l$1 $2"); // line
+  pathD = pathD.replace(/s0 0\s*(-?\d+)\s*(-?\d+)/gm, "l$1 $2"); // line
 
   //s curve with no curve before it
-  d = d.replace(/([h|v|l][^a-zA-Z]+)s([^a-zA-Z]+)/gm, "$1c0 0 $2"); //independent curve
+  pathD = pathD.replace(/([h|v|l][^a-zA-Z]+)s([^a-zA-Z]+)/gm, "$1c0 0 $2"); //independent curve
 
-  d = d.replaceAll(
+  pathD = pathD.replaceAll(
     /c\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
     (match, ...params) => {
       const [x0, y0, x1, y1, x2, y2] = params.map(parseFloat);
@@ -295,13 +295,13 @@ const processPathD = (d, options, pathElement) => {
   );
 
   //left over "c" curves with no curve before it can be an s curve
-  d = d.replace(
+  pathD = pathD.replace(
     /([h|v|l][^a-zA-Z]+)c\s*0\s*0\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
     "$1s$2 $3 $4 $5"
   );
 
-  d = d.replace(/l0\s*(-?\d+)/gm, "v$1"); // line to vertical
-  d = d.replace(/l(-?\d+) 0/gm, "h$1"); // line to horizontal
+  pathD = pathD.replace(/l0\s*(-?\d+)/gm, "v$1"); // line to vertical
+  pathD = pathD.replace(/l(-?\d+) 0/gm, "h$1"); // line to horizontal
 
   /**
    * Sums the values of consecutive horizontal or vertical lines.
@@ -317,22 +317,22 @@ const processPathD = (d, options, pathElement) => {
     return `${hv}${sum}`;
   };
 
-  d = d.replace(/h\d+(?:\s*h\d+)+/gm, match => sumHV("h", match)); // Sum positive horizontal lines
-  d = d.replace(/v\d+(?:\s*v\d+)+/gm, match => sumHV("v", match)); // Sum positive vertical lines
-  d = d.replace(/h-\d+(?:\s*h-\d+)+/gm, match => sumHV("h", match)); // Sum negative horizontal lines
-  d = d.replace(/v-\d+(?:\s*v-\d+)+/gm, match => sumHV("v", match)); // Sum negative vertical lines
+  pathD = pathD.replace(/h\d+(?:\s*h\d+)+/gm, match => sumHV("h", match)); // Sum positive horizontal lines
+  pathD = pathD.replace(/v\d+(?:\s*v\d+)+/gm, match => sumHV("v", match)); // Sum positive vertical lines
+  pathD = pathD.replace(/h-\d+(?:\s*h-\d+)+/gm, match => sumHV("h", match)); // Sum negative horizontal lines
+  pathD = pathD.replace(/v-\d+(?:\s*v-\d+)+/gm, match => sumHV("v", match)); // Sum negative vertical lines
 
-  d = d.replace(/(v|h)0(?![\d.])/gm, ""); // Remove "v" or "h" followed by the number 0, but not if followed by a digit or a decimal
-  d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
+  pathD = pathD.replace(/(v|h)0(?![\d.])/gm, ""); // Remove "v" or "h" followed by the number 0, but not if followed by a digit or a decimal
+  pathD = pathD.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
   // Remove "z" commands that follow a "m" command
-  d = d.replace(/(m[^a-y]+)z/gim, "$1");
+  pathD = pathD.replace(/(m[^a-y]+)z/gim, "$1");
 
   // Remove "m" at the end of the path
-  d = d.replace(/m[^clshv]+$/gim, "");
+  pathD = pathD.replace(/m[^clshv]+$/gim, "");
 
   // merge consecutive "m" commands
-  d = d.replace(/m[^clshvA-Z]+(?:\s*m[^clshvA-Z]+)+/gm, match => {
+  pathD = pathD.replace(/m[^clshvA-Z]+(?:\s*m[^clshvA-Z]+)+/gm, match => {
     const [...moves] = match.matchAll(/m\s*(?<x>-?\d+)\s*(?<y>-?\d+)/gim);
     let combinedMove = moves.reduce(
       (acc, move) => {
@@ -347,23 +347,23 @@ const processPathD = (d, options, pathElement) => {
   });
 
   if (options.devmode) {
-    d = d.replace(/([a-zA-z])/gim, "\n$1"); // Add newline before commands
+    pathD = pathD.replace(/([a-zA-z])/gim, "\n$1"); // Add newline before commands
   }
 
   if (removeExtraCs) {
-    d = d.replace(/c([^lshvzqmA-Z]*)/gms, match =>
+    pathD = pathD.replace(/c([^lshvzqmA-Z]*)/gms, match =>
       `c${match.replace(/c-/gms, "-")}`.replace(/cc/gms, "c")
     ); // Combine consecutive "c-" command codes
-    d = d.replace(/l([^cshvzqmA-Z]*)/gms, match =>
+    pathD = pathD.replace(/l([^cshvzqmA-Z]*)/gms, match =>
       `l${match.replace(/l-/gms, "-")}`.replace(/ll/gms, "l")
     ); // Combine consecutive "l-" command codes
   }
 
   if (!options.devmode) {
-    d = d.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers, after removing extra cs
+    pathD = pathD.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers, after removing extra cs
   }
 
-  return d;
+  return pathD;
 };
 
 // Remove all invisible elements
