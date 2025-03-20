@@ -110,8 +110,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     svgElement.insertBefore(defsElement, svgElement.firstChild);
   }
 
-  //Apply the gradientTransform to the gradient coordinates
-  const coordinateNames = ["x1", "y1", "x2", "y2"];
   svgElement
     .querySelectorAll("svg > defs > linearGradient")
     .forEach(gradient => {
@@ -119,34 +117,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       gradient
         .querySelectorAll("stop[offset='0']")
         .forEach(stopElement => stopElement.removeAttribute("offset"));
-
-      const [x1, y1, x2, y2] = coordinateNames
-        .map(field => gradient.getAttribute(field))
-        .filter(x => x !== null)
-        .map(parseFloat);
-
-      const transform = gradient.getAttribute("gradientTransform");
-
-      if (transform?.startsWith("matrix")) {
-        const match = transform.match(/matrix\(([^)]+)\)/);
-        if (match) {
-          const [a, b, c, d, e, f] = match[1].split(" ").map(parseFloat);
-
-          // Apply the matrix transformation to each coordinate
-          const newX1 = a * x1 + c * y1 + e;
-          const newY1 = b * x1 + d * y1 + f;
-          const newX2 = a * x2 + c * y2 + e;
-          const newY2 = b * x2 + d * y2 + f;
-
-          // Update the gradient with the transformed coordinates
-          [newX1, newY1, newX2, newY2].forEach((val, i) => {
-            gradient.setAttribute(coordinateNames[i], val.toFixed(0));
-          });
-
-          // Remove the gradientTransform attribute as it's now applied
-          gradient.removeAttribute("gradientTransform");
-        }
-      }
     });
 
   //find "USE" elements and replace them with the actual content
@@ -556,6 +526,11 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       }
     }
   }
+
+  // Some cleanup
+  svgElement.querySelectorAll("[data-scaled]").forEach(element => {
+    element.removeAttribute("data-scaled");
+  });
 
   // Return serialized HTML
   return (

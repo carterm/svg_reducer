@@ -115,20 +115,50 @@ const processPathD = (d, options, pathElement) => {
         }
 
         // Find any fill gradients and scale them
-
-        if (props.fill.startsWith("url(")) {
-          const idQuery = props.fill.replace("url(", "").replace(")", "");
+        if (props.fill.startsWith("url(") || props.stroke.startsWith("url(")) {
+          const idString = props.fill.startsWith("url(")
+            ? props.fill
+            : props.stroke;
+          const idQuery = idString.replace("url(", "").replace(")", "");
           const gradient = pathElement.ownerDocument.querySelector(idQuery);
           if (gradient) {
             //Scale all the numbers in the transform
             const transform = gradient.getAttribute("gradientTransform");
             if (transform) {
-              const newTransform = transform.replaceAll(/-?\d+\.?\d*/g, match =>
-                (parseFloat(match) * scale).toString()
-              );
+              if (transform.startsWith("matrix")) {
+                const match = transform.match(/matrix\(([^)]+)\)/);
+                if (match) {
+                  //Apply the gradientTransform to the gradient coordinates
+                  const coordinateNames = ["x1", "y1", "x2", "y2"];
 
-              gradient.setAttribute("gradientTransform", newTransform);
-            } else {
+                  const [x1, y1, x2, y2] = coordinateNames
+                    .map(field => gradient.getAttribute(field))
+                    .filter(x => x !== null)
+                    .map(parseFloat);
+
+                  const [a, b, c, d, e, f] = match[1]
+                    .split(" ")
+                    .map(parseFloat);
+
+                  // Apply the matrix transformation to each coordinate
+                  const newX1 = a * x1 + c * y1 + e;
+                  const newY1 = b * x1 + d * y1 + f;
+                  const newX2 = a * x2 + c * y2 + e;
+                  const newY2 = b * x2 + d * y2 + f;
+
+                  // Update the gradient with the transformed coordinates
+                  [newX1, newY1, newX2, newY2].forEach((val, i) => {
+                    gradient.setAttribute(coordinateNames[i], val.toFixed(0));
+                  });
+
+                  // Remove the gradientTransform attribute as it's now applied
+                  gradient.removeAttribute("gradientTransform");
+                }
+              }
+            }
+
+            if (!gradient.hasAttribute("data-scaled")) {
+              gradient.setAttribute("data-scaled", "true");
               // No Transform, Scale the x1, y1, x2, y2 attributes
               [...gradient.attributes]
                 .filter(attr => ["x1", "y1", "x2", "y2"].includes(attr.name))
