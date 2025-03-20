@@ -2,16 +2,7 @@
   "fileOptions": [
     {
       "name": "banner-image",
-      "replacements": [
-        {
-          "pattern": "url\\(#SVGID_13_\\)",
-          "replacement": "url(#SVGID_12_)"
-        },
-        {
-          "pattern": "url\\(#(SVGID_17_|SVGID_26_|SVGID_27_|SVGID_28_|SVGID_29_)\\)",
-          "replacement": "url(#SVGID_16_)"
-        }
-      ]
+      "replacements": []
     }
   ]
 }
