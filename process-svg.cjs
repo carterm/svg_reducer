@@ -46,7 +46,7 @@ const processSvg = (/** @type {string} */ data, options) => {
   const dom = new JSDOM(data);
   const document = dom.window.document;
 
-  // Remove all HTML comments
+  // Remove all HTML comments, document level
   document.querySelectorAll("*").forEach(node => {
     [...node.childNodes].forEach(child => {
       if (child.nodeType === dom.window.Node.COMMENT_NODE) {
@@ -61,12 +61,7 @@ const processSvg = (/** @type {string} */ data, options) => {
     process.exit(1);
   }
 
-  //remove "offest=0" from gradientTransform stops
-  document
-    .querySelectorAll("stop[offset='0']")
-    .forEach(stopElement => stopElement.removeAttribute("offset"));
-
-  // Only remove ids that aren't used in the SVG
+  // document level Only remove ids that aren't used in the SVG
   document.querySelectorAll("[id]").forEach(element => {
     if (!svgElement.innerHTML.includes(`#${element.id}`)) {
       element.removeAttribute("id");
@@ -76,18 +71,23 @@ const processSvg = (/** @type {string} */ data, options) => {
   // Move all gradients with IDs to the DEF area
   const defsElement =
     svgElement.querySelector("svg > defs") || document.createElement("defs");
-  document.querySelectorAll("[id]").forEach(element => {
+  svgElement.querySelectorAll("[id]").forEach(element => {
     defsElement.appendChild(element);
   });
   if (!defsElement.parentElement && defsElement.childElementCount) {
     svgElement.insertBefore(defsElement, svgElement.firstChild);
   }
 
+  //remove "offest=0" from gradientTransform stops
+  svgElement
+    .querySelectorAll("defs > linearGradient > stop[offset='0']")
+    .forEach(stopElement => stopElement.removeAttribute("offset"));
+
   //find "USE" elements and replace them with the actual content
-  document.querySelectorAll("use").forEach(useElement => {
+  svgElement.querySelectorAll("use").forEach(useElement => {
     const href = useElement.getAttribute("xlink:href");
     if (href) {
-      const targetElement = document.querySelector(href);
+      const targetElement = svgElement.querySelector(href);
       if (targetElement) {
         const prt = useElement.parentElement;
         if (prt) {
@@ -413,41 +413,39 @@ const processSvg = (/** @type {string} */ data, options) => {
   };
 
   while (extractCommonAttributesToGs()) {
-    console.log("extractCommonAttributesToGs");
+    //console.log("extractCommonAttributesToGs");
     // Keep extracting common attributes until no more extractions
   }
 
   while (mergeSiblingGs()) {
-    console.log("mergeSiblingGs");
+    //console.log("mergeSiblingGs");
     // Keep merging sibling "g" elements with the same attributes until no more merges
   }
 
   while (pushGAttributesDown()) {
-    console.log("pushGAttributesDown");
+    //console.log("pushGAttributesDown");
     // Keep pushing attributes down until no more pushes
   }
 
   while (extractCommonAttributesToGs()) {
-    console.log("extractCommonAttributesToGs");
+    //console.log("extractCommonAttributesToGs");
     // Keep extracting common attributes until no more extractions
   }
 
   while (removeUselessGs()) {
-    console.log("removeUselessGs");
+    // console.log("removeUselessGs");
     // Keep removing empty "g" elements until no more removals
   }
 
   // Remove empty tags from dom
-  [...svgElement.querySelectorAll("*")]
-    .filter(
-      element => !element.hasAttributes() && !element.innerHTML.trim().length
-    )
+  [...svgElement.querySelectorAll(":not(:has(*))")]
+    .filter(element => !element.hasAttributes())
     .forEach(element => {
       element.remove();
     });
 
   // put path "d" attributes in the correct order
-  document.querySelectorAll("path").forEach(pathElement => {
+  svgElement.querySelectorAll("path").forEach(pathElement => {
     const d = pathElement.getAttribute("d");
     if (d) {
       pathElement.removeAttribute("d");
