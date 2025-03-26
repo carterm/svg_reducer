@@ -221,6 +221,25 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       )
   );
 
+  //Convert polygons to paths
+  [...svgElement.querySelectorAll("polygonx")].forEach(polygonElement => {
+    const pathElement = document.createElement("path");
+    const points = polygonElement.getAttribute("points") || "";
+    const pointsArray = points.split(/[\s,]+/);
+    const d = pointsArray.reduce((acc, point, index) => {
+      if (index % 2 === 0) {
+        return `${acc} ${point},`;
+      } else {
+        return `${acc}${point} `;
+      }
+    }, "M");
+
+    pathElement.setAttribute("d", `${d}Z`);
+
+    polygonElement.parentElement?.insertBefore(pathElement, lineElement);
+    polygonElement.remove();
+  });
+
   //Convert lines to paths
   if (ConvertLinesToPaths) {
     [...svgElement.querySelectorAll("line")].forEach(lineElement => {
