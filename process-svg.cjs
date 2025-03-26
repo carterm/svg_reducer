@@ -222,21 +222,28 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   );
 
   //Convert polygons to paths
-  [...svgElement.querySelectorAll("polygonx")].forEach(polygonElement => {
+  [...svgElement.querySelectorAll("polygon")].forEach(polygonElement => {
     const pathElement = document.createElement("path");
-    const points = polygonElement.getAttribute("points") || "";
+    const points = (polygonElement.getAttribute("points") || "")
+      .replace(/\s/g, " ")
+      .trim();
     const pointsArray = points.split(/[\s,]+/);
     const d = pointsArray.reduce((acc, point, index) => {
       if (index % 2 === 0) {
-        return `${acc} ${point},`;
+        return `${acc}${index ? "L" : "M"}${point} `;
       } else {
-        return `${acc}${point} `;
+        return `${acc}${point}`;
       }
-    }, "M");
+    }, "");
 
     pathElement.setAttribute("d", `${d}Z`);
+    [...polygonElement.attributes].forEach(attr => {
+      if (shareableAttributes.includes(attr.name)) {
+        pathElement.setAttribute(attr.name, attr.value);
+      }
+    });
 
-    polygonElement.parentElement?.insertBefore(pathElement, lineElement);
+    polygonElement.parentElement?.insertBefore(pathElement, polygonElement);
     polygonElement.remove();
   });
 
