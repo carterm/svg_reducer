@@ -228,13 +228,11 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       .replace(/\s/g, " ")
       .trim();
     const pointsArray = points.split(/[\s,]+/);
-    const d = pointsArray.reduce((acc, point, index) => {
-      if (index % 2 === 0) {
-        return `${acc}${index ? "L" : "M"}${point} `;
-      } else {
-        return `${acc}${point}`;
-      }
-    }, "");
+    const d = pointsArray.reduce(
+      (acc, point, index) =>
+        index % 2 ? `${acc}${point}` : `${acc}${index ? "L" : "M"}${point} `,
+      ""
+    );
 
     pathElement.setAttribute("d", `${d}Z`);
     [...polygonElement.attributes].forEach(attr => {
