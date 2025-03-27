@@ -382,6 +382,16 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     );
   }); //End Path loop
 
+  // Round transform attributes to the specified number of decimal places
+  svgElement.querySelectorAll("linearGradient").forEach(element => {
+    ["x1", "x2", "y1", "y2"].forEach(attr => {
+      const value = parseFloat(element.getAttribute(attr) || "0");
+      if (!isNaN(value)) {
+        element.setAttribute(attr, value.toFixed(0));
+      }
+    });
+  });
+
   const extractCommonAttributesToGs = () => {
     let didSomething = false;
     // extract common attributes to new parent "g" elements

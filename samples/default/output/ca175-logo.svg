@@ -1,24 +1,24 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113 130">
   <defs>
-    <linearGradient id="ID0" gradientUnits="userSpaceOnUse" x1="236.507" y1="161.15800000000002" x2="1474.1059999999998" y2="969.006">
+    <linearGradient id="ID0" gradientUnits="userSpaceOnUse" x1="237" y1="161" x2="1474" y2="969">
       <stop stop-color="#b0803e" />
       <stop offset="0.3044" stop-color="#e7d086" />
       <stop offset="0.7527" stop-color="#916a2d" />
       <stop offset="1" stop-color="#bb782a" />
     </linearGradient>
-    <linearGradient id="ID1" gradientUnits="userSpaceOnUse" x1="332.935" y1="458.17100000000005" x2="784.987" y2="1238.693">
+    <linearGradient id="ID1" gradientUnits="userSpaceOnUse" x1="333" y1="458" x2="785" y2="1239">
       <stop stop-color="#b0803e" />
       <stop offset="0.3044" stop-color="#e7d086" />
       <stop offset="0.7527" stop-color="#916a2d" />
       <stop offset="1" stop-color="#bb782a" />
     </linearGradient>
-    <linearGradient id="ID2" gradientUnits="userSpaceOnUse" x1="234.937" y1="566.361" x2="443.164" y2="1835.248">
+    <linearGradient id="ID2" gradientUnits="userSpaceOnUse" x1="235" y1="566" x2="443" y2="1835">
       <stop stop-color="#b0803e" />
       <stop offset="0.3044" stop-color="#e7d086" />
       <stop offset="0.7527" stop-color="#916a2d" />
       <stop offset="1" stop-color="#bb782a" />
     </linearGradient>
-    <linearGradient id="ID3" gradientUnits="userSpaceOnUse" x1="600.097" y1="446.138" x2="970.672" y2="1132.028">
+    <linearGradient id="ID3" gradientUnits="userSpaceOnUse" x1="600" y1="446" x2="971" y2="1132">
       <stop stop-color="#b0803e" />
       <stop offset="0.3044" stop-color="#e7d086" />
       <stop offset="0.7527" stop-color="#916a2d" />
