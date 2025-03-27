@@ -44,6 +44,11 @@ const shareableAttributes = [
   "transform"
 ];
 
+const globalReplacements = [
+  { from: /#ffffff/gim, to: "#fff" },
+  { from: /#000000/gim, to: "#000" }
+];
+
 /**
  *
  * @param {string} data
@@ -64,6 +69,10 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       if (pat) data = data.replace(pat, replacement.replacement);
     });
   }
+
+  globalReplacements.forEach(replacement => {
+    data = data.replace(replacement.from, replacement.to);
+  });
 
   // Parse the transformed data as HTML
   const dom = new JSDOM(data);
