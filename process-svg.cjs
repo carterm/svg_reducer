@@ -24,6 +24,7 @@ const {
 } = require("./process-path-d.cjs");
 
 const ConvertLinesToPaths = true;
+const shortenIds = true;
 const removeStyles = true;
 const styleToAttributes = true;
 const styleAttributeMap = [
@@ -211,6 +212,21 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
         element.removeAttribute("style");
       }
     });
+  }
+
+  // re-id everything
+  if (shortenIds) {
+    svgElement
+      .querySelectorAll("defs > linearGradient[id]")
+      .forEach((element, i) => {
+        const newId = `ID${i.toString(16)}`;
+
+        svgElement
+          .querySelectorAll(`[fill="url(#${element.id})"]`)
+          .forEach(ref => ref.setAttribute("fill", `url(#${newId})`));
+
+        element.id = newId;
+      });
   }
 
   //Convert RGB colors to hex
