@@ -595,6 +595,13 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     element.removeAttribute("data-no-merge");
   });
 
+  // Final cleanup of empty "g" elements, removing transforms may cause this
+
+  while (removeUselessGs()) {
+    // console.log("removeUselessGs");
+    // Keep removing empty "g" elements until no more removals
+  }
+
   // Return serialized HTML
   return (
     svgElement.outerHTML
