@@ -574,7 +574,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
           // Update the viewBox to reflect the new scale
           const scale = parseFloat(val);
           const divScale = (/** @type {number} */ topPart) =>
-            (topPart / scale).toFixed(6).replace(/\.?0+$/, "");
+            Number((topPart / scale).toFixed(6)).toString(); // prevents 43.4 / 0.1 = 433.99999999999994
 
           svgElement.setAttribute(
             "viewBox",
