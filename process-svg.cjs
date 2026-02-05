@@ -573,9 +573,12 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
           // Update the viewBox to reflect the new scale
           const scale = parseFloat(val);
+          const divScale = (/** @type {number} */ topPart) =>
+            (topPart / scale).toFixed(6).replace(/\.?0+$/, "");
+
           svgElement.setAttribute(
             "viewBox",
-            `${x / scale} ${y / scale} ${width / scale} ${height / scale}`
+            `${divScale(x)} ${divScale(y)} ${divScale(width)} ${divScale(height)}`
           );
 
           svgChildren.forEach(child => {
