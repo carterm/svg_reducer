@@ -297,7 +297,12 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
         /** @type {unknown} */ (document.createElement("path"))
       );
 
-      if (!rectElement.getAttribute("rx") && !rectElement.getAttribute("ry")) {
+      if (
+        !rectElement.getAttribute("rx") &&
+        !rectElement.getAttribute("ry") &&
+        !rectElement.getAttribute("wdith")?.includes("%") &&
+        !rectElement.getAttribute("height")?.includes("%")
+      ) {
         // Simple rectangle
         //<rect fill="black" width="149.31" height="83.66" />
         // to...

@@ -3,19 +3,19 @@ M0 0
 a15 15 0 0 1 44 0
 v99
 h-44
-z"/></defs><path d="
+z"/><mask id="disk"><rect width="100%" height="100%" fill="#fff"/><path fill="#000" d="
+M57 76
+h188
+v193
+H57
+z"/></mask></defs><g mask="url(#disk)"><path d="
 M121 277
 l-61-65
 l180-136
 s18 6 50 31
 c36 28 43 48 43 48
 v122
-z"/><use href="#finger" x="6" y="159"/><use href="#finger" x="12" y="96"/><use href="#finger" x="33" y="46"/><use href="#finger" x="92" y="38"/><path fill="#fff" d="
-M57 76
-h188
-v193
-H57
-z"/><circle cx="151" cy="171" r="29"></circle><circle cx="198" cy="179" r="7"></circle><path d="
+z"/><use href="#finger" x="6" y="159"/><use href="#finger" x="12" y="96"/><use href="#finger" x="33" y="46"/><use href="#finger" x="92" y="38"/></g><circle cx="151" cy="171" r="29"></circle><circle cx="198" cy="179" r="7"></circle><path d="
 M137 225
 a13 13 0 0 1 27 0
 v29
