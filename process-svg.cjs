@@ -535,7 +535,12 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
   // Remove empty tags from dom
   [...svgElement.querySelectorAll(":not(:has(*))")]
-    .filter(element => !element.hasAttributes())
+    .filter(
+      element =>
+        !element.hasAttributes() &&
+        (element.tagName.toLowerCase() !== "defs" ||
+          element.childElementCount === 0)
+    )
     .forEach(element => {
       element.remove();
     });
