@@ -1,0 +1,31 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0,0,333,277" fill="#000"><defs><path id="finger" transform="rotate(-45)" d="
+M0 0
+a150 150 0 0 1 440 0
+v990
+h-440
+z"/></defs><g transform="scale(.1)"><use href="#finger" transform="translate(60, 1590)"/><use href="#finger" transform="translate(120, 960)"/><use href="#finger" transform="translate(330, 460)"/><use href="#finger" transform="translate(915, 375)"/><path d="
+M1209 2773
+l-607-647
+l1795-1357
+s183 60 502 312
+c355 281 433 479 433 479
+v1213
+z"/><path fill="#fff" d="
+M567 762
+h1877
+v1931
+H567
+z"/><circle cx="1506" cy="1712" r="288"></circle><circle cx="1975" cy="1792" r="68"></circle><path d="
+M1369 2259
+a135 135 0 0 1 270 0
+v285
+a135 135 0 0 1-270 0
+z"/><path d="
+M2376 1336
+c0 0-184 213-340 213
+-156 0-273-113-280-243
+-3-64 227-239 483-527
+c32-38 131-20 182-19
+c51 1 139 69 410 277
+c114 160-375 299-375 299
+z"/></g></svg>

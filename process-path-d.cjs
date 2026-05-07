@@ -39,6 +39,14 @@ const processPathD = (pathD, options, pathElement) => {
       coordinates = digits.map(x => ({ x }));
     } else if (code.toLowerCase() === "v") {
       coordinates = digits.map(y => ({ y }));
+    } else if (code.toLowerCase() === "a") {
+      coordinates = [
+        { x: digits[0], y: digits[1] },
+        { x: digits[2] },
+        { x: digits[3] },
+        { x: digits[4] },
+        { x: digits[5], y: digits[6] }
+      ]; // Convert arc command to endpoint, rotation, and radii
     } else if (code.toLowerCase() === "z") {
       //
     } else {
@@ -53,7 +61,7 @@ const processPathD = (pathD, options, pathElement) => {
     return { code, coordinates, z: false, abs: /[A-Z]/.test(code) };
   });
 
-  const commandsizes = { c: 3, q: 2, s: 2, l: 1, m: 1, h: 1, v: 1 };
+  const commandsizes = { c: 3, q: 2, s: 2, l: 1, m: 1, h: 1, v: 1, a: 7 };
 
   //Split "c" commands into groups of 3
   for (let i = 0; i < pathData.length; i++) {
