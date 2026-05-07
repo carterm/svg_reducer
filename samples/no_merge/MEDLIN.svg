@@ -1,16 +1,18 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0,0,333,277" fill="#000">
-  <defs><path id="finger" transform="scale(.1)" d="M0 0c43 43 740 734 740 734l-291 325s-715-706-759-749c-82-82-79-218 6-303c86-86 221-88 303-6z" /></defs>
-  <use href="#finger" transform="translate(122,6)" />
-  <use href="#finger" transform="translate(64,15)" />
-  <use href="#finger" transform="translate(43,65)" />
-  <use href="#finger" transform="translate(37,128)" />
-
+  <defs>
+    <path id="finger" transform="rotate(-45)" d="M0 0a150 150 0 0 1 440 0v990h-440z" />
+  </defs>
   <g transform="scale(.1)">
+    <use href="#finger" transform="translate(60, 1590)" />
+    <use href="#finger" transform="translate(120, 960)" />
+    <use href="#finger" transform="translate(330, 460)" />
+    <use href="#finger" transform="translate(915, 375)" />
+
     <path d="M1209 2773l-607-647l1795-1357s183 60 502 312c355 281 433 479 433 479v1213z" />
-    <path fill="#fff" d="M567 2693v-1931h1877v1931z" />
-    <path d="M1794 1712c0 152-129 276-288 276-159 0-288-124-288-276c0-152 129-276 288-276c159 0 288 124 288 276z" />
-    <path d="M2043 1792c0 36-30 65-68 65-37 0-68-29-68-65c0-36 30-65 68-65c37 0 68 29 68 65z" />
-    <path d="M1639 2253c0 32-1 282-2 312-1 56-70 116-131 117-67-1-133-61-132-121c0-24-5-281-5-309c0-71 60-129 135-129c75 0 135 58 135 129z" />
+    <rect x="567" y="762" width="1877" height="1931" fill="#fff" />
+    <circle cx="1506" cy="1712" r="288" />
+    <circle cx="1975" cy="1792" r="68" />
+    <path d="M1369 2259a135 135 0 0 1 270 0v285a135 135 0 0 1-270 0z" />
     <path d="M2376 1336c0 0-184 213-340 213-156 0-273-113-280-243-3-64 227-239 483-527c32-38 131-20 182-19c51 1 139 69 410 277c114 160-375 299-375 299z" />
   </g>
 </svg>
