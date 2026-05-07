@@ -10,22 +10,22 @@ l180-136
 s18 6 50 31
 c36 28 43 48 43 48
 v122
-z"/><use href="#finger" x="6" y="159"/><use href="#finger" x="12" y="96"/><use href="#finger" x="33" y="46"/><use href="#finger" x="92" y="38"/><g transform="scale(.1)"><path fill="#fff" d="
-M567 762
-h1877
-v1931
-H567
-z"/><circle cx="1506" cy="1712" r="288"></circle><circle cx="1975" cy="1792" r="68"></circle><path d="
-M1369 2259
-a135 135 0 0 1 270 0
-v285
-a135 135 0 0 1-270 0
+z"/><use href="#finger" x="6" y="159"/><use href="#finger" x="12" y="96"/><use href="#finger" x="33" y="46"/><use href="#finger" x="92" y="38"/><path fill="#fff" d="
+M57 76
+h188
+v193
+H57
+z"/><circle cx="151" cy="171" r="29"></circle><circle cx="198" cy="179" r="7"></circle><path d="
+M137 225
+a13 13 0 0 1 27 0
+v29
+a13 13 0 0 1-27 0
 z"/><path d="
-M2376 1336
-c0 0-184 213-340 213
--156 0-273-113-280-243
--3-64 227-239 483-527
-c32-38 131-20 182-19
-c51 1 139 69 410 277
-c114 160-375 299-375 299
-z"/></g></svg>
+M238 134
+c0 0-18 21-34 21
+-16 0-27-11-28-24
+c0-6 23-24 48-53
+c3-4 13-2 18-2
+c5 0 14 7 41 28
+c11 16-38 30-38 30
+z"/></svg>
