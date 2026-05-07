@@ -3,10 +3,10 @@
     <path id="finger" transform="rotate(-45)" d="M0 0a150 150 0 0 1 440 0v990h-440z" />
   </defs>
   <g transform="scale(.1)">
-    <use href="#finger" transform="translate(60, 1590)" />
-    <use href="#finger" transform="translate(120, 960)" />
-    <use href="#finger" transform="translate(330, 460)" />
-    <use href="#finger" transform="translate(915, 375)" />
+    <use href="#finger" x="60" y="1590" />
+    <use href="#finger" x="120" y="960" />
+    <use href="#finger" x="330" y="460" />
+    <use href="#finger" x="915" y="375" />
 
     <path d="M1209 2773l-607-647l1795-1357s183 60 502 312c355 281 433 479 433 479v1213z" />
     <rect x="567" y="762" width="1877" height="1931" fill="#fff" />
