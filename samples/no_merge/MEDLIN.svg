@@ -1,15 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 333 277" fill="#000">
   <defs>
-    <path id="finger" transform="rotate(-45)" d="M0 0a150 150 0 0 1 440 0v990h-440z" />
+    <path id="finger" transform="rotate(-45)" d="M0 0a15 15 0 0 1 44 0v99h-44z" />
   </defs>
+  <path d="M121 277l-61-65 180-136s18 6 50 31c36 28 43 48 43 48v122z" />
+  <use href="#finger" x="6" y="159" />
+  <use href="#finger" x="12" y="96" />
+  <use href="#finger" x="33" y="46" />
+  <use href="#finger" x="92" y="38" />
   <g transform="scale(.1)">
-    <use href="#finger" x="60" y="1590" />
-    <use href="#finger" x="120" y="960" />
-    <use href="#finger" x="330" y="460" />
-    <use href="#finger" x="915" y="375" />
-
-    <path d="M1209 2773l-607-647 1795-1357s183 60 502 312c355 281 433 479 433 479v1213z" />
-
     <rect x="567" y="762" width="1877" height="1931" fill="#fff" />
     <circle cx="1506" cy="1712" r="288" />
     <circle cx="1975" cy="1792" r="68" />
