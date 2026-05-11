@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335 276" fill="#030">
+  <defs>
+    <path id="finger" transform="rotate(-45)" d="M0 0a15 15 0 0 1 44 0v99h-44z" />
+    <mask id="disk">
+      <rect width="100%" height="100%" fill="#fff" />
+      <rect x="58" y="76" width="188" height="188" fill="#000" />
+    </mask>
+  </defs>
+  <g mask="url(#disk)">
+    <path d="M122 277l-61-65 180-136s18 6 50 31c36 28 43 48 43 48v122z" />
+    <use href="#finger" x="7" y="159" />
+    <use href="#finger" x="13" y="96" />
+    <use href="#finger" x="34" y="46" />
+    <use href="#finger" x="93" y="38" />
+  </g>
+  <circle cx="152" cy="170" r="29" />
+  <circle cx="199" cy="178" r="7" />
+  <path d="M138 219a13 13 0 0 1 27 0v29a13 13 0 0 1-27 0z" />
+  <path d="M239 134c0 0-18 21-34 21-16 0-27-11-28-24-0-6 23-24 48-53 3-4 13-2 18-2 5 0 14 7 41 28 11 16-38 30-38 30z" />
+</svg>
