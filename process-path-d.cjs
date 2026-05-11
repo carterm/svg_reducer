@@ -371,10 +371,10 @@ const processPathD = (pathD, options, pathElement) => {
   }
 
   if (removeExtraCs) {
-    pathD = pathD.replace(/c([^lshvzqmA-Z]*)/gms, match =>
+    pathD = pathD.replace(/c([^lshvzqmaA-Z]*)/gms, match =>
       `c${match.replace(/c-/gms, "-")}`.replace(/cc/gms, "c")
     ); // Combine consecutive "c-" command codes
-    pathD = pathD.replace(/l([^cshvzqmA-Z]*)/gms, match =>
+    pathD = pathD.replace(/l([^cshvzqmaA-Z]*)/gms, match =>
       `l${match.replace(/l-/gms, "-")}`.replace(/ll/gms, "l")
     ); // Combine consecutive "l-" command codes
   }
