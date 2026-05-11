@@ -337,7 +337,7 @@ const processPathD = (pathD, options, pathElement) => {
   pathD = pathD.replace(/(m[^a-y]+)z/gim, "$1");
 
   // Remove "m" at the end of the path
-  pathD = pathD.replace(/m[^clshv]+$/gim, "");
+  pathD = pathD.replace(/m[^clshva]+$/gim, "");
 
   // merge consecutive "m" commands
   pathD = pathD.replace(/m[^clshvA-Z]+(?:\s*m[^clshvA-Z]+)+/gm, match => {
