@@ -10,7 +10,7 @@
     "run_zero_decimals": "node reduce.cjs --input 'samples/zero_decimals/*' --m 0 --dev",
     "run_json": "node reduce.cjs --input 'samples/json/*' --m 1",
     "run_recovery": "node reduce.cjs --input 'samples/default/recovery-lineart.svg' --dev",
-    "run_no_merge": "node reduce.cjs --input 'samples/no_merge/*.svg' --np --dev",
+    "run_no_merge": "node reduce.cjs --input 'samples/no_merge/*.svg' --np",
     "GIT cleanup": "git clean -fd"
   },
   "repository": {

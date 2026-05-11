@@ -1,5 +1,7 @@
 //@ts-check
 
+const { normalize } = require("yargs");
+
 const removeExtraCs = true;
 const convertToRelative = true;
 const keepSmallerCommand = true;
@@ -31,7 +33,7 @@ const processPathD = (pathD, options, pathElement) => {
     );
 
     /**
-     * @type {{x?: number, y?: number, absx?: number, absy?: number}[]}
+     * @type {{noscale?: boolean, x?: number, y?: number, absx?: number, absy?: number}[]}
      */
     let coordinates = [];
 
@@ -40,13 +42,15 @@ const processPathD = (pathD, options, pathElement) => {
     } else if (code.toLowerCase() === "v") {
       coordinates = digits.map(y => ({ y }));
     } else if (code.toLowerCase() === "a") {
-      coordinates = [
-        { x: digits[0], y: digits[1] },
-        { x: digits[2] },
-        { x: digits[3] },
-        { x: digits[4] },
-        { x: digits[5], y: digits[6] }
-      ]; // Convert arc command to endpoint, rotation, and radii
+      for (let i = 0; i < digits.length; i += 7) {
+        coordinates.push(
+          { x: digits[i + 0], y: digits[i + 1] },
+          { x: digits[i + 2], noscale: true },
+          { x: digits[i + 3], noscale: true },
+          { x: digits[i + 4], noscale: true },
+          { x: digits[i + 5], y: digits[i + 6] }
+        );
+      }
     } else if (code.toLowerCase() === "z") {
       //
     } else {
@@ -61,7 +65,7 @@ const processPathD = (pathD, options, pathElement) => {
     return { code, coordinates, z: false, abs: /[A-Z]/.test(code) };
   });
 
-  const commandsizes = { c: 3, q: 2, s: 2, l: 1, m: 1, h: 1, v: 1, a: 7 };
+  const commandsizes = { c: 3, q: 2, s: 2, l: 1, m: 1, h: 1, v: 1, a: 5 };
 
   //Split "c" commands into groups of 3
   for (let i = 0; i < pathData.length; i++) {
@@ -70,12 +74,19 @@ const processPathD = (pathD, options, pathElement) => {
     /** @type {number} */
     const commandsize = commandsizes[code];
 
-    if (pathData[i].coordinates.length > commandsize) {
+    const coordinates = pathData[i].coordinates;
+
+    if (code === "a") {
+      // Arc commands can have multiple sets of coordinates, but they should not be split into multiple commands.  So we skip them in this loop.
+      let foo = 1;
+    }
+
+    if (coordinates.length > commandsize) {
       const newCommands = [];
-      for (let j = 0; j < pathData[i].coordinates.length; j += commandsize) {
+      for (let j = 0; j < coordinates.length; j += commandsize) {
         newCommands.push({
           code,
-          coordinates: pathData[i].coordinates.slice(j, j + commandsize),
+          coordinates: coordinates.slice(j, j + commandsize),
           z: false,
           abs: pathData[i].abs
         });
@@ -181,6 +192,7 @@ const processPathD = (pathD, options, pathElement) => {
     // scale is determined.  Round and scale
     pathData.forEach(command => {
       command.coordinates.forEach(point => {
+        if (point.noscale) return;
         if (pathElement) {
           if (point.x !== undefined) point.x = Math.round(point.x * scale);
           if (point.y !== undefined) point.y = Math.round(point.y * scale);
