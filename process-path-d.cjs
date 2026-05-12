@@ -337,8 +337,6 @@ const processPathD = (pathD, options, pathElement) => {
     })
     .join("");
 
-  pathD = pathD.replace(/s0 0\s*(-?\d+)\s*(-?\d+)/gm, "l$1 $2"); // line
-
   //s curve with no curve before it
   pathD = pathD.replace(/([h|v|l][^a-zA-Z]+)s([^a-zA-Z]+)/gm, "$1c0 0 $2"); //independent curve
   //left over "c" curves with no curve before it can be an s curve
@@ -346,9 +344,6 @@ const processPathD = (pathD, options, pathElement) => {
     /([h|v|l][^a-zA-Z]+)c\s*0\s*0\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
     "$1s$2 $3 $4 $5"
   );
-
-  pathD = pathD.replace(/l0\s*(-?\d+)/gm, "v$1"); // line to vertical
-  pathD = pathD.replace(/l(-?\d+) 0/gm, "h$1"); // line to horizontal
 
   /**
    * Sums the values of consecutive horizontal or vertical lines.
