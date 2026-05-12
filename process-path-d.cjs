@@ -33,7 +33,7 @@ const processPathD = (pathD, options, pathElement) => {
     );
 
     /**
-     * @type {{noscale?: boolean, x?: number, y?: number, absx?: number, absy?: number}[]}
+     * @type {{noscale?: boolean, notxy?: boolean, x?: number, y?: number, absx?: number, absy?: number}[]}
      */
     let coordinates = [];
 
@@ -44,10 +44,10 @@ const processPathD = (pathD, options, pathElement) => {
     } else if (code.toLowerCase() === "a") {
       for (let i = 0; i < digits.length; i += 7) {
         coordinates.push(
-          { x: digits[i + 0], y: digits[i + 1] },
-          { x: digits[i + 2], noscale: true },
-          { x: digits[i + 3], noscale: true },
-          { x: digits[i + 4], noscale: true },
+          { x: digits[i + 0], y: digits[i + 1], notxy: true },
+          { x: digits[i + 2], noscale: true, notxy: true },
+          { x: digits[i + 3], noscale: true, notxy: true },
+          { x: digits[i + 4], noscale: true, notxy: true },
           { x: digits[i + 5], y: digits[i + 6] }
         );
       }
@@ -71,27 +71,23 @@ const processPathD = (pathD, options, pathElement) => {
   for (let i = 0; i < pathData.length; i++) {
     const code = pathData[i].code;
 
-    /** @type {number} */
-    const commandsize = commandsizes[code];
+    /** @type {number?} */
+    const commandsize = commandsizes[code.toLowerCase()];
+    if (commandsize) {
+      const coordinates = pathData[i].coordinates;
 
-    const coordinates = pathData[i].coordinates;
-
-    if (code === "a") {
-      // Arc commands can have multiple sets of coordinates, but they should not be split into multiple commands.  So we skip them in this loop.
-      let foo = 1;
-    }
-
-    if (coordinates.length > commandsize) {
-      const newCommands = [];
-      for (let j = 0; j < coordinates.length; j += commandsize) {
-        newCommands.push({
-          code,
-          coordinates: coordinates.slice(j, j + commandsize),
-          z: false,
-          abs: pathData[i].abs
-        });
+      if (coordinates.length > commandsize) {
+        const newCommands = [];
+        for (let j = 0; j < coordinates.length; j += commandsize) {
+          newCommands.push({
+            code,
+            coordinates: coordinates.slice(j, j + commandsize),
+            z: false,
+            abs: pathData[i].abs
+          });
+        }
+        pathData.splice(i, 1, ...newCommands);
       }
-      pathData.splice(i, 1, ...newCommands);
     }
   }
 
@@ -220,16 +216,14 @@ const processPathD = (pathD, options, pathElement) => {
         if (command.abs && i > 0) {
           command.code = command.code.toLowerCase();
 
-          const points =
-            command.code === "a"
-              ? [command.coordinates[command.coordinates.length - 1]]
-              : command.coordinates;
-          points.forEach(point => {
-            point.absx = point.x;
-            point.absy = point.y;
-            if (point.x !== undefined) point.x -= pointLocation.x;
-            if (point.y !== undefined) point.y -= pointLocation.y;
-          });
+          command.coordinates
+            .filter(point => !point.notxy)
+            .forEach(point => {
+              point.absx = point.x;
+              point.absy = point.y;
+              if (point.x !== undefined) point.x -= pointLocation.x;
+              if (point.y !== undefined) point.y -= pointLocation.y;
+            });
         }
 
         const lastpoint = command.coordinates[command.coordinates.length - 1];
