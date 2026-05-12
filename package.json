@@ -8,7 +8,7 @@
     "special": "node reduce.cjs --input 'samples/default/ca175*.svg' --o 'svg_options.json'",
     "run_full_no_dev": "node reduce.cjs --input 'samples/full_no_dev/*'",
     "run_default": "node reduce.cjs --input 'samples/default/*' --dev",
-    "run_zero_decimals": "node reduce.cjs --input 'samples/zero_decimals/*' --np --m 2 --dev",
+    "run_zero_decimals": "node reduce.cjs --input 'samples/zero_decimals/*' --m 0 --dev",
     "run_json": "node reduce.cjs --input 'samples/json/*' --m 1",
     "run_1": "node reduce.cjs --input 'samples/default/recovery-lineart.svg' --dev",
     "run_no_merge": "node reduce.cjs --input 'samples/no_merge/*.svg' --np --dev",
