@@ -15,7 +15,7 @@ l180-136
 s18 6 50 31
 c36 28 43 48 43 48
 v122
-z"/><use href="#finger" x="7" y="159"/><use href="#finger" x="13" y="96"/><use href="#finger" x="34" y="46"/><use href="#finger" x="93" y="38"/></g><circle cx="152" cy="170" r="29"></circle><circle cx="199" cy="178" r="7"></circle><path d="
+z"/><use href="#finger" x="7" y="159"/><use href="#finger" x="13" y="96"/><use href="#finger" x="34" y="46"/><use href="#finger" x="93" y="38"/></g><circle cx="152" cy="170" r="29"/><circle cx="199" cy="178" r="7"/><path d="
 M138 219
 a13 13 0 0 1 27 0
 v29

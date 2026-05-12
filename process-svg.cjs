@@ -17,6 +17,8 @@
  * @property {fileOptions[]} [fileOptions] - individual data for each file
  */
 
+const SVG_NS = "http://www.w3.org/2000/svg";
+
 const { JSDOM } = require("jsdom");
 const {
   processPathD,
@@ -76,7 +78,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   });
 
   // Parse the transformed data as HTML
-  const dom = new JSDOM(data);
+  const dom = new JSDOM(data, { contentType: "image/svg+xml" });
   const document = dom.window.document;
 
   // Remove all HTML comments, document level
@@ -110,7 +112,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
   // Move all gradients with IDs to the DEF area
   const defsElement =
-    svgElement.querySelector("svg > defs") || document.createElement("defs");
+    svgElement.querySelector("svg > defs") ||
+    document.createElementNS(SVG_NS, "defs");
   svgElement
     .querySelectorAll("linearGradient, radialGradient, clipPath")
     .forEach(element => {
@@ -197,19 +200,21 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     // pull out style elements to make attributes
     /** @type {HTMLElement[]} */
     ([...svgElement.querySelectorAll("*")]).forEach(element => {
-      Array.from(element.style).forEach(attr => {
-        if (styleAttributeMap.includes(attr) && element.style[attr]) {
-          element.setAttribute(attr, element.style[attr]);
-          element.style.removeProperty(attr);
-        }
+      if (element.style) {
+        Array.from(element.style).forEach(attr => {
+          if (styleAttributeMap.includes(attr) && element.style[attr]) {
+            element.setAttribute(attr, element.style[attr]);
+            element.style.removeProperty(attr);
+          }
 
-        if (["enable-background"].includes(attr)) {
-          element.style.removeProperty(attr);
-        }
-      });
+          if (["enable-background"].includes(attr)) {
+            element.style.removeProperty(attr);
+          }
+        });
 
-      if (!element.style.length) {
-        element.removeAttribute("style");
+        if (!element.style.length) {
+          element.removeAttribute("style");
+        }
       }
     });
   }
@@ -248,7 +253,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
   //Convert polygons to paths
   [...svgElement.querySelectorAll("polygon")].forEach(polygonElement => {
-    const pathElement = document.createElement("path");
+    const pathElement = document.createElementNS(SVG_NS, "path");
     const points = (polygonElement.getAttribute("points") || "")
       .replace(/\s/g, " ")
       .trim();
@@ -274,7 +279,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   if (ConvertLinesToPaths) {
     [...svgElement.querySelectorAll("line")].forEach(lineElement => {
       const pathElement = /** @type {SVGPathElement} */ (
-        /** @type {unknown} */ (document.createElement("path"))
+        /** @type {unknown} */ (document.createElementNS(SVG_NS, "path"))
       );
 
       pathElement.setAttribute(
@@ -294,7 +299,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     //Convert simple rects to paths
     [...svgElement.querySelectorAll("rect")].forEach(rectElement => {
       const pathElement = /** @type {SVGPathElement} */ (
-        /** @type {unknown} */ (document.createElement("path"))
+        /** @type {unknown} */ (document.createElementNS(SVG_NS, "path"))
       );
 
       if (
@@ -415,7 +420,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
           if (matchingSiblings.length) {
             didSomething = true;
-            const newG = document.createElement("g");
+            const newG = document.createElementNS(SVG_NS, "g");
             newG.setAttribute(attr.name, attr.value);
             targetElement.parentElement?.insertBefore(newG, targetElement);
 
@@ -615,10 +620,13 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     // Keep removing empty "g" elements until no more removals
   }
 
+  const { XMLSerializer } = dom.window;
+  const xml = new XMLSerializer().serializeToString(svgElement);
+
   // Return serialized HTML
   return (
-    svgElement.outerHTML
-      // .replace(/\r?\n|\r/g, "") // Remove line breaks
+    xml
+      .replace(/&#xA;/g, "\n") //restore CRLFs that were converted to XML entities during processing
 
       //.replace(/\s{2,}/g, " ") // Replace 2 or more whitespace chars with a single space
       .replace(/>\s+</g, "><") // Remove all whitespace between ">" and "<"
