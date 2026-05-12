@@ -239,24 +239,6 @@ const processPathD = (pathD, options, pathElement) => {
     });
   }
 
-  // convert "c" commands with first control point at (0,0) to "s" commands
-  pathData.forEach((command, i) => {
-    if (command.code === "c") {
-      const [p1, p2, p3] = command.coordinates;
-
-      const prev = pathData[i - 1];
-
-      const prevIsCurve = prev && (prev.code === "c" || prev.code === "s");
-
-      // Only convert if previous is NOT a curve
-      // and first control point is (0,0)
-      if (!prevIsCurve && p1.x === 0 && p1.y === 0) {
-        command.code = "s";
-        command.coordinates = [p2, p3];
-      }
-    }
-  });
-
   // convert "c" commands with no curve to "l" commands
   const eps = 1e-6;
   const col = (
@@ -292,6 +274,24 @@ const processPathD = (pathD, options, pathElement) => {
       if (col2) {
         command.code = "l";
         command.coordinates = [p3];
+      }
+    }
+  });
+
+  // convert "c" commands with first control point at (0,0) to "s" commands
+  pathData.forEach((command, i) => {
+    if (command.code === "c") {
+      const [p1, p2, p3] = command.coordinates;
+
+      const prev = pathData[i - 1];
+
+      const prevIsCurve = prev && (prev.code === "c" || prev.code === "s");
+
+      // Only convert if previous is NOT a curve
+      // and first control point is (0,0)
+      if (!prevIsCurve && p1.x === 0 && p1.y === 0) {
+        command.code = "s";
+        command.coordinates = [p2, p3];
       }
     }
   });
@@ -403,14 +403,6 @@ const processPathD = (pathD, options, pathElement) => {
       }
     })
     .join("");
-
-  //s curve with no curve before it
-  //pathD = pathD.replace(/([h|v|l][^a-zA-Z]+)s([^a-zA-Z]+)/gm, "$1c0 0 $2"); //independent curve
-  //left over "c" curves with no curve before it can be an s curve
-  pathD = pathD.replace(
-    /([h|v|l][^a-zA-Z]+)c\s*0\s*0\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
-    "$1s$2 $3 $4 $5"
-  );
 
   pathD = pathD.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
