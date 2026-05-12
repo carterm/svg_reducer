@@ -374,6 +374,36 @@ const processPathD = (pathD, options, pathElement) => {
     }
   }
 
+  // Merge consecutive movetos
+  for (let i = 1; i < pathData.length; i++) {
+    const prev = pathData[i - 1];
+    const curr = pathData[i];
+    const prevCoord =
+      /** @type {{x: number, y: number, absx?: number, absy?: number}} */ (
+        prev.coordinates[0]
+      );
+    const currCoord =
+      /** @type {{x: number, y: number, absx?: number, absy?: number}} */ (
+        curr.coordinates[0]
+      );
+
+    //  m followed by m → sum them
+    if (prev.code === "m" && curr.code === "m") {
+      prevCoord.x += currCoord.x;
+      prevCoord.y += currCoord.y;
+      pathData.splice(i, 1);
+      i--;
+      continue;
+    }
+  }
+
+  // No "z" on moves
+  pathData
+    .filter(command => command.code.toLowerCase() === "m")
+    .forEach(command => {
+      command.z = false;
+    });
+
   // render simplified path data
   pathD = pathData
     .map(command => {
@@ -404,28 +434,8 @@ const processPathD = (pathD, options, pathElement) => {
     })
     .join("");
 
-  pathD = pathD.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
-
-  // Remove "z" commands that follow a "m" command
-  pathD = pathD.replace(/(m[^a-y]+)z/gim, "$1");
-
   // Remove "m" at the end of the path
   pathD = pathD.replace(/m[^clshva]+$/gim, "");
-
-  // merge consecutive "m" commands
-  pathD = pathD.replace(/m[^clshvA-Z]+(?:\s*m[^clshvA-Z]+)+/gm, match => {
-    const [...moves] = match.matchAll(/m\s*(?<x>-?\d+)\s*(?<y>-?\d+)/gim);
-    let combinedMove = moves.reduce(
-      (acc, move) => {
-        const groups = move.groups || {};
-        acc.x += parseFloat(groups.x);
-        acc.y += parseFloat(groups.y);
-        return acc;
-      },
-      { x: 0, y: 0 }
-    );
-    return `m${combinedMove.x} ${combinedMove.y}`;
-  });
 
   if (options.devmode) {
     pathD = pathD.replace(/([a-zA-z])/gim, "\n$1"); // Add newline before commands
