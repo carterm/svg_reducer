@@ -219,7 +219,12 @@ const processPathD = (pathD, options, pathElement) => {
         // Convert absolute commands, except the first one, to relative
         if (command.abs && i > 0) {
           command.code = command.code.toLowerCase();
-          command.coordinates.forEach(point => {
+
+          const points =
+            command.code === "a"
+              ? [command.coordinates[command.coordinates.length - 1]]
+              : command.coordinates;
+          points.forEach(point => {
             point.absx = point.x;
             point.absy = point.y;
             if (point.x !== undefined) point.x -= pointLocation.x;
