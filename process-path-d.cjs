@@ -239,6 +239,45 @@ const processPathD = (pathD, options, pathElement) => {
     });
   }
 
+  // convert "c" commands with no curve to "l" commands
+  const eps = 1e-6;
+  const col = (
+    /** @type {number } */ a,
+    /** @type {number } */ b,
+    /** @type {number } */ c,
+    /** @type {number } */ d
+  ) => Math.abs(a * d - b * c) < eps;
+
+  pathData.forEach(command => {
+    if (command.code === "c") {
+      const [p1, p2, p3] = /** @type {{x: number, y: number}[]} **/ (
+        command.coordinates
+      );
+
+      const col1 = col(p1.x, p1.y, p3.x, p3.y);
+      const col2 = col(p2.x, p2.y, p3.x, p3.y);
+
+      if (col1 && col2) {
+        command.code = "l";
+        command.coordinates = [p3];
+      }
+    }
+
+    if (command.code === "s") {
+      const [p2, p3] = /** @type {{x: number, y: number}[]} **/ (
+        command.coordinates
+      );
+
+      // cp2 must be collinear with endpoint
+      const col2 = col(p2.x, p2.y, p3.x, p3.y);
+
+      if (col2) {
+        command.code = "l";
+        command.coordinates = [p3];
+      }
+    }
+  });
+
   // Do some cleanup before rending the simplified path data
   for (let i = 1; i < pathData.length; i++) {
     if (pathData[i].code.toLowerCase() === "z") {
@@ -282,37 +321,6 @@ const processPathD = (pathD, options, pathElement) => {
 
   //s curve with no curve before it
   pathD = pathD.replace(/([h|v|l][^a-zA-Z]+)s([^a-zA-Z]+)/gm, "$1c0 0 $2"); //independent curve
-
-  pathD = pathD.replaceAll(
-    /c\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
-    (match, ...params) => {
-      const [x0, y0, x1, y1, x2, y2] = params.map(parseFloat);
-      if (x0 === 0 && y0 === 0) {
-        if ((x1 === 0 && y1 === 0) || y1 / x1 === y2 / x2)
-          return `l${x2} ${y2}`;
-
-        if (x2 === 0 && y2 === 0) return "";
-      }
-      if (
-        x0 === 0 &&
-        x1 === 0 &&
-        x2 === 0 &&
-        ((y0 <= y1 && y1 <= y2) || (y0 >= y1 && y1 >= y2))
-      )
-        return `v${y2}`;
-
-      if (
-        y0 === 0 &&
-        y1 === 0 &&
-        y2 === 0 &&
-        ((x0 <= x1 && x1 <= x2) || (x0 >= x1 && x1 >= x2))
-      )
-        return `h${x2}`;
-
-      return match;
-    }
-  );
-
   //left over "c" curves with no curve before it can be an s curve
   pathD = pathD.replace(
     /([h|v|l][^a-zA-Z]+)c\s*0\s*0\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
