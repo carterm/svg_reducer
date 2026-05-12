@@ -278,6 +278,26 @@ const processPathD = (pathD, options, pathElement) => {
     }
   });
 
+  //convert "l" commands with only one coordinate to "h" or "v" commands
+  pathData.forEach(command => {
+    if (command.code === "l") {
+      const [p] = /** @type {{x: number, y: number}[]} **/ (
+        command.coordinates
+      );
+
+      const isHorizontal = Math.abs(p.y) < eps;
+      const isVertical = Math.abs(p.x) < eps;
+
+      if (isHorizontal) {
+        command.code = "h";
+        command.coordinates = [{ x: p.x }];
+      } else if (isVertical) {
+        command.code = "v";
+        command.coordinates = [{ y: p.y }];
+      }
+    }
+  });
+
   // Do some cleanup before rending the simplified path data
   for (let i = 1; i < pathData.length; i++) {
     if (pathData[i].code.toLowerCase() === "z") {
