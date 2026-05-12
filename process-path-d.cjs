@@ -298,6 +298,42 @@ const processPathD = (pathD, options, pathElement) => {
     }
   });
 
+  // Merge consecutive "h" or "v" commands
+  for (let i = 1; i < pathData.length; i++) {
+    const prev = pathData[i - 1];
+    const curr = pathData[i];
+
+    const prevCoord =
+      /** @type {{x: number, y: number, absx?: number, absy?: number}} */ (
+        prev.coordinates[0]
+      );
+    const currCoord =
+      /** @type {{x: number, y: number, absx?: number, absy?: number}} */ (
+        curr.coordinates[0]
+      );
+
+    // merge horizontal lines
+    if (prev.code === "h" && curr.code === "h") {
+      prevCoord.x += currCoord.x;
+
+      if (prevCoord.absx) prevCoord.absx += currCoord.x;
+
+      pathData.splice(i, 1);
+      i--;
+      continue;
+    }
+
+    // merge vertical lines
+    if (prev.code === "v" && curr.code === "v") {
+      prevCoord.y += currCoord.y;
+      if (prevCoord.absy) prevCoord.absy += currCoord.y;
+
+      pathData.splice(i, 1);
+      i--;
+      continue;
+    }
+  }
+
   // Do some cleanup before rending the simplified path data
   for (let i = 1; i < pathData.length; i++) {
     if (pathData[i].code.toLowerCase() === "z") {
@@ -344,25 +380,6 @@ const processPathD = (pathD, options, pathElement) => {
     /([h|v|l][^a-zA-Z]+)c\s*0\s*0\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)\s*(-?\d+)/gm,
     "$1s$2 $3 $4 $5"
   );
-
-  /**
-   * Sums the values of consecutive horizontal or vertical lines.
-   * @param {string} hv - The command character ('h' for horizontal, 'v' for vertical).
-   * @param {string} match - The matched string containing the commands and values.
-   * @returns {string} - The summed command string.
-   */
-  const sumHV = (hv, match) => {
-    const sum = match
-      .split(hv)
-      .filter(Boolean)
-      .reduce((acc, num) => acc + parseFloat(num), 0);
-    return `${hv}${sum}`;
-  };
-
-  pathD = pathD.replace(/h\d+(?:\s*h\d+)+/gm, match => sumHV("h", match)); // Sum positive horizontal lines
-  pathD = pathD.replace(/v\d+(?:\s*v\d+)+/gm, match => sumHV("v", match)); // Sum positive vertical lines
-  pathD = pathD.replace(/h-\d+(?:\s*h-\d+)+/gm, match => sumHV("h", match)); // Sum negative horizontal lines
-  pathD = pathD.replace(/v-\d+(?:\s*v-\d+)+/gm, match => sumHV("v", match)); // Sum negative vertical lines
 
   pathD = pathD.replace(/(v|h)0(?![\d.])/gm, ""); // Remove "v" or "h" followed by the number 0, but not if followed by a digit or a decimal
   pathD = pathD.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
