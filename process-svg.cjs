@@ -620,8 +620,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     // Keep removing empty "g" elements until no more removals
   }
 
-  const { XMLSerializer } = dom.window;
-  const xml = new XMLSerializer().serializeToString(svgElement);
+  const serializer = new dom.window.XMLSerializer();
+  const xml = serializer.serializeToString(dom.window.document.documentElement);
 
   // Return serialized HTML
   return (
