@@ -1,7 +1,5 @@
 //@ts-check
 
-const { normalize } = require("yargs");
-
 const removeExtraCs = true;
 const convertToRelative = true;
 const keepSmallerCommand = true;
