@@ -97,6 +97,11 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     process.exit(1);
   }
 
+  // Version attribute is not needed, and can cause issues with some SVG renderers, so we remove it
+  if (svgElement.hasAttribute("version")) {
+    svgElement.removeAttribute("version");
+  }
+
   // document level Only remove ids that aren't used in the SVG
   document.querySelectorAll("[id]").forEach(element => {
     if (!svgElement.innerHTML.includes(`#${element.id}`)) {
