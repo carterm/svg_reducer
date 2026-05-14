@@ -306,7 +306,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       if (
         !rectElement.getAttribute("rx") &&
         !rectElement.getAttribute("ry") &&
-        !rectElement.getAttribute("wdith")?.includes("%") &&
+        !rectElement.getAttribute("width")?.includes("%") &&
         !rectElement.getAttribute("height")?.includes("%")
       ) {
         // Simple rectangle
@@ -401,6 +401,15 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
         element.setAttribute(attr, value.toFixed(0));
       }
     });
+  });
+
+  //Remove X and Y attributes with a value of 0, since they don't affect the rendering and just take up space
+  svgElement.querySelectorAll("[x='0']").forEach(e => {
+    e.removeAttribute("x");
+  });
+
+  svgElement.querySelectorAll("[y='0']").forEach(e => {
+    e.removeAttribute("y");
   });
 
   const extractCommonAttributesToGs = () => {
