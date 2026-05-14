@@ -43,6 +43,7 @@ const shareableAttributes = [
   "opacity",
   "stroke",
   "stroke-width",
+  "stroke-miterlimit",
   "fill",
   "transform"
 ];
