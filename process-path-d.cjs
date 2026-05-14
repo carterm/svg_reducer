@@ -2,7 +2,7 @@
 
 const removeExtraCs = true;
 const convertToRelative = true;
-const keepSmallerCommand = true;
+const keepSmallerCommand = false;
 const scalepoints = true;
 
 /**
@@ -15,7 +15,7 @@ const processPathD = (pathD, options, pathElement) => {
   pathD = pathD.replace(/,/g, " "); // Replace commas with spaces
   pathD = pathD.replace(/(\.\d+)(?=(\.\d+))/g, "$1 "); // Add space between decimals
 
-  pathD = pathD.replace(/\s+([clshvmz])/gim, "$1"); // Remove leading whitespace before commands
+  pathD = pathD.replace(/\s+([clshvmza])/gim, "$1"); // Remove leading whitespace before commands
   pathD = pathD.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers
 
   // Simplify path data
