@@ -13,7 +13,6 @@
 
       .st2 {
         stroke: #fff;
-        stroke-miterlimit: 10;
         stroke-width: .2px;
       }
 
