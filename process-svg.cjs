@@ -379,7 +379,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
           )
       ) {
         //Make sure the first M command is uppercase when merging
-        const nextD = (nextPath.getAttribute("d") || "").replace(/m/, "M");
+        const nextD = (nextPath.getAttribute("d") || "").replace(/^\s*m/, "M");
 
         nextPath.setAttribute(
           "d",

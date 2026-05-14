@@ -2,7 +2,7 @@
 
 const removeExtraCs = true;
 const convertToRelative = true;
-const keepSmallerCommand = false;
+const keepSmallerCommand = true;
 const scalepoints = true;
 
 /**
@@ -67,12 +67,13 @@ const processPathD = (pathD, options, pathElement) => {
 
   //Split "c" commands into groups of 3
   for (let i = 0; i < pathData.length; i++) {
-    const code = pathData[i].code;
+    const command = pathData[i];
+    const code = command.code;
 
     /** @type {number?} */
     const commandsize = commandsizes[code.toLowerCase()];
     if (commandsize) {
-      const coordinates = pathData[i].coordinates;
+      const coordinates = command.coordinates;
 
       if (coordinates.length > commandsize) {
         const newCommands = [];
@@ -81,7 +82,7 @@ const processPathD = (pathD, options, pathElement) => {
             code,
             coordinates: coordinates.slice(j, j + commandsize),
             z: false,
-            abs: pathData[i].abs
+            abs: command.abs
           });
         }
         pathData.splice(i, 1, ...newCommands);
