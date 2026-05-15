@@ -240,7 +240,6 @@ const processPathD = (pathD, options, pathElement) => {
 
   // convert "c" commands with a wasted control point to "q" commands
   const isZero = (/** @type {number} */ n) => Math.abs(n) < 0.001;
-
   pathData.forEach(command => {
     if (command.code === "c") {
       const [p1, p2, p3] = /** @type {{x: number, y: number}[]} */ (
@@ -273,7 +272,7 @@ const processPathD = (pathD, options, pathElement) => {
     }
   });
 
-  // convert "c" commands with no curve to "l" commands
+  // convert "c","s","q" commands with no curve to "l" commands
   const eps = 1e-6;
   const col = (
     /** @type {number } */ a,
