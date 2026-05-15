@@ -237,6 +237,7 @@ const processPathD = (pathD, options, pathElement) => {
       }
     });
   }
+
   // convert "c" commands with a wasted control point to "q" commands
   const isZero = (/** @type {number} */ n) => Math.abs(n) < 0.001;
 
@@ -260,9 +261,9 @@ const processPathD = (pathD, options, pathElement) => {
         const dot = p1.x * p2.x + p1.y * p2.y;
         const cosAngle = dot / (mag1 * mag2);
 
-        // Looser, realistic thresholds
-        const angleAligned = cosAngle >= 0.82; // ~35°
-        const lengthOk = mag1 / mag2 <= 0.75; // CP1 not dominating
+        // More permissive thresholds (≈50° allowed)
+        const angleAligned = cosAngle >= 0.65;
+        const lengthOk = mag1 / mag2 <= 1.1;
 
         if (angleAligned && lengthOk) {
           command.code = "q";
