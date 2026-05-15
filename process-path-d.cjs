@@ -237,6 +237,18 @@ const processPathD = (pathD, options, pathElement) => {
       }
     });
   }
+  // convert "c" commands with a wasted control point to "q" commands
+  pathData.forEach(command => {
+    if (command.code === "c") {
+      const [p1, p2, p3] = command.coordinates;
+
+      // Check if the first control point is at the same position as the start point
+      if (p1.x === 0 && p1.y === 0) {
+        command.code = "q";
+        command.coordinates = [p2, p3];
+      }
+    }
+  });
 
   // convert "c" commands with no curve to "l" commands
   const eps = 1e-6;
@@ -262,7 +274,7 @@ const processPathD = (pathD, options, pathElement) => {
       }
     }
 
-    if (command.code === "s") {
+    if (command.code === "s" || command.code === "q") {
       const [p2, p3] = /** @type {{x: number, y: number}[]} **/ (
         command.coordinates
       );
