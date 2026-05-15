@@ -252,20 +252,17 @@ const processPathD = (pathD, options, pathElement) => {
         command.coordinates = [p2, p3];
       } else if (isZero(p2.x - p3.x) && isZero(p2.y - p3.y)) {
         // Case 2: CP2 is wasted (... x2 y2 == x y)
-        // Geometry guard: only reduce if CP1 is reasonably small and aligned with CP2
-
         const mag1 = Math.hypot(p1.x, p1.y);
         const mag2 = Math.hypot(p2.x, p2.y);
 
-        // Bail if either is degenerate
         if (mag1 === 0 || mag2 === 0) return;
 
         const dot = p1.x * p2.x + p1.y * p2.y;
         const cosAngle = dot / (mag1 * mag2);
 
-        // Require: small angle AND CP1 significantly shorter than CP2
-        const angleAligned = cosAngle >= 0.9; // ~25° or less
-        const lengthOk = mag1 / mag2 <= 0.6; // CP1 not dominating
+        // Looser, realistic thresholds
+        const angleAligned = cosAngle >= 0.82; // ~35°
+        const lengthOk = mag1 / mag2 <= 0.75; // CP1 not dominating
 
         if (angleAligned && lengthOk) {
           command.code = "q";
