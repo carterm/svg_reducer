@@ -246,21 +246,31 @@ const processPathD = (pathD, options, pathElement) => {
         command.coordinates
       );
 
-      // Compute dot product to check if CP1 and CP2 point in the same direction
-      const dot = p1.x * p2.x + p1.y * p2.y;
-
-      // If dot < 0, the handles point in opposite directions → NOT reducible
-      const handlesAligned = dot >= 0;
-
       // Case 1: CP1 is wasted (c0 0 ...)
       if (isZero(p1.x) && isZero(p1.y)) {
         command.code = "q";
         command.coordinates = [p2, p3];
-      } else if (isZero(p2.x - p3.x) && isZero(p2.y - p3.y) && handlesAligned) {
+      } else if (isZero(p2.x - p3.x) && isZero(p2.y - p3.y)) {
         // Case 2: CP2 is wasted (... x2 y2 == x y)
-        // BUT only reduce if CP1 and CP2 point in the same direction
-        command.code = "q";
-        command.coordinates = [p1, p3];
+        // Geometry guard: only reduce if CP1 is reasonably small and aligned with CP2
+
+        const mag1 = Math.hypot(p1.x, p1.y);
+        const mag2 = Math.hypot(p2.x, p2.y);
+
+        // Bail if either is degenerate
+        if (mag1 === 0 || mag2 === 0) return;
+
+        const dot = p1.x * p2.x + p1.y * p2.y;
+        const cosAngle = dot / (mag1 * mag2);
+
+        // Require: small angle AND CP1 significantly shorter than CP2
+        const angleAligned = cosAngle >= 0.9; // ~25° or less
+        const lengthOk = mag1 / mag2 <= 0.6; // CP1 not dominating
+
+        if (angleAligned && lengthOk) {
+          command.code = "q";
+          command.coordinates = [p1, p3];
+        }
       }
     }
   });
