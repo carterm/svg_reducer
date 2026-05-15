@@ -238,14 +238,29 @@ const processPathD = (pathD, options, pathElement) => {
     });
   }
   // convert "c" commands with a wasted control point to "q" commands
+  const isZero = (/** @type {number} */ n) => Math.abs(n) < 0.001;
+
   pathData.forEach(command => {
     if (command.code === "c") {
-      const [p1, p2, p3] = command.coordinates;
+      const [p1, p2, p3] = /** @type {{x: number, y: number}[]} */ (
+        command.coordinates
+      );
 
-      // Check if the first control point is at the same position as the start point
-      if (p1.x === 0 && p1.y === 0) {
+      // Compute dot product to check if CP1 and CP2 point in the same direction
+      const dot = p1.x * p2.x + p1.y * p2.y;
+
+      // If dot < 0, the handles point in opposite directions → NOT reducible
+      const handlesAligned = dot >= 0;
+
+      // Case 1: CP1 is wasted (c0 0 ...)
+      if (isZero(p1.x) && isZero(p1.y)) {
         command.code = "q";
         command.coordinates = [p2, p3];
+      } else if (isZero(p2.x - p3.x) && isZero(p2.y - p3.y) && handlesAligned) {
+        // Case 2: CP2 is wasted (... x2 y2 == x y)
+        // BUT only reduce if CP1 and CP2 point in the same direction
+        command.code = "q";
+        command.coordinates = [p1, p3];
       }
     }
   });
