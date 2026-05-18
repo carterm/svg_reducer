@@ -562,6 +562,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   [...svgElement.querySelectorAll(":not(:has(*))")]
     .filter(
       element =>
+        element.innerHTML.trim().length === 0 &&
         !element.hasAttributes() &&
         (element.tagName.toLowerCase() !== "defs" ||
           element.childElementCount === 0)
