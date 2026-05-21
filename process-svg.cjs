@@ -311,8 +311,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       );
 
       if (
-        !rectElement.getAttribute("rx") &&
-        !rectElement.getAttribute("ry") &&
+        !rectElement.hasAttribute("rx") &&
+        !rectElement.hasAttribute("ry") &&
         !rectElement.getAttribute("width")?.includes("%") &&
         !rectElement.getAttribute("height")?.includes("%")
       ) {
@@ -333,7 +333,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
         pathElement.setAttribute(
           "d",
-          `M${rectX} ${rectY}H${rectX + rectWidth}V${rectY + rectHeight}H${rectX}Z`
+          `M${rectX} ${rectY}h${rectWidth}v${rectHeight}H${rectX}Z`
         );
 
         [...rectElement.attributes].forEach(attr => {
@@ -545,29 +545,15 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     return didSomething;
   };
 
-  while (extractCommonAttributesToGs()) {
+  while (
+    extractCommonAttributesToGs() ||
+    mergeSiblingGs() ||
+    pushGAttributesDown() ||
+    extractCommonAttributesToGs() ||
+    removeUselessGs()
+  ) {
     //console.log("extractCommonAttributesToGs");
     // Keep extracting common attributes until no more extractions
-  }
-
-  while (mergeSiblingGs()) {
-    //console.log("mergeSiblingGs");
-    // Keep merging sibling "g" elements with the same attributes until no more merges
-  }
-
-  while (pushGAttributesDown()) {
-    //console.log("pushGAttributesDown");
-    // Keep pushing attributes down until no more pushes
-  }
-
-  while (extractCommonAttributesToGs()) {
-    //console.log("extractCommonAttributesToGs");
-    // Keep extracting common attributes until no more extractions
-  }
-
-  while (removeUselessGs()) {
-    // console.log("removeUselessGs");
-    // Keep removing empty "g" elements until no more removals
   }
 
   // Remove empty tags from dom
