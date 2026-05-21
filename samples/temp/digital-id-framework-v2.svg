@@ -834,40 +834,10 @@
           <rect class="cls-13" x="44.8" y="238.2" width="147.4" height="42.9" rx="8.7" ry="8.7" />
           <g class="cls-24">
             <g class="cls-24">
-              <text class="cls-20" transform="translate(82 255.7)"><tspan x="0" y="0">Cali</tspan></text>
+              <text class="cls-20" transform="translate(82 255.7)"><tspan x="0" y="0">California</tspan></text>
             </g>
             <g class="cls-24">
-              <text class="cls-20" transform="translate(105.2 255.7)"><tspan x="0" y="0">f</tspan></text>
-            </g>
-            <g class="cls-24">
-              <text class="cls-20" transform="translate(109.7 255.7)"><tspan x="0" y="0">ornia</tspan></text>
-            </g>
-            <g class="cls-24">
-              <text class="cls-20" transform="translate(82 271.2)"><tspan x="0" y="0">Identi</tspan></text>
-            </g>
-            <g class="cls-24">
-              <text class="cls-20" transform="translate(117 271.2)"><tspan x="0" y="0">t</tspan></text>
-            </g>
-            <g class="cls-24">
-              <text class="cls-20" transform="translate(122.2 271.2)"><tspan x="0" y="0">y G</tspan></text>
-            </g>
-            <g class="cls-24">
-              <text class="cls-20" transform="translate(141.1 271.2)"><tspan x="0" y="0">a</tspan></text>
-            </g>
-            <g class="cls-24">
-              <text class="cls-20" transform="translate(148 271.2)"><tspan x="0" y="0">t</tspan></text>
-            </g>
-            <g class="cls-24">
-              <text class="cls-20" transform="translate(153.2 271.2)"><tspan x="0" y="0">e</tspan></text>
-            </g>
-            <g class="cls-24">
-              <text class="cls-20" transform="translate(160.3 271.2)"><tspan x="0" y="0">w</tspan></text>
-            </g>
-            <g class="cls-24">
-              <text class="cls-20" transform="translate(170.6 271.2)"><tspan x="0" y="0">a</tspan></text>
-            </g>
-            <g class="cls-24">
-              <text class="cls-20" transform="translate(177.3 271.2)"><tspan x="0" y="0">y</tspan></text>
+              <text class="cls-20" transform="translate(82 271.2)"><tspan x="0" y="0">Identity Gateway</tspan></text>
             </g>
           </g>
           <g>
@@ -974,16 +944,7 @@
           <g>
             <g class="cls-24">
               <g class="cls-24">
-                <text class="cls-29" transform="translate(604 27.1)"><tspan x="0" y="0">L</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-29" transform="translate(610.5 27.1)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-29" transform="translate(616.8 27.1)"><tspan x="0" y="0">g</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-29" transform="translate(623.2 27.1)"><tspan x="0" y="0">end</tspan></text>
+                <text class="cls-29" transform="translate(604 27.1)"><tspan x="0" y="0">Legend</tspan></text>
               </g>
             </g>
             <g class="cls-24">
@@ -993,366 +954,77 @@
             </g>
             <g class="cls-24">
               <g class="cls-24">
-                <text class="cls-25" transform="translate(624.4 114.6)"><tspan x="0" y="0">Digi</tspan></text>
+                <text class="cls-25" transform="translate(624.4 114.6)"><tspan x="0" y="0">Digital</tspan></text>
               </g>
               <g class="cls-24">
-                <text class="cls-25" transform="translate(639.4 114.6)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(642.8 114.6)"><tspan x="0" y="0">al</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(624.4 124.5)"><tspan x="0" y="0">C</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(630.2 124.5)"><tspan x="0" y="0">r</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(633.3 124.5)"><tspan x="0" y="0">edential</tspan></text>
+                <text class="cls-25" transform="translate(624.4 124.5)"><tspan x="0" y="0">Credential</tspan></text>
               </g>
             </g>
             <g class="cls-24">
               <g class="cls-24">
-                <text class="cls-25" transform="translate(633.4 144.5)"><tspan x="0" y="0">D</tspan></text>
+                <text class="cls-25" transform="translate(633.4 144.5)"><tspan x="0" y="0">Data &amp;</tspan></text>
               </g>
               <g class="cls-24">
-                <text class="cls-25" transform="translate(639.3 144.5)"><tspan x="0" y="0">a</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(643.7 144.5)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(647.1 144.5)"><tspan x="0" y="0">a &amp;</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(633.4 154.4)"><tspan x="0" y="0">In</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(640.7 154.4)"><tspan x="0" y="0">f</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(643.6 154.4)"><tspan x="0" y="0">orm</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(658.7 154.4)"><tspan x="0" y="0">a</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(663.2 154.4)"><tspan x="0" y="0">tion</tspan></text>
+                <text class="cls-25" transform="translate(633.4 154.4)"><tspan x="0" y="0">Information</tspan></text>
               </g>
             </g>
             <g class="cls-24">
               <g class="cls-24">
-                <text class="cls-25" transform="translate(633.4 175.9)"><tspan x="0" y="0">O</tspan></text>
+                <text class="cls-25" transform="translate(633.4 175.9)"><tspan x="0" y="0">Order of interactions in the</tspan></text>
               </g>
+
               <g class="cls-24">
-                <text class="cls-25" transform="translate(639.7 175.9)"><tspan x="0" y="0">r</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(642.9 175.9)"><tspan x="0" y="0">der</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(657.1 175.9)"><tspan x="0" y="0">o</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(661.8 175.9)"><tspan x="0" y="0">f in</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(673.4 175.9)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(676.8 175.9)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(681.3 175.9)"><tspan x="0" y="0">r</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(684.4 175.9)"><tspan x="0" y="0">a</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(688.9 175.9)"><tspan x="0" y="0">ctions in the</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(633.4 185.8)"><tspan x="0" y="0">v</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(637.8 185.8)"><tspan x="0" y="0">erifi</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(652.8 185.8)"><tspan x="0" y="0">c</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(657.2 185.8)"><tspan x="0" y="0">a</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(661.7 185.8)"><tspan x="0" y="0">tion sequence</tspan></text>
+                <text class="cls-25" transform="translate(633.4 185.8)"><tspan x="0" y="0">verification sequence</tspan></text>
               </g>
             </g>
             <g class="cls-24">
               <g class="cls-24">
-                <text class="cls-25" transform="translate(717.8 145.7)"><tspan x="0" y="0">Servic</tspan></text>
+                <text class="cls-25" transform="translate(717.8 145.7)"><tspan x="0" y="0">Services &amp;</tspan></text>
               </g>
               <g class="cls-24">
-                <text class="cls-25" transform="translate(741.6 145.7)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(746 145.7)"><tspan x="0" y="0">s &amp;</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(717.8 155.6)"><tspan x="0" y="0">Ben</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(732.4 155.6)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(736.8 155.6)"><tspan x="0" y="0">fits</tspan></text>
+                <text class="cls-25" transform="translate(717.8 155.6)"><tspan x="0" y="0">Benefits</tspan></text>
               </g>
             </g>
             <g class="cls-24">
               <g class="cls-24">
-                <text class="cls-21" transform="translate(678.6 58.9)"><tspan x="0" y="0">Includ</tspan></text>
+                <text class="cls-21" transform="translate(678.6 58.9)"><tspan x="0" y="0">Included associated functions,</tspan></text>
               </g>
               <g class="cls-24">
-                <text class="cls-21" transform="translate(694.3 58.9)"><tspan x="0" y="0">e</tspan></text>
+                <text class="cls-21" transform="translate(678.6 65.5)"><tspan x="0" y="0">policies, and digital artifacts</tspan></text>
               </g>
               <g class="cls-24">
-                <text class="cls-21" transform="translate(697.3 58.9)"><tspan x="0" y="0">s associ</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(717.4 58.9)"><tspan x="0" y="0">a</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(720.3 58.9)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(722.5 58.9)"><tspan x="0" y="0">ed</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(729.8 58.9)"><tspan x="0" y="0">f</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(731.7 58.9)"><tspan x="0" y="0">unctions,</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(678.6 65.5)"><tspan x="0" y="0">polici</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(692.5 65.5)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(695.4 65.5)"><tspan x="0" y="0">s, and digi</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(720.4 65.5)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(722.6 65.5)"><tspan x="0" y="0">al arti</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(737.2 65.5)"><tspan x="0" y="0">f</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(739.1 65.5)"><tspan x="0" y="0">a</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(742.1 65.5)"><tspan x="0" y="0">cts</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(678.6 72.1)"><tspan x="0" y="0">d</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(681.8 72.1)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(684.8 72.1)"><tspan x="0" y="0">v</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(687.7 72.1)"><tspan x="0" y="0">eloped or mana</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(726.4 72.1)"><tspan x="0" y="0">g</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(729.4 72.1)"><tspan x="0" y="0">ed</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(736.7 72.1)"><tspan x="0" y="0">b</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(739.9 72.1)"><tspan x="0" y="0">y C</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(747.7 72.1)"><tspan x="0" y="0">D</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(751.5 72.1)"><tspan x="0" y="0">T</tspan></text>
+                <text class="cls-21" transform="translate(678.6 72.1)"><tspan x="0" y="0">developed or managed by CDT</tspan></text>
               </g>
             </g>
             <g class="cls-24">
               <g class="cls-24">
-                <text class="cls-21" transform="translate(620.4 58.9)"><tspan x="0" y="0">Seeking servic</tspan></text>
+                <text class="cls-21" transform="translate(620.4 58.9)"><tspan x="0" y="0">Seeking services or</tspan></text>
               </g>
               <g class="cls-24">
-                <text class="cls-21" transform="translate(656.9 58.9)"><tspan x="0" y="0">e</tspan></text>
+                <text class="cls-21" transform="translate(620.4 65.5)"><tspan x="0" y="0">benefits from state</tspan></text>
               </g>
+
               <g class="cls-24">
-                <text class="cls-21" transform="translate(659.9 58.9)"><tspan x="0" y="0">s or</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(620.4 65.5)"><tspan x="0" y="0">ben</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(629.8 65.5)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(632.8 65.5)"><tspan x="0" y="0">fits f</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(644.3 65.5)"><tspan x="0" y="0">r</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(646.4 65.5)"><tspan x="0" y="0">om</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(655.4 65.5)"><tspan x="0" y="0">s</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(658.1 65.5)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(660.3 65.5)"><tspan x="0" y="0">a</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(663.2 65.5)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(665.4 65.5)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(620.4 72.1)"><tspan x="0" y="0">a</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(623.4 72.1)"><tspan x="0" y="0">g</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(626.4 72.1)"><tspan x="0" y="0">enci</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(637.1 72.1)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(640.1 72.1)"><tspan x="0" y="0">s in CA</tspan></text>
+                <text class="cls-21" transform="translate(620.4 72.1)"><tspan x="0" y="0">agencies in CA</tspan></text>
               </g>
             </g>
             <g class="cls-24">
               <g class="cls-24">
-                <text class="cls-25" transform="translate(624.2 91.8)"><tspan x="0" y="0">S</tspan></text>
+                <text class="cls-25" transform="translate(624.2 91.8)"><tspan x="0" y="0">State Entity</tspan></text>
               </g>
               <g class="cls-24">
-                <text class="cls-25" transform="translate(629.1 91.8)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(632.4 91.8)"><tspan x="0" y="0">a</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(636.9 91.8)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(640.2 91.8)"><tspan x="0" y="0">e Enti</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(661.5 91.8)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(664.8 91.8)"><tspan x="0" y="0">y</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(624.2 98.4)"><tspan x="0" y="0">W</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(629.4 98.4)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(632.4 98.4)"><tspan x="0" y="0">b</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(635.6 98.4)"><tspan x="0" y="0">si</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(639.8 98.4)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(642 98.4)"><tspan x="0" y="0">e / API / App</tspan></text>
+                <text class="cls-21" transform="translate(624.2 98.4)"><tspan x="0" y="0">Website / API / App</tspan></text>
               </g>
             </g>
             <g class="cls-24">
               <g class="cls-24">
-                <text class="cls-25" transform="translate(700.8 115.2)"><tspan x="0" y="0">Eligibili</tspan></text>
+                <text class="cls-25" transform="translate(700.8 115.2)"><tspan x="0" y="0">Eligibility Provider</tspan></text>
               </g>
               <g class="cls-24">
-                <text class="cls-25" transform="translate(728.4 115.2)"><tspan x="0" y="0">t</tspan></text>
+                <text class="cls-21" transform="translate(700.8 121.8)"><tspan x="0" y="0">Verifies attributes or</tspan></text>
               </g>
               <g class="cls-24">
-                <text class="cls-25" transform="translate(731.7 115.2)"><tspan x="0" y="0">y P</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(742.7 115.2)"><tspan x="0" y="0">r</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(745.9 115.2)"><tspan x="0" y="0">o</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(750.7 115.2)"><tspan x="0" y="0">vider</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(700.8 121.8)"><tspan x="0" y="0">V</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(704.2 121.8)"><tspan x="0" y="0">erifi</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(714.2 121.8)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(717.2 121.8)"><tspan x="0" y="0">s</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(721 121.8)"><tspan x="0" y="0">a</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(723.9 121.8)"><tspan x="0" y="0">ttribu</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(738.2 121.8)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(740.4 121.8)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(743.4 121.8)"><tspan x="0" y="0">s or</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(700.8 128.4)"><tspan x="0" y="0">en</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(707 128.4)"><tspan x="0" y="0">r</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(709.2 128.4)"><tspan x="0" y="0">ollment in p</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(738.5 128.4)"><tspan x="0" y="0">r</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(740.6 128.4)"><tspan x="0" y="0">o</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(743.8 128.4)"><tspan x="0" y="0">g</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(746.9 128.4)"><tspan x="0" y="0">r</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(749 128.4)"><tspan x="0" y="0">ams</tspan></text>
+                <text class="cls-21" transform="translate(700.8 128.4)"><tspan x="0" y="0">enrollment in programs</tspan></text>
               </g>
             </g>
             <g>
@@ -1361,61 +1033,14 @@
             </g>
             <g class="cls-24">
               <g class="cls-24">
-                <text class="cls-25" transform="translate(700.8 90.7)"><tspan x="0" y="0">ID P</tspan></text>
+                <text class="cls-25" transform="translate(700.8 90.7)"><tspan x="0" y="0">ID Provider</tspan></text>
               </g>
               <g class="cls-24">
-                <text class="cls-25" transform="translate(716 90.7)"><tspan x="0" y="0">r</tspan></text>
+                <text class="cls-21" transform="translate(700.8 97.3)"><tspan x="0" y="0">Verifies identity, can be a</tspan></text>
               </g>
+
               <g class="cls-24">
-                <text class="cls-25" transform="translate(719.2 90.7)"><tspan x="0" y="0">o</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-25" transform="translate(723.9 90.7)"><tspan x="0" y="0">vider</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(700.8 97.3)"><tspan x="0" y="0">V</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(704.2 97.3)"><tspan x="0" y="0">erifi</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(714.2 97.3)"><tspan x="0" y="0">e</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(717.2 97.3)"><tspan x="0" y="0">s identi</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(735.7 97.3)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(737.9 97.3)"><tspan x="0" y="0">y</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(740.4 97.3)"><tspan x="0" y="0">,</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(742.8 97.3)"><tspan x="0" y="0">c</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(745.8 97.3)"><tspan x="0" y="0">an be a</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(700.8 103.9)"><tspan x="0" y="0">public or pri</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(730.8 103.9)"><tspan x="0" y="0">va</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(736.6 103.9)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(738.8 103.9)"><tspan x="0" y="0">e enti</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(752.8 103.9)"><tspan x="0" y="0">t</tspan></text>
-              </g>
-              <g class="cls-24">
-                <text class="cls-21" transform="translate(755 103.9)"><tspan x="0" y="0">y</tspan></text>
+                <text class="cls-21" transform="translate(700.8 103.9)"><tspan x="0" y="0">public or private entity</tspan></text>
               </g>
             </g>
             <g>
