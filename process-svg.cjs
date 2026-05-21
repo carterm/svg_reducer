@@ -35,6 +35,7 @@ const styleAttributeMap = [
   "stop-color",
   "stroke",
   "stroke-width",
+  "stroke-linecap",
   "stroke-miterlimit",
   "clip-path"
 ];
@@ -43,6 +44,7 @@ const shareableAttributes = [
   "opacity",
   "stroke",
   "stroke-width",
+  "stroke-linecap",
   "stroke-miterlimit",
   "fill",
   "transform"
