@@ -8,33 +8,35 @@
     </g>
     <rect x="627.4" y="561.3" width="32.3" height="32.3" rx="2.8" ry="2.8" fill="#0e3a5e" />
     <circle cx="643.5" cy="577.5" r="14.2" fill="#fff" />
-    <g fill="#0e3a5e">
-      <g transform="scale(.1)">
+    <g transform="scale(.1)">
+      <g fill="#0e3a5e">
         <path d="M6390 5715h50v45h-50z" />
         <path d="M6346 5674h34v31h-34z" />
       </g>
-      <path transform="scale(.01)" d="M64100 57880h310v280h-310z" />
-      <g transform="scale(.1)">
+      <g fill="#0e3a5e">
+        <path transform="scale(.1)" d="M64100 57880h310v280h-310z" />
         <path d="M6491 5845h34v29h-34z" />
         <path d="M6386 5674h16v14h-16z" />
       </g>
-      <g transform="scale(.01)">
-        <path d="M64070 56740h160v140h-160z" />
-        <path d="M64320 56770h80v70h-80z" />
+      <g fill="#0e3a5e">
+        <g transform="scale(.1)">
+          <path d="M64070 56740h160v140h-160z" />
+          <path d="M64320 56770h80v70h-80z" />
+        </g>
       </g>
-      <path transform="scale(.1)" d="M6453 5676h10v8h-10z" />
-      <g transform="scale(.01)">
-        <path d="M64320 56960h80v70h-80z" />
-        <path d="M64520 56960h80v70h-80z" />
+      <path fill="#0e3a5e" d="M6453 5676h10v8h-10z" />
+      <g fill="#0e3a5e">
+        <g transform="scale(.1)">
+          <path d="M64320 56960h80v70h-80z" />
+          <path d="M64520 56960h80v70h-80z" />
+        </g>
       </g>
-      <g transform="scale(.1)">
+      <g fill="#0e3a5e">
         <path d="M6451 5714h10v9h-10z" />
         <path d="M6471 5714h10v9h-10z" />
-      </g>
-      <path transform="scale(.01)" d="M64930 57130h110v90h-110z" />
-      <path transform="scale(.1)" d="M6493 5692h12v10h-12z" />
-      <path transform="scale(.01)" d="M64710 56940h120v100h-120z" />
-      <g transform="scale(.1)">
+        <path transform="scale(.1)" d="M64930 57130h110v90h-110z" />
+        <path d="M6493 5692h12v10h-12z" />
+        <path transform="scale(.1)" d="M64710 56940h120v100h-120z" />
         <path d="M6474 5673h12v10h-12z" />
         <path d="M6498 5671h12v10h-12z" />
         <path d="M6518 5691h12v10h-12z" />
@@ -42,37 +44,47 @@
         <path d="M6541 5711h10v9h-10z" />
         <path d="M6536 5731h10v8h-10z" />
       </g>
-      <g transform="scale(.01)">
-        <path d="M65130 57330h100v80h-100z" />
-        <path d="M64920 57330h100v80h-100z" />
+      <g fill="#0e3a5e">
+        <g transform="scale(.1)">
+          <path d="M65130 57330h100v80h-100z" />
+          <path d="M64920 57330h100v80h-100z" />
+        </g>
       </g>
-      <g transform="scale(.1)">
+      <g fill="#0e3a5e">
         <path d="M6471 5733h9v7h-9z" />
         <path d="M6452 5733h8v7h-8z" />
       </g>
-      <g transform="scale(.01)">
-        <path d="M64520 57510h80v70h-80z" />
-        <path d="M64720 57510h80v70h-80z" />
+      <g fill="#0e3a5e">
+        <g transform="scale(.1)">
+          <path d="M64520 57510h80v70h-80z" />
+          <path d="M64720 57510h80v70h-80z" />
+        </g>
       </g>
-      <path transform="scale(.1)" d="M6492 5751h9v8h-9z" />
-      <path transform="scale(.01)" d="M65130 57510h90v80h-90z" />
-      <path transform="scale(.1)" d="M6535 5751h9v8h-9z" />
-      <g transform="scale(.01)">
-        <path d="M65330 57700h90v80h-90z" />
-        <path d="M65120 57710h70v60h-70z" />
+      <g fill="#0e3a5e">
+        <path d="M6492 5751h9v8h-9z" />
+        <path transform="scale(.1)" d="M65130 57510h90v80h-90z" />
+        <path d="M6535 5751h9v8h-9z" />
       </g>
-      <path transform="scale(.1)" d="M6472 5770h8v7h-8z" />
-      <g transform="scale(.01)">
-        <path d="M64930 57700h80v70h-80z" />
-        <path d="M64930 57890h80v70h-80z" />
-        <path d="M65130 57890h80v70h-80z" />
-        <path d="M65130 58080h80v70h-80z" />
-        <path d="M65340 58080h80v70h-80z" />
-        <path d="M65340 57900h80v70h-80z" />
-        <path d="M65340 58260h80v70h-80z" />
-        <path d="M65340 58440h80v70h-80z" />
+      <g fill="#0e3a5e">
+        <g transform="scale(.1)">
+          <path d="M65330 57700h90v80h-90z" />
+          <path d="M65120 57710h70v60h-70z" />
+        </g>
       </g>
-      <g transform="scale(.1)">
+      <path fill="#0e3a5e" d="M6472 5770h8v7h-8z" />
+      <g fill="#0e3a5e">
+        <g transform="scale(.1)">
+          <path d="M64930 57700h80v70h-80z" />
+          <path d="M64930 57890h80v70h-80z" />
+          <path d="M65130 57890h80v70h-80z" />
+          <path d="M65130 58080h80v70h-80z" />
+          <path d="M65340 58080h80v70h-80z" />
+          <path d="M65340 57900h80v70h-80z" />
+          <path d="M65340 58260h80v70h-80z" />
+          <path d="M65340 58440h80v70h-80z" />
+        </g>
+      </g>
+      <g fill="#0e3a5e">
         <path d="M6472 5864h8v7h-8z" />
         <path d="M6451 5864h8v7h-8z" />
         <path d="M6430 5864h8v7h-8z" />
@@ -80,44 +92,42 @@
         <path d="M6384 5866h12v10h-12z" />
         <path d="M6388 5844h12v10h-12z" />
         <path d="M6411 5845h8v7h-8z" />
-      </g>
-      <path transform="scale(.01)" d="M63900 58260h80v70h-80z" />
-      <g transform="scale(.1)">
+        <path transform="scale(.1)" d="M63900 58260h80v70h-80z" />
         <path d="M6390 5808h8v7h-8z" />
         <path d="M6370 5789h8v7h-8z" />
         <path d="M6370 5770h8v7h-8z" />
         <path d="M6350 5770h8v7h-8z" />
         <path d="M6350 5790h8v7h-8z" />
       </g>
-      <g transform="scale(.01)">
-        <path d="M63500 57510h80v70h-80z" />
-        <path d="M63300 56960h80v70h-80z" />
+      <g fill="#0e3a5e">
+        <g transform="scale(.1)">
+          <path d="M63500 57510h80v70h-80z" />
+          <path d="M63300 56960h80v70h-80z" />
+        </g>
       </g>
-      <g transform="scale(.1)">
+      <g fill="#0e3a5e">
         <path d="M6330 5715h8v7h-8z" />
         <path d="M6330 5733h8v7h-8z" />
-      </g>
-      <path transform="scale(.01)" d="M63300 57520h80v70h-80z" />
-      <g transform="scale(.1)">
+        <path transform="scale(.1)" d="M63300 57520h80v70h-80z" />
         <path d="M6330 5770h8v7h-8z" />
         <path d="M6327 5789h10v9h-10z" />
         <path d="M6324 5809h10v9h-10z" />
         <path d="M6319 5828h11v10h-11z" />
         <path d="M6343 5827h11v10h-11z" />
       </g>
-      <g transform="scale(.01)">
-        <path d="M63470 58080h100v80h-100z" />
-        <path d="M63690 58080h100v80h-100z" />
+      <g fill="#0e3a5e">
+        <g transform="scale(.1)">
+          <path d="M63470 58080h100v80h-100z" />
+          <path d="M63690 58080h100v80h-100z" />
+        </g>
       </g>
-      <g transform="scale(.1)">
+      <g fill="#0e3a5e">
         <path d="M6359 5868h12v10h-12z" />
         <path d="M6367 5827h10v8h-10z" />
         <path d="M6365 5846h12v9h-12z" />
-      </g>
-      <path transform="scale(.01)" d="M63400 58480h120v90h-120z" />
-      <path transform="scale(.1)" d="M6386 5692h16v14h-16z" />
-      <path transform="scale(.01)" d="M64070 56920h160v140h-160z" />
-      <g transform="scale(.1)">
+        <path transform="scale(.1)" d="M63400 58480h120v90h-120z" />
+        <path d="M6386 5692h16v14h-16z" />
+        <path transform="scale(.1)" d="M64070 56920h160v140h-160z" />
         <path d="M6346 5711h16v14h-16z" />
         <path d="M6366 5711h16v14h-16z" />
         <path d="M6346 5729h16v14h-16z" />
@@ -125,33 +135,39 @@
         <path d="M6366 5749h16v14h-16z" />
         <path d="M6448 5767h16v14h-16z" />
       </g>
-      <g transform="scale(.01)">
-        <path d="M64270 57670h160v140h-160z" />
-        <path d="M64070 57670h160v140h-160z" />
-        <path d="M63870 57670h160v140h-160z" />
-        <path d="M63870 57850h160v140h-160z" />
+      <g fill="#0e3a5e">
+        <g transform="scale(.1)">
+          <path d="M64270 57670h160v140h-160z" />
+          <path d="M64070 57670h160v140h-160z" />
+          <path d="M63870 57670h160v140h-160z" />
+          <path d="M63870 57850h160v140h-160z" />
+        </g>
       </g>
-      <g transform="scale(.1)">
+      <g fill="#0e3a5e">
         <path d="M6448 5785h16v14h-16z" />
         <path d="M6448 5805h16v14h-16z" />
         <path d="M6468 5785h16v14h-16z" />
         <path d="M6468 5805h16v14h-16z" />
         <path d="M6488 5805h16v14h-16z" />
       </g>
-      <g transform="scale(.01)">
-        <path d="M64480 58230h160v140h-160z" />
-        <path d="M64680 58230h160v140h-160z" />
-        <path d="M64070 58230h160v140h-160z" />
-        <path d="M64270 58230h160v140h-160z" />
+      <g fill="#0e3a5e">
+        <g transform="scale(.1)">
+          <path d="M64480 58230h160v140h-160z" />
+          <path d="M64680 58230h160v140h-160z" />
+          <path d="M64070 58230h160v140h-160z" />
+          <path d="M64270 58230h160v140h-160z" />
+        </g>
       </g>
-      <g transform="scale(.1)">
+      <g fill="#0e3a5e">
         <path d="M6448 5842h16v14h-16z" />
         <path d="M6468 5842h16v14h-16z" />
       </g>
-      <g transform="scale(.01)">
-        <path d="M64270 58420h160v140h-160z" />
-        <path d="M64880 58230h160v140h-160z" />
-        <path d="M65080 58230h160v140h-160z" />
+      <g fill="#0e3a5e">
+        <g transform="scale(.1)">
+          <path d="M64270 58420h160v140h-160z" />
+          <path d="M64880 58230h160v140h-160z" />
+          <path d="M65080 58230h160v140h-160z" />
+        </g>
       </g>
     </g>
     <g transform="scale(.1)">
@@ -205,12 +221,12 @@
     <path transform="scale(.1)" d="M2105 1541c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
     <circle cx="210.5" cy="177.2" r="2.6" />
     <path transform="scale(.1)" d="M2105 1719c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <path transform="scale(.1)" d="M2265 1567h234v18h-234z" />
-    <g transform="scale(.01)">
-      <path d="M22650 15990h1110v180h-1110z" />
-      <path d="M22650 17590h2340v180h-2340z" />
-    </g>
     <g transform="scale(.1)">
+      <path d="M2265 1567h234v18h-234z" />
+      <g transform="scale(.1)">
+        <path d="M22650 15990h1110v180h-1110z" />
+        <path d="M22650 17590h2340v180h-2340z" />
+      </g>
       <path d="M2265 1791h111v18h-111z" />
       <g stroke-width="20" stroke="#000" fill="none" stroke-miterlimit="10">
         <path d="M2181 1589l21 21l40-40" />
@@ -233,12 +249,12 @@
     <path transform="scale(.1)" d="M2950 1541c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm41 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
     <circle cx="295" cy="177.2" r="2.6" />
     <path transform="scale(.1)" d="M2950 1719c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm41 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <path transform="scale(.1)" d="M3110 1567h234v18h-234z" />
-    <g transform="scale(.01)">
-      <path d="M31100 15990h1110v180h-1110z" />
-      <path d="M31100 17590h2340v180h-2340z" />
-    </g>
     <g transform="scale(.1)">
+      <path d="M3110 1567h234v18h-234z" />
+      <g transform="scale(.1)">
+        <path d="M31100 15990h1110v180h-1110z" />
+        <path d="M31100 17590h2340v180h-2340z" />
+      </g>
       <path d="M3110 1791h111v18h-111z" />
       <g stroke-width="20" stroke="#000" fill="none" stroke-miterlimit="10">
         <path d="M3026 1589l21 21l40-40" />
@@ -268,16 +284,16 @@
     <g transform="scale(.1)">
       <path d="M3948 1320h92v18h-92z" />
       <path d="M3948 1352h44v18h-44z" />
-    </g>
-    <g transform="scale(.01)">
-      <path d="M42290 13200h920v180h-920z" />
-      <path d="M42290 13520h440v180h-440z" />
-    </g>
-    <path transform="scale(.1)" d="M3948 1511h92v18h-92z" />
-    <g transform="scale(.01)">
-      <path d="M39480 15430h440v180h-440z" />
-      <path d="M42290 15110h920v180h-920z" />
-      <path d="M42290 15430h440v180h-440z" />
+      <g transform="scale(.1)">
+        <path d="M42290 13200h920v180h-920z" />
+        <path d="M42290 13520h440v180h-440z" />
+      </g>
+      <path d="M3948 1511h92v18h-92z" />
+      <g transform="scale(.1)">
+        <path d="M39480 15430h440v180h-440z" />
+        <path d="M42290 15110h920v180h-920z" />
+        <path d="M42290 15430h440v180h-440z" />
+      </g>
     </g>
     <g stroke="#000" stroke-miterlimit="10">
       <g stroke-width="10">
@@ -299,27 +315,25 @@
     <path transform="scale(.1)" d="M4946 1294c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
     <circle cx="494.6" cy="152.5" r="2.6" />
     <path transform="scale(.1)" d="M4946 1472c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 106c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <g transform="scale(.01)">
-      <path d="M47640 13200h920v180h-920z" />
-      <path d="M47640 13520h440v180h-440z" />
-    </g>
-    <path transform="scale(.1)" d="M5044 1320h92v18h-92z" />
-    <g transform="scale(.01)">
-      <path d="M50440 13520h440v180h-440z" />
-      <path d="M47640 15110h920v180h-920z" />
-      <path d="M47640 15430h440v180h-440z" />
-    </g>
-    <path transform="scale(.1)" d="M5044 1511h92v18h-92z" />
-    <path transform="scale(.01)" d="M50440 15430h440v180h-440z" />
-    <g stroke="#000">
-      <g stroke-miterlimit="10">
-        <g stroke-width="10" transform="scale(.1)">
-          <path d="M1504 4760h-426c-25 0-45 20-45 45v29h515v-30c0-24-20-44-44-44z" />
-          <path fill="#fbae18" d="M1033 4834v951c0 33 27 60 60 60h396c33 0 60-27 60-60v-951h-516z" />
-        </g>
-        <circle cx="129" cy="575" r="4.6" transform="translate(-450 684.8) rotate(-88.1)" fill="none" />
+    <g transform="scale(.1)">
+      <g transform="scale(.1)">
+        <path d="M47640 13200h920v180h-920z" />
+        <path d="M47640 13520h440v180h-440z" />
+      </g>
+      <path d="M5044 1320h92v18h-92z" />
+      <g transform="scale(.1)">
+        <path d="M50440 13520h440v180h-440z" />
+        <path d="M47640 15110h920v180h-920z" />
+        <path d="M47640 15430h440v180h-440z" />
+      </g>
+      <path d="M5044 1511h92v18h-92z" />
+      <path transform="scale(.1)" d="M50440 15430h440v180h-440z" />
+      <g stroke-width="10" stroke="#000" stroke-miterlimit="10">
+        <path d="M1504 4760h-426c-25 0-45 20-45 45v29h515v-30c0-24-20-44-44-44z" />
+        <path fill="#fbae18" d="M1033 4834v951c0 33 27 60 60 60h396c33 0 60-27 60-60v-951h-516z" />
       </g>
     </g>
+    <circle cx="129" cy="575" r="4.6" transform="translate(-450 684.8) rotate(-88.1)" stroke-miterlimit="10" fill="none" stroke="#000" />
     <g fill="#fff">
       <circle cx="117.9" cy="479.7" r="1.7" />
       <path transform="scale(.1)" d="M1231 4779h169c10 0 17 8 17 17c0 10-8 17-17 17h-169c-10 0-17-8-17-17c0-10 8-17 17-17z" />
@@ -368,21 +382,21 @@
     <circle cx="556.3" cy="340.3" r="2.3" />
     <circle cx="550.5" cy="340.3" r="2.3" />
     <rect x="566" y="338" width="41.4" height="4.6" rx="2" ry="2" />
-    <g transform="scale(.01)">
-      <path d="M55960 37360h3660v230h-3660z" />
-      <path d="M56220 37010h3140v230h-3140z" />
-    </g>
-    <path transform="scale(.1)" d="M5651 3563h23v129h-23z" />
-    <g transform="scale(.01)">
-      <path d="M56980 35630h230v1290h-230z" />
-      <path d="M57440 35630h230v1290h-230z" />
-    </g>
     <g transform="scale(.1)">
+      <g transform="scale(.1)">
+        <path d="M55960 37360h3660v230h-3660z" />
+        <path d="M56220 37010h3140v230h-3140z" />
+      </g>
+      <path d="M5651 3563h23v129h-23z" />
+      <g transform="scale(.1)">
+        <path d="M56980 35630h230v1290h-230z" />
+        <path d="M57440 35630h230v1290h-230z" />
+      </g>
       <path d="M5790 3563h23v129h-23z" />
       <path d="M5836 3563h23v129h-23z" />
       <path d="M5882 3563h23v129h-23z" />
+      <path d="M5649 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
     </g>
-    <path transform="scale(.1)" d="M5649 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
     <g transform="scale(.1)">
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#58595b" d="M5781 2662v385" />
       <path fill="#58595b" d="M5781 3153l-61-150l61 36l61-36-61 150z" />
@@ -397,19 +411,19 @@
     <circle cx="310.7" cy="340.3" r="2.3" />
     <circle cx="304.9" cy="340.3" r="2.3" />
     <rect x="320.5" y="338" width="41.4" height="4.6" rx="2" ry="2" />
-    <g transform="scale(.01)">
-      <path d="M31400 37360h3660v230h-3660z" />
-      <path d="M31650 37010h3140v230h-3140z" />
-    </g>
-    <path transform="scale(.1)" d="M3195 3563h23v129h-23z" />
-    <path transform="scale(.01)" d="M32410 35630h230v1290h-230z" />
     <g transform="scale(.1)">
+      <g transform="scale(.1)">
+        <path d="M31400 37360h3660v230h-3660z" />
+        <path d="M31650 37010h3140v230h-3140z" />
+      </g>
+      <path d="M3195 3563h23v129h-23z" />
+      <path transform="scale(.1)" d="M32410 35630h230v1290h-230z" />
       <path d="M3288 3563h23v129h-23z" />
       <path d="M3334 3563h23v129h-23z" />
       <path d="M3380 3563h23v129h-23z" />
+      <path transform="scale(.1)" d="M34260 35630h230v1290h-230z" />
+      <path d="M3193 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
     </g>
-    <path transform="scale(.01)" d="M34260 35630h230v1290h-230z" />
-    <path transform="scale(.1)" d="M3193 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
     <rect x="311.4" y="448.6" width="44.2" height="26.9" rx="3.8" ry="3.8" fill="#0e3a5e" />
     <g fill="#fff">
       <path transform="scale(.1)" d="M3335 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
@@ -436,21 +450,19 @@
     <circle cx="392.6" cy="340.3" r="2.3" />
     <circle cx="386.8" cy="340.3" r="2.3" />
     <rect x="402.3" y="338" width="41.4" height="4.6" rx="2" ry="2" />
-    <g transform="scale(.01)">
-      <path d="M39580 37360h3660v230h-3660z" />
-      <path d="M39840 37010h3140v230h-3140z" />
-    </g>
     <g transform="scale(.1)">
+      <g transform="scale(.1)">
+        <path d="M39580 37360h3660v230h-3660z" />
+        <path d="M39840 37010h3140v230h-3140z" />
+      </g>
       <path d="M4014 3563h23v129h-23z" />
       <path d="M4060 3563h23v129h-23z" />
-    </g>
-    <path transform="scale(.01)" d="M41060 35630h230v1290h-230z" />
-    <g transform="scale(.1)">
+      <path transform="scale(.1)" d="M41060 35630h230v1290h-230z" />
       <path d="M4153 3563h23v129h-23z" />
       <path d="M4199 3563h23v129h-23z" />
       <path d="M4245 3563h23v129h-23z" />
+      <path d="M4012 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
     </g>
-    <path transform="scale(.1)" d="M4012 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
     <rect x="392.2" y="448.6" width="44.2" height="26.9" rx="3.8" ry="3.8" fill="#0e3a5e" />
     <g fill="#fff">
       <path transform="scale(.1)" d="M4143 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
@@ -477,21 +489,19 @@
     <circle cx="474.4" cy="340.3" r="2.3" />
     <circle cx="468.6" cy="340.3" r="2.3" />
     <rect x="484.2" y="338" width="41.4" height="4.6" rx="2" ry="2" />
-    <g transform="scale(.01)">
-      <path d="M47770 37360h3660v230h-3660z" />
-      <path d="M48030 37010h3140v230h-3140z" />
-    </g>
     <g transform="scale(.1)">
+      <g transform="scale(.1)">
+        <path d="M47770 37360h3660v230h-3660z" />
+        <path d="M48030 37010h3140v230h-3140z" />
+      </g>
       <path d="M4833 3563h23v129h-23z" />
       <path d="M4879 3563h23v129h-23z" />
       <path d="M4925 3563h23v129h-23z" />
-    </g>
-    <path transform="scale(.01)" d="M49710 35630h230v1290h-230z" />
-    <g transform="scale(.1)">
+      <path transform="scale(.1)" d="M49710 35630h230v1290h-230z" />
       <path d="M5018 3563h23v129h-23z" />
       <path d="M5064 3563h23v129h-23z" />
+      <path d="M4831 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
     </g>
-    <path transform="scale(.1)" d="M4831 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
     <rect x="474.1" y="448.6" width="44.2" height="26.9" rx="3.8" ry="3.8" fill="#0e3a5e" />
     <g fill="#fff">
       <path transform="scale(.1)" d="M4962 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
@@ -516,21 +526,19 @@
     <circle cx="638.2" cy="340.3" r="2.3" />
     <circle cx="632.4" cy="340.3" r="2.3" />
     <rect x="647.9" y="338" width="41.4" height="4.6" rx="2" ry="2" />
-    <g transform="scale(.01)">
-      <path d="M64140 37360h3660v230h-3660z" />
-      <path d="M64400 37010h3140v230h-3140z" />
-    </g>
     <g transform="scale(.1)">
+      <g transform="scale(.1)">
+        <path d="M64140 37360h3660v230h-3660z" />
+        <path d="M64400 37010h3140v230h-3140z" />
+      </g>
       <path d="M6470 3563h23v129h-23z" />
       <path d="M6516 3563h23v129h-23z" />
       <path d="M6562 3563h23v129h-23z" />
-    </g>
-    <path transform="scale(.01)" d="M66090 35630h230v1290h-230z" />
-    <g transform="scale(.1)">
+      <path transform="scale(.1)" d="M66090 35630h230v1290h-230z" />
       <path d="M6655 3563h23v129h-23z" />
       <path d="M6701 3563h23v129h-23z" />
+      <path d="M6468 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
     </g>
-    <path transform="scale(.1)" d="M6468 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
     <rect x="637.8" y="448.6" width="44.2" height="26.9" rx="3.8" ry="3.8" fill="#0e3a5e" />
     <g fill="#fff">
       <path transform="scale(.1)" d="M6599 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
@@ -554,19 +562,19 @@
     <circle cx="720" cy="340.3" r="2.3" />
     <circle cx="714.2" cy="340.3" r="2.3" />
     <rect x="729.8" y="338" width="41.4" height="4.6" rx="2" ry="2" />
-    <g transform="scale(.01)">
-      <path d="M72330 37360h3660v230h-3660z" />
-      <path d="M72590 37010h3140v230h-3140z" />
-    </g>
-    <path transform="scale(.01)" d="M72890 35630h230v1290h-230z" />
     <g transform="scale(.1)">
+      <g transform="scale(.1)">
+        <path d="M72330 37360h3660v230h-3660z" />
+        <path d="M72590 37010h3140v230h-3140z" />
+      </g>
+      <path transform="scale(.1)" d="M72890 35630h230v1290h-230z" />
       <path d="M7335 3563h23v129h-23z" />
       <path d="M7381 3563h23v129h-23z" />
       <path d="M7427 3563h23v129h-23z" />
+      <path transform="scale(.1)" d="M74740 35630h230v1290h-230z" />
+      <path d="M7520 3563h23v129h-23z" />
+      <path d="M7287 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
     </g>
-    <path transform="scale(.01)" d="M74740 35630h230v1290h-230z" />
-    <path transform="scale(.1)" d="M7520 3563h23v129h-23z" />
-    <path transform="scale(.1)" d="M7287 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
     <rect x="719.7" y="448.6" width="44.2" height="26.9" rx="3.8" ry="3.8" fill="#0e3a5e" />
     <g fill="#fff">
       <path transform="scale(.1)" d="M7418 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
@@ -791,18 +799,16 @@
       <path d="M6084 865h112c4 0 7 3 7 7c0 4-3 7-7 7h-112c-4 0-7-3-7-7c0-4 3-7 7-7z" />
       <path d="M6058 973h111v7h-111z" />
       <path d="M6065 962h95v7h-95z" />
-    </g>
-    <g transform="scale(.1)">
       <path d="M6075 920h7v39h-7z" />
       <path d="M6089 920h7v39h-7z" />
       <path d="M6103 920h7v39h-7z" />
+      <g transform="scale(.1)">
+        <path d="M61170 9200h70v390h-70z" />
+        <path d="M61310 9200h70v390h-70z" />
+      </g>
+      <path d="M6145 920h7v39h-7z" />
+      <path d="M6074 918h78c2 0 3-3 0-4-13-7-26-13-40-19h-2c-13 7-26 13-39 19-2 0 0 4 0 4h3z" />
     </g>
-    <g transform="scale(.01)">
-      <path d="M61170 9200h70v390h-70z" />
-      <path d="M61310 9200h70v390h-70z" />
-    </g>
-    <path transform="scale(.1)" d="M6145 920h7v39h-7z" />
-    <path transform="scale(.1)" d="M6074 918h78c2 0 3-3 0-4-13-7-26-13-40-19h-2c-13 7-26 13-39 19-2 0 0 4 0 4h3z" />
     <rect x="601.5" y="110.3" width="19.7" height="12.9" rx="3.8" ry="3.8" fill="#0e3a5e" />
     <g fill="#fff">
       <path transform="scale(.1)" d="M6114 1138c10 0 19 9 19 20s-8 20-19 20s-19-9-19-20s8-20 19-20z" />
