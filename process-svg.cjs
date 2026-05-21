@@ -527,7 +527,11 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       if (gElement?.parentElement) {
         [...gElement.attributes].forEach(attr => {
           const childAttr = onlychild.getAttribute(attr.name);
-          if (!childAttr || childAttr === attr.value) {
+          if (
+            !childAttr ||
+            (attr.name.toLowerCase() !== "transform" &&
+              childAttr === attr.value)
+          ) {
             didSomething = true;
             onlychild.setAttribute(attr.name, attr.value);
             gElement.removeAttribute(attr.name);
@@ -545,12 +549,61 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     return didSomething;
   };
 
+  const applyScaleToViewBox = () => {
+    // if the dom has a single child with a scale transform, apply the scale to the viewBox and remove the transform
+    const firstChild = svgElement.firstElementChild;
+    if (
+      firstChild &&
+      firstChild.nextElementSibling === null &&
+      firstChild.hasAttribute("transform") &&
+      firstChild.getAttribute("transform")?.includes("scale(")
+    ) {
+      // Check if the transform is only a scale transform
+      const transform = firstChild.getAttribute("transform");
+      if (transform) {
+        const scaleMatch = transform.match(/scale\((?<val>[^)]+)\)/);
+
+        // Check if the transform is only a scale transform
+        if (
+          scaleMatch
+          //transform.replace(scaleMatch[0], "").trim().length === 0
+        ) {
+          const viewbox = svgElement.getAttribute("viewBox");
+          const val = scaleMatch.groups?.val;
+          if (val && viewbox) {
+            const [x, y, width, height] = viewbox.split(" ").map(parseFloat);
+
+            // Update the viewBox to reflect the new scale
+            const scale = parseFloat(val);
+            const divScale = (/** @type {number} */ topPart) =>
+              Number((topPart / scale).toFixed(6)).toString(); // prevents 43.4 / 0.1 = 433.99999999999994
+
+            svgElement.setAttribute(
+              "viewBox",
+              `${divScale(x)} ${divScale(y)} ${divScale(width)} ${divScale(height)}`
+            );
+
+            const newTransform = transform.replace(scaleMatch[0], "").trim();
+            if (newTransform.length === 0) {
+              firstChild.removeAttribute("transform");
+            } else {
+              firstChild.setAttribute("transform", newTransform);
+            }
+
+            return true;
+          }
+        }
+      }
+    }
+  };
+
   while (
     extractCommonAttributesToGs() ||
     mergeSiblingGs() ||
-    pushGAttributesDown() ||
+    pushGAttributesDown() || //fix
     extractCommonAttributesToGs() ||
-    removeUselessGs()
+    removeUselessGs() ||
+    applyScaleToViewBox()
   ) {
     //console.log("extractCommonAttributesToGs");
     // Keep extracting common attributes until no more extractions
@@ -577,47 +630,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       pathElement.setAttribute("d", d);
     }
   });
-
-  // apply the transform to the SVG viewbox if all children have the same scale transform
-  const svgChildren = [...svgElement.children];
-  if (
-    svgChildren
-      .map(x => x.getAttribute("transform"))
-      .every((transform, _i, a) => transform === a[0])
-  ) {
-    // Check if the transform is only a scale transform
-    const transform = svgChildren[0].getAttribute("transform");
-    if (transform) {
-      const scaleMatch = transform.match(/scale\((?<val>[^)]+)\)/);
-
-      // Check if the transform is only a scale transform
-      if (
-        scaleMatch &&
-        transform.replace(scaleMatch[0], "").trim().length === 0
-      ) {
-        const viewbox = svgElement.getAttribute("viewBox");
-        const val = scaleMatch.groups?.val;
-        if (val && viewbox) {
-          const [x, y, width, height] = viewbox.split(" ").map(parseFloat);
-
-          // Update the viewBox to reflect the new scale
-          const scale = parseFloat(val);
-          const divScale = (/** @type {number} */ topPart) =>
-            Number((topPart / scale).toFixed(6)).toString(); // prevents 43.4 / 0.1 = 433.99999999999994
-
-          svgElement.setAttribute(
-            "viewBox",
-            `${divScale(x)} ${divScale(y)} ${divScale(width)} ${divScale(height)}`
-          );
-
-          svgChildren.forEach(child => {
-            // Remove the scale transform from the child
-            child.removeAttribute("transform");
-          });
-        }
-      }
-    }
-  }
 
   // Some cleanup
   svgElement.querySelectorAll("[data-scaled]").forEach(element => {
