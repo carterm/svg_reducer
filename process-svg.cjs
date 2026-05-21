@@ -551,10 +551,16 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
   const applyScaleToViewBox = () => {
     // if the dom has a single child with a scale transform, apply the scale to the viewBox and remove the transform
-    const firstChild = svgElement.firstElementChild;
+
+    const directChildren = svgElement.querySelectorAll(
+      "svg > g,svg > path,svg > rect,svg > circle,svg > ellipse,svg > line,svg > polyline,svg > polygon"
+    );
+    if (directChildren.length !== 1) {
+      return false;
+    }
+
+    const firstChild = directChildren[0];
     if (
-      firstChild &&
-      firstChild.nextElementSibling === null &&
       firstChild.hasAttribute("transform") &&
       firstChild.getAttribute("transform")?.includes("scale(")
     ) {
