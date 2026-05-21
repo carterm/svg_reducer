@@ -37,6 +37,10 @@ const styleAttributeMap = [
   "stroke-width",
   "stroke-linecap",
   "stroke-miterlimit",
+  "isolation",
+  "font-family",
+  "font-size",
+  "font-weight",
   "clip-path"
 ];
 
@@ -47,7 +51,11 @@ const shareableAttributes = [
   "stroke-linecap",
   "stroke-miterlimit",
   "fill",
-  "transform"
+  "transform",
+  "isolation",
+  "font-family",
+  "font-size",
+  "font-weight"
 ];
 
 const globalReplacements = [
