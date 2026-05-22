@@ -1,13 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 792 612">
   <g data-name="Layer_1">
-    <g fill="#0e3a5e">
-      <g font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-        <text transform="translate(666.7 570.7)" font-size="8.9px"><tspan>California Department of</tspan></text>
-        <text x="666.7" y="589.4" font-size="20.2px">Technology</text>
-      </g>
-      <rect x="627.4" y="561.3" width="32.3" height="32.3" rx="2.8" ry="2.8" />
+    <g fill="#0e3a5e" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+      <text transform="translate(666.7 570.7)" font-size="8.9px"><tspan>California Department of</tspan></text>
+      <text x="666.7" y="589.4" font-size="20.2px">Technology</text>
     </g>
     <g transform="scale(.1)">
+      <rect x="6274" y="5613" width="323" height="323" rx="28" ry="28" fill="#0e3a5e" />
       <circle cx="6435" cy="5775" r="142" fill="#fff" />
       <g fill="#0e3a5e">
         <path d="M6390 5715h50v45h-50z" />
@@ -238,19 +236,21 @@
       </g>
     </g>
     <circle cx="1290" cy="5750" r="46" transform="translate(-450 684.8) rotate(-88.1) scale(.1)" stroke-miterlimit="10" fill="none" stroke="#000" stroke-width="10" />
-    <g transform="scale(.1)" fill="#fff">
-      <circle cx="1179" cy="4797" r="17" />
-      <path d="M1231 4779h169c10 0 17 8 17 17c0 10-8 17-17 17h-169c-10 0-17-8-17-17c0-10 8-17 17-17z" />
-    </g>
-    <g stroke="#fbae18" fill="#0e3a5e" stroke-miterlimit="10">
-      <rect x="107.3" y="523.6" width="43.5" height="26.5" rx="3.8" ry="3.8" />
-      <rect x="107.3" y="528.9" width="43.5" height="26.5" rx="3.8" ry="3.8" />
-      <rect x="107.3" y="534" width="43.5" height="26.5" rx="3.8" ry="3.8" />
-    </g>
-    <g transform="scale(.1)" fill="#fff">
-      <path d="M1290 5412c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
-      <circle cx="1290" cy="5454" r="42" />
-      <path d="M1290 5370c-57 0-102 46-102 102s14 59 36 77c18 15 41 25 67 25s49-10 67-25c22-19 36-47 36-77c0-57-46-102-102-102h-2zm67 170c-2-21-21-38-42-38h-49c-22 0-40 17-42 38-17-17-28-41-28-67c0-52 42-95 95-95s95 42 95 95s-11 50-28 67h-1z" />
+    <g transform="scale(.1)">
+      <g fill="#fff">
+        <circle cx="1179" cy="4797" r="17" />
+        <path d="M1231 4779h169c10 0 17 8 17 17c0 10-8 17-17 17h-169c-10 0-17-8-17-17c0-10 8-17 17-17z" />
+      </g>
+      <g stroke-width="10" stroke="#fbae18" fill="#0e3a5e" stroke-miterlimit="10">
+        <rect x="1073" y="5236" width="435" height="265" rx="38" ry="38" />
+        <rect x="1073" y="5289" width="435" height="265" rx="38" ry="38" />
+        <rect x="1073" y="5340" width="435" height="265" rx="38" ry="38" />
+      </g>
+      <g fill="#fff">
+        <path d="M1290 5412c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
+        <circle cx="1290" cy="5454" r="42" />
+        <path d="M1290 5370c-57 0-102 46-102 102s14 59 36 77c18 15 41 25 67 25s49-10 67-25c22-19 36-47 36-77c0-57-46-102-102-102h-2zm67 170c-2-21-21-38-42-38h-49c-22 0-40 17-42 38-17-17-28-41-28-67c0-52 42-95 95-95s95 42 95 95s-11 50-28 67h-1z" />
+      </g>
     </g>
     <g fill="#0e3a5e" font-size="12.9px" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
       <text transform="translate(109.2 497.8)"><tspan>Mobile</tspan></text>
@@ -267,26 +267,24 @@
         <path d="M679 1045v1169" />
       </g>
       <path fill="#58595b" d="M679 2319l-61-149l61 36l61-36-61 149z" />
-      <g stroke="#58595b" stroke-width="30" fill="none" stroke-miterlimit="10">
-        <path d="M2402 1369v114" />
-        <path d="M3258 1369v114" />
-        <path d="M4111 1045v195" />
-        <path d="M4973 1045v195" />
-        <g stroke-linecap="square">
-          <path d="M679 1045h3542" />
-          <path d="M1055 1369h1470" />
-          <path d="M4581 1045h390" />
+      <g stroke-miterlimit="10" fill="none">
+        <g stroke="#58595b" stroke-width="30">
+          <path d="M2402 1369v114" />
+          <path d="M3258 1369v114" />
+          <path d="M4111 1045v195" />
+          <path d="M4973 1045v195" />
+          <g stroke-linecap="square">
+            <path d="M679 1045h3542" />
+            <path d="M1055 1369h1470" />
+            <path d="M4581 1045h390" />
+          </g>
         </g>
+        <rect x="5457" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
       </g>
-    </g>
-    <rect x="545.7" y="335.5" width="64.8" height="45.1" rx="3.6" ry="3.6" stroke-miterlimit="10" fill="none" stroke="#231f20" />
-    <g transform="scale(.1)">
       <circle cx="5620" cy="3403" r="23" />
       <circle cx="5563" cy="3403" r="23" />
       <circle cx="5505" cy="3403" r="23" />
-    </g>
-    <rect x="566" y="338" width="41.4" height="4.6" rx="2" ry="2" />
-    <g transform="scale(.1)">
+      <rect x="5660" y="3380" width="414" height="46" rx="20" ry="20" />
       <path d="M5596 3736h366v23h-366z" />
       <path d="M5622 3701h314v23h-314z" />
       <path d="M5651 3563h23v129h-23z" />
@@ -301,17 +299,15 @@
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M5781 3812v291" />
     </g>
     <text transform="translate(566.5 328.7)" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#231f20" font-size="13px"><tspan>FTB</tspan></text>
-    <g fill="none" stroke-miterlimit="10">
-      <path stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M3325 5104v149" />
-      <rect x="300" y="335.5" width="64.8" height="45.1" rx="3.6" ry="3.6" stroke="#231f20" />
-    </g>
     <g transform="scale(.1)">
+      <g fill="none" stroke-miterlimit="10">
+        <path stroke-width="30" stroke="#1c75bc" d="M3325 5104v149" />
+        <rect x="3000" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
+      </g>
       <circle cx="3164" cy="3403" r="23" />
       <circle cx="3107" cy="3403" r="23" />
       <circle cx="3049" cy="3403" r="23" />
-    </g>
-    <rect x="320.5" y="338" width="41.4" height="4.6" rx="2" ry="2" />
-    <g transform="scale(.1)">
+      <rect x="3205" y="3380" width="414" height="46" rx="20" ry="20" />
       <path d="M3140 3736h366v23h-366z" />
       <path d="M3165 3701h314v23h-314z" />
       <path d="M3195 3563h23v129h-23z" />
@@ -321,9 +317,7 @@
       <path d="M3380 3563h23v129h-23z" />
       <path d="M3426 3563h23v129h-23z" />
       <path d="M3193 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
-    </g>
-    <rect x="311.4" y="448.6" width="44.2" height="26.9" rx="3.8" ry="3.8" fill="#0e3a5e" />
-    <g transform="scale(.1)">
+      <rect x="3114" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
       <g fill="#fff">
         <path d="M3335 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
         <circle cx="3335" cy="4602" r="42" />
@@ -342,17 +336,15 @@
       </g>
       <text transform="translate(46 575)" font-size="15.8px"><tspan>J. Doe</tspan></text>
     </g>
-    <g fill="none" stroke-miterlimit="10">
-      <path stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M4143 5104v149" />
-      <rect x="381.9" y="335.5" width="64.8" height="45.1" rx="3.6" ry="3.6" stroke="#231f20" />
-    </g>
     <g transform="scale(.1)">
+      <g fill="none" stroke-miterlimit="10">
+        <path stroke-width="30" stroke="#1c75bc" d="M4143 5104v149" />
+        <rect x="3819" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
+      </g>
       <circle cx="3983" cy="3403" r="23" />
       <circle cx="3926" cy="3403" r="23" />
       <circle cx="3868" cy="3403" r="23" />
-    </g>
-    <rect x="402.3" y="338" width="41.4" height="4.6" rx="2" ry="2" />
-    <g transform="scale(.1)">
+      <rect x="4023" y="3380" width="414" height="46" rx="20" ry="20" />
       <path d="M3958 3736h366v23h-366z" />
       <path d="M3984 3701h314v23h-314z" />
       <path d="M4014 3563h23v129h-23z" />
@@ -362,9 +354,7 @@
       <path d="M4199 3563h23v129h-23z" />
       <path d="M4245 3563h23v129h-23z" />
       <path d="M4012 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
-    </g>
-    <rect x="392.2" y="448.6" width="44.2" height="26.9" rx="3.8" ry="3.8" fill="#0e3a5e" />
-    <g transform="scale(.1)">
+      <rect x="3922" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
       <g fill="#fff">
         <path d="M4143 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
         <circle cx="4143" cy="4602" r="42" />
@@ -381,17 +371,15 @@
       <text transform="translate(374.7 490.7)"><tspan>Cosmetology</tspan></text>
       <text transform="translate(391.2 506.2)"><tspan>License</tspan></text>
     </g>
-    <g fill="none" stroke-miterlimit="10">
-      <path stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M4962 4962v291" />
-      <rect x="463.8" y="335.5" width="64.8" height="45.1" rx="3.6" ry="3.6" stroke="#231f20" />
-    </g>
     <g transform="scale(.1)">
+      <g fill="none" stroke-miterlimit="10">
+        <path stroke-width="30" stroke="#1c75bc" d="M4962 4962v291" />
+        <rect x="4638" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
+      </g>
       <circle cx="4801" cy="3403" r="23" />
       <circle cx="4744" cy="3403" r="23" />
       <circle cx="4686" cy="3403" r="23" />
-    </g>
-    <rect x="484.2" y="338" width="41.4" height="4.6" rx="2" ry="2" />
-    <g transform="scale(.1)">
+      <rect x="4842" y="3380" width="414" height="46" rx="20" ry="20" />
       <path d="M4777 3736h366v23h-366z" />
       <path d="M4803 3701h314v23h-314z" />
       <path d="M4833 3563h23v129h-23z" />
@@ -401,9 +389,7 @@
       <path d="M5018 3563h23v129h-23z" />
       <path d="M5064 3563h23v129h-23z" />
       <path d="M4831 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
-    </g>
-    <rect x="474.1" y="448.6" width="44.2" height="26.9" rx="3.8" ry="3.8" fill="#0e3a5e" />
-    <g transform="scale(.1)">
+      <rect x="4741" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
       <g fill="#fff">
         <path d="M4962 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
         <circle cx="4962" cy="4602" r="42" />
@@ -418,17 +404,15 @@
       <text transform="translate(481.3 328.7)"><tspan>DMV</tspan></text>
       <text transform="translate(482.3 490.7)"><tspan>mDL</tspan></text>
     </g>
-    <g fill="none" stroke-miterlimit="10">
-      <path stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M6599 4962v291" />
-      <rect x="627.5" y="335.5" width="64.8" height="45.1" rx="3.6" ry="3.6" stroke="#231f20" />
-    </g>
     <g transform="scale(.1)">
+      <g fill="none" stroke-miterlimit="10">
+        <path stroke-width="30" stroke="#1c75bc" d="M6599 4962v291" />
+        <rect x="6275" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
+      </g>
       <circle cx="6439" cy="3403" r="23" />
       <circle cx="6382" cy="3403" r="23" />
       <circle cx="6324" cy="3403" r="23" />
-    </g>
-    <rect x="647.9" y="338" width="41.4" height="4.6" rx="2" ry="2" />
-    <g transform="scale(.1)">
+      <rect x="6479" y="3380" width="414" height="46" rx="20" ry="20" />
       <path d="M6414 3736h366v23h-366z" />
       <path d="M6440 3701h314v23h-314z" />
       <path d="M6470 3563h23v129h-23z" />
@@ -438,9 +422,7 @@
       <path d="M6655 3563h23v129h-23z" />
       <path d="M6701 3563h23v129h-23z" />
       <path d="M6468 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
-    </g>
-    <rect x="637.8" y="448.6" width="44.2" height="26.9" rx="3.8" ry="3.8" fill="#0e3a5e" />
-    <g transform="scale(.1)">
+      <rect x="6378" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
       <g fill="#fff">
         <path d="M6599 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
         <circle cx="6599" cy="4602" r="42" />
@@ -455,14 +437,12 @@
       <text transform="translate(625.8 328.7)"><tspan>State Parks</tspan></text>
       <text transform="translate(624 490.7)"><tspan>Parks Pass</tspan></text>
     </g>
-    <rect x="709.4" y="335.5" width="64.8" height="45.1" rx="3.6" ry="3.6" stroke-miterlimit="10" fill="none" stroke="#231f20" />
     <g transform="scale(.1)">
+      <rect x="7094" y="3355" width="648" height="451" rx="36" ry="36" stroke-miterlimit="10" fill="none" stroke="#231f20" stroke-width="10" />
       <circle cx="7257" cy="3403" r="23" />
       <circle cx="7200" cy="3403" r="23" />
       <circle cx="7142" cy="3403" r="23" />
-    </g>
-    <rect x="729.8" y="338" width="41.4" height="4.6" rx="2" ry="2" />
-    <g transform="scale(.1)">
+      <rect x="7298" y="3380" width="414" height="46" rx="20" ry="20" />
       <path d="M7233 3736h366v23h-366z" />
       <path d="M7259 3701h314v23h-314z" />
       <path d="M7289 3563h23v129h-23z" />
@@ -472,9 +452,7 @@
       <path d="M7474 3563h23v129h-23z" />
       <path d="M7520 3563h23v129h-23z" />
       <path d="M7287 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
-    </g>
-    <rect x="719.7" y="448.6" width="44.2" height="26.9" rx="3.8" ry="3.8" fill="#0e3a5e" />
-    <g transform="scale(.1)">
+      <rect x="7197" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
       <g fill="#fff">
         <path d="M7418 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
         <circle cx="7418" cy="4602" r="42" />
@@ -527,21 +505,21 @@
         </g>
       </g>
       <path fill="#1c75bc" d="M1586 5253l149 61-36-61l36-61-149 61z" />
-      <g stroke="#1c75bc" stroke-width="30" stroke-linecap="square" fill="none" stroke-miterlimit="10">
-        <path d="M7120 5253h298" />
-        <path d="M6889 5253h37" />
-        <path d="M7007 5253h37" />
+      <g stroke-miterlimit="10">
+        <g stroke="#1c75bc" stroke-width="30" stroke-linecap="square" fill="none">
+          <path d="M7120 5253h298" />
+          <path d="M6889 5253h37" />
+          <path d="M7007 5253h37" />
+        </g>
+        <rect x="448" y="2382" width="1474" height="429" rx="87" ry="87" fill="#fbae18" stroke="#0e3a5e" stroke-width="10" />
       </g>
     </g>
-    <rect x="44.8" y="238.2" width="147.4" height="42.9" rx="8.7" ry="8.7" stroke-miterlimit="10" fill="#fbae18" stroke="#0e3a5e" />
-    <g fill="#0e3a5e">
-      <g font-size="12.9px" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-        <text transform="translate(82 255.7)"><tspan>California</tspan></text>
-        <text transform="translate(82 271.2)"><tspan>Identity Gateway</tspan></text>
-      </g>
-      <rect x="49" y="244.1" width="31.1" height="31.1" rx="3.6" ry="3.6" />
+    <g fill="#0e3a5e" font-size="12.9px" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+      <text transform="translate(82 255.7)"><tspan>California</tspan></text>
+      <text transform="translate(82 271.2)"><tspan>Identity Gateway</tspan></text>
     </g>
     <g transform="scale(.1)">
+      <rect x="490" y="2441" width="311" height="311" rx="36" ry="36" fill="#0e3a5e" />
       <g fill="#fff">
         <path d="M697 2597c0-5 0-11-4-14-6-5-6-11-5-17v-13c0-15-10-28-25-31-9-2-19-2-28 0-18 2-27 15-27 33v17s-2 4-3 5c-8 5-11 11-11 20v49c0 16 8 23 22 23h61c13 0 22-9 22-22v-50h-2zm-78-50c0-9 7-14 16-15c8-1 17-1 25 0c10 1 17 10 17 20v22h-57v-27zm45 55c0 10-8 18-18 18s-18-8-18-18s8-18 18-18s18 8 18 18zm-19 61c-13 0-25-6-32-15c2-14 13-24 27-24h10c14 0 26 11 27 24-8 9-19 15-32 15z" />
         <path d="M544 2571c6-51 49-90 101-90s95 39 101 90h16c-6-59-56-105-116-105s-110 46-116 105h15z" />
@@ -586,20 +564,20 @@
       <text transform="translate(282.6 532.7)" font-size="21.6px"><tspan>5</tspan></text>
       <text transform="translate(294.7 532.7)" font-size="15.4px"><tspan>b</tspan></text>
     </g>
-    <g stroke-miterlimit="10">
-      <g transform="scale(.1)" stroke="#58595b" stroke-width="30" stroke-linecap="square" fill="none">
+    <g stroke-miterlimit="10" transform="scale(.1)">
+      <g stroke="#58595b" stroke-width="30" stroke-linecap="square" fill="none">
         <path d="M2868 1369h390" />
         <path d="M2612 1369h37" />
         <path d="M2730 1369h37" />
       </g>
-      <rect x="193.8" y="490.7" width="67.2" height="66" rx="3.8" ry="3.8" fill="#fbae18" stroke="#231f20" />
+      <rect x="1938" y="4907" width="672" height="660" rx="38" ry="38" fill="#fbae18" stroke="#231f20" stroke-width="10" />
     </g>
     <g fill="#0e3a5e">
       <g font-size="12.9px" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
         <text transform="translate(197.3 552.5)"><tspan>API</tspan></text>
         <text transform="translate(197.3 538.3)"><tspan>Issuance</tspan></text>
       </g>
-      <rect x="196.7" y="493.8" width="31" height="31" rx="3.6" ry="3.6" />
+      <rect x="1967" y="4938" width="310" height="310" rx="36" ry="36" transform="scale(.1)" />
     </g>
     <g transform="scale(.1)" fill="#fff">
       <path d="M2212 4986h-181c-19 0-35 15-35 35v151c0 19 16 35 35 35h181c19 0 35-15 35-35v-151c0-19-16-35-35-35zm-181 12h181c12 0 21 9 23 20-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20zm205 42c-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20h181c12 0 21 9 23 20zm0 87v45c0 13-11 23-23 23h-181c-13 0-23-10-23-23v-106c0-13 11-23 23-23h181c13 0 23 10 23 23v62z" />
@@ -672,9 +650,7 @@
       <path d="M6819 956h12v5h-12z" />
       <path d="M6899 946h26v5h-26z" />
       <path d="M6899 956h12v5h-12z" />
-    </g>
-    <rect x="601.5" y="85.7" width="19.7" height="13.7" rx="1.8" ry="1.8" stroke-miterlimit="10" fill="none" stroke="#231f20" />
-    <g transform="scale(.1)">
+      <rect x="6015" y="857" width="197" height="137" rx="18" ry="18" stroke-miterlimit="10" fill="none" stroke="#231f20" stroke-width="10" />
       <circle cx="6065" cy="872" r="7" />
       <circle cx="6048" cy="872" r="7" />
       <circle cx="6030" cy="872" r="7" />
@@ -688,16 +664,16 @@
       <path d="M6131 920h7v39h-7z" />
       <path d="M6145 920h7v39h-7z" />
       <path d="M6074 918h78c2 0 3-3 0-4-13-7-26-13-40-19h-2c-13 7-26 13-39 19-2 0 0 4 0 4h3z" />
+      <rect x="6015" y="1103" width="197" height="129" rx="38" ry="38" fill="#0e3a5e" />
     </g>
-    <rect x="601.5" y="110.3" width="19.7" height="12.9" rx="3.8" ry="3.8" fill="#0e3a5e" />
     <g fill="#fff">
       <path transform="scale(.1)" d="M6114 1138c10 0 19 9 19 20s-8 20-19 20s-19-9-19-20s8-20 19-20z" />
       <ellipse cx="611.4" cy="115.8" rx="1.9" ry="2" />
       <path transform="scale(.1)" d="M6114 1117c-26 0-46 22-46 50s6 28 16 38c8 8 19 12 30 12s22-5 30-12c10-9 16-23 16-38c0-27-21-50-46-50zm30 83c0-10-9-18-19-18h-22c-10 0-18 8-19 18-8-8-13-20-13-33c0-25 19-46 43-46s43 21 43 46s-5 24-13 33z" />
     </g>
-    <g stroke-miterlimit="10">
-      <rect x="596.3" y="31.4" width="177.3" height="163.8" rx="12" ry="12" fill="none" stroke="#58595b" />
-      <rect x="677.5" y="38.2" width="88.8" height="14.3" rx="3.8" ry="3.8" fill="#fbae18" stroke="#231f20" />
+    <g stroke-width="10" transform="scale(.1)" stroke-miterlimit="10">
+      <rect x="5963" y="314" width="1773" height="1638" rx="120" ry="120" fill="none" stroke="#58595b" />
+      <rect x="6775" y="382" width="888" height="143" rx="38" ry="38" fill="#fbae18" stroke="#231f20" />
     </g>
     <text transform="translate(681.6 47.9)" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#0e3a5e" font-size="8.2px"><tspan>Technology Services</tspan></text>
     <g transform="scale(.1)">

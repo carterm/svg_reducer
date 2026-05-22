@@ -423,14 +423,24 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     });
   });
 
-  // Scale CIRCLE elements to attemp to remove decimal points and apply a scale transform
-  /** @type {NodeListOf<SVGCircleElement>} */
-  (svgElement.querySelectorAll("circle")).forEach(circleElement => {
+  // Scale CIRCLE and RECT elements to attempt to remove decimal points and apply a scale transform
+  /** @type {NodeListOf<SVGElement>} */
+  (svgElement.querySelectorAll("circle, rect")).forEach(Element => {
     // Extract numeric attributes
-    const attrs = ["cx", "cy", "r"];
-    const values = attrs.map(a => circleElement.getAttribute(a));
+    const attrs = [
+      "cx",
+      "cy",
+      "r",
+      "x",
+      "y",
+      "width",
+      "height",
+      "rx",
+      "ry"
+    ].filter(attr => Element.hasAttribute(attr));
+    const values = attrs.map(a => Element.getAttribute(a));
 
-    // Determine max decimal places across cx, cy, r
+    // Determine max decimal places across attributes
     let maxDecimals = 0;
 
     values.forEach(val => {
@@ -449,24 +459,24 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
     // Apply scaling + rounding
     attrs.forEach(attr => {
-      const raw = parseFloat(circleElement.getAttribute(attr) || "0");
+      const raw = parseFloat(Element.getAttribute(attr) || "0");
       if (isNaN(raw)) return;
       const scaled = Math.round(raw * scale).toFixed(0);
-      circleElement.setAttribute(attr, scaled);
+      Element.setAttribute(attr, scaled);
     });
 
     // Add or merge transform
-    const existing = circleElement.getAttribute("transform");
+    const existing = Element.getAttribute("transform");
     const scaleStr = `scale(${(1 / scale).toFixed(maxDecimals).replace(/^0\./, ".")})`;
 
-    circleElement.setAttribute(
+    Element.setAttribute(
       "transform",
       existing ? `${existing} ${scaleStr}` : scaleStr
     );
 
-    const props = getVisibilityProperties(circleElement);
-    if (props.stroke !== "none" || circleElement.hasAttribute("stroke-width")) {
-      circleElement.setAttribute(
+    const props = getVisibilityProperties(Element);
+    if (props.stroke !== "none" || Element.hasAttribute("stroke-width")) {
+      Element.setAttribute(
         "stroke-width",
         (props.strokeWidth * scale).toString()
       );
