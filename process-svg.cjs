@@ -530,7 +530,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   });
 
   //Remove tspan elements with no attributes, since they don't affect the rendering and just take up space
-  svgElement.querySelectorAll("text > tspan").forEach(tspan => {
+  svgElement.querySelectorAll("tspan").forEach(tspan => {
     if (tspan.attributes.length === 0) {
       const parent = tspan.parentElement;
       if (parent) {
