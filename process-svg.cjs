@@ -423,9 +423,38 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     });
   });
 
+  //Convert "translate" transforms into X and Y attributes where possible, to reduce the number of transforms and make the SVG easier to edit
+  svgElement
+    .querySelectorAll("text[transform^='translate']")
+    .forEach(element => {
+      const transform = element.getAttribute("transform");
+      if (transform) {
+        const match = transform.match(/translate\(\s*([^)]+)\s*\)/);
+        if (match) {
+          const [x, y] = match[1]
+            .split(/[\s,]+/)
+            .map(coord => parseFloat(coord) || 0);
+
+          if (x !== 0) {
+            element.setAttribute("x", x.toString());
+          }
+          if (y !== 0) {
+            element.setAttribute("y", y.toString());
+          }
+
+          const newTransform = transform.replace(match[0], "").trim();
+          if (newTransform.length === 0) {
+            element.removeAttribute("transform");
+          } else {
+            element.setAttribute("transform", newTransform);
+          }
+        }
+      }
+    });
+
   // Scale CIRCLE and RECT elements to attempt to remove decimal points and apply a scale transform
   /** @type {NodeListOf<SVGElement>} */
-  (svgElement.querySelectorAll("circle, rect")).forEach(Element => {
+  (svgElement.querySelectorAll("circle, rect, text")).forEach(Element => {
     // Extract numeric attributes
     const attrs = [
       "cx",
@@ -436,7 +465,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       "width",
       "height",
       "rx",
-      "ry"
+      "ry",
+      "font-size"
     ].filter(attr => Element.hasAttribute(attr));
     const values = attrs.map(a => Element.getAttribute(a));
 
@@ -445,7 +475,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
     values.forEach(val => {
       if (!val) return;
-      const match = val.match(/\.(\d+)/);
+      const match = val.replace(/px$/, "").match(/\.(\d+)/);
       if (match) {
         const decimals = match[1].length;
         if (decimals > maxDecimals) maxDecimals = decimals;
@@ -482,35 +512,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       );
     }
   });
-
-  //Convert "translate" transforms into X and Y attributes where possible, to reduce the number of transforms and make the SVG easier to edit
-  svgElement
-    .querySelectorAll("text[transform^='translate']")
-    .forEach(element => {
-      const transform = element.getAttribute("transform");
-      if (transform) {
-        const match = transform.match(/translate\(\s*([^)]+)\s*\)/);
-        if (match) {
-          const [x, y] = match[1]
-            .split(/[\s,]+/)
-            .map(coord => parseFloat(coord) || 0);
-
-          if (x !== 0) {
-            element.setAttribute("x", x.toString());
-          }
-          if (y !== 0) {
-            element.setAttribute("y", y.toString());
-          }
-
-          const newTransform = transform.replace(match[0], "").trim();
-          if (newTransform.length === 0) {
-            element.removeAttribute("transform");
-          } else {
-            element.setAttribute("transform", newTransform);
-          }
-        }
-      }
-    });
 
   //Remove X and Y attributes with a value of 0, since they don't affect the rendering and just take up space
   svgElement.querySelectorAll("[x='0']").forEach(e => {

@@ -1,11 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 792 612">
   <g data-name="Layer_1">
-    <g fill="#0e3a5e" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text font-size="8.9px" x="666.7" y="570.7"><tspan>California Department of</tspan></text>
-      <text x="666.7" y="589.4" font-size="20.2px">Technology</text>
-    </g>
     <g transform="scale(.1)">
-      <rect x="6274" y="5613" width="323" height="323" rx="28" ry="28" fill="#0e3a5e" />
+      <g fill="#0e3a5e">
+        <g font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+          <text font-size="89" x="6667" y="5707"><tspan>California Department of</tspan></text>
+          <text x="6667" y="5894" font-size="202">Technology</text>
+        </g>
+        <rect x="6274" y="5613" width="323" height="323" rx="28" ry="28" />
+      </g>
       <circle cx="6435" cy="5775" r="142" fill="#fff" />
       <g fill="#0e3a5e">
         <path d="M6390 5715h50v45h-50z" />
@@ -110,10 +112,8 @@
         <path d="M994 4097h5800" />
       </g>
       <path fill="#1c75bc" d="M888 4097l149 61-35-61l35-61-149 61z" />
-    </g>
-    <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#0e3a5e" font-size="38px" x="63.5" y="53.6"><tspan>Digital ID Framework</tspan></text>
-    <g transform="scale(.1)">
       <g fill="#0e3a5e">
+        <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" font-size="380" x="635" y="536"><tspan>Digital ID Framework</tspan></text>
         <path d="M242 250c-3 0-6-1-8-4-4-4-4-11 0-15c18-17 57-46 114-50c62-5 107 23 124 35c5 4 6 10 2 15-3 5-10 6-15 2-15-11-55-35-110-31-50 4-85 29-101 44-2 2-5 3-8 3h2z" />
         <path d="M238 311c-3 0-5 0-7-3-5-4-5-11-1-15c11-13 24-24 39-33c20-13 43-21 67-24c6 0 12 3 12 9s-3 11-9 12c-21 3-41 10-59 21-13 8-24 18-34 29-2 2-5 4-8 4z" />
         <path d="M436 279c-3 0-5-1-7-3-7-7-16-12-25-16-9-3-18-5-28-5-6 0-11-5-11-11s5-11 11-11c12 0 24 2 35 6c12 5 23 11 33 20c5 4 5 11 0 15-2 2-5 4-8 4z" />
@@ -251,12 +251,10 @@
         <circle cx="1290" cy="5454" r="42" />
         <path d="M1290 5370c-57 0-102 46-102 102s14 59 36 77c18 15 41 25 67 25s49-10 67-25c22-19 36-47 36-77c0-57-46-102-102-102h-2zm67 170c-2-21-21-38-42-38h-49c-22 0-40 17-42 38-17-17-28-41-28-67c0-52 42-95 95-95s95 42 95 95s-11 50-28 67h-1z" />
       </g>
-    </g>
-    <g fill="#0e3a5e" font-size="12.9px" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text x="109.2" y="497.8"><tspan>Mobile</tspan></text>
-      <text x="109.2" y="513.3"><tspan>Wallet</tspan></text>
-    </g>
-    <g transform="scale(.1)">
+      <g fill="#0e3a5e" font-size="129" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <text x="1092" y="4978"><tspan>Mobile</tspan></text>
+        <text x="1092" y="5133"><tspan>Wallet</tspan></text>
+      </g>
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#58595b" d="M679 3407v-435" />
       <path fill="#58595b" d="M679 2866l61 149-61-35-61 35l61-149z" />
       <g stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#58595b">
@@ -297,9 +295,7 @@
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#58595b" d="M5781 2662v385" />
       <path fill="#58595b" d="M5781 3153l-61-150l61 36l61-36-61 150z" />
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M5781 3812v291" />
-    </g>
-    <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#231f20" font-size="13px" x="566.5" y="328.7"><tspan>FTB</tspan></text>
-    <g transform="scale(.1)">
+      <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#231f20" font-size="130" x="5665" y="3287"><tspan>FTB</tspan></text>
       <g fill="none" stroke-miterlimit="10">
         <path stroke-width="30" stroke="#1c75bc" d="M3325 5104v149" />
         <rect x="3000" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
@@ -327,16 +323,14 @@
       <path fill="#58595b" d="M3325 3152l-61-149l61 36l61-36-61 149z" />
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M3325 3806v518" />
       <path fill="#1c75bc" d="M3325 4430l-61-149l61 35l61-35-61 149z" />
-    </g>
-    <g fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <g font-size="13px">
-        <text x="315.3" y="328.7"><tspan>CDPH</tspan></text>
-        <text x="308.5" y="490.7"><tspan>Vaccine</tspan></text>
-        <text x="312.1" y="506.2"><tspan>Record</tspan></text>
+      <g fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <g font-size="130">
+          <text x="3153" y="3287"><tspan>CDPH</tspan></text>
+          <text x="3085" y="4907"><tspan>Vaccine</tspan></text>
+          <text x="3121" y="5062"><tspan>Record</tspan></text>
+        </g>
+        <text font-size="158" x="460" y="5750"><tspan>J. Doe</tspan></text>
       </g>
-      <text font-size="15.8px" x="46" y="575"><tspan>J. Doe</tspan></text>
-    </g>
-    <g transform="scale(.1)">
       <g fill="none" stroke-miterlimit="10">
         <path stroke-width="30" stroke="#1c75bc" d="M4143 5104v149" />
         <rect x="3819" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
@@ -364,14 +358,12 @@
       <path fill="#58595b" d="M4143 2999l-61-149l61 35l61-35-61 149z" />
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M4143 3806v519" />
       <path fill="#1c75bc" d="M4143 4430l-61-149l61 36l61-36-61 149z" />
-    </g>
-    <g font-size="13px" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text x="371.7" y="313.1"><tspan>State Board of</tspan></text>
-      <text x="374.6" y="328.7"><tspan>Cosmetology</tspan></text>
-      <text x="374.7" y="490.7"><tspan>Cosmetology</tspan></text>
-      <text x="391.2" y="506.2"><tspan>License</tspan></text>
-    </g>
-    <g transform="scale(.1)">
+      <g font-size="130" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <text x="3717" y="3131"><tspan>State Board of</tspan></text>
+        <text x="3746" y="3287"><tspan>Cosmetology</tspan></text>
+        <text x="3747" y="4907"><tspan>Cosmetology</tspan></text>
+        <text x="3912" y="5062"><tspan>License</tspan></text>
+      </g>
       <g fill="none" stroke-miterlimit="10">
         <path stroke-width="30" stroke="#1c75bc" d="M4962 4962v291" />
         <rect x="4638" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
@@ -399,12 +391,10 @@
       <path fill="#58595b" d="M4962 3153l-61-150l61 36l61-36-61 150z" />
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M4962 3806v519" />
       <path fill="#1c75bc" d="M4962 4430l-61-149l61 36l61-36-61 149z" />
-    </g>
-    <g font-size="13px" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text x="481.3" y="328.7"><tspan>DMV</tspan></text>
-      <text x="482.3" y="490.7"><tspan>mDL</tspan></text>
-    </g>
-    <g transform="scale(.1)">
+      <g font-size="130" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <text x="4813" y="3287"><tspan>DMV</tspan></text>
+        <text x="4823" y="4907"><tspan>mDL</tspan></text>
+      </g>
       <g fill="none" stroke-miterlimit="10">
         <path stroke-width="30" stroke="#1c75bc" d="M6599 4962v291" />
         <rect x="6275" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
@@ -432,12 +422,10 @@
       <path fill="#58595b" d="M6599 3153l-61-150l61 36l61-36-61 150z" />
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M6599 3806v519" />
       <path fill="#1c75bc" d="M6599 4430l-61-149l61 36l61-36-61 149z" />
-    </g>
-    <g font-size="13px" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text x="625.8" y="328.7"><tspan>State Parks</tspan></text>
-      <text x="624" y="490.7"><tspan>Parks Pass</tspan></text>
-    </g>
-    <g transform="scale(.1)">
+      <g font-size="130" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <text x="6258" y="3287"><tspan>State Parks</tspan></text>
+        <text x="6240" y="4907"><tspan>Parks Pass</tspan></text>
+      </g>
       <rect x="7094" y="3355" width="648" height="451" rx="36" ry="36" stroke-miterlimit="10" fill="none" stroke="#231f20" stroke-width="10" />
       <circle cx="7257" cy="3403" r="23" />
       <circle cx="7200" cy="3403" r="23" />
@@ -465,29 +453,33 @@
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M7418 4960v291" />
     </g>
     <g isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700">
-      <g font-size="13px" fill="#231f20">
-        <text x="714.2" y="328.7"><tspan>Agency X</tspan></text>
-        <text x="699.9" y="490.7"><tspan>Credential X</tspan></text>
+      <g transform="scale(.1)" font-size="130" fill="#231f20">
+        <text x="7142" y="3287"><tspan>Agency X</tspan></text>
+        <text x="6999" y="4907"><tspan>Credential X</tspan></text>
       </g>
-      <g font-size="10px" fill="#58595b">
-        <text x="311" y="540"><tspan>Digital Credentials</tspan></text>
-        <text x="109.3" y="421.8"><tspan>Services &amp; Benefits</tspan></text>
-        <text x="88" y="366.2"><tspan>Application for Services,</tspan></text>
-        <text x="88" y="378.2"><tspan>Benefits, or Credentials</tspan></text>
-        <text x="89" y="321.5"><tspan>Request for ID or</tspan></text>
-        <text x="89" y="333.5"><tspan>Eligibility Data</tspan></text>
-        <text x="202.5" y="249.3"><tspan>Minimized ID &amp;</tspan></text>
-        <text x="202.5" y="261.3"><tspan>Eligibility Data</tspan></text>
-        <text x="73.3" y="116.4"><tspan>Raw ID Data</tspan></text>
-        <text x="110.6" y="148.3"><tspan>Raw Eligibility</tspan></text>
-        <text x="110.6" y="160.3"><tspan>Data</tspan></text>
+      <g fill="#58595b">
+        <text font-size="10px" x="311" y="540"><tspan>Digital Credentials</tspan></text>
+        <text font-size="100" x="1093" y="4218" transform="scale(.1)"><tspan>Services &amp; Benefits</tspan></text>
       </g>
-      <g fill="#231f20" font-size="13px">
-        <text x="376.4" y="194.2"><tspan>Login.Gov</tspan></text>
-        <text x="215" y="218.9"><tspan>Calfresh</tspan></text>
-        <text x="300" y="216.7"><tspan>Eligibility</tspan></text>
-        <text x="296.8" y="232.2"><tspan>Provider X</tspan></text>
-        <text x="457.2" y="194.2"><tspan>ID Provider X</tspan></text>
+      <g transform="scale(.1)">
+        <g font-size="100" fill="#58595b">
+          <text x="880" y="3662"><tspan>Application for Services,</tspan></text>
+          <text x="880" y="3782"><tspan>Benefits, or Credentials</tspan></text>
+          <text x="890" y="3215"><tspan>Request for ID or</tspan></text>
+          <text x="890" y="3335"><tspan>Eligibility Data</tspan></text>
+          <text x="2025" y="2493"><tspan>Minimized ID &amp;</tspan></text>
+          <text x="2025" y="2613"><tspan>Eligibility Data</tspan></text>
+          <text x="733" y="1164"><tspan>Raw ID Data</tspan></text>
+          <text x="1106" y="1483"><tspan>Raw Eligibility</tspan></text>
+          <text x="1106" y="1603"><tspan>Data</tspan></text>
+        </g>
+        <g fill="#231f20" font-size="130">
+          <text x="3764" y="1942"><tspan>Login.Gov</tspan></text>
+          <text x="2150" y="2189"><tspan>Calfresh</tspan></text>
+          <text x="3000" y="2167"><tspan>Eligibility</tspan></text>
+          <text x="2968" y="2322"><tspan>Provider X</tspan></text>
+          <text x="4572" y="1942"><tspan>ID Provider X</tspan></text>
+        </g>
       </g>
     </g>
     <g transform="scale(.1)">
@@ -513,13 +505,13 @@
         </g>
         <rect x="448" y="2382" width="1474" height="429" rx="87" ry="87" fill="#fbae18" stroke="#0e3a5e" stroke-width="10" />
       </g>
-    </g>
-    <g fill="#0e3a5e" font-size="12.9px" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text x="82" y="255.7"><tspan>California</tspan></text>
-      <text x="82" y="271.2"><tspan>Identity Gateway</tspan></text>
-    </g>
-    <g transform="scale(.1)">
-      <rect x="490" y="2441" width="311" height="311" rx="36" ry="36" fill="#0e3a5e" />
+      <g fill="#0e3a5e">
+        <g font-size="129" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+          <text x="820" y="2557"><tspan>California</tspan></text>
+          <text x="820" y="2712"><tspan>Identity Gateway</tspan></text>
+        </g>
+        <rect x="490" y="2441" width="311" height="311" rx="36" ry="36" />
+      </g>
       <g fill="#fff">
         <path d="M697 2597c0-5 0-11-4-14-6-5-6-11-5-17v-13c0-15-10-28-25-31-9-2-19-2-28 0-18 2-27 15-27 33v17s-2 4-3 5c-8 5-11 11-11 20v49c0 16 8 23 22 23h61c13 0 22-9 22-22v-50h-2zm-78-50c0-9 7-14 16-15c8-1 17-1 25 0c10 1 17 10 17 20v22h-57v-27zm45 55c0 10-8 18-18 18s-18-8-18-18s8-18 18-18s18 8 18 18zm-19 61c-13 0-25-6-32-15c2-14 13-24 27-24h10c14 0 26 11 27 24-8 9-19 15-32 15z" />
         <path d="M544 2571c6-51 49-90 101-90s95 39 101 90h16c-6-59-56-105-116-105s-110 46-116 105h15z" />
@@ -534,98 +526,92 @@
         <path d="M2981 3407h-2302" />
       </g>
       <circle cx="676" cy="3748" r="155" fill="#1c75bc" />
-    </g>
-    <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="21.6px" x="62.3" y="382.3"><tspan>1</tspan></text>
-    <circle cx="677" cy="3192" r="155" fill="#1c75bc" transform="scale(.1)" />
-    <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="21.6px" x="62.3" y="326.7"><tspan>2</tspan></text>
-    <circle cx="664" cy="1934" r="156" fill="#1c75bc" transform="scale(.1)" />
-    <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text font-size="21.6px" x="56.3" y="200.9"><tspan>3</tspan></text>
-      <text font-size="15.4px" x="68.3" y="200.9"><tspan>a</tspan></text>
-    </g>
-    <g transform="scale(.1)">
+      <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="216" x="623" y="3823"><tspan>1</tspan></text>
+      <circle cx="677" cy="3192" r="155" fill="#1c75bc" />
+      <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="216" x="623" y="3267"><tspan>2</tspan></text>
+      <circle cx="664" cy="1934" r="156" fill="#1c75bc" />
+      <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <text font-size="216" x="563" y="2009"><tspan>3</tspan></text>
+        <text font-size="154" x="683" y="2009"><tspan>a</tspan></text>
+      </g>
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#58595b" d="M1055 1369v845" />
       <path fill="#58595b" d="M1055 2319l-61-149l61 36l61-36-61 149z" />
       <circle cx="1044" cy="1934" r="156" fill="#1c75bc" />
-    </g>
-    <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text font-size="21.6px" x="94.2" y="200.9"><tspan>3</tspan></text>
-      <text font-size="15.4px" x="106.2" y="200.9"><tspan>b</tspan></text>
-    </g>
-    <circle cx="2900" cy="2649" r="155" fill="#1c75bc" transform="scale(.1)" />
-    <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="21.6px" x="282.1" y="272.3"><tspan>4</tspan></text>
-    <circle cx="2903" cy="4097" r="155" fill="#1c75bc" transform="scale(.1)" />
-    <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text font-size="21.6px" x="280.7" y="417.2"><tspan>5</tspan></text>
-      <text font-size="15.4px" x="292.8" y="417.2"><tspan>a</tspan></text>
-    </g>
-    <circle cx="2922" cy="5253" r="155" fill="#1c75bc" transform="scale(.1)" />
-    <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text font-size="21.6px" x="282.6" y="532.7"><tspan>5</tspan></text>
-      <text font-size="15.4px" x="294.7" y="532.7"><tspan>b</tspan></text>
-    </g>
-    <g stroke-miterlimit="10" transform="scale(.1)">
-      <g stroke="#58595b" stroke-width="30" stroke-linecap="square" fill="none">
-        <path d="M2868 1369h390" />
-        <path d="M2612 1369h37" />
-        <path d="M2730 1369h37" />
+      <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <text font-size="216" x="942" y="2009"><tspan>3</tspan></text>
+        <text font-size="154" x="1062" y="2009"><tspan>b</tspan></text>
       </g>
-      <rect x="1938" y="4907" width="672" height="660" rx="38" ry="38" fill="#fbae18" stroke="#231f20" stroke-width="10" />
-    </g>
-    <g fill="#0e3a5e">
-      <g font-size="12.9px" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-        <text x="197.3" y="552.5"><tspan>API</tspan></text>
-        <text x="197.3" y="538.3"><tspan>Issuance</tspan></text>
+      <circle cx="2900" cy="2649" r="155" fill="#1c75bc" />
+      <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="216" x="2821" y="2723"><tspan>4</tspan></text>
+      <circle cx="2903" cy="4097" r="155" fill="#1c75bc" />
+      <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <text font-size="216" x="2807" y="4172"><tspan>5</tspan></text>
+        <text font-size="154" x="2928" y="4172"><tspan>a</tspan></text>
       </g>
-      <rect x="1967" y="4938" width="310" height="310" rx="36" ry="36" transform="scale(.1)" />
-    </g>
-    <g transform="scale(.1)" fill="#fff">
-      <path d="M2212 4986h-181c-19 0-35 15-35 35v151c0 19 16 35 35 35h181c19 0 35-15 35-35v-151c0-19-16-35-35-35zm-181 12h181c12 0 21 9 23 20-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20zm205 42c-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20h181c12 0 21 9 23 20zm0 87v45c0 13-11 23-23 23h-181c-13 0-23-10-23-23v-106c0-13 11-23 23-23h181c13 0 23 10 23 23v62z" />
-      <path d="M2162 5117c0-4-1-9-4-11-4-4-4-8-4-13v-10c0-12-8-22-19-24-7-1-15-1-22 0-14 2-21 12-21 26v13s-1 3-2 4c-6 4-9 9-9 15v38c0 12 6 18 18 18h47c10 0 17-7 17-17v-39h-1zm-61-38c0-7 6-11 12-12h19c8 1 13 8 13 16v17h-45v-21h1zm36 42c0 8-6 14-14 14s-14-6-14-14s6-14 14-14s14 6 14 14zm-15 48c-10 0-19-5-25-12c1-11 10-19 21-19h8c11 0 20 8 21 19-6 7-15 12-25 12z" />
-    </g>
-    <g isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700">
-      <text fill="#58595b" font-size="11.6px" x="604" y="27.1"><tspan>Legend</tspan></text>
-      <g fill="#231f20">
-        <g font-size="8.2px">
-          <text x="624.8" y="47.9"><tspan>Individual</tspan></text>
-          <text x="624.4" y="114.6"><tspan>Digital</tspan></text>
-          <text x="624.4" y="124.5"><tspan>Credential</tspan></text>
-          <text x="633.4" y="144.5"><tspan>Data &amp;</tspan></text>
-          <text x="633.4" y="154.4"><tspan>Information</tspan></text>
-          <text x="633.4" y="175.9"><tspan>Order of interactions in the</tspan></text>
-          <text x="633.4" y="185.8"><tspan>verification sequence</tspan></text>
-          <text x="717.8" y="145.7"><tspan>Services &amp;</tspan></text>
-          <text x="717.8" y="155.6"><tspan>Benefits</tspan></text>
+      <circle cx="2922" cy="5253" r="155" fill="#1c75bc" />
+      <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <text font-size="216" x="2826" y="5327"><tspan>5</tspan></text>
+        <text font-size="154" x="2947" y="5327"><tspan>b</tspan></text>
+      </g>
+      <g stroke-miterlimit="10">
+        <g stroke="#58595b" stroke-width="30" stroke-linecap="square" fill="none">
+          <path d="M2868 1369h390" />
+          <path d="M2612 1369h37" />
+          <path d="M2730 1369h37" />
         </g>
-        <g font-size="5.5px">
-          <text x="678.6" y="58.9"><tspan>Included associated functions,</tspan></text>
-          <text x="678.6" y="65.5"><tspan>policies, and digital artifacts</tspan></text>
-          <text x="678.6" y="72.1"><tspan>developed or managed by CDT</tspan></text>
-          <text x="620.4" y="58.9"><tspan>Seeking services or</tspan></text>
-          <text x="620.4" y="65.5"><tspan>benefits from state</tspan></text>
-          <text x="620.4" y="72.1"><tspan>agencies in CA</tspan></text>
+        <rect x="1938" y="4907" width="672" height="660" rx="38" ry="38" fill="#fbae18" stroke="#231f20" stroke-width="10" />
+      </g>
+      <g fill="#0e3a5e">
+        <g font-size="129" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+          <text x="1973" y="5525"><tspan>API</tspan></text>
+          <text x="1973" y="5383"><tspan>Issuance</tspan></text>
         </g>
-        <text font-size="8.2px" x="624.2" y="91.8"><tspan>State Entity</tspan></text>
-        <text font-size="5.5px" x="624.2" y="98.4"><tspan>Website / API / App</tspan></text>
-        <text font-size="8.2px" x="700.8" y="115.2"><tspan>Eligibility Provider</tspan></text>
-        <g font-size="5.5px">
-          <text x="700.8" y="121.8"><tspan>Verifies attributes or</tspan></text>
-          <text x="700.8" y="128.4"><tspan>enrollment in programs</tspan></text>
+        <rect x="1967" y="4938" width="310" height="310" rx="36" ry="36" />
+      </g>
+      <g fill="#fff">
+        <path d="M2212 4986h-181c-19 0-35 15-35 35v151c0 19 16 35 35 35h181c19 0 35-15 35-35v-151c0-19-16-35-35-35zm-181 12h181c12 0 21 9 23 20-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20zm205 42c-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20h181c12 0 21 9 23 20zm0 87v45c0 13-11 23-23 23h-181c-13 0-23-10-23-23v-106c0-13 11-23 23-23h181c13 0 23 10 23 23v62z" />
+        <path d="M2162 5117c0-4-1-9-4-11-4-4-4-8-4-13v-10c0-12-8-22-19-24-7-1-15-1-22 0-14 2-21 12-21 26v13s-1 3-2 4c-6 4-9 9-9 15v38c0 12 6 18 18 18h47c10 0 17-7 17-17v-39h-1zm-61-38c0-7 6-11 12-12h19c8 1 13 8 13 16v17h-45v-21h1zm36 42c0 8-6 14-14 14s-14-6-14-14s6-14 14-14s14 6 14 14zm-15 48c-10 0-19-5-25-12c1-11 10-19 21-19h8c11 0 20 8 21 19-6 7-15 12-25 12z" />
+      </g>
+      <g isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700">
+        <text fill="#58595b" font-size="116" x="6040" y="271"><tspan>Legend</tspan></text>
+        <g fill="#231f20">
+          <g font-size="82">
+            <text x="6248" y="479"><tspan>Individual</tspan></text>
+            <text x="6244" y="1146"><tspan>Digital</tspan></text>
+            <text x="6244" y="1245"><tspan>Credential</tspan></text>
+            <text x="6334" y="1445"><tspan>Data &amp;</tspan></text>
+            <text x="6334" y="1544"><tspan>Information</tspan></text>
+            <text x="6334" y="1759"><tspan>Order of interactions in the</tspan></text>
+            <text x="6334" y="1858"><tspan>verification sequence</tspan></text>
+            <text x="7178" y="1457"><tspan>Services &amp;</tspan></text>
+            <text x="7178" y="1556"><tspan>Benefits</tspan></text>
+          </g>
+          <g font-size="55">
+            <text x="6786" y="589"><tspan>Included associated functions,</tspan></text>
+            <text x="6786" y="655"><tspan>policies, and digital artifacts</tspan></text>
+            <text x="6786" y="721"><tspan>developed or managed by CDT</tspan></text>
+            <text x="6204" y="589"><tspan>Seeking services or</tspan></text>
+            <text x="6204" y="655"><tspan>benefits from state</tspan></text>
+            <text x="6204" y="721"><tspan>agencies in CA</tspan></text>
+          </g>
+          <text font-size="82" x="6242" y="918"><tspan>State Entity</tspan></text>
+          <text font-size="55" x="6242" y="984"><tspan>Website / API / App</tspan></text>
+          <text font-size="82" x="7008" y="1152"><tspan>Eligibility Provider</tspan></text>
+          <g font-size="55">
+            <text x="7008" y="1218"><tspan>Verifies attributes or</tspan></text>
+            <text x="7008" y="1284"><tspan>enrollment in programs</tspan></text>
+          </g>
         </g>
       </g>
-    </g>
-    <g transform="scale(.1)">
       <path d="M6100 432c17 0 32-15 32-33s-14-33-32-33s-32 14-32 33s14 33 32 33z" />
       <path d="M6210 477c-5-5-12-6-18-2l-15 13-4 3c-7-12-5-12-19-35-6-11-17-16-30-16h-49c-11 0-20 4-27 12-5 7-10 15-13 24-9 28-10 57-8 86v7c0 7 6 12 12 12s11-5 11-13c0-20 0-40 2-60c0-9 4-19 6-28h2v215c0 10 7 17 17 17s18-7 18-20v-129c8-2 7 4 7 8v123c0 12 7 19 19 19s17-8 17-20v-211h2c0 4 2 5 5 12c9 19 4 5 10 23c0 2 0 3 2 4c5 5 11 2 17-2l3-2l30-25c5-5 5-10 3-14z" />
-    </g>
-    <g fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text font-size="8.2px" x="700.8" y="90.7"><tspan>ID Provider</tspan></text>
-      <g font-size="5.5px">
-        <text x="700.8" y="97.3"><tspan>Verifies identity, can be a</tspan></text>
-        <text x="700.8" y="103.9"><tspan>public or private entity</tspan></text>
+      <g fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <text font-size="82" x="7008" y="907"><tspan>ID Provider</tspan></text>
+        <g font-size="55">
+          <text x="7008" y="973"><tspan>Verifies identity, can be a</tspan></text>
+          <text x="7008" y="1039"><tspan>public or private entity</tspan></text>
+        </g>
       </g>
-    </g>
-    <g transform="scale(.1)">
       <g stroke-width="10" stroke="#000" stroke-miterlimit="10">
         <g fill="#fff">
           <path d="M6954 898h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
@@ -671,12 +657,12 @@
       <ellipse cx="611.4" cy="115.8" rx="1.9" ry="2" />
       <path transform="scale(.1)" d="M6114 1117c-26 0-46 22-46 50s6 28 16 38c8 8 19 12 30 12s22-5 30-12c10-9 16-23 16-38c0-27-21-50-46-50zm30 83c0-10-9-18-19-18h-22c-10 0-18 8-19 18-8-8-13-20-13-33c0-25 19-46 43-46s43 21 43 46s-5 24-13 33z" />
     </g>
-    <g stroke-width="10" transform="scale(.1)" stroke-miterlimit="10">
-      <rect x="5963" y="314" width="1773" height="1638" rx="120" ry="120" fill="none" stroke="#58595b" />
-      <rect x="6775" y="382" width="888" height="143" rx="38" ry="38" fill="#fbae18" stroke="#231f20" />
-    </g>
-    <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#0e3a5e" font-size="8.2px" x="681.6" y="47.9"><tspan>Technology Services</tspan></text>
     <g transform="scale(.1)">
+      <g stroke-width="10" stroke-miterlimit="10">
+        <rect x="5963" y="314" width="1773" height="1638" rx="120" ry="120" fill="none" stroke="#58595b" />
+        <rect x="6775" y="382" width="888" height="143" rx="38" ry="38" fill="#fbae18" stroke="#231f20" />
+      </g>
+      <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#0e3a5e" font-size="82" x="6816" y="479"><tspan>Technology Services</tspan></text>
       <g stroke-miterlimit="10" fill="none">
         <g stroke-width="10" stroke="#939598">
           <path d="M6039 774h1624" />
@@ -690,9 +676,7 @@
       <path fill="#1c75bc" d="M7122 1478l-150 61l36-61-36-61l150 61z" />
       <path stroke-miterlimit="10" fill="none" stroke="#939598" stroke-width="10" d="M6731 380v394" />
       <circle cx="6140" cy="1788" r="104" fill="#1c75bc" />
-    </g>
-    <text font-size="14.4px" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" x="610.5" y="183.8"><tspan>1</tspan></text>
-    <g transform="scale(.1)">
+      <text font-size="144" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" x="6105" y="1838"><tspan>1</tspan></text>
       <g stroke-width="10" stroke="#000" stroke-miterlimit="10">
         <g fill="#fff">
           <path d="M6952 1136h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
