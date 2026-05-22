@@ -739,17 +739,17 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       // Make sure every gSibling attribute is already applied by the gElement
       if (
         !gElement.hasAttribute("transform") &&
+        !gElement.hasAttribute("opacity") &&
         !gSibling.hasAttribute("transform") &&
+        !gSibling.hasAttribute("opacity") &&
         [...gElement.attributes]
           .map(attr => attr.name)
           .filter(name => !["transform"].includes(name))
           .every(attrName => gSibling.hasAttribute(attrName))
       ) {
         didSomething = true;
-
         // Move the sibling into the group
         gElement.appendChild(gSibling);
-        let foo = 1;
       }
     });
     return didSomething;
@@ -759,7 +759,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   while (
     extractCommonAttributesToGs() ||
     mergeSiblingGs() ||
-    pushGAttributesDown() || //fix
+    pushGAttributesDown() ||
     extractCommonAttributesToGs() ||
     removeUselessGs() ||
     pullSiblingsIntoGroup() ||
