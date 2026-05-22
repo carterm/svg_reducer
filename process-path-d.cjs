@@ -63,6 +63,7 @@ const processPathD = (pathD, options, pathElement) => {
     return { code, coordinates, z: false, abs: /[A-Z]/.test(code) };
   });
 
+  /** @type {Record<string, number>} */
   const commandsizes = { c: 3, q: 2, s: 2, l: 1, m: 1, h: 1, v: 1, a: 5 };
 
   //Split "c" commands into groups of 3

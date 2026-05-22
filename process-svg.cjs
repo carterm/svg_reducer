@@ -190,18 +190,20 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       );
 
       [...styleDOM.window.document.styleSheets].forEach(styleSheet => {
-        [...styleSheet.cssRules].forEach(rule => {
-          if (rule.cssText) {
-            svgElement
-              .querySelectorAll(rule["selectorText"])
-              .forEach(element => {
+        /** @type {CSSStyleRule[]} */ ([...styleSheet.cssRules]).forEach(
+          rule => {
+            if (rule.cssText) {
+              /** @type {NodeListOf<HTMLElement>} */ (
+                svgElement.querySelectorAll(rule.selectorText)
+              ).forEach(element => {
                 element.setAttribute(
                   "style",
-                  element.style.cssText + rule["style"].cssText
+                  element.style.cssText + rule.style.cssText
                 );
               });
+            }
           }
-        });
+        );
       });
       styletag.remove();
     });
@@ -218,8 +220,11 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     ([...svgElement.querySelectorAll("*")]).forEach(element => {
       if (element.style) {
         Array.from(element.style).forEach(attr => {
-          if (styleAttributeMap.includes(attr) && element.style[attr]) {
-            element.setAttribute(attr, element.style[attr]);
+          if (
+            styleAttributeMap.includes(attr) &&
+            element.style.getPropertyValue(attr)
+          ) {
+            element.setAttribute(attr, element.style.getPropertyValue(attr));
             element.style.removeProperty(attr);
           }
 
