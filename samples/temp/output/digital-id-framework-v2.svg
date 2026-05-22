@@ -237,7 +237,7 @@
         <path fill="#fbae18" d="M1033 4834v951c0 33 27 60 60 60h396c33 0 60-27 60-60v-951h-516z" />
       </g>
     </g>
-    <circle cx="1290" cy="5750" r="46" transform="translate(-450 684.8) rotate(-88.1) scale(.1)" stroke-miterlimit="10" fill="none" stroke="#000" />
+    <circle cx="1290" cy="5750" r="46" transform="translate(-450 684.8) rotate(-88.1) scale(.1)" stroke-miterlimit="10" fill="none" stroke="#000" stroke-width="10" />
     <g transform="scale(.1)" fill="#fff">
       <circle cx="1179" cy="4797" r="17" />
       <path d="M1231 4779h169c10 0 17 8 17 17c0 10-8 17-17 17h-169c-10 0-17-8-17-17c0-10 8-17 17-17z" />

@@ -425,10 +425,10 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
   // Scale CIRCLE elements to attemp to remove decimal points and apply a scale transform
   /** @type {NodeListOf<SVGCircleElement>} */
-  (svgElement.querySelectorAll("circle")).forEach(circle => {
+  (svgElement.querySelectorAll("circle")).forEach(circleElement => {
     // Extract numeric attributes
     const attrs = ["cx", "cy", "r"];
-    const values = attrs.map(a => circle.getAttribute(a));
+    const values = attrs.map(a => circleElement.getAttribute(a));
 
     // Determine max decimal places across cx, cy, r
     let maxDecimals = 0;
@@ -449,20 +449,27 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
     // Apply scaling + rounding
     attrs.forEach(attr => {
-      const raw = parseFloat(circle.getAttribute(attr) || "0");
+      const raw = parseFloat(circleElement.getAttribute(attr) || "0");
       if (isNaN(raw)) return;
       const scaled = Math.round(raw * scale).toFixed(0);
-      circle.setAttribute(attr, scaled);
+      circleElement.setAttribute(attr, scaled);
     });
 
     // Add or merge transform
-    const existing = circle.getAttribute("transform");
+    const existing = circleElement.getAttribute("transform");
     const scaleStr = `scale(${(1 / scale).toFixed(maxDecimals).replace(/^0\./, ".")})`;
 
-    if (existing) {
-      circle.setAttribute("transform", `${existing} ${scaleStr}`);
-    } else {
-      circle.setAttribute("transform", scaleStr);
+    circleElement.setAttribute(
+      "transform",
+      existing ? `${existing} ${scaleStr}` : scaleStr
+    );
+
+    const props = getVisibilityProperties(circleElement);
+    if (props.stroke !== "none" || circleElement.hasAttribute("stroke-width")) {
+      circleElement.setAttribute(
+        "stroke-width",
+        (props.strokeWidth * scale).toString()
+      );
     }
   });
 
