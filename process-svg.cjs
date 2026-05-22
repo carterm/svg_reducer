@@ -240,6 +240,13 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     });
   }
 
+  // Remove "isolation" attributes if no mix-blend-mode is used in the SVG, since "isolation" only affects elements with mix-blend-mode and just takes up space otherwise
+  if (!svgElement.innerHTML.includes("mix-blend-mode")) {
+    svgElement.querySelectorAll("[isolation]").forEach(element => {
+      element.removeAttribute("isolation");
+    });
+  }
+
   // re-id everything
   if (shortenIds) {
     svgElement

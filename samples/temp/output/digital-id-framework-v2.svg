@@ -2,7 +2,7 @@
   <g data-name="Layer_1">
     <g transform="scale(.1)">
       <g fill="#0e3a5e">
-        <g font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <g font-weight="700" font-family="Arial-BoldMT, Arial">
           <text font-size="89" x="6667" y="5707"><tspan>California Department of</tspan></text>
           <text x="6667" y="5894" font-size="202">Technology</text>
         </g>
@@ -113,7 +113,7 @@
       </g>
       <path fill="#1c75bc" d="M888 4097l149 61-35-61l35-61-149 61z" />
       <g fill="#0e3a5e">
-        <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" font-size="380" x="635" y="536"><tspan>Digital ID Framework</tspan></text>
+        <text font-family="Arial-BoldMT, Arial" font-weight="700" font-size="380" x="635" y="536"><tspan>Digital ID Framework</tspan></text>
         <path d="M242 250c-3 0-6-1-8-4-4-4-4-11 0-15c18-17 57-46 114-50c62-5 107 23 124 35c5 4 6 10 2 15-3 5-10 6-15 2-15-11-55-35-110-31-50 4-85 29-101 44-2 2-5 3-8 3h2z" />
         <path d="M238 311c-3 0-5 0-7-3-5-4-5-11-1-15c11-13 24-24 39-33c20-13 43-21 67-24c6 0 12 3 12 9s-3 11-9 12c-21 3-41 10-59 21-13 8-24 18-34 29-2 2-5 4-8 4z" />
         <path d="M436 279c-3 0-5-1-7-3-7-7-16-12-25-16-9-3-18-5-28-5-6 0-11-5-11-11s5-11 11-11c12 0 24 2 35 6c12 5 23 11 33 20c5 4 5 11 0 15-2 2-5 4-8 4z" />
@@ -251,7 +251,7 @@
         <circle cx="1290" cy="5454" r="42" />
         <path d="M1290 5370c-57 0-102 46-102 102s14 59 36 77c18 15 41 25 67 25s49-10 67-25c22-19 36-47 36-77c0-57-46-102-102-102h-2zm67 170c-2-21-21-38-42-38h-49c-22 0-40 17-42 38-17-17-28-41-28-67c0-52 42-95 95-95s95 42 95 95s-11 50-28 67h-1z" />
       </g>
-      <g fill="#0e3a5e" font-size="129" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+      <g fill="#0e3a5e" font-size="129" font-weight="700" font-family="Arial-BoldMT, Arial">
         <text x="1092" y="4978"><tspan>Mobile</tspan></text>
         <text x="1092" y="5133"><tspan>Wallet</tspan></text>
       </g>
@@ -295,7 +295,7 @@
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#58595b" d="M5781 2662v385" />
       <path fill="#58595b" d="M5781 3153l-61-150l61 36l61-36-61 150z" />
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M5781 3812v291" />
-      <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#231f20" font-size="130" x="5665" y="3287"><tspan>FTB</tspan></text>
+      <text font-family="Arial-BoldMT, Arial" font-weight="700" fill="#231f20" font-size="130" x="5665" y="3287"><tspan>FTB</tspan></text>
       <g fill="none" stroke-miterlimit="10">
         <path stroke-width="30" stroke="#1c75bc" d="M3325 5104v149" />
         <rect x="3000" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
@@ -323,7 +323,7 @@
       <path fill="#58595b" d="M3325 3152l-61-149l61 36l61-36-61 149z" />
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M3325 3806v518" />
       <path fill="#1c75bc" d="M3325 4430l-61-149l61 35l61-35-61 149z" />
-      <g fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+      <g fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial">
         <g font-size="130">
           <text x="3153" y="3287"><tspan>CDPH</tspan></text>
           <text x="3085" y="4907"><tspan>Vaccine</tspan></text>
@@ -358,7 +358,7 @@
       <path fill="#58595b" d="M4143 2999l-61-149l61 35l61-35-61 149z" />
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M4143 3806v519" />
       <path fill="#1c75bc" d="M4143 4430l-61-149l61 36l61-36-61 149z" />
-      <g font-size="130" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+      <g font-size="130" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial">
         <text x="3717" y="3131"><tspan>State Board of</tspan></text>
         <text x="3746" y="3287"><tspan>Cosmetology</tspan></text>
         <text x="3747" y="4907"><tspan>Cosmetology</tspan></text>
@@ -391,7 +391,7 @@
       <path fill="#58595b" d="M4962 3153l-61-150l61 36l61-36-61 150z" />
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M4962 3806v519" />
       <path fill="#1c75bc" d="M4962 4430l-61-149l61 36l61-36-61 149z" />
-      <g font-size="130" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+      <g font-size="130" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial">
         <text x="4813" y="3287"><tspan>DMV</tspan></text>
         <text x="4823" y="4907"><tspan>mDL</tspan></text>
       </g>
@@ -422,7 +422,7 @@
       <path fill="#58595b" d="M6599 3153l-61-150l61 36l61-36-61 150z" />
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M6599 3806v519" />
       <path fill="#1c75bc" d="M6599 4430l-61-149l61 36l61-36-61 149z" />
-      <g font-size="130" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+      <g font-size="130" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial">
         <text x="6258" y="3287"><tspan>State Parks</tspan></text>
         <text x="6240" y="4907"><tspan>Parks Pass</tspan></text>
       </g>
@@ -452,7 +452,7 @@
       <path fill="#1c75bc" d="M7418 4430l-61-149l61 36l61-36-61 149z" />
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M7418 4960v291" />
     </g>
-    <g isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700">
+    <g font-weight="700" font-family="Arial-BoldMT, Arial">
       <g transform="scale(.1)" font-size="130" fill="#231f20">
         <text x="7142" y="3287"><tspan>Agency X</tspan></text>
         <text x="6999" y="4907"><tspan>Credential X</tspan></text>
@@ -506,7 +506,7 @@
         <rect x="448" y="2382" width="1474" height="429" rx="87" ry="87" fill="#fbae18" stroke="#0e3a5e" stroke-width="10" />
       </g>
       <g fill="#0e3a5e">
-        <g font-size="129" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <g font-size="129" font-weight="700" font-family="Arial-BoldMT, Arial">
           <text x="820" y="2557"><tspan>California</tspan></text>
           <text x="820" y="2712"><tspan>Identity Gateway</tspan></text>
         </g>
@@ -526,30 +526,30 @@
         <path d="M2981 3407h-2302" />
       </g>
       <circle cx="676" cy="3748" r="155" fill="#1c75bc" />
-      <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="216" x="623" y="3823"><tspan>1</tspan></text>
+      <text font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="216" x="623" y="3823"><tspan>1</tspan></text>
       <circle cx="677" cy="3192" r="155" fill="#1c75bc" />
-      <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="216" x="623" y="3267"><tspan>2</tspan></text>
+      <text font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="216" x="623" y="3267"><tspan>2</tspan></text>
       <circle cx="664" cy="1934" r="156" fill="#1c75bc" />
-      <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+      <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial">
         <text font-size="216" x="563" y="2009"><tspan>3</tspan></text>
         <text font-size="154" x="683" y="2009"><tspan>a</tspan></text>
       </g>
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#58595b" d="M1055 1369v845" />
       <path fill="#58595b" d="M1055 2319l-61-149l61 36l61-36-61 149z" />
       <circle cx="1044" cy="1934" r="156" fill="#1c75bc" />
-      <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+      <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial">
         <text font-size="216" x="942" y="2009"><tspan>3</tspan></text>
         <text font-size="154" x="1062" y="2009"><tspan>b</tspan></text>
       </g>
       <circle cx="2900" cy="2649" r="155" fill="#1c75bc" />
-      <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="216" x="2821" y="2723"><tspan>4</tspan></text>
+      <text font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="216" x="2821" y="2723"><tspan>4</tspan></text>
       <circle cx="2903" cy="4097" r="155" fill="#1c75bc" />
-      <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+      <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial">
         <text font-size="216" x="2807" y="4172"><tspan>5</tspan></text>
         <text font-size="154" x="2928" y="4172"><tspan>a</tspan></text>
       </g>
       <circle cx="2922" cy="5253" r="155" fill="#1c75bc" />
-      <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+      <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial">
         <text font-size="216" x="2826" y="5327"><tspan>5</tspan></text>
         <text font-size="154" x="2947" y="5327"><tspan>b</tspan></text>
       </g>
@@ -562,7 +562,7 @@
         <rect x="1938" y="4907" width="672" height="660" rx="38" ry="38" fill="#fbae18" stroke="#231f20" stroke-width="10" />
       </g>
       <g fill="#0e3a5e">
-        <g font-size="129" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+        <g font-size="129" font-weight="700" font-family="Arial-BoldMT, Arial">
           <text x="1973" y="5525"><tspan>API</tspan></text>
           <text x="1973" y="5383"><tspan>Issuance</tspan></text>
         </g>
@@ -572,7 +572,7 @@
         <path d="M2212 4986h-181c-19 0-35 15-35 35v151c0 19 16 35 35 35h181c19 0 35-15 35-35v-151c0-19-16-35-35-35zm-181 12h181c12 0 21 9 23 20-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20zm205 42c-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20h181c12 0 21 9 23 20zm0 87v45c0 13-11 23-23 23h-181c-13 0-23-10-23-23v-106c0-13 11-23 23-23h181c13 0 23 10 23 23v62z" />
         <path d="M2162 5117c0-4-1-9-4-11-4-4-4-8-4-13v-10c0-12-8-22-19-24-7-1-15-1-22 0-14 2-21 12-21 26v13s-1 3-2 4c-6 4-9 9-9 15v38c0 12 6 18 18 18h47c10 0 17-7 17-17v-39h-1zm-61-38c0-7 6-11 12-12h19c8 1 13 8 13 16v17h-45v-21h1zm36 42c0 8-6 14-14 14s-14-6-14-14s6-14 14-14s14 6 14 14zm-15 48c-10 0-19-5-25-12c1-11 10-19 21-19h8c11 0 20 8 21 19-6 7-15 12-25 12z" />
       </g>
-      <g isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700">
+      <g font-weight="700" font-family="Arial-BoldMT, Arial">
         <text fill="#58595b" font-size="116" x="6040" y="271"><tspan>Legend</tspan></text>
         <g fill="#231f20">
           <g font-size="82">
@@ -605,7 +605,7 @@
       </g>
       <path d="M6100 432c17 0 32-15 32-33s-14-33-32-33s-32 14-32 33s14 33 32 33z" />
       <path d="M6210 477c-5-5-12-6-18-2l-15 13-4 3c-7-12-5-12-19-35-6-11-17-16-30-16h-49c-11 0-20 4-27 12-5 7-10 15-13 24-9 28-10 57-8 86v7c0 7 6 12 12 12s11-5 11-13c0-20 0-40 2-60c0-9 4-19 6-28h2v215c0 10 7 17 17 17s18-7 18-20v-129c8-2 7 4 7 8v123c0 12 7 19 19 19s17-8 17-20v-211h2c0 4 2 5 5 12c9 19 4 5 10 23c0 2 0 3 2 4c5 5 11 2 17-2l3-2l30-25c5-5 5-10 3-14z" />
-      <g fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
+      <g fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial">
         <text font-size="82" x="7008" y="907"><tspan>ID Provider</tspan></text>
         <g font-size="55">
           <text x="7008" y="973"><tspan>Verifies identity, can be a</tspan></text>
@@ -662,7 +662,7 @@
         <rect x="5963" y="314" width="1773" height="1638" rx="120" ry="120" fill="none" stroke="#58595b" />
         <rect x="6775" y="382" width="888" height="143" rx="38" ry="38" fill="#fbae18" stroke="#231f20" />
       </g>
-      <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#0e3a5e" font-size="82" x="6816" y="479"><tspan>Technology Services</tspan></text>
+      <text font-family="Arial-BoldMT, Arial" font-weight="700" fill="#0e3a5e" font-size="82" x="6816" y="479"><tspan>Technology Services</tspan></text>
       <g stroke-miterlimit="10" fill="none">
         <g stroke-width="10" stroke="#939598">
           <path d="M6039 774h1624" />
@@ -676,7 +676,7 @@
       <path fill="#1c75bc" d="M7122 1478l-150 61l36-61-36-61l150 61z" />
       <path stroke-miterlimit="10" fill="none" stroke="#939598" stroke-width="10" d="M6731 380v394" />
       <circle cx="6140" cy="1788" r="104" fill="#1c75bc" />
-      <text font-size="144" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" x="6105" y="1838"><tspan>1</tspan></text>
+      <text font-size="144" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" x="6105" y="1838"><tspan>1</tspan></text>
       <g stroke-width="10" stroke="#000" stroke-miterlimit="10">
         <g fill="#fff">
           <path d="M6952 1136h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
