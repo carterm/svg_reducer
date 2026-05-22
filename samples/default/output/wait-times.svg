@@ -559,7 +559,7 @@ c0-71-15-127-44-169
 c0 44 6 85 20 121
 c13 37 32 66 58 87
 c26 22 59 33 97 33
-z"/><g fill="#82B5CC"><rect x="6550" y="14775" width="1400" height="3900" rx="400"/><rect x="8950" y="12875" width="1400" height="5800" rx="400"/><rect x="4150" y="16275" width="1400" height="2400" rx="400"/><rect x="11350" y="11575" width="1400" height="7100" rx="400"/><rect x="16150" y="11575" width="1400" height="7100" rx="400"/><rect x="13750" y="11575" width="1400" height="7100" rx="400"/><rect x="18550" y="12375" width="1400" height="6300" rx="400"/><rect x="20950" y="14275" width="1400" height="4400" rx="400"/></g><g fill="#D4D4D7"><rect x="23350" y="15775" width="1400" height="3000" rx="400"/><rect x="25750" y="15775" width="1400" height="3000" rx="400"/></g><path stroke="#D4D4D7" stroke-width="100" d="
+z"/><g fill="#82B5CC"><rect x="6550" y="14775" width="1400" height="3900" rx="400"/><rect x="8950" y="12875" width="1400" height="5800" rx="400"/><rect x="4150" y="16275" width="1400" height="2400" rx="400"/><rect x="11350" y="11575" width="1400" height="7100" rx="400"/><rect x="16150" y="11575" width="1400" height="7100" rx="400"/><rect x="13750" y="11575" width="1400" height="7100" rx="400"/><rect x="18550" y="12375" width="1400" height="6300" rx="400"/><rect x="20950" y="14275" width="1400" height="4400" rx="400"/><g fill="#D4D4D7"><rect x="23350" y="15775" width="1400" height="3000" rx="400"/><rect x="25750" y="15775" width="1400" height="3000" rx="400"/></g></g><path stroke="#D4D4D7" stroke-width="100" d="
 M12100 7275
 v3800
 m11950-3800
