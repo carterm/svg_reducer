@@ -529,6 +529,20 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     e.removeAttribute("y");
   });
 
+  //Remove tspan elements with no attributes, since they don't affect the rendering and just take up space
+  svgElement.querySelectorAll("text > tspan").forEach(tspan => {
+    if (tspan.attributes.length === 0) {
+      const parent = tspan.parentElement;
+      if (parent) {
+        // Move all child nodes of the tspan to the parent
+        while (tspan.firstChild) {
+          parent.insertBefore(tspan.firstChild, tspan);
+        }
+        tspan.remove();
+      }
+    }
+  });
+
   // Extract any scale transforms that aren't ".1" into multiple "g" elements.
   svgElement.querySelectorAll("[transform='scale(.01)']").forEach(e => {
     // add a "g" tag around the element with the scale transform, and reduce the scale transform on the element
