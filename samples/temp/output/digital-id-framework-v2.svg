@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 792 612">
   <g data-name="Layer_1">
     <g fill="#0e3a5e" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text transform="translate(666.7 570.7)" font-size="8.9px"><tspan>California Department of</tspan></text>
+      <text font-size="8.9px" x="666.7" y="570.7"><tspan>California Department of</tspan></text>
       <text x="666.7" y="589.4" font-size="20.2px">Technology</text>
     </g>
     <g transform="scale(.1)">
@@ -111,7 +111,7 @@
       </g>
       <path fill="#1c75bc" d="M888 4097l149 61-35-61l35-61-149 61z" />
     </g>
-    <text transform="translate(63.5 53.6)" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#0e3a5e" font-size="38px"><tspan>Digital ID Framework</tspan></text>
+    <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#0e3a5e" font-size="38px" x="63.5" y="53.6"><tspan>Digital ID Framework</tspan></text>
     <g transform="scale(.1)">
       <g fill="#0e3a5e">
         <path d="M242 250c-3 0-6-1-8-4-4-4-4-11 0-15c18-17 57-46 114-50c62-5 107 23 124 35c5 4 6 10 2 15-3 5-10 6-15 2-15-11-55-35-110-31-50 4-85 29-101 44-2 2-5 3-8 3h2z" />
@@ -253,8 +253,8 @@
       </g>
     </g>
     <g fill="#0e3a5e" font-size="12.9px" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text transform="translate(109.2 497.8)"><tspan>Mobile</tspan></text>
-      <text transform="translate(109.2 513.3)"><tspan>Wallet</tspan></text>
+      <text x="109.2" y="497.8"><tspan>Mobile</tspan></text>
+      <text x="109.2" y="513.3"><tspan>Wallet</tspan></text>
     </g>
     <g transform="scale(.1)">
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#58595b" d="M679 3407v-435" />
@@ -298,7 +298,7 @@
       <path fill="#58595b" d="M5781 3153l-61-150l61 36l61-36-61 150z" />
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#1c75bc" d="M5781 3812v291" />
     </g>
-    <text transform="translate(566.5 328.7)" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#231f20" font-size="13px"><tspan>FTB</tspan></text>
+    <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#231f20" font-size="13px" x="566.5" y="328.7"><tspan>FTB</tspan></text>
     <g transform="scale(.1)">
       <g fill="none" stroke-miterlimit="10">
         <path stroke-width="30" stroke="#1c75bc" d="M3325 5104v149" />
@@ -330,11 +330,11 @@
     </g>
     <g fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
       <g font-size="13px">
-        <text transform="translate(315.3 328.7)"><tspan>CDPH</tspan></text>
-        <text transform="translate(308.5 490.7)"><tspan>Vaccine</tspan></text>
-        <text transform="translate(312.1 506.2)"><tspan>Record</tspan></text>
+        <text x="315.3" y="328.7"><tspan>CDPH</tspan></text>
+        <text x="308.5" y="490.7"><tspan>Vaccine</tspan></text>
+        <text x="312.1" y="506.2"><tspan>Record</tspan></text>
       </g>
-      <text transform="translate(46 575)" font-size="15.8px"><tspan>J. Doe</tspan></text>
+      <text font-size="15.8px" x="46" y="575"><tspan>J. Doe</tspan></text>
     </g>
     <g transform="scale(.1)">
       <g fill="none" stroke-miterlimit="10">
@@ -366,10 +366,10 @@
       <path fill="#1c75bc" d="M4143 4430l-61-149l61 36l61-36-61 149z" />
     </g>
     <g font-size="13px" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text transform="translate(371.7 313.1)"><tspan>State Board of</tspan></text>
-      <text transform="translate(374.6 328.7)"><tspan>Cosmetology</tspan></text>
-      <text transform="translate(374.7 490.7)"><tspan>Cosmetology</tspan></text>
-      <text transform="translate(391.2 506.2)"><tspan>License</tspan></text>
+      <text x="371.7" y="313.1"><tspan>State Board of</tspan></text>
+      <text x="374.6" y="328.7"><tspan>Cosmetology</tspan></text>
+      <text x="374.7" y="490.7"><tspan>Cosmetology</tspan></text>
+      <text x="391.2" y="506.2"><tspan>License</tspan></text>
     </g>
     <g transform="scale(.1)">
       <g fill="none" stroke-miterlimit="10">
@@ -401,8 +401,8 @@
       <path fill="#1c75bc" d="M4962 4430l-61-149l61 36l61-36-61 149z" />
     </g>
     <g font-size="13px" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text transform="translate(481.3 328.7)"><tspan>DMV</tspan></text>
-      <text transform="translate(482.3 490.7)"><tspan>mDL</tspan></text>
+      <text x="481.3" y="328.7"><tspan>DMV</tspan></text>
+      <text x="482.3" y="490.7"><tspan>mDL</tspan></text>
     </g>
     <g transform="scale(.1)">
       <g fill="none" stroke-miterlimit="10">
@@ -434,8 +434,8 @@
       <path fill="#1c75bc" d="M6599 4430l-61-149l61 36l61-36-61 149z" />
     </g>
     <g font-size="13px" fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text transform="translate(625.8 328.7)"><tspan>State Parks</tspan></text>
-      <text transform="translate(624 490.7)"><tspan>Parks Pass</tspan></text>
+      <text x="625.8" y="328.7"><tspan>State Parks</tspan></text>
+      <text x="624" y="490.7"><tspan>Parks Pass</tspan></text>
     </g>
     <g transform="scale(.1)">
       <rect x="7094" y="3355" width="648" height="451" rx="36" ry="36" stroke-miterlimit="10" fill="none" stroke="#231f20" stroke-width="10" />
@@ -466,28 +466,28 @@
     </g>
     <g isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700">
       <g font-size="13px" fill="#231f20">
-        <text transform="translate(714.2 328.7)"><tspan>Agency X</tspan></text>
-        <text transform="translate(699.9 490.7)"><tspan>Credential X</tspan></text>
+        <text x="714.2" y="328.7"><tspan>Agency X</tspan></text>
+        <text x="699.9" y="490.7"><tspan>Credential X</tspan></text>
       </g>
       <g font-size="10px" fill="#58595b">
-        <text transform="translate(311 540)"><tspan>Digital Credentials</tspan></text>
-        <text transform="translate(109.3 421.8)"><tspan>Services &amp; Benefits</tspan></text>
-        <text transform="translate(88 366.2)"><tspan>Application for Services,</tspan></text>
-        <text transform="translate(88 378.2)"><tspan>Benefits, or Credentials</tspan></text>
-        <text transform="translate(89 321.5)"><tspan>Request for ID or</tspan></text>
-        <text transform="translate(89 333.5)"><tspan>Eligibility Data</tspan></text>
-        <text transform="translate(202.5 249.3)"><tspan>Minimized ID &amp;</tspan></text>
-        <text transform="translate(202.5 261.3)"><tspan>Eligibility Data</tspan></text>
-        <text transform="translate(73.3 116.4)"><tspan>Raw ID Data</tspan></text>
-        <text transform="translate(110.6 148.3)"><tspan>Raw Eligibility</tspan></text>
-        <text transform="translate(110.6 160.3)"><tspan>Data</tspan></text>
+        <text x="311" y="540"><tspan>Digital Credentials</tspan></text>
+        <text x="109.3" y="421.8"><tspan>Services &amp; Benefits</tspan></text>
+        <text x="88" y="366.2"><tspan>Application for Services,</tspan></text>
+        <text x="88" y="378.2"><tspan>Benefits, or Credentials</tspan></text>
+        <text x="89" y="321.5"><tspan>Request for ID or</tspan></text>
+        <text x="89" y="333.5"><tspan>Eligibility Data</tspan></text>
+        <text x="202.5" y="249.3"><tspan>Minimized ID &amp;</tspan></text>
+        <text x="202.5" y="261.3"><tspan>Eligibility Data</tspan></text>
+        <text x="73.3" y="116.4"><tspan>Raw ID Data</tspan></text>
+        <text x="110.6" y="148.3"><tspan>Raw Eligibility</tspan></text>
+        <text x="110.6" y="160.3"><tspan>Data</tspan></text>
       </g>
       <g fill="#231f20" font-size="13px">
-        <text transform="translate(376.4 194.2)"><tspan>Login.Gov</tspan></text>
-        <text transform="translate(215 218.9)"><tspan>Calfresh</tspan></text>
-        <text transform="translate(300 216.7)"><tspan>Eligibility</tspan></text>
-        <text transform="translate(296.8 232.2)"><tspan>Provider X</tspan></text>
-        <text transform="translate(457.2 194.2)"><tspan>ID Provider X</tspan></text>
+        <text x="376.4" y="194.2"><tspan>Login.Gov</tspan></text>
+        <text x="215" y="218.9"><tspan>Calfresh</tspan></text>
+        <text x="300" y="216.7"><tspan>Eligibility</tspan></text>
+        <text x="296.8" y="232.2"><tspan>Provider X</tspan></text>
+        <text x="457.2" y="194.2"><tspan>ID Provider X</tspan></text>
       </g>
     </g>
     <g transform="scale(.1)">
@@ -515,8 +515,8 @@
       </g>
     </g>
     <g fill="#0e3a5e" font-size="12.9px" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text transform="translate(82 255.7)"><tspan>California</tspan></text>
-      <text transform="translate(82 271.2)"><tspan>Identity Gateway</tspan></text>
+      <text x="82" y="255.7"><tspan>California</tspan></text>
+      <text x="82" y="271.2"><tspan>Identity Gateway</tspan></text>
     </g>
     <g transform="scale(.1)">
       <rect x="490" y="2441" width="311" height="311" rx="36" ry="36" fill="#0e3a5e" />
@@ -535,13 +535,13 @@
       </g>
       <circle cx="676" cy="3748" r="155" fill="#1c75bc" />
     </g>
-    <text transform="translate(62.3 382.3)" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="21.6px"><tspan>1</tspan></text>
+    <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="21.6px" x="62.3" y="382.3"><tspan>1</tspan></text>
     <circle cx="677" cy="3192" r="155" fill="#1c75bc" transform="scale(.1)" />
-    <text transform="translate(62.3 326.7)" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="21.6px"><tspan>2</tspan></text>
+    <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="21.6px" x="62.3" y="326.7"><tspan>2</tspan></text>
     <circle cx="664" cy="1934" r="156" fill="#1c75bc" transform="scale(.1)" />
     <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text transform="translate(56.3 200.9)" font-size="21.6px"><tspan>3</tspan></text>
-      <text transform="translate(68.3 200.9)" font-size="15.4px"><tspan>a</tspan></text>
+      <text font-size="21.6px" x="56.3" y="200.9"><tspan>3</tspan></text>
+      <text font-size="15.4px" x="68.3" y="200.9"><tspan>a</tspan></text>
     </g>
     <g transform="scale(.1)">
       <path stroke-miterlimit="10" fill="none" stroke-width="30" stroke="#58595b" d="M1055 1369v845" />
@@ -549,20 +549,20 @@
       <circle cx="1044" cy="1934" r="156" fill="#1c75bc" />
     </g>
     <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text transform="translate(94.2 200.9)" font-size="21.6px"><tspan>3</tspan></text>
-      <text transform="translate(106.2 200.9)" font-size="15.4px"><tspan>b</tspan></text>
+      <text font-size="21.6px" x="94.2" y="200.9"><tspan>3</tspan></text>
+      <text font-size="15.4px" x="106.2" y="200.9"><tspan>b</tspan></text>
     </g>
     <circle cx="2900" cy="2649" r="155" fill="#1c75bc" transform="scale(.1)" />
-    <text transform="translate(282.1 272.3)" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="21.6px"><tspan>4</tspan></text>
+    <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" font-size="21.6px" x="282.1" y="272.3"><tspan>4</tspan></text>
     <circle cx="2903" cy="4097" r="155" fill="#1c75bc" transform="scale(.1)" />
     <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text transform="translate(280.7 417.2)" font-size="21.6px"><tspan>5</tspan></text>
-      <text transform="translate(292.8 417.2)" font-size="15.4px"><tspan>a</tspan></text>
+      <text font-size="21.6px" x="280.7" y="417.2"><tspan>5</tspan></text>
+      <text font-size="15.4px" x="292.8" y="417.2"><tspan>a</tspan></text>
     </g>
     <circle cx="2922" cy="5253" r="155" fill="#1c75bc" transform="scale(.1)" />
     <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text transform="translate(282.6 532.7)" font-size="21.6px"><tspan>5</tspan></text>
-      <text transform="translate(294.7 532.7)" font-size="15.4px"><tspan>b</tspan></text>
+      <text font-size="21.6px" x="282.6" y="532.7"><tspan>5</tspan></text>
+      <text font-size="15.4px" x="294.7" y="532.7"><tspan>b</tspan></text>
     </g>
     <g stroke-miterlimit="10" transform="scale(.1)">
       <g stroke="#58595b" stroke-width="30" stroke-linecap="square" fill="none">
@@ -574,8 +574,8 @@
     </g>
     <g fill="#0e3a5e">
       <g font-size="12.9px" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-        <text transform="translate(197.3 552.5)"><tspan>API</tspan></text>
-        <text transform="translate(197.3 538.3)"><tspan>Issuance</tspan></text>
+        <text x="197.3" y="552.5"><tspan>API</tspan></text>
+        <text x="197.3" y="538.3"><tspan>Issuance</tspan></text>
       </g>
       <rect x="1967" y="4938" width="310" height="310" rx="36" ry="36" transform="scale(.1)" />
     </g>
@@ -584,33 +584,33 @@
       <path d="M2162 5117c0-4-1-9-4-11-4-4-4-8-4-13v-10c0-12-8-22-19-24-7-1-15-1-22 0-14 2-21 12-21 26v13s-1 3-2 4c-6 4-9 9-9 15v38c0 12 6 18 18 18h47c10 0 17-7 17-17v-39h-1zm-61-38c0-7 6-11 12-12h19c8 1 13 8 13 16v17h-45v-21h1zm36 42c0 8-6 14-14 14s-14-6-14-14s6-14 14-14s14 6 14 14zm-15 48c-10 0-19-5-25-12c1-11 10-19 21-19h8c11 0 20 8 21 19-6 7-15 12-25 12z" />
     </g>
     <g isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700">
-      <text transform="translate(604 27.1)" fill="#58595b" font-size="11.6px"><tspan>Legend</tspan></text>
+      <text fill="#58595b" font-size="11.6px" x="604" y="27.1"><tspan>Legend</tspan></text>
       <g fill="#231f20">
         <g font-size="8.2px">
-          <text transform="translate(624.8 47.9)"><tspan>Individual</tspan></text>
-          <text transform="translate(624.4 114.6)"><tspan>Digital</tspan></text>
-          <text transform="translate(624.4 124.5)"><tspan>Credential</tspan></text>
-          <text transform="translate(633.4 144.5)"><tspan>Data &amp;</tspan></text>
-          <text transform="translate(633.4 154.4)"><tspan>Information</tspan></text>
-          <text transform="translate(633.4 175.9)"><tspan>Order of interactions in the</tspan></text>
-          <text transform="translate(633.4 185.8)"><tspan>verification sequence</tspan></text>
-          <text transform="translate(717.8 145.7)"><tspan>Services &amp;</tspan></text>
-          <text transform="translate(717.8 155.6)"><tspan>Benefits</tspan></text>
+          <text x="624.8" y="47.9"><tspan>Individual</tspan></text>
+          <text x="624.4" y="114.6"><tspan>Digital</tspan></text>
+          <text x="624.4" y="124.5"><tspan>Credential</tspan></text>
+          <text x="633.4" y="144.5"><tspan>Data &amp;</tspan></text>
+          <text x="633.4" y="154.4"><tspan>Information</tspan></text>
+          <text x="633.4" y="175.9"><tspan>Order of interactions in the</tspan></text>
+          <text x="633.4" y="185.8"><tspan>verification sequence</tspan></text>
+          <text x="717.8" y="145.7"><tspan>Services &amp;</tspan></text>
+          <text x="717.8" y="155.6"><tspan>Benefits</tspan></text>
         </g>
         <g font-size="5.5px">
-          <text transform="translate(678.6 58.9)"><tspan>Included associated functions,</tspan></text>
-          <text transform="translate(678.6 65.5)"><tspan>policies, and digital artifacts</tspan></text>
-          <text transform="translate(678.6 72.1)"><tspan>developed or managed by CDT</tspan></text>
-          <text transform="translate(620.4 58.9)"><tspan>Seeking services or</tspan></text>
-          <text transform="translate(620.4 65.5)"><tspan>benefits from state</tspan></text>
-          <text transform="translate(620.4 72.1)"><tspan>agencies in CA</tspan></text>
+          <text x="678.6" y="58.9"><tspan>Included associated functions,</tspan></text>
+          <text x="678.6" y="65.5"><tspan>policies, and digital artifacts</tspan></text>
+          <text x="678.6" y="72.1"><tspan>developed or managed by CDT</tspan></text>
+          <text x="620.4" y="58.9"><tspan>Seeking services or</tspan></text>
+          <text x="620.4" y="65.5"><tspan>benefits from state</tspan></text>
+          <text x="620.4" y="72.1"><tspan>agencies in CA</tspan></text>
         </g>
-        <text transform="translate(624.2 91.8)" font-size="8.2px"><tspan>State Entity</tspan></text>
-        <text transform="translate(624.2 98.4)" font-size="5.5px"><tspan>Website / API / App</tspan></text>
-        <text transform="translate(700.8 115.2)" font-size="8.2px"><tspan>Eligibility Provider</tspan></text>
+        <text font-size="8.2px" x="624.2" y="91.8"><tspan>State Entity</tspan></text>
+        <text font-size="5.5px" x="624.2" y="98.4"><tspan>Website / API / App</tspan></text>
+        <text font-size="8.2px" x="700.8" y="115.2"><tspan>Eligibility Provider</tspan></text>
         <g font-size="5.5px">
-          <text transform="translate(700.8 121.8)"><tspan>Verifies attributes or</tspan></text>
-          <text transform="translate(700.8 128.4)"><tspan>enrollment in programs</tspan></text>
+          <text x="700.8" y="121.8"><tspan>Verifies attributes or</tspan></text>
+          <text x="700.8" y="128.4"><tspan>enrollment in programs</tspan></text>
         </g>
       </g>
     </g>
@@ -619,10 +619,10 @@
       <path d="M6210 477c-5-5-12-6-18-2l-15 13-4 3c-7-12-5-12-19-35-6-11-17-16-30-16h-49c-11 0-20 4-27 12-5 7-10 15-13 24-9 28-10 57-8 86v7c0 7 6 12 12 12s11-5 11-13c0-20 0-40 2-60c0-9 4-19 6-28h2v215c0 10 7 17 17 17s18-7 18-20v-129c8-2 7 4 7 8v123c0 12 7 19 19 19s17-8 17-20v-211h2c0 4 2 5 5 12c9 19 4 5 10 23c0 2 0 3 2 4c5 5 11 2 17-2l3-2l30-25c5-5 5-10 3-14z" />
     </g>
     <g fill="#231f20" font-weight="700" font-family="Arial-BoldMT, Arial" isolation="isolate">
-      <text transform="translate(700.8 90.7)" font-size="8.2px"><tspan>ID Provider</tspan></text>
+      <text font-size="8.2px" x="700.8" y="90.7"><tspan>ID Provider</tspan></text>
       <g font-size="5.5px">
-        <text transform="translate(700.8 97.3)"><tspan>Verifies identity, can be a</tspan></text>
-        <text transform="translate(700.8 103.9)"><tspan>public or private entity</tspan></text>
+        <text x="700.8" y="97.3"><tspan>Verifies identity, can be a</tspan></text>
+        <text x="700.8" y="103.9"><tspan>public or private entity</tspan></text>
       </g>
     </g>
     <g transform="scale(.1)">
@@ -675,7 +675,7 @@
       <rect x="5963" y="314" width="1773" height="1638" rx="120" ry="120" fill="none" stroke="#58595b" />
       <rect x="6775" y="382" width="888" height="143" rx="38" ry="38" fill="#fbae18" stroke="#231f20" />
     </g>
-    <text transform="translate(681.6 47.9)" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#0e3a5e" font-size="8.2px"><tspan>Technology Services</tspan></text>
+    <text isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#0e3a5e" font-size="8.2px" x="681.6" y="47.9"><tspan>Technology Services</tspan></text>
     <g transform="scale(.1)">
       <g stroke-miterlimit="10" fill="none">
         <g stroke-width="10" stroke="#939598">
@@ -691,7 +691,7 @@
       <path stroke-miterlimit="10" fill="none" stroke="#939598" stroke-width="10" d="M6731 380v394" />
       <circle cx="6140" cy="1788" r="104" fill="#1c75bc" />
     </g>
-    <text transform="translate(610.5 183.8)" font-size="14.4px" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff"><tspan>1</tspan></text>
+    <text font-size="14.4px" isolation="isolate" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" x="610.5" y="183.8"><tspan>1</tspan></text>
     <g transform="scale(.1)">
       <g stroke-width="10" stroke="#000" stroke-miterlimit="10">
         <g fill="#fff">
