@@ -30,32 +30,32 @@ const shortenIds = true;
 const removeStyles = true;
 const styleToAttributes = true;
 const styleAttributeMap = [
+  "clip-path",
   "fill",
-  "opacity",
-  "stop-color",
-  "stroke",
-  "stroke-width",
-  "stroke-linecap",
-  "stroke-miterlimit",
-  "isolation",
   "font-family",
   "font-size",
   "font-weight",
-  "clip-path"
+  "isolation",
+  "opacity",
+  "stop-color",
+  "stroke",
+  "stroke-linecap",
+  "stroke-miterlimit",
+  "stroke-width"
 ];
 
 const shareableAttributes = [
-  "opacity",
-  "stroke",
-  "stroke-width",
-  "stroke-linecap",
-  "stroke-miterlimit",
   "fill",
-  "transform",
-  "isolation",
   "font-family",
   "font-size",
-  "font-weight"
+  "font-weight",
+  "isolation",
+  "opacity",
+  "stroke",
+  "stroke-linecap",
+  "stroke-miterlimit",
+  "stroke-width",
+  "transform"
 ];
 
 const globalReplacements = [
