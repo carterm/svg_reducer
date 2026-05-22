@@ -727,12 +727,42 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     }
   };
 
+  const pullSiblingsIntoGroup = () => {
+    // Pull siblings with explicit attributes into groups that they already override
+    let didSomething = false;
+
+    [...svgElement.querySelectorAll("g + *")].forEach(gSibling => {
+      let gElement = /** @type {SVGGElement} */ (
+        gSibling.previousElementSibling
+      );
+
+      // Make sure every gSibling attribute is already applied by the gElement
+      if (
+        !gElement.hasAttribute("transform") &&
+        !gSibling.hasAttribute("transform") &&
+        [...gElement.attributes]
+          .map(attr => attr.name)
+          .filter(name => !["transform"].includes(name))
+          .every(attrName => gSibling.hasAttribute(attrName))
+      ) {
+        didSomething = true;
+
+        // Move the sibling into the group
+        gElement.appendChild(gSibling);
+        let foo = 1;
+      }
+    });
+    return didSomething;
+  };
+
+  // Grouping phase
   while (
     extractCommonAttributesToGs() ||
     mergeSiblingGs() ||
     pushGAttributesDown() || //fix
     extractCommonAttributesToGs() ||
     removeUselessGs() ||
+    pullSiblingsIntoGroup() ||
     applyScaleToViewBox()
   ) {
     //console.log("extractCommonAttributesToGs");
