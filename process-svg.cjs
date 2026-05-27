@@ -29,20 +29,8 @@ const ConvertLinesToPaths = true;
 const shortenIds = true;
 const removeStyles = true;
 const styleToAttributes = true;
-const styleAttributeMap = [
-  "clip-path",
-  "fill",
-  "font-family",
-  "font-size",
-  "font-weight",
-  "isolation",
-  "opacity",
-  "stop-color",
-  "stroke",
-  "stroke-linecap",
-  "stroke-miterlimit",
-  "stroke-width"
-];
+
+const { attributeProperties } = require("./attributeProperties.cjs");
 
 const shareableAttributes = [
   "fill",
@@ -216,27 +204,21 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
   if (styleToAttributes) {
     // pull out style elements to make attributes
-    /** @type {HTMLElement[]} */
-    ([...svgElement.querySelectorAll("*")]).forEach(element => {
-      if (element.style) {
-        Array.from(element.style).forEach(attr => {
-          if (
-            styleAttributeMap.includes(attr) &&
-            element.style.getPropertyValue(attr)
-          ) {
-            element.setAttribute(attr, element.style.getPropertyValue(attr));
-            element.style.removeProperty(attr);
-          }
+    /** @type {NodeListOf<HTMLElement>} */
+    (svgElement.querySelectorAll("[style]")).forEach(element => {
+      Array.from(element.style).forEach(attr => {
+        const attrValue = element.style.getPropertyValue(attr);
 
-          if (["enable-background"].includes(attr)) {
-            element.style.removeProperty(attr);
-          }
-        });
+        if (
+          attrValue &&
+          attributeProperties[attr]?.tags.includes(
+            element.tagName.toLowerCase()
+          )
+        )
+          element.setAttribute(attr, attrValue);
+      });
 
-        if (!element.style.length) {
-          element.removeAttribute("style");
-        }
-      }
+      element.removeAttribute("style");
     });
   }
 
