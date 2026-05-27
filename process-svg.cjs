@@ -755,6 +755,13 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     return didSomething;
   };
 
+  //select all elements with attributes that start with "data-" and remove them.
+  svgElement.querySelectorAll("*").forEach(element => {
+    [...element.attributes]
+      .filter(attr => attr.name.startsWith("data-"))
+      .forEach(attr => element.removeAttribute(attr.name));
+  });
+
   // Grouping phase
   while (
     extractCommonAttributesToGs() ||
@@ -789,17 +796,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       pathElement.removeAttribute("d");
       pathElement.setAttribute("d", d);
     }
-  });
-
-  // Some cleanup
-  svgElement.querySelectorAll("[data-scaled]").forEach(element => {
-    element.removeAttribute("data-scaled");
-  });
-  svgElement.querySelectorAll("[data-no-merge]").forEach(element => {
-    element.removeAttribute("data-no-merge");
-  });
-  svgElement.querySelectorAll("[data-name]").forEach(element => {
-    element.removeAttribute("data-name");
   });
 
   // Final cleanup of empty "g" elements, removing transforms may cause this
