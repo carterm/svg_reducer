@@ -461,64 +461,66 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
   // Scale CIRCLE and RECT elements to attempt to remove decimal points and apply a scale transform
   /** @type {NodeListOf<SVGElement>} */
-  (svgElement.querySelectorAll("circle, rect, text")).forEach(Element => {
-    // Extract numeric attributes
-    const attrs = [
-      "cx",
-      "cy",
-      "r",
-      "x",
-      "y",
-      "width",
-      "height",
-      "rx",
-      "ry",
-      "font-size"
-    ].filter(attr => Element.hasAttribute(attr));
-    const values = attrs.map(a => Element.getAttribute(a));
+  (svgElement.querySelectorAll("circle, rect, text, ellipse")).forEach(
+    Element => {
+      // Extract numeric attributes
+      const attrs = [
+        "cx",
+        "cy",
+        "r",
+        "x",
+        "y",
+        "width",
+        "height",
+        "rx",
+        "ry",
+        "font-size"
+      ].filter(attr => Element.hasAttribute(attr));
+      const values = attrs.map(a => Element.getAttribute(a));
 
-    // Determine max decimal places across attributes
-    let maxDecimals = 0;
+      // Determine max decimal places across attributes
+      let maxDecimals = 0;
 
-    values.forEach(val => {
-      if (!val) return;
-      const match = val.replace(/px$/, "").match(/\.(\d+)/);
-      if (match) {
-        const decimals = match[1].length;
-        if (decimals > maxDecimals) maxDecimals = decimals;
-      }
-    });
+      values.forEach(val => {
+        if (!val) return;
+        const match = val.replace(/px$/, "").match(/\.(\d+)/);
+        if (match) {
+          const decimals = match[1].length;
+          if (decimals > maxDecimals) maxDecimals = decimals;
+        }
+      });
 
-    // If no decimals, no scaling needed
-    if (maxDecimals === 0) return;
+      // If no decimals, no scaling needed
+      if (maxDecimals === 0) return;
 
-    const scale = Math.pow(10, maxDecimals);
+      const scale = Math.pow(10, maxDecimals);
 
-    // Apply scaling + rounding
-    attrs.forEach(attr => {
-      const raw = parseFloat(Element.getAttribute(attr) || "0");
-      if (isNaN(raw)) return;
-      const scaled = Math.round(raw * scale).toFixed(0);
-      Element.setAttribute(attr, scaled);
-    });
+      // Apply scaling + rounding
+      attrs.forEach(attr => {
+        const raw = parseFloat(Element.getAttribute(attr) || "0");
+        if (isNaN(raw)) return;
+        const scaled = Math.round(raw * scale).toFixed(0);
+        Element.setAttribute(attr, scaled);
+      });
 
-    // Add or merge transform
-    const existing = Element.getAttribute("transform");
-    const scaleStr = `scale(${(1 / scale).toFixed(maxDecimals).replace(/^0\./, ".")})`;
+      // Add or merge transform
+      const existing = Element.getAttribute("transform");
+      const scaleStr = `scale(${(1 / scale).toFixed(maxDecimals).replace(/^0\./, ".")})`;
 
-    Element.setAttribute(
-      "transform",
-      existing ? `${existing} ${scaleStr}` : scaleStr
-    );
-
-    const props = getVisibilityProperties(Element);
-    if (props.stroke !== "none" || Element.hasAttribute("stroke-width")) {
       Element.setAttribute(
-        "stroke-width",
-        (props.strokeWidth * scale).toString()
+        "transform",
+        existing ? `${existing} ${scaleStr}` : scaleStr
       );
+
+      const props = getVisibilityProperties(Element);
+      if (props.stroke !== "none" || Element.hasAttribute("stroke-width")) {
+        Element.setAttribute(
+          "stroke-width",
+          (props.strokeWidth * scale).toString()
+        );
+      }
     }
-  });
+  );
 
   //Remove X and Y attributes with a value of 0, since they don't affect the rendering and just take up space
   svgElement.querySelectorAll("[x='0']").forEach(e => {
