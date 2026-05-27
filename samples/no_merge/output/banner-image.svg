@@ -3981,7 +3981,7 @@ l-18 10
 v-24
 l18-11
 v25
-z"/><path fill="#BD8A5E" stroke="#E6E7E8" stroke-miterlimit="10" stroke-width="10" d="
+z"/><path fill="#BD8A5E" stroke="#E6E7E8" stroke-width="10" d="
 M4242 3750
 c74 34 141 82 216 113
 c98 41 206 52 312 53
@@ -5431,7 +5431,7 @@ c0 17-35 31-53 31
 -17 0-52-14-52-31
 c0-17 35-62 52-62
 c18-1 53 44 53 62
-z"/><path opacity="0.15" fill="#252C52" stroke="url(#SVGID_47_)" stroke-miterlimit="10" stroke-width="10" d="
+z"/><path opacity="0.15" fill="#252C52" stroke="url(#SVGID_47_)" stroke-width="10" d="
 M5087 3780
 c78 0 141-25 141-56
 c0-31-63-56-141-56

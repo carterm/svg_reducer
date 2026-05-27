@@ -240,10 +240,17 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     });
   }
 
-  // Remove "isolation" attributes if no mix-blend-mode is used in the SVG, since "isolation" only affects elements with mix-blend-mode and just takes up space otherwise
-  if (!svgElement.innerHTML.includes("mix-blend-mode")) {
+  // Remove "isolation" attributes if no mix-blend-mode is used in the SVG, since "isolation" only affects elements with mix-blend-mode
+  if (!svgElement.querySelector("[mix-blend-mode]")) {
     svgElement.querySelectorAll("[isolation]").forEach(element => {
       element.removeAttribute("isolation");
+    });
+  }
+
+  // Remove "stroke-miterlimit" attributes if no "stroke-linecap" attribute is set to "miter", since "stroke-miterlimit" only affects elements with "stroke-linecap" set to "miter"
+  if (!svgElement.querySelector("[stroke-linecap='miter']")) {
+    svgElement.querySelectorAll("[stroke-miterlimit]").forEach(element => {
+      element.removeAttribute("stroke-miterlimit");
     });
   }
 
