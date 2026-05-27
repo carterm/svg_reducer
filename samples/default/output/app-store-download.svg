@@ -77,7 +77,7 @@ a586 586 0 0 1-167 55
 a1254 1254 0 0 1-187 16
 c-29 1-60 1-90 1
 h-108
-z"/></g><g data-name="&lt;Group&gt;"><path data-name="&lt;Path&gt;" transform="scale(.1)" d="
+z"/></g><path transform="scale(.1)" d="
 M2500 1989
 a515 515 0 0 1 245-432
 a527 527 0 0 0-415-224
@@ -97,7 +97,7 @@ a507 507 0 0 0 116-363
 a516 516 0 0 0-334 173
 a482 482 0 0 0-119 350
 a426 426 0 0 0 337-160
-z"/></g><path transform="scale(.1)" data-name="&lt;Group&gt;" d="
+z"/><path transform="scale(.1)" d="
 M4230 2714
 h-473
 l-114 336

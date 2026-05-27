@@ -798,6 +798,9 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   svgElement.querySelectorAll("[data-no-merge]").forEach(element => {
     element.removeAttribute("data-no-merge");
   });
+  svgElement.querySelectorAll("[data-name]").forEach(element => {
+    element.removeAttribute("data-name");
+  });
 
   // Final cleanup of empty "g" elements, removing transforms may cause this
 
