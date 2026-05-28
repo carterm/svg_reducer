@@ -26,8 +26,6 @@ const attributeProperties = {
     inherited: false,
     stacking: true,
     tags: [
-      "svg",
-      "g",
       "path",
       "circle",
       "ellipse",
@@ -91,8 +89,6 @@ const attributeProperties = {
     inherited: false,
     stacking: true,
     tags: [
-      "svg",
-      "g",
       "path",
       "circle",
       "ellipse",
@@ -165,8 +161,6 @@ const attributeProperties = {
     inherited: false,
     stacking: true,
     tags: [
-      "svg",
-      "g",
       "path",
       "circle",
       "ellipse",
@@ -187,6 +181,18 @@ const attributeProperties = {
  * @param {string} attribute
  */
 const elementHasAttribute = (element, attribute) =>
+  ["g"].includes(element.toLowerCase()) ||
   attributeProperties[attribute]?.tags.includes(element.toLowerCase());
 
-module.exports = { attributeProperties, elementHasAttribute };
+/**
+ *
+ * @param {string} attribute
+ */
+const attributeIsOverrideable = attribute =>
+  attributeProperties[attribute].overrideable;
+
+module.exports = {
+  attributeProperties,
+  elementHasAttribute,
+  attributeIsOverrideable
+};
