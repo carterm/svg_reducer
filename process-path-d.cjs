@@ -445,18 +445,14 @@ const processPathD = (pathD, options, pathElement) => {
           ); // Remove space before negative numbers
 
         return absCommand.length < newCommand.length ? absCommand : newCommand;
-      } else {
-        return newCommand;
-      }
+      } else return newCommand;
     })
     .join("");
 
   // Remove "m" at the end of the path
   pathD = pathD.replace(/m[^clshva]+$/gim, "");
 
-  if (options.devmode) {
-    pathD = pathD.replace(/([a-zA-z])/gim, "\n$1"); // Add newline before commands
-  }
+  if (options.devmode) pathD = pathD.replace(/([a-zA-z])/gim, "\n$1"); // Add newline before commands
 
   if (removeExtraCs) {
     pathD = pathD.replace(/c([^lshvzqmaA-Z]*)/gms, match =>
@@ -467,9 +463,7 @@ const processPathD = (pathD, options, pathElement) => {
     ); // Combine consecutive "l-" command codes
   }
 
-  if (!options.devmode) {
-    pathD = pathD.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers, after removing extra cs
-  }
+  if (!options.devmode) pathD = pathD.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers, after removing extra cs
 
   return pathD;
 };
