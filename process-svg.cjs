@@ -29,22 +29,19 @@ const ConvertLinesToPaths = true;
 const shortenIds = true;
 const removeStyles = true;
 const styleToAttributes = true;
-const styleAttributeMap = [
-  "fill",
-  "opacity",
-  "stop-color",
-  "stroke",
-  "stroke-width",
-  "stroke-miterlimit",
-  "clip-path"
-];
+
+const { elementHasAttribute } = require("./attributeProperties.cjs");
 
 const shareableAttributes = [
+  "fill",
+  "font-family",
+  "font-size",
+  "font-weight",
   "opacity",
   "stroke",
-  "stroke-width",
+  "stroke-linecap",
   "stroke-miterlimit",
-  "fill",
+  "stroke-width",
   "transform"
 ];
 
@@ -65,14 +62,13 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     inputFile.includes(x.name)
   );
 
-  if (fileOptions) {
+  if (fileOptions)
     fileOptions.replacements.forEach(replacement => {
       const pat = replacement.pattern
         ? new RegExp(replacement.pattern, "g")
         : replacement.text;
       if (pat) data = data.replace(pat, replacement.replacement);
     });
-  }
 
   globalReplacements.forEach(replacement => {
     data = data.replace(replacement.from, replacement.to);
@@ -82,39 +78,21 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   const dom = new JSDOM(data, { contentType: "image/svg+xml" });
   const document = dom.window.document;
 
-  // Remove all HTML comments, document level
-  document.querySelectorAll("*").forEach(node => {
-    [...node.childNodes].forEach(child => {
-      if (child.nodeType === dom.window.Node.COMMENT_NODE) {
-        child.remove();
-      }
-    });
-  });
-
   const svgElement = document.querySelector("svg");
   if (!svgElement) {
     console.error(`Missing SVG element`);
     process.exit(1);
   }
 
-  // Version attribute is not needed, and can cause issues with some SVG renderers, so we remove it
-  if (svgElement.hasAttribute("version")) {
-    svgElement.removeAttribute("version");
-  }
-
   // document level Only remove ids that aren't used in the SVG
-  document.querySelectorAll("[id]").forEach(element => {
-    if (!svgElement.innerHTML.includes(`#${element.id}`)) {
-      element.removeAttribute("id");
-    }
-  });
+  [...document.querySelectorAll("[id]")]
+    .filter(element => !svgElement.innerHTML.includes(`#${element.id}`))
+    .forEach(element => element.removeAttribute("id"));
 
   //remove gradients that are not used (no ids)
   svgElement
     .querySelectorAll("linearGradient:not([id]), radialGradient:not([id])")
-    .forEach(gradient => {
-      gradient.remove();
-    });
+    .forEach(gradient => gradient.remove());
 
   // Move all gradients with IDs to the DEF area
   const defsElement =
@@ -122,55 +100,65 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     document.createElementNS(SVG_NS, "defs");
   svgElement
     .querySelectorAll("linearGradient, radialGradient, clipPath")
-    .forEach(element => {
-      defsElement.appendChild(element);
-    });
-  if (!defsElement.parentElement && defsElement.childElementCount) {
+    .forEach(element => defsElement.appendChild(element));
+  if (!defsElement.parentElement && defsElement.childElementCount)
     // Put the defs element at the beginning of the SVG
     svgElement.insertBefore(defsElement, svgElement.firstChild);
-  }
 
-  svgElement
-    .querySelectorAll("svg > defs > linearGradient")
-    .forEach(gradient => {
-      //remove "offest=0" from gradientTransform stops
-      gradient
-        .querySelectorAll("stop[offset='0']")
-        .forEach(stopElement => stopElement.removeAttribute("offset"));
-    });
+  svgElement.querySelectorAll("svg > defs > linearGradient").forEach(gradient =>
+    //remove "offest=0" from gradientTransform stops
+    gradient
+      .querySelectorAll("stop[offset='0']")
+      .forEach(stopElement => stopElement.removeAttribute("offset"))
+  );
 
-  //find "USE" elements and replace them with the actual content
-  svgElement.querySelectorAll("use").forEach(useElement => {
-    const href = useElement.getAttribute("xlink:href");
-    if (href) {
-      const targetElement = svgElement.querySelector(href);
-      if (targetElement) {
-        const prt = useElement.parentElement;
-        if (prt) {
-          prt.insertBefore(targetElement, useElement);
-          useElement.remove();
-          targetElement.removeAttribute("id");
+  //find "USE" elements that are used once and not transformed and replace them with the actual content
+  [
+    .../** @type {NodeListOf<SVGUseElement>} */ (
+      svgElement.querySelectorAll("use")
+    )
+  ]
+    .filter(
+      useElement =>
+        (useElement.getAttribute("x") || "0") === "0" &&
+        (useElement.getAttribute("y") || "0") === "0"
+    )
+    .forEach(useElement => {
+      const href =
+        useElement.getAttribute("xlink:href") ||
+        useElement.getAttribute("href");
+      if (!href) return;
+
+      // Remove the DEF Element if Make sure this HREF is only used once.
+      if (
+        svgElement.querySelectorAll(
+          `use[href='${href}'], use[xlink\\:href='${href}']`
+        ).length === 1
+      ) {
+        const defElement = svgElement.querySelector(href);
+        if (defElement) {
+          const prt = useElement.parentElement;
+          if (prt) {
+            prt.insertBefore(defElement, useElement);
+            useElement.remove();
+            defElement.removeAttribute("id");
+          }
         }
       }
-    }
-  }); // End USE loop
+    }); // End USE loop
 
-  svgElement.removeAttribute("data-name");
-  ["x", "y"].forEach(attr => {
-    if (["0", "0px"].includes(svgElement.getAttribute(attr) || "")) {
-      svgElement.removeAttribute(attr);
-    }
-  });
+  // Version attribute is not needed, and can cause issues with some SVG renderers, so we remove it
+  svgElement.removeAttribute("version");
+
   svgElement.removeAttribute("xml:space");
-  if (!svgElement.innerHTML.includes("xlink:")) {
+
+  if (!svgElement.innerHTML.includes("xlink:"))
     svgElement.removeAttribute("xmlns:xlink");
-  }
 
   svgElement.style.removeProperty("enable-background");
 
-  if (svgElement.getAttribute("style") === "") {
+  if (svgElement.getAttribute("style") === "")
     svgElement.removeAttribute("style");
-  }
 
   if (removeStyles) {
     const styletags = svgElement.querySelectorAll("style");
@@ -179,70 +167,65 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
         `<!DOCTYPE html><html><head>${styletag.outerHTML}</head></html>`
       );
 
-      [...styleDOM.window.document.styleSheets].forEach(styleSheet => {
-        [...styleSheet.cssRules].forEach(rule => {
-          if (rule.cssText) {
-            svgElement
-              .querySelectorAll(rule["selectorText"])
-              .forEach(element => {
-                element.setAttribute(
-                  "style",
-                  element.style.cssText + rule["style"].cssText
-                );
-              });
-          }
-        });
-      });
+      [...styleDOM.window.document.styleSheets].forEach(styleSheet =>
+        /** @type {CSSStyleRule[]} */ ([...styleSheet.cssRules])
+          .filter(rule => rule.cssText)
+          .forEach(rule =>
+            /** @type {NodeListOf<HTMLElement>} */ (
+              svgElement.querySelectorAll(rule.selectorText)
+            ).forEach(element =>
+              element.setAttribute(
+                "style",
+                element.style.cssText + rule.style.cssText
+              )
+            )
+          )
+      );
       styletag.remove();
     });
 
     // Remove all classes, since the stylesheets have been removed
-    svgElement.querySelectorAll("[class]").forEach(element => {
-      element.removeAttribute("class");
-    });
-  }
-
-  if (styleToAttributes) {
-    // pull out style elements to make attributes
-    /** @type {HTMLElement[]} */
-    ([...svgElement.querySelectorAll("*")]).forEach(element => {
-      if (element.style) {
-        Array.from(element.style).forEach(attr => {
-          if (styleAttributeMap.includes(attr) && element.style[attr]) {
-            element.setAttribute(attr, element.style[attr]);
-            element.style.removeProperty(attr);
-          }
-
-          if (["enable-background"].includes(attr)) {
-            element.style.removeProperty(attr);
-          }
-        });
-
-        if (!element.style.length) {
-          element.removeAttribute("style");
-        }
-      }
-    });
-  }
-
-  // re-id everything
-  if (shortenIds) {
     svgElement
-      .querySelectorAll("defs > linearGradient[id]")
-      .forEach((element, i) => {
-        const newId = `ID${i.toString(16)}`;
+      .querySelectorAll("[class]")
+      .forEach(element => element.removeAttribute("class"));
+  } // End styles loop
 
-        svgElement
-          .querySelectorAll(`[fill="url(#${element.id})"]`)
-          .forEach(ref => ref.setAttribute("fill", `url(#${newId})`));
+  if (styleToAttributes)
+    // pull out style elements to make attributes
+    /** @type {NodeListOf<HTMLElement>} */
+    (svgElement.querySelectorAll("[style]")).forEach(element => {
+      Array.from(element.style).forEach(attr => {
+        const attrValue = element.style.getPropertyValue(attr);
 
-        element.id = newId;
+        if (attrValue && elementHasAttribute(element.tagName, attr))
+          element.setAttribute(attr, attrValue);
       });
-  }
 
-  //Convert RGB colors to hex
-  [...svgElement.querySelectorAll("*")].forEach(element =>
-    [...element.attributes]
+      element.removeAttribute("style");
+    });
+
+  // Full Document cleanup loop
+  [...document.querySelectorAll("*")].forEach(element => {
+    // Remove all HTML comments, document level
+    [...element.childNodes]
+      .filter(child => child.nodeType === dom.window.Node.COMMENT_NODE)
+      .forEach(child => child.remove());
+
+    const attributes = [...element.attributes];
+
+    // Find any attributes that end in "px" and remove the "px", since they are not needed in SVG and just take up space. Only do this for attributes that are actually numbers, to avoid accidentally changing things like "font-family: Arial, Helvetica, sans-serif" which could contain "px" in the font names.
+    attributes
+      .filter(
+        attr =>
+          attr.value.endsWith("px") &&
+          !isNaN(parseFloat(attr.value.replace("px", "")))
+      )
+      .forEach(attr =>
+        element.setAttribute(attr.name, attr.value.replace("px", ""))
+      );
+
+    //Convert RGB colors to hex
+    attributes
       .filter(attr => attr.value.match(/rgb\(/))
       .forEach(attr =>
         element.setAttribute(
@@ -254,8 +237,39 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
             .map(x => parseInt(x, 10).toString(16).padStart(2, "0"))
             .join("")}`
         )
-      )
-  );
+      );
+
+    //select all elements with attributes that start with "data-" and remove them.
+    attributes
+      .filter(attr => attr.name.startsWith("data-"))
+      .forEach(attr => element.removeAttributeNode(attr));
+  }); // End full document cleanup loop
+
+  // Remove "isolation" attributes if no mix-blend-mode is used in the SVG, since "isolation" only affects elements with mix-blend-mode
+  if (!svgElement.querySelector("[mix-blend-mode]"))
+    svgElement
+      .querySelectorAll("[isolation]")
+      .forEach(element => element.removeAttribute("isolation"));
+
+  // Remove "stroke-miterlimit" attributes if no "stroke-linecap" attribute is set to "miter", since "stroke-miterlimit" only affects elements with "stroke-linecap" set to "miter"
+  if (!svgElement.querySelector("[stroke-linecap='miter']"))
+    svgElement
+      .querySelectorAll("[stroke-miterlimit]")
+      .forEach(element => element.removeAttribute("stroke-miterlimit"));
+
+  // re-id everything
+  if (shortenIds)
+    svgElement
+      .querySelectorAll("defs > linearGradient[id]")
+      .forEach((element, i) => {
+        const newId = `ID${i.toString(16)}`;
+
+        svgElement
+          .querySelectorAll(`[fill="url(#${element.id})"]`)
+          .forEach(ref => ref.setAttribute("fill", `url(#${newId})`));
+
+        element.id = newId;
+      });
 
   //Convert polygons to paths
   [...svgElement.querySelectorAll("polygon")].forEach(polygonElement => {
@@ -271,11 +285,9 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     );
 
     pathElement.setAttribute("d", `${d}Z`);
-    [...polygonElement.attributes].forEach(attr => {
-      if (shareableAttributes.includes(attr.name)) {
-        pathElement.setAttribute(attr.name, attr.value);
-      }
-    });
+    [...polygonElement.attributes]
+      .filter(attr => elementHasAttribute("path", attr.name))
+      .forEach(attr => pathElement.setAttribute(attr.name, attr.value));
 
     polygonElement.parentElement?.insertBefore(pathElement, polygonElement);
     polygonElement.remove();
@@ -292,11 +304,9 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
         "d",
         `M${lineElement.getAttribute("x1")} ${lineElement.getAttribute("y1")}L${lineElement.getAttribute("x2")} ${lineElement.getAttribute("y2")}`
       );
-      [...lineElement.attributes].forEach(attr => {
-        if (shareableAttributes.includes(attr.name)) {
-          pathElement.setAttribute(attr.name, attr.value);
-        }
-      });
+      [...lineElement.attributes]
+        .filter(attr => elementHasAttribute("path", attr.name))
+        .forEach(attr => pathElement.setAttribute(attr.name, attr.value));
 
       lineElement.parentElement?.insertBefore(pathElement, lineElement);
       lineElement.remove();
@@ -309,8 +319,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       );
 
       if (
-        !rectElement.getAttribute("rx") &&
-        !rectElement.getAttribute("ry") &&
+        !rectElement.hasAttribute("rx") &&
+        !rectElement.hasAttribute("ry") &&
         !rectElement.getAttribute("width")?.includes("%") &&
         !rectElement.getAttribute("height")?.includes("%")
       ) {
@@ -331,14 +341,12 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
         pathElement.setAttribute(
           "d",
-          `M${rectX} ${rectY}H${rectX + rectWidth}V${rectY + rectHeight}H${rectX}Z`
+          `M${rectX} ${rectY}h${rectWidth}v${rectHeight}H${rectX}Z`
         );
 
-        [...rectElement.attributes].forEach(attr => {
-          if (shareableAttributes.includes(attr.name)) {
-            pathElement.setAttribute(attr.name, attr.value);
-          }
-        });
+        [...rectElement.attributes]
+          .filter(attr => elementHasAttribute("path", attr.name))
+          .forEach(attr => pathElement.setAttribute(attr.name, attr.value));
 
         rectElement.parentElement?.insertBefore(pathElement, rectElement);
         rectElement.remove();
@@ -351,9 +359,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     if (
       props.fill === "none" &&
       (props.stroke === "none" || props.strokeWidth === 0)
-    ) {
+    )
       element.remove();
-    }
   });
 
   if (!options.noPathsMerge) {
@@ -390,31 +397,139 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     }
   }
 
-  // Process all remaining path statements
-  svgElement.querySelectorAll("path").forEach(pathElement => {
-    pathElement.setAttribute(
-      "d",
-      processPathD(pathElement.getAttribute("d") || "", options, pathElement)
+  // Process all path statements
+  svgElement
+    .querySelectorAll("path")
+    .forEach(pathElement =>
+      pathElement.setAttribute(
+        "d",
+        processPathD(pathElement.getAttribute("d") || "", options, pathElement)
+      )
     );
-  }); //End Path loop
 
   // Round transform attributes to the specified number of decimal places
   svgElement.querySelectorAll("linearGradient").forEach(element => {
     ["x1", "x2", "y1", "y2"].forEach(attr => {
       const value = parseFloat(element.getAttribute(attr) || "0");
-      if (!isNaN(value)) {
-        element.setAttribute(attr, value.toFixed(0));
-      }
+      if (!isNaN(value)) element.setAttribute(attr, value.toFixed(0));
     });
   });
 
-  //Remove X and Y attributes with a value of 0, since they don't affect the rendering and just take up space
-  svgElement.querySelectorAll("[x='0']").forEach(e => {
-    e.removeAttribute("x");
-  });
+  //Convert "translate" transforms into X and Y attributes where possible, to reduce the number of transforms and make the SVG easier to edit
+  svgElement
+    .querySelectorAll("text[transform^='translate']")
+    .forEach(element => {
+      const transform = element.getAttribute("transform");
+      if (!transform) return;
 
-  svgElement.querySelectorAll("[y='0']").forEach(e => {
-    e.removeAttribute("y");
+      const match = transform.match(/translate\(\s*([^)]+)\s*\)/);
+      if (!match) return;
+
+      const [x, y] = match[1]
+        .split(/[\s,]+/)
+        .map(coord => parseFloat(coord) || 0);
+
+      if (x !== 0) element.setAttribute("x", x.toString());
+      if (y !== 0) element.setAttribute("y", y.toString());
+
+      const newTransform = transform.replace(match[0], "").trim();
+      if (newTransform.length === 0) element.removeAttribute("transform");
+      else element.setAttribute("transform", newTransform);
+    });
+
+  // Scale CIRCLE and RECT elements to attempt to remove decimal points and apply a scale transform
+  /** @type {NodeListOf<SVGElement>} */
+  (svgElement.querySelectorAll("circle, rect, text, ellipse")).forEach(
+    Element => {
+      // Extract numeric attributes
+      const attrs = [
+        "cx",
+        "cy",
+        "r",
+        "x",
+        "y",
+        "width",
+        "height",
+        "rx",
+        "ry",
+        "font-size"
+      ].filter(attr => Element.hasAttribute(attr));
+      const values = attrs.map(a => Element.getAttribute(a));
+
+      // Determine max decimal places across attributes
+      let maxDecimals = 0;
+
+      values.forEach(val => {
+        if (!val) return;
+        const match = val.match(/\.(\d+)/);
+        if (match) {
+          const decimals = match[1].length;
+          if (decimals > maxDecimals) maxDecimals = decimals;
+        }
+      });
+
+      // If no decimals, no scaling needed
+      if (maxDecimals === 0) return;
+
+      const scale = Math.pow(10, maxDecimals);
+
+      // Apply scaling + rounding
+      attrs.forEach(attr => {
+        const raw = parseFloat(Element.getAttribute(attr) || "0");
+        if (isNaN(raw)) return;
+        const scaled = Math.round(raw * scale).toFixed(0);
+        Element.setAttribute(attr, scaled);
+      });
+
+      // Add or merge transform
+      const existing = Element.getAttribute("transform");
+      const scaleStr = `scale(${(1 / scale).toFixed(maxDecimals).replace(/^0\./, ".")})`;
+
+      Element.setAttribute(
+        "transform",
+        existing ? `${existing} ${scaleStr}` : scaleStr
+      );
+
+      const props = getVisibilityProperties(Element);
+      if (props.stroke !== "none" || Element.hasAttribute("stroke-width")) {
+        Element.setAttribute(
+          "stroke-width",
+          (props.strokeWidth * scale).toString()
+        );
+      }
+    }
+  );
+
+  //Remove X and Y attributes with a value of 0, since they don't affect the rendering and just take up space
+  document.querySelectorAll("[x='0']").forEach(e => e.removeAttribute("x"));
+  document.querySelectorAll("[y='0']").forEach(e => e.removeAttribute("y"));
+
+  //Remove tspan elements with no attributes, since they don't affect the rendering and just take up space
+  [...svgElement.querySelectorAll("tspan")]
+    .filter(tspan => tspan.attributes.length === 0)
+    .forEach(tspan => {
+      const parent = tspan.parentElement;
+      if (!parent) return;
+
+      // Move all child nodes of the tspan to the parent
+      while (tspan.firstChild) parent.insertBefore(tspan.firstChild, tspan);
+
+      tspan.remove();
+    });
+
+  //Remove "data-scaled" attributes that may have been added during processing, since they are not needed in the final SVG and just take up space
+  svgElement
+    .querySelectorAll("[data-scaled]")
+    .forEach(e => e.removeAttribute("data-scaled"));
+
+  // Extract any scale transforms that aren't ".1" into multiple "g" elements.
+  svgElement.querySelectorAll("[transform='scale(.01)']").forEach(e => {
+    // add a "g" tag around the element with the scale transform, and reduce the scale transform on the element
+    const newG = document.createElementNS(SVG_NS, "g");
+    newG.setAttribute("transform", "scale(.1)");
+    e.parentElement?.insertBefore(newG, e);
+    e.setAttribute("transform", "scale(.1)");
+    newG.appendChild(e);
   });
 
   const extractCommonAttributesToGs = () => {
@@ -493,16 +608,16 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
   const removeUselessGs = () => {
     let didSomething = false;
-    svgElement.querySelectorAll("g").forEach(gElement => {
-      if (gElement.attributes.length === 0) {
+    [...svgElement.querySelectorAll("g")]
+      .filter(gElement => gElement.attributes.length === 0)
+      .forEach(gElement => {
         didSomething = true;
         //move all child elements to the parent
         [...gElement.children].forEach(child => {
           gElement.parentElement?.insertBefore(child, gElement);
         });
         gElement.remove();
-      }
-    });
+      });
     return didSomething;
   };
 
@@ -515,7 +630,11 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       if (gElement?.parentElement) {
         [...gElement.attributes].forEach(attr => {
           const childAttr = onlychild.getAttribute(attr.name);
-          if (!childAttr || childAttr === attr.value) {
+          if (
+            !childAttr ||
+            (attr.name.toLowerCase() !== "transform" &&
+              childAttr === attr.value)
+          ) {
             didSomething = true;
             onlychild.setAttribute(attr.name, attr.value);
             gElement.removeAttribute(attr.name);
@@ -533,29 +652,100 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     return didSomething;
   };
 
-  while (extractCommonAttributesToGs()) {
+  const applyScaleToViewBox = () => {
+    // if the dom has a single child with a scale transform, apply the scale to the viewBox and remove the transform
+
+    const directChildren = svgElement.querySelectorAll(
+      "svg > g,svg > path,svg > rect,svg > circle,svg > ellipse,svg > line,svg > polyline,svg > polygon"
+    );
+    if (directChildren.length !== 1) {
+      return false;
+    }
+
+    const firstChild = directChildren[0];
+    if (
+      firstChild.hasAttribute("transform") &&
+      firstChild.getAttribute("transform")?.includes("scale(")
+    ) {
+      // Check if the transform is only a scale transform
+      const transform = firstChild.getAttribute("transform");
+      if (transform) {
+        const scaleMatch = transform.match(/scale\((?<val>[^)]+)\)/);
+
+        // Check if the transform is only a scale transform
+        if (
+          scaleMatch
+          //transform.replace(scaleMatch[0], "").trim().length === 0
+        ) {
+          const viewbox = svgElement.getAttribute("viewBox");
+          const val = scaleMatch.groups?.val;
+          if (val && viewbox) {
+            const [x, y, width, height] = viewbox.split(" ").map(parseFloat);
+
+            // Update the viewBox to reflect the new scale
+            const scale = parseFloat(val);
+            const divScale = (/** @type {number} */ topPart) =>
+              Number((topPart / scale).toFixed(6)).toString(); // prevents 43.4 / 0.1 = 433.99999999999994
+
+            svgElement.setAttribute(
+              "viewBox",
+              `${divScale(x)} ${divScale(y)} ${divScale(width)} ${divScale(height)}`
+            );
+
+            const newTransform = transform.replace(scaleMatch[0], "").trim();
+            if (newTransform.length === 0) {
+              firstChild.removeAttribute("transform");
+            } else {
+              firstChild.setAttribute("transform", newTransform);
+            }
+
+            return true;
+          }
+        }
+      }
+    }
+  };
+
+  const pullSiblingsIntoGroup = () => {
+    // Pull siblings with explicit attributes into groups that they already override
+    let didSomething = false;
+
+    [...svgElement.querySelectorAll("g + *")].forEach(gSibling => {
+      let gElement = /** @type {SVGGElement} */ (
+        gSibling.previousElementSibling
+      );
+
+      // Make sure every gSibling attribute is already applied by the gElement
+      if (
+        !gElement.hasAttribute("transform") &&
+        !gElement.hasAttribute("opacity") &&
+        !gSibling.hasAttribute("transform") &&
+        !gSibling.hasAttribute("opacity") &&
+        [...gElement.attributes]
+          .map(attr => attr.name)
+          .filter(name => !["transform"].includes(name))
+          .every(attrName => gSibling.hasAttribute(attrName))
+      ) {
+        didSomething = true;
+        // Move the sibling into the group
+        gElement.appendChild(gSibling);
+      }
+    });
+    return didSomething;
+  };
+
+  // Grouping phase
+  while (
+    extractCommonAttributesToGs() ||
+    mergeSiblingGs() ||
+    pushGAttributesDown() ||
+    extractCommonAttributesToGs() ||
+    removeUselessGs() ||
+    pullSiblingsIntoGroup() ||
+    applyScaleToViewBox()
+  ) {
     //console.log("extractCommonAttributesToGs");
     // Keep extracting common attributes until no more extractions
-  }
-
-  while (mergeSiblingGs()) {
-    //console.log("mergeSiblingGs");
-    // Keep merging sibling "g" elements with the same attributes until no more merges
-  }
-
-  while (pushGAttributesDown()) {
-    //console.log("pushGAttributesDown");
-    // Keep pushing attributes down until no more pushes
-  }
-
-  while (extractCommonAttributesToGs()) {
-    //console.log("extractCommonAttributesToGs");
-    // Keep extracting common attributes until no more extractions
-  }
-
-  while (removeUselessGs()) {
-    // console.log("removeUselessGs");
-    // Keep removing empty "g" elements until no more removals
   }
 
   // Remove empty tags from dom
@@ -578,55 +768,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       pathElement.removeAttribute("d");
       pathElement.setAttribute("d", d);
     }
-  });
-
-  // apply the transform to the SVG viewbox if all children have the same scale transform
-  const svgChildren = [...svgElement.children];
-  if (
-    svgChildren
-      .map(x => x.getAttribute("transform"))
-      .every((transform, _i, a) => transform === a[0])
-  ) {
-    // Check if the transform is only a scale transform
-    const transform = svgChildren[0].getAttribute("transform");
-    if (transform) {
-      const scaleMatch = transform.match(/scale\((?<val>[^)]+)\)/);
-
-      // Check if the transform is only a scale transform
-      if (
-        scaleMatch &&
-        transform.replace(scaleMatch[0], "").trim().length === 0
-      ) {
-        const viewbox = svgElement.getAttribute("viewBox");
-        const val = scaleMatch.groups?.val;
-        if (val && viewbox) {
-          const [x, y, width, height] = viewbox.split(" ").map(parseFloat);
-
-          // Update the viewBox to reflect the new scale
-          const scale = parseFloat(val);
-          const divScale = (/** @type {number} */ topPart) =>
-            Number((topPart / scale).toFixed(6)).toString(); // prevents 43.4 / 0.1 = 433.99999999999994
-
-          svgElement.setAttribute(
-            "viewBox",
-            `${divScale(x)} ${divScale(y)} ${divScale(width)} ${divScale(height)}`
-          );
-
-          svgChildren.forEach(child => {
-            // Remove the scale transform from the child
-            child.removeAttribute("transform");
-          });
-        }
-      }
-    }
-  }
-
-  // Some cleanup
-  svgElement.querySelectorAll("[data-scaled]").forEach(element => {
-    element.removeAttribute("data-scaled");
-  });
-  svgElement.querySelectorAll("[data-no-merge]").forEach(element => {
-    element.removeAttribute("data-no-merge");
   });
 
   // Final cleanup of empty "g" elements, removing transforms may cause this
