@@ -62,14 +62,13 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     inputFile.includes(x.name)
   );
 
-  if (fileOptions) {
+  if (fileOptions)
     fileOptions.replacements.forEach(replacement => {
       const pat = replacement.pattern
         ? new RegExp(replacement.pattern, "g")
         : replacement.text;
       if (pat) data = data.replace(pat, replacement.replacement);
     });
-  }
 
   globalReplacements.forEach(replacement => {
     data = data.replace(replacement.from, replacement.to);
@@ -79,23 +78,35 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   const dom = new JSDOM(data, { contentType: "image/svg+xml" });
   const document = dom.window.document;
 
-  // Remove all HTML comments, document level
-  document.querySelectorAll("*").forEach(node => {
-    [...node.childNodes].forEach(child => {
-      if (child.nodeType === dom.window.Node.COMMENT_NODE) {
-        child.remove();
-      }
-    });
-  });
-
   const svgElement = document.querySelector("svg");
   if (!svgElement) {
     console.error(`Missing SVG element`);
     process.exit(1);
   }
 
-  // Version attribute is not needed, and can cause issues with some SVG renderers, so we remove it
-  if (svgElement.hasAttribute("version")) svgElement.removeAttribute("version");
+  // Full Document cleanup loop
+  [...document.querySelectorAll("*")].forEach(element => {
+    // Remove all HTML comments, document level
+    [...element.childNodes]
+      .filter(child => child.nodeType === dom.window.Node.COMMENT_NODE)
+      .forEach(child => child.remove());
+
+    // Find any attributes that end in "px" and remove the "px", since they are not needed in SVG and just take up space. Only do this for attributes that are actually numbers, to avoid accidentally changing things like "font-family: Arial, Helvetica, sans-serif" which could contain "px" in the font names.
+    [...element.attributes]
+      .filter(
+        attr =>
+          attr.value.endsWith("px") &&
+          !isNaN(parseFloat(attr.value.replace("px", "")))
+      )
+      .forEach(attr =>
+        element.setAttribute(attr.name, attr.value.replace("px", ""))
+      );
+
+    //select all elements with attributes that start with "data-" and remove them.
+    [...element.attributes]
+      .filter(attr => attr.name.startsWith("data-"))
+      .forEach(attr => element.removeAttribute(attr.name));
+  }); // End full document cleanup loop
 
   // document level Only remove ids that aren't used in the SVG
   [...document.querySelectorAll("[id]")]
@@ -160,11 +171,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       }
     }); // End USE loop
 
-  svgElement.removeAttribute("data-name");
-
-  ["x", "y"]
-    .filter(attr => ["0", "0px"].includes(svgElement.getAttribute(attr) || ""))
-    .forEach(attr => svgElement.removeAttribute(attr));
+  // Version attribute is not needed, and can cause issues with some SVG renderers, so we remove it
+  svgElement.removeAttribute("version");
 
   svgElement.removeAttribute("xml:space");
 
@@ -463,7 +471,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
       values.forEach(val => {
         if (!val) return;
-        const match = val.replace(/px$/, "").match(/\.(\d+)/);
+        const match = val.match(/\.(\d+)/);
         if (match) {
           const decimals = match[1].length;
           if (decimals > maxDecimals) maxDecimals = decimals;
@@ -503,12 +511,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   );
 
   //Remove X and Y attributes with a value of 0, since they don't affect the rendering and just take up space
-  svgElement.parentElement
-    ?.querySelectorAll("[x='0']")
-    .forEach(e => e.removeAttribute("x"));
-  svgElement.parentElement
-    ?.querySelectorAll("[y='0']")
-    .forEach(e => e.removeAttribute("y"));
+  document.querySelectorAll("[x='0']").forEach(e => e.removeAttribute("x"));
+  document.querySelectorAll("[y='0']").forEach(e => e.removeAttribute("y"));
 
   //Remove tspan elements with no attributes, since they don't affect the rendering and just take up space
   [...svgElement.querySelectorAll("tspan")]
@@ -522,6 +526,11 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
       tspan.remove();
     });
+
+  //Remove "data-scaled" attributes that may have been added during processing, since they are not needed in the final SVG and just take up space
+  svgElement
+    .querySelectorAll("[data-scaled]")
+    .forEach(e => e.removeAttribute("data-scaled"));
 
   // Extract any scale transforms that aren't ".1" into multiple "g" elements.
   svgElement.querySelectorAll("[transform='scale(.01)']").forEach(e => {
@@ -734,13 +743,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     });
     return didSomething;
   };
-
-  //select all elements with attributes that start with "data-" and remove them.
-  svgElement.querySelectorAll("*").forEach(element => {
-    [...element.attributes]
-      .filter(attr => attr.name.startsWith("data-"))
-      .forEach(attr => element.removeAttribute(attr.name));
-  });
 
   // Grouping phase
   while (
