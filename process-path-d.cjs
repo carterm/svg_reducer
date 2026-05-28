@@ -35,11 +35,9 @@ const processPathD = (pathD, options, pathElement) => {
      */
     let coordinates = [];
 
-    if (code.toLowerCase() === "h") {
-      coordinates = digits.map(x => ({ x }));
-    } else if (code.toLowerCase() === "v") {
-      coordinates = digits.map(y => ({ y }));
-    } else if (code.toLowerCase() === "a") {
+    if (code.toLowerCase() === "h") coordinates = digits.map(x => ({ x }));
+    else if (code.toLowerCase() === "v") coordinates = digits.map(y => ({ y }));
+    else if (code.toLowerCase() === "a") {
       for (let i = 0; i < digits.length; i += 7) {
         coordinates.push(
           { x: digits[i + 0], y: digits[i + 1], notxy: true },
@@ -51,14 +49,11 @@ const processPathD = (pathD, options, pathElement) => {
       }
     } else if (code.toLowerCase() === "z") {
       //
-    } else {
-      for (let i = 0; i < digits.length; i += 2) {
-        if (i + 1 < digits.length) {
+    } else
+      for (let i = 0; i < digits.length; i += 2)
+        if (i + 1 < digits.length)
           // Check to ensure there is a pair
           coordinates.push({ x: digits[i], y: digits[i + 1] });
-        }
-      }
-    }
 
     return { code, coordinates, z: false, abs: /[A-Z]/.test(code) };
   });
@@ -78,14 +73,14 @@ const processPathD = (pathD, options, pathElement) => {
 
       if (coordinates.length > commandsize) {
         const newCommands = [];
-        for (let j = 0; j < coordinates.length; j += commandsize) {
+        for (let j = 0; j < coordinates.length; j += commandsize)
           newCommands.push({
             code,
             coordinates: coordinates.slice(j, j + commandsize),
             z: false,
             abs: command.abs
           });
-        }
+
         pathData.splice(i, 1, ...newCommands);
       }
     }
@@ -94,8 +89,8 @@ const processPathD = (pathD, options, pathElement) => {
   if (scalepoints) {
     // find scale
     let scale = 1;
-    pathData.forEach(command => {
-      if (pathElement) {
+    if (pathElement) {
+      pathData.forEach(command => {
         // If the element is specified, scale the path data and stroke width
 
         // Find the most decimal places in the path data
@@ -108,8 +103,8 @@ const processPathD = (pathD, options, pathElement) => {
             scale = Math.max(scale, Math.pow(10, decimalPlaces));
           });
         });
-      }
-    });
+      });
+    }
 
     if (scale !== 1) {
       if (pathElement) {
