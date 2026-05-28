@@ -89,99 +89,89 @@ const processPathD = (pathD, options, pathElement) => {
   if (scalepoints) {
     // find scale
     let scale = 1;
-    if (pathElement) {
-      pathData.forEach(command => {
+    if (pathElement)
+      pathData.forEach(command =>
         // If the element is specified, scale the path data and stroke width
 
         // Find the most decimal places in the path data
-        command.coordinates.forEach(point => {
+        command.coordinates.forEach(point =>
           [point.x, point.y].forEach(val => {
             const decimalPlaces = Math.min(
               options.maxDecimalPlaces,
               (val?.toString().split(".")[1] || "").length
             );
             scale = Math.max(scale, Math.pow(10, decimalPlaces));
-          });
-        });
-      });
-    }
+          })
+        )
+      );
 
-    if (scale !== 1) {
-      if (pathElement) {
+    if (pathElement && scale !== 1) {
+      pathElement.setAttribute(
+        "transform",
+        `scale(${(1 / scale).toString().replace(/^0\./, ".")})`
+      );
+
+      const props = getVisibilityProperties(pathElement);
+      if (props.stroke !== "none" || pathElement.hasAttribute("stroke-width"))
         pathElement.setAttribute(
-          "transform",
-          `scale(${(1 / scale).toString().replace(/^0\./, ".")})`
+          "stroke-width",
+          (props.strokeWidth * scale).toString()
         );
 
-        const props = getVisibilityProperties(pathElement);
-        if (
-          props.stroke !== "none" ||
-          pathElement.hasAttribute("stroke-width")
-        ) {
-          pathElement.setAttribute(
-            "stroke-width",
-            (props.strokeWidth * scale).toString()
-          );
-        }
+      // Find any fill gradients and scale them
+      if (props.fill.startsWith("url(") || props.stroke.startsWith("url(")) {
+        const idString = props.fill.startsWith("url(")
+          ? props.fill
+          : props.stroke;
+        const idQuery = idString.replace("url(", "").replace(")", "");
+        const gradient = pathElement.ownerDocument.querySelector(idQuery);
+        if (gradient) {
+          //Scale all the numbers in the transform
+          const transform = gradient.getAttribute("gradientTransform");
+          if (transform?.startsWith("matrix")) {
+            const match = transform.match(/matrix\(([^)]+)\)/);
+            if (match) {
+              //Apply the gradientTransform to the gradient coordinates
+              const coordinateNames = ["x1", "y1", "x2", "y2"];
 
-        // Find any fill gradients and scale them
-        if (props.fill.startsWith("url(") || props.stroke.startsWith("url(")) {
-          const idString = props.fill.startsWith("url(")
-            ? props.fill
-            : props.stroke;
-          const idQuery = idString.replace("url(", "").replace(")", "");
-          const gradient = pathElement.ownerDocument.querySelector(idQuery);
-          if (gradient) {
-            //Scale all the numbers in the transform
-            const transform = gradient.getAttribute("gradientTransform");
-            if (transform) {
-              if (transform.startsWith("matrix")) {
-                const match = transform.match(/matrix\(([^)]+)\)/);
-                if (match) {
-                  //Apply the gradientTransform to the gradient coordinates
-                  const coordinateNames = ["x1", "y1", "x2", "y2"];
+              const [x1, y1, x2, y2] = coordinateNames
+                .map(field => gradient.getAttribute(field))
+                .filter(x => x !== null)
+                .map(parseFloat);
 
-                  const [x1, y1, x2, y2] = coordinateNames
-                    .map(field => gradient.getAttribute(field))
-                    .filter(x => x !== null)
-                    .map(parseFloat);
+              const [a, b, c, d, e, f] = match[1].split(" ").map(parseFloat);
 
-                  const [a, b, c, d, e, f] = match[1]
-                    .split(" ")
-                    .map(parseFloat);
+              // Apply the matrix transformation to each coordinate
+              const newX1 = a * x1 + c * y1 + e;
+              const newY1 = b * x1 + d * y1 + f;
+              const newX2 = a * x2 + c * y2 + e;
+              const newY2 = b * x2 + d * y2 + f;
 
-                  // Apply the matrix transformation to each coordinate
-                  const newX1 = a * x1 + c * y1 + e;
-                  const newY1 = b * x1 + d * y1 + f;
-                  const newX2 = a * x2 + c * y2 + e;
-                  const newY2 = b * x2 + d * y2 + f;
+              // Update the gradient with the transformed coordinates
+              [newX1, newY1, newX2, newY2].forEach((val, i) =>
+                gradient.setAttribute(coordinateNames[i], val.toFixed(0))
+              );
 
-                  // Update the gradient with the transformed coordinates
-                  [newX1, newY1, newX2, newY2].forEach((val, i) => {
-                    gradient.setAttribute(coordinateNames[i], val.toFixed(0));
-                  });
-
-                  // Remove the gradientTransform attribute as it's now applied
-                  gradient.removeAttribute("gradientTransform");
-                }
-              }
+              // Remove the gradientTransform attribute as it's now applied
+              gradient.removeAttribute("gradientTransform");
             }
+          }
 
-            if (!gradient.hasAttribute("data-scaled")) {
-              gradient.setAttribute("data-scaled", "true");
-              // No Transform, Scale the x1, y1, x2, y2 attributes
-              [...gradient.attributes]
-                .filter(attr => ["x1", "y1", "x2", "y2"].includes(attr.name))
-                .forEach(attr => {
-                  attr.value = (parseFloat(attr.value) * scale).toString();
-                });
-            }
+          if (!gradient.hasAttribute("data-scaled")) {
+            gradient.setAttribute("data-scaled", "true");
+            // No Transform, Scale the x1, y1, x2, y2 attributes
+            [...gradient.attributes]
+              .filter(attr => ["x1", "y1", "x2", "y2"].includes(attr.name))
+              .forEach(
+                attr =>
+                  (attr.value = (parseFloat(attr.value) * scale).toString())
+              );
           }
         }
       }
     }
     // scale is determined.  Round and scale
-    pathData.forEach(command => {
+    pathData.forEach(command =>
       command.coordinates.forEach(point => {
         if (point.noscale) return;
         if (pathElement) {
@@ -195,8 +185,8 @@ const processPathD = (pathD, options, pathElement) => {
           if (point.y !== undefined)
             point.y = Math.round(point.y * scaleFactor) / scaleFactor;
         }
-      });
-    });
+      })
+    );
   }
 
   if (convertToRelative) {
@@ -236,8 +226,9 @@ const processPathD = (pathD, options, pathElement) => {
 
   // convert "c" commands with a wasted control point to "q" commands
   const isZero = (/** @type {number} */ n) => Math.abs(n) < 0.001;
-  pathData.forEach(command => {
-    if (command.code === "c") {
+  pathData
+    .filter(command => command.code === "c")
+    .forEach(command => {
       const [p1, p2, p3] = /** @type {{x: number, y: number}[]} */ (
         command.coordinates
       );
@@ -265,8 +256,7 @@ const processPathD = (pathD, options, pathElement) => {
           command.coordinates = [p1, p3];
         }
       }
-    }
-  });
+    });
 
   // convert "c","s","q" commands with no curve to "l" commands
   const eps = 1e-6;
@@ -278,38 +268,40 @@ const processPathD = (pathD, options, pathElement) => {
   ) => Math.abs(a * d - b * c) < eps;
 
   pathData.forEach(command => {
-    if (command.code === "c") {
-      const [p1, p2, p3] = /** @type {{x: number, y: number}[]} **/ (
-        command.coordinates
-      );
+    switch (command.code) {
+      case "c": {
+        const [p1, p2, p3] = /** @type {{x: number, y: number}[]} **/ (
+          command.coordinates
+        );
 
-      const col1 = col(p1.x, p1.y, p3.x, p3.y);
-      const col2 = col(p2.x, p2.y, p3.x, p3.y);
+        const col1 = col(p1.x, p1.y, p3.x, p3.y);
+        const col2 = col(p2.x, p2.y, p3.x, p3.y);
 
-      if (col1 && col2) {
-        command.code = "l";
-        command.coordinates = [p3];
+        if (col1 && col2) {
+          command.code = "l";
+          command.coordinates = [p3];
+        }
+        break;
       }
-    }
+      case "s":
+      case "q": {
+        const [p1, p2] = /** @type {{x: number, y: number}[]} **/ (
+          command.coordinates
+        );
 
-    if (command.code === "s" || command.code === "q") {
-      const [p2, p3] = /** @type {{x: number, y: number}[]} **/ (
-        command.coordinates
-      );
-
-      // cp2 must be collinear with endpoint
-      const col2 = col(p2.x, p2.y, p3.x, p3.y);
-
-      if (col2) {
-        command.code = "l";
-        command.coordinates = [p3];
+        if (col(p1.x, p1.y, p2.x, p2.y)) {
+          command.code = "l";
+          command.coordinates = [p2];
+        }
+        break;
       }
     }
   });
 
   // convert "c" commands with first control point at (0,0) to "s" commands
-  pathData.forEach((command, i) => {
-    if (command.code === "c") {
+  pathData
+    .filter(command => command.code === "c")
+    .forEach((command, i) => {
       const [p1, p2, p3] = command.coordinates;
 
       const prev = pathData[i - 1];
@@ -322,28 +314,24 @@ const processPathD = (pathD, options, pathElement) => {
         command.code = "s";
         command.coordinates = [p2, p3];
       }
-    }
-  });
+    });
 
   //convert "l" commands with only one coordinate to "h" or "v" commands
-  pathData.forEach(command => {
-    if (command.code === "l") {
+  pathData
+    .filter(command => command.code === "l")
+    .forEach(command => {
       const [p] = /** @type {{x: number, y: number}[]} **/ (
         command.coordinates
       );
 
-      const isHorizontal = Math.abs(p.y) < eps;
-      const isVertical = Math.abs(p.x) < eps;
-
-      if (isHorizontal) {
+      if (Math.abs(p.y) < eps) {
         command.code = "h";
         command.coordinates = [{ x: p.x }];
-      } else if (isVertical) {
+      } else if (Math.abs(p.x) < eps) {
         command.code = "v";
         command.coordinates = [{ y: p.y }];
       }
-    }
-  });
+    });
 
   // Merge consecutive "h" or "v" commands
   for (let i = 1; i < pathData.length; i++) {
