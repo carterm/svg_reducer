@@ -30,10 +30,7 @@ const shortenIds = true;
 const removeStyles = true;
 const styleToAttributes = true;
 
-const {
-  attributeProperties,
-  elementHasAttribute
-} = require("./attributeProperties.cjs");
+const { elementHasAttribute } = require("./attributeProperties.cjs");
 
 const shareableAttributes = [
   "fill",
@@ -211,12 +208,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       Array.from(element.style).forEach(attr => {
         const attrValue = element.style.getPropertyValue(attr);
 
-        if (
-          attrValue &&
-          attributeProperties[attr]?.tags.includes(
-            element.tagName.toLowerCase()
-          )
-        )
+        if (attrValue && elementHasAttribute(element.tagName, attr))
           element.setAttribute(attr, attrValue);
       });
 
