@@ -35,25 +35,33 @@ const processPathD = (pathD, options, pathElement) => {
      */
     let coordinates = [];
 
-    if (code.toLowerCase() === "h") coordinates = digits.map(x => ({ x }));
-    else if (code.toLowerCase() === "v") coordinates = digits.map(y => ({ y }));
-    else if (code.toLowerCase() === "a") {
-      for (let i = 0; i < digits.length; i += 7) {
-        coordinates.push(
-          { x: digits[i + 0], y: digits[i + 1], notxy: true },
-          { x: digits[i + 2], noscale: true, notxy: true },
-          { x: digits[i + 3], noscale: true, notxy: true },
-          { x: digits[i + 4], noscale: true, notxy: true },
-          { x: digits[i + 5], y: digits[i + 6] }
-        );
-      }
-    } else if (code.toLowerCase() === "z") {
-      //
-    } else
-      for (let i = 0; i < digits.length; i += 2)
-        if (i + 1 < digits.length)
-          // Check to ensure there is a pair
-          coordinates.push({ x: digits[i], y: digits[i + 1] });
+    switch (code.toLowerCase()) {
+      case "h":
+        coordinates = digits.map(x => ({ x }));
+        break;
+      case "v":
+        coordinates = digits.map(y => ({ y }));
+        break;
+      case "a":
+        for (let i = 0; i < digits.length; i += 7) {
+          coordinates.push(
+            { x: digits[i + 0], y: digits[i + 1], notxy: true },
+            { x: digits[i + 2], noscale: true, notxy: true },
+            { x: digits[i + 3], noscale: true, notxy: true },
+            { x: digits[i + 4], noscale: true, notxy: true },
+            { x: digits[i + 5], y: digits[i + 6] }
+          );
+        }
+        break;
+      case "z":
+        // Nothing to do, "z" has no coordinates
+        break;
+      default:
+        for (let i = 0; i < digits.length; i += 2)
+          if (i + 1 < digits.length)
+            // Check to ensure there is a pair
+            coordinates.push({ x: digits[i], y: digits[i + 1] });
+    }
 
     return { code, coordinates, z: false, abs: /[A-Z]/.test(code) };
   });
