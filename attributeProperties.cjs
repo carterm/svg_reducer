@@ -21,6 +21,25 @@
  * @type {SvgAttributeMap}
  */
 const attributeProperties = {
+  "clip-path": {
+    overrideable: false,
+    inherited: false,
+    stacking: true,
+    tags: [
+      "svg",
+      "g",
+      "path",
+      "circle",
+      "ellipse",
+      "rect",
+      "line",
+      "polyline",
+      "polygon",
+      "text",
+      "image"
+    ]
+  },
+
   fill: {
     overrideable: true,
     inherited: true,
@@ -37,6 +56,34 @@ const attributeProperties = {
       "tspan",
       "textPath"
     ]
+  },
+
+  "font-family": {
+    overrideable: true,
+    inherited: true,
+    stacking: false,
+    tags: ["text", "tspan", "textPath"]
+  },
+
+  "font-size": {
+    overrideable: true,
+    inherited: true,
+    stacking: false,
+    tags: ["text", "tspan", "textPath"]
+  },
+
+  "font-weight": {
+    overrideable: true,
+    inherited: true,
+    stacking: false,
+    tags: ["text", "tspan", "textPath"]
+  },
+
+  isolation: {
+    overrideable: false,
+    inherited: false,
+    stacking: true,
+    tags: []
   },
 
   opacity: {
@@ -60,26 +107,6 @@ const attributeProperties = {
     ]
   },
 
-  transform: {
-    overrideable: false,
-    inherited: false,
-    stacking: true,
-    tags: [
-      "svg",
-      "g",
-      "path",
-      "circle",
-      "ellipse",
-      "rect",
-      "line",
-      "polyline",
-      "polygon",
-      "text",
-      "tspan",
-      "textPath"
-    ]
-  },
-
   "stop-color": {
     overrideable: true,
     inherited: false,
@@ -88,22 +115,6 @@ const attributeProperties = {
   },
 
   stroke: {
-    overrideable: true,
-    inherited: true,
-    stacking: false,
-    tags: [
-      "path",
-      "circle",
-      "ellipse",
-      "rect",
-      "line",
-      "polyline",
-      "polygon",
-      "text"
-    ]
-  },
-
-  "stroke-width": {
     overrideable: true,
     inherited: true,
     stacking: false,
@@ -133,35 +144,23 @@ const attributeProperties = {
     tags: ["path", "polyline", "polygon"]
   },
 
-  isolation: {
-    overrideable: false,
-    inherited: false,
-    stacking: true,
-    tags: []
-  },
-
-  "font-family": {
+  "stroke-width": {
     overrideable: true,
     inherited: true,
     stacking: false,
-    tags: ["text", "tspan", "textPath"]
+    tags: [
+      "path",
+      "circle",
+      "ellipse",
+      "rect",
+      "line",
+      "polyline",
+      "polygon",
+      "text"
+    ]
   },
 
-  "font-size": {
-    overrideable: true,
-    inherited: true,
-    stacking: false,
-    tags: ["text", "tspan", "textPath"]
-  },
-
-  "font-weight": {
-    overrideable: true,
-    inherited: true,
-    stacking: false,
-    tags: ["text", "tspan", "textPath"]
-  },
-
-  "clip-path": {
+  transform: {
     overrideable: false,
     inherited: false,
     stacking: true,
@@ -176,7 +175,8 @@ const attributeProperties = {
       "polyline",
       "polygon",
       "text",
-      "image"
+      "tspan",
+      "textPath"
     ]
   }
 };

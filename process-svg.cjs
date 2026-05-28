@@ -37,7 +37,6 @@ const shareableAttributes = [
   "font-family",
   "font-size",
   "font-weight",
-  "isolation",
   "opacity",
   "stroke",
   "stroke-linecap",
