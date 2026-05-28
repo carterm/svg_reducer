@@ -447,7 +447,7 @@
       <text x="6999" y="4907">Credential X</text>
     </g>
     <g fill="#58595b">
-      <text font-size="10px" x="311" y="540">Digital Credentials</text>
+      <text font-size="10" x="311" y="540">Digital Credentials</text>
       <g transform="scale(.1)" font-size="100">
         <text x="1093" y="4218">Services &amp; Benefits</text>
         <text x="880" y="3662">Application for Services,</text>
