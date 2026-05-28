@@ -30,7 +30,10 @@ const shortenIds = true;
 const removeStyles = true;
 const styleToAttributes = true;
 
-const { attributeProperties } = require("./attributeProperties.cjs");
+const {
+  attributeProperties,
+  elementHasAttribute
+} = require("./attributeProperties.cjs");
 
 const shareableAttributes = [
   "fill",
@@ -282,7 +285,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
     pathElement.setAttribute("d", `${d}Z`);
     [...polygonElement.attributes].forEach(attr => {
-      if (shareableAttributes.includes(attr.name)) {
+      if (elementHasAttribute("path", attr.name)) {
         pathElement.setAttribute(attr.name, attr.value);
       }
     });
@@ -303,7 +306,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
         `M${lineElement.getAttribute("x1")} ${lineElement.getAttribute("y1")}L${lineElement.getAttribute("x2")} ${lineElement.getAttribute("y2")}`
       );
       [...lineElement.attributes].forEach(attr => {
-        if (shareableAttributes.includes(attr.name)) {
+        if (elementHasAttribute("path", attr.name)) {
           pathElement.setAttribute(attr.name, attr.value);
         }
       });
@@ -345,7 +348,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
         );
 
         [...rectElement.attributes].forEach(attr => {
-          if (shareableAttributes.includes(attr.name)) {
+          if (elementHasAttribute("path", attr.name)) {
             pathElement.setAttribute(attr.name, attr.value);
           }
         });

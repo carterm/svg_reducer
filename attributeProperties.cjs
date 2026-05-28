@@ -181,4 +181,12 @@ const attributeProperties = {
   }
 };
 
-module.exports = { attributeProperties };
+/**
+ *
+ * @param {string} element
+ * @param {string} attribute
+ */
+const elementHasAttribute = (element, attribute) =>
+  attributeProperties[attribute]?.tags.includes(element.toLowerCase());
+
+module.exports = { attributeProperties, elementHasAttribute };
