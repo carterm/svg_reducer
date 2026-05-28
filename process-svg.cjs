@@ -84,30 +84,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     process.exit(1);
   }
 
-  // Full Document cleanup loop
-  [...document.querySelectorAll("*")].forEach(element => {
-    // Remove all HTML comments, document level
-    [...element.childNodes]
-      .filter(child => child.nodeType === dom.window.Node.COMMENT_NODE)
-      .forEach(child => child.remove());
-
-    // Find any attributes that end in "px" and remove the "px", since they are not needed in SVG and just take up space. Only do this for attributes that are actually numbers, to avoid accidentally changing things like "font-family: Arial, Helvetica, sans-serif" which could contain "px" in the font names.
-    [...element.attributes]
-      .filter(
-        attr =>
-          attr.value.endsWith("px") &&
-          !isNaN(parseFloat(attr.value.replace("px", "")))
-      )
-      .forEach(attr =>
-        element.setAttribute(attr.name, attr.value.replace("px", ""))
-      );
-
-    //select all elements with attributes that start with "data-" and remove them.
-    [...element.attributes]
-      .filter(attr => attr.name.startsWith("data-"))
-      .forEach(attr => element.removeAttribute(attr.name));
-  }); // End full document cleanup loop
-
   // document level Only remove ids that aren't used in the SVG
   [...document.querySelectorAll("[id]")]
     .filter(element => !svgElement.innerHTML.includes(`#${element.id}`))
@@ -228,6 +204,47 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       element.removeAttribute("style");
     });
 
+  // Full Document cleanup loop
+  [...document.querySelectorAll("*")].forEach(element => {
+    // Remove all HTML comments, document level
+    [...element.childNodes]
+      .filter(child => child.nodeType === dom.window.Node.COMMENT_NODE)
+      .forEach(child => child.remove());
+
+    const attributes = [...element.attributes];
+
+    // Find any attributes that end in "px" and remove the "px", since they are not needed in SVG and just take up space. Only do this for attributes that are actually numbers, to avoid accidentally changing things like "font-family: Arial, Helvetica, sans-serif" which could contain "px" in the font names.
+    attributes
+      .filter(
+        attr =>
+          attr.value.endsWith("px") &&
+          !isNaN(parseFloat(attr.value.replace("px", "")))
+      )
+      .forEach(attr =>
+        element.setAttribute(attr.name, attr.value.replace("px", ""))
+      );
+
+    //Convert RGB colors to hex
+    attributes
+      .filter(attr => attr.value.match(/rgb\(/))
+      .forEach(attr =>
+        element.setAttribute(
+          attr.name,
+          `#${attr.value
+            .replace(/rgb\(/, "")
+            .replace(/\)/, "")
+            .split(",")
+            .map(x => parseInt(x, 10).toString(16).padStart(2, "0"))
+            .join("")}`
+        )
+      );
+
+    //select all elements with attributes that start with "data-" and remove them.
+    attributes
+      .filter(attr => attr.name.startsWith("data-"))
+      .forEach(attr => element.removeAttributeNode(attr));
+  }); // End full document cleanup loop
+
   // Remove "isolation" attributes if no mix-blend-mode is used in the SVG, since "isolation" only affects elements with mix-blend-mode
   if (!svgElement.querySelector("[mix-blend-mode]"))
     svgElement
@@ -241,7 +258,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       .forEach(element => element.removeAttribute("stroke-miterlimit"));
 
   // re-id everything
-  if (shortenIds) {
+  if (shortenIds)
     svgElement
       .querySelectorAll("defs > linearGradient[id]")
       .forEach((element, i) => {
@@ -253,24 +270,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
         element.id = newId;
       });
-  }
-
-  //Convert RGB colors to hex
-  [...svgElement.querySelectorAll("*")].forEach(element =>
-    [...element.attributes]
-      .filter(attr => attr.value.match(/rgb\(/))
-      .forEach(attr =>
-        element.setAttribute(
-          attr.name,
-          `#${attr.value
-            .replace(/rgb\(/, "")
-            .replace(/\)/, "")
-            .split(",")
-            .map(x => parseInt(x, 10).toString(16).padStart(2, "0"))
-            .join("")}`
-        )
-      )
-  );
 
   //Convert polygons to paths
   [...svgElement.querySelectorAll("polygon")].forEach(polygonElement => {
@@ -286,11 +285,9 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     );
 
     pathElement.setAttribute("d", `${d}Z`);
-    [...polygonElement.attributes].forEach(attr => {
-      if (elementHasAttribute("path", attr.name)) {
-        pathElement.setAttribute(attr.name, attr.value);
-      }
-    });
+    [...polygonElement.attributes]
+      .filter(attr => elementHasAttribute("path", attr.name))
+      .forEach(attr => pathElement.setAttribute(attr.name, attr.value));
 
     polygonElement.parentElement?.insertBefore(pathElement, polygonElement);
     polygonElement.remove();
@@ -307,11 +304,9 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
         "d",
         `M${lineElement.getAttribute("x1")} ${lineElement.getAttribute("y1")}L${lineElement.getAttribute("x2")} ${lineElement.getAttribute("y2")}`
       );
-      [...lineElement.attributes].forEach(attr => {
-        if (elementHasAttribute("path", attr.name)) {
-          pathElement.setAttribute(attr.name, attr.value);
-        }
-      });
+      [...lineElement.attributes]
+        .filter(attr => elementHasAttribute("path", attr.name))
+        .forEach(attr => pathElement.setAttribute(attr.name, attr.value));
 
       lineElement.parentElement?.insertBefore(pathElement, lineElement);
       lineElement.remove();
@@ -349,11 +344,9 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
           `M${rectX} ${rectY}h${rectWidth}v${rectHeight}H${rectX}Z`
         );
 
-        [...rectElement.attributes].forEach(attr => {
-          if (elementHasAttribute("path", attr.name)) {
-            pathElement.setAttribute(attr.name, attr.value);
-          }
-        });
+        [...rectElement.attributes]
+          .filter(attr => elementHasAttribute("path", attr.name))
+          .forEach(attr => pathElement.setAttribute(attr.name, attr.value));
 
         rectElement.parentElement?.insertBefore(pathElement, rectElement);
         rectElement.remove();
@@ -440,11 +433,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       if (y !== 0) element.setAttribute("y", y.toString());
 
       const newTransform = transform.replace(match[0], "").trim();
-      if (newTransform.length === 0) {
-        element.removeAttribute("transform");
-      } else {
-        element.setAttribute("transform", newTransform);
-      }
+      if (newTransform.length === 0) element.removeAttribute("transform");
+      else element.setAttribute("transform", newTransform);
     });
 
   // Scale CIRCLE and RECT elements to attempt to remove decimal points and apply a scale transform
