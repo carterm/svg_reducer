@@ -136,21 +136,40 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
         .forEach(stopElement => stopElement.removeAttribute("offset"));
     });
 
-  //find "USE" elements and replace them with the actual content
-  svgElement.querySelectorAll("use").forEach(useElement => {
-    const href = useElement.getAttribute("xlink:href");
-    if (href) {
-      const targetElement = svgElement.querySelector(href);
-      if (targetElement) {
-        const prt = useElement.parentElement;
-        if (prt) {
-          prt.insertBefore(targetElement, useElement);
-          useElement.remove();
-          targetElement.removeAttribute("id");
+  //find "USE" elements that are used once and not transformed and replace them with the actual content
+  [
+    .../** @type {NodeListOf<SVGUseElement>} */ (
+      svgElement.querySelectorAll("use")
+    )
+  ]
+    .filter(
+      useElement =>
+        (useElement.getAttribute("x") || "0") === "0" &&
+        (useElement.getAttribute("y") || "0") === "0"
+    )
+    .forEach(useElement => {
+      const href =
+        useElement.getAttribute("xlink:href") ||
+        useElement.getAttribute("href");
+      if (href) {
+        // Remove the DEF Element if Make sure this HREF is only used once.
+        if (
+          svgElement.querySelectorAll(
+            `use[href='${href}'], use[xlink\\:href='${href}']`
+          ).length === 1
+        ) {
+          const defElement = svgElement.querySelector(href);
+          if (defElement) {
+            const prt = useElement.parentElement;
+            if (prt) {
+              prt.insertBefore(defElement, useElement);
+              useElement.remove();
+              defElement.removeAttribute("id");
+            }
+          }
         }
       }
-    }
-  }); // End USE loop
+    }); // End USE loop
 
   svgElement.removeAttribute("data-name");
   ["x", "y"].forEach(attr => {
