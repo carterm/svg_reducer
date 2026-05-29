@@ -126,25 +126,23 @@
       <path d="M522 337c-5 0-10-3-11-9v-3c-2-6 2-12 8-13c6-1 12 2 13 8v3c2 6-2 12-8 13h-2z" />
       <path d="M402 311c-2 0-5 0-6-2-6-5-20-12-38-12s-25 5-32 10c-5 3-12 2-15-3s-2-12 3-15c9-6 24-13 43-13s42 10 51 16c5 4 6 10 2 15-2 3-5 5-9 5h1z" />
       <path d="M363 345h-5c-6 0-11-5-11-11s5-11 11-11h5c6 0 11 5 11 11s-5 11-11 11z" />
-    </g>
-    <g fill="#fbae18" transform="scale(.1)">
-      <path d="M270 346c3-3 6-6 10-9c5-4 12-4 16 0l50 50s12 5 16 0l128-128c5-5 12-5 16 0c4 4 8 8 12 11c5 5 5 12 0 16l-154 154c-5 5-12 5-16 0l-78-78c-5-5-5-12 0-16z" />
-      <path d="M356 449c-4 0-9-2-12-5l-78-78c-3-3-5-8-5-12s2-9 5-12l10-9c7-6 17-6 24 0l50 50c2 2 6 2 8 0l128-128c3-3 8-5 12-5s9 2 12 5l12 11c7 7 7 17 0 24l-154 154c-3 3-8 5-12 5zm-69-110c-1 0-3 0-4 2l-10 9c-1 0-2 3-2 4s0 3 2 4l78 78c2 2 6 2 8 0l154-154c2-2 2-6 0-8l-12-11c-2-2-6-2-8 0l-128 128c-3 3-8 5-12 5s-9-2-12-5l-50-50c-1 0-3-2-4-2z" />
+      <g fill="#fbae18">
+        <path d="M270 346c3-3 6-6 10-9c5-4 12-4 16 0l50 50s12 5 16 0l128-128c5-5 12-5 16 0c4 4 8 8 12 11c5 5 5 12 0 16l-154 154c-5 5-12 5-16 0l-78-78c-5-5-5-12 0-16z" />
+        <path d="M356 449c-4 0-9-2-12-5l-78-78c-3-3-5-8-5-12s2-9 5-12l10-9c7-6 17-6 24 0l50 50c2 2 6 2 8 0l128-128c3-3 8-5 12-5s9 2 12 5l12 11c7 7 7 17 0 24l-154 154c-3 3-8 5-12 5zm-69-110c-1 0-3 0-4 2l-10 9c-1 0-2 3-2 4s0 3 2 4l78 78c2 2 6 2 8 0l154-154c2-2 2-6 0-8l-12-11c-2-2-6-2-8 0l-128 128c-3 3-8 5-12 5s-9-2-12-5l-50-50c-1 0-3-2-4-2z" />
+      </g>
     </g>
   </g>
   <g transform="scale(.1)">
     <path d="M681 4347c71 0 131-65 131-142s-58-145-131-146c-74 0-132 62-132 144s57 144 132 144z" />
     <path d="M1129 4543c-18-23-51-26-72-7l-63 56-14 13c-28-54-22-51-77-152-26-48-68-71-122-70-67 2-134 2-200 0-45-1-83 16-108 53-22 31-41 66-52 103-37 121-40 247-33 374c0 10 3 20 4 29c4 32 24 55 48 51c29-5 44-23 44-56c0-87 0-173 6-260c2-41 15-81 23-121c3 0 7 2 10 2v937c0 45 29 73 71 73s75-32 75-86v-564c34-8 27 17 27 33v535c0 54 29 83 77 82c42 0 69-34 69-88v-922c2 0 5-1 7-2c5 16 8 20 22 53c35 84 16 24 42 101c2 6 5 13 10 19c18 23 45 11 67-8l10-9l120-107c22-20 21-45 12-62h-3z" />
-  </g>
-  <g stroke="#000" stroke-width="10" transform="scale(.1)">
-    <g fill="#fff">
-      <path d="M2658 1589h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-      <path d="M2612 1538h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+    <g stroke="#000" stroke-width="10">
+      <g fill="#fff">
+        <path d="M2658 1589h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+        <path d="M2612 1538h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      </g>
+      <path d="M2309 1478c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
+      <path fill="#fff" d="M2566 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
     </g>
-    <path d="M2309 1478c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
-    <path fill="#fff" d="M2566 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-  </g>
-  <g transform="scale(.1)">
     <circle cx="2105" cy="1594" r="26" />
     <path d="M2105 1541c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
     <circle cx="2105" cy="1772" r="26" />
@@ -153,20 +151,18 @@
     <path d="M2265 1599h111v18h-111z" />
     <path d="M2265 1759h234v18h-234z" />
     <path d="M2265 1791h111v18h-111z" />
-  </g>
-  <g stroke="#000" stroke-width="10" transform="scale(.1)">
-    <g stroke-width="20" fill="none">
-      <path d="M2181 1589l21 21l40-40" />
-      <path d="M2181 1783l21 21l40-40" />
+    <g stroke="#000" stroke-width="10">
+      <g stroke-width="20" fill="none">
+        <path d="M2181 1589l21 21l40-40" />
+        <path d="M2181 1783l21 21l40-40" />
+      </g>
+      <g fill="#fff">
+        <path d="M3502 1589h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+        <path d="M3456 1538h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      </g>
+      <path d="M3153 1478c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
+      <path fill="#fff" d="M3410 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
     </g>
-    <g fill="#fff">
-      <path d="M3502 1589h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-      <path d="M3456 1538h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-    </g>
-    <path d="M3153 1478c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
-    <path fill="#fff" d="M3410 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-  </g>
-  <g transform="scale(.1)">
     <circle cx="2950" cy="1594" r="26" />
     <path d="M2950 1541c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm41 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
     <circle cx="2950" cy="1772" r="26" />
@@ -175,20 +171,18 @@
     <path d="M3110 1599h111v18h-111z" />
     <path d="M3110 1759h234v18h-234z" />
     <path d="M3110 1791h111v18h-111z" />
-  </g>
-  <g stroke="#000" stroke-width="10" transform="scale(.1)">
-    <g stroke-width="20" fill="none">
-      <path d="M3026 1589l21 21l40-40" />
-      <path d="M3026 1783l21 21l40-40" />
+    <g stroke="#000" stroke-width="10">
+      <g stroke-width="20" fill="none">
+        <path d="M3026 1589l21 21l40-40" />
+        <path d="M3026 1783l21 21l40-40" />
+      </g>
+      <g fill="#fff">
+        <path d="M4420 1342h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+        <path d="M4375 1291h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      </g>
+      <path d="M4072 1231c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
+      <path fill="#fff" d="M4329 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
     </g>
-    <g fill="#fff">
-      <path d="M4420 1342h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-      <path d="M4375 1291h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-    </g>
-    <path d="M4072 1231c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
-    <path fill="#fff" d="M4329 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-  </g>
-  <g transform="scale(.1)">
     <circle cx="3868" cy="1347" r="26" />
     <path d="M3868 1294c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
     <circle cx="3868" cy="1525" r="26" />
@@ -205,16 +199,14 @@
     <path d="M3948 1543h44v18h-44z" />
     <path d="M4229 1511h92v18h-92z" />
     <path d="M4229 1543h44v18h-44z" />
-  </g>
-  <g stroke="#000" stroke-width="10" transform="scale(.1)">
-    <g fill="#fff">
-      <path d="M5236 1342h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-      <path d="M5190 1291h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+    <g stroke="#000" stroke-width="10">
+      <g fill="#fff">
+        <path d="M5236 1342h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+        <path d="M5190 1291h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      </g>
+      <path d="M4887 1231c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
+      <path fill="#fff" d="M5144 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
     </g>
-    <path d="M4887 1231c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
-    <path fill="#fff" d="M5144 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-  </g>
-  <g transform="scale(.1)">
     <circle cx="4683" cy="1347" r="26" />
     <path d="M4683 1294c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
     <circle cx="4683" cy="1525" r="26" />
@@ -231,32 +223,30 @@
     <path d="M4764 1543h44v18h-44z" />
     <path d="M5044 1511h92v18h-92z" />
     <path d="M5044 1543h44v18h-44z" />
-  </g>
-  <g stroke="#000" stroke-width="10" transform="scale(.1)">
-    <path d="M1504 4760h-426c-25 0-45 20-45 45v29h515v-30c0-24-20-44-44-44z" />
-    <path fill="#fbae18" d="M1033 4834v951c0 33 27 60 60 60h396c33 0 60-27 60-60v-951h-516z" />
-    <circle cx="1290" cy="5750" r="46" fill="none" />
+    <g stroke="#000" stroke-width="10">
+      <path d="M1504 4760h-426c-25 0-45 20-45 45v29h515v-30c0-24-20-44-44-44z" />
+      <path fill="#fbae18" d="M1033 4834v951c0 33 27 60 60 60h396c33 0 60-27 60-60v-951h-516z" />
+      <circle cx="1290" cy="5750" r="46" fill="none" />
+    </g>
   </g>
   <g fill="#fff">
     <g transform="scale(.1)">
       <circle cx="1179" cy="4797" r="17" />
       <path d="M1231 4779h169c10 0 17 8 17 17c0 10-8 17-17 17h-169c-10 0-17-8-17-17c0-10 8-17 17-17z" />
-    </g>
-    <g stroke="#fbae18" stroke-width="10" fill="#0e3a5e" transform="scale(.1)">
-      <rect x="1073" y="5236" width="435" height="265" rx="38" ry="38" />
-      <rect x="1073" y="5289" width="435" height="265" rx="38" ry="38" />
-      <rect x="1073" y="5340" width="435" height="265" rx="38" ry="38" />
-    </g>
-    <g transform="scale(.1)">
+      <g stroke="#fbae18" stroke-width="10" fill="#0e3a5e">
+        <rect x="1073" y="5236" width="435" height="265" rx="38" ry="38" />
+        <rect x="1073" y="5289" width="435" height="265" rx="38" ry="38" />
+        <rect x="1073" y="5340" width="435" height="265" rx="38" ry="38" />
+      </g>
       <path d="M1290 5412c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
       <circle cx="1290" cy="5454" r="42" />
       <path d="M1290 5370c-57 0-102 46-102 102s14 59 36 77c18 15 41 25 67 25s49-10 67-25c22-19 36-47 36-77c0-57-46-102-102-102h-2zm67 170c-2-21-21-38-42-38h-49c-22 0-40 17-42 38-17-17-28-41-28-67c0-52 42-95 95-95s95 42 95 95s-11 50-28 67h-1z" />
-    </g>
-    <g fill="#0e3a5e" font-size="129" font-weight="700" transform="scale(.1)">
-      <text x="1092" y="4978">Mobile</text>
-      <text x="1092" y="5133">Wallet</text>
-      <path fill="none" stroke-width="30" stroke="#58595b" d="M679 3407v-435" />
-      <path fill="#58595b" d="M679 2866l61 149-61-35-61 35l61-149z" />
+      <g fill="#0e3a5e" font-size="129" font-weight="700">
+        <text x="1092" y="4978">Mobile</text>
+        <text x="1092" y="5133">Wallet</text>
+        <path fill="none" stroke-width="30" stroke="#58595b" d="M679 3407v-435" />
+        <path fill="#58595b" d="M679 2866l61 149-61-35-61 35l61-149z" />
+      </g>
     </g>
   </g>
   <g stroke="#58595b" stroke-width="30">
@@ -273,12 +263,12 @@
       <path d="M3258 1369v114" />
       <path d="M4111 1045v195" />
       <path d="M4973 1045v195" />
-    </g>
-    <g stroke-linecap="square" fill="none" transform="scale(.1)">
-      <path d="M679 1045h3542" />
-      <path d="M1055 1369h1470" />
-      <path d="M4581 1045h390" />
-      <rect x="5457" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
+      <g stroke-linecap="square">
+        <path d="M679 1045h3542" />
+        <path d="M1055 1369h1470" />
+        <path d="M4581 1045h390" />
+        <rect x="5457" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
+      </g>
     </g>
   </g>
   <g transform="scale(.1)">
@@ -295,16 +285,14 @@
     <path d="M5836 3563h23v129h-23z" />
     <path d="M5882 3563h23v129h-23z" />
     <path d="M5649 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
-  </g>
-  <g fill="none" transform="scale(.1)">
-    <path stroke-width="30" stroke="#58595b" d="M5781 2662v385" />
-    <path fill="#58595b" d="M5781 3153l-61-150l61 36l61-36-61 150z" />
-    <path stroke-width="30" stroke="#1c75bc" d="M5781 3812v291" />
-    <text font-weight="700" fill="#231f20" font-size="130" x="5665" y="3287">FTB</text>
-    <path stroke-width="30" stroke="#1c75bc" d="M3325 5104v149" />
-    <rect x="3000" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
-  </g>
-  <g transform="scale(.1)">
+    <g fill="none">
+      <path stroke-width="30" stroke="#58595b" d="M5781 2662v385" />
+      <path fill="#58595b" d="M5781 3153l-61-150l61 36l61-36-61 150z" />
+      <path stroke-width="30" stroke="#1c75bc" d="M5781 3812v291" />
+      <text font-weight="700" fill="#231f20" font-size="130" x="5665" y="3287">FTB</text>
+      <path stroke-width="30" stroke="#1c75bc" d="M3325 5104v149" />
+      <rect x="3000" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
+    </g>
     <circle cx="3164" cy="3403" r="23" />
     <circle cx="3107" cy="3403" r="23" />
     <circle cx="3049" cy="3403" r="23" />
@@ -325,20 +313,20 @@
       <path d="M3335 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
       <circle cx="3335" cy="4602" r="42" />
       <path d="M3335 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
-    </g>
-    <g fill="none" transform="scale(.1)">
-      <path stroke-width="30" stroke="#58595b" d="M3325 2662v385" />
-      <path fill="#58595b" d="M3325 3152l-61-149l61 36l61-36-61 149z" />
-      <path stroke-width="30" stroke="#1c75bc" d="M3325 3806v518" />
-      <path fill="#1c75bc" d="M3325 4430l-61-149l61 35l61-35-61 149z" />
-      <g fill="#231f20" font-size="130" font-weight="700">
-        <text x="3153" y="3287">CDPH</text>
-        <text x="3085" y="4907">Vaccine</text>
-        <text x="3121" y="5062">Record</text>
-        <text font-size="158" x="460" y="5750">J. Doe</text>
+      <g fill="none">
+        <path stroke-width="30" stroke="#58595b" d="M3325 2662v385" />
+        <path fill="#58595b" d="M3325 3152l-61-149l61 36l61-36-61 149z" />
+        <path stroke-width="30" stroke="#1c75bc" d="M3325 3806v518" />
+        <path fill="#1c75bc" d="M3325 4430l-61-149l61 35l61-35-61 149z" />
+        <g fill="#231f20" font-size="130" font-weight="700">
+          <text x="3153" y="3287">CDPH</text>
+          <text x="3085" y="4907">Vaccine</text>
+          <text x="3121" y="5062">Record</text>
+          <text font-size="158" x="460" y="5750">J. Doe</text>
+        </g>
+        <path stroke-width="30" stroke="#1c75bc" d="M4143 5104v149" />
+        <rect x="3819" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
       </g>
-      <path stroke-width="30" stroke="#1c75bc" d="M4143 5104v149" />
-      <rect x="3819" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
     </g>
   </g>
   <g transform="scale(.1)">
@@ -362,20 +350,20 @@
       <path d="M4143 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
       <circle cx="4143" cy="4602" r="42" />
       <path d="M4143 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
-    </g>
-    <g fill="none" transform="scale(.1)">
-      <path stroke-width="30" stroke="#58595b" d="M4143 2662v231" />
-      <path fill="#58595b" d="M4143 2999l-61-149l61 35l61-35-61 149z" />
-      <path stroke-width="30" stroke="#1c75bc" d="M4143 3806v519" />
-      <path fill="#1c75bc" d="M4143 4430l-61-149l61 36l61-36-61 149z" />
-      <g fill="#231f20" font-size="130" font-weight="700">
-        <text x="3717" y="3131">State Board of</text>
-        <text x="3746" y="3287">Cosmetology</text>
-        <text x="3747" y="4907">Cosmetology</text>
-        <text x="3912" y="5062">License</text>
+      <g fill="none">
+        <path stroke-width="30" stroke="#58595b" d="M4143 2662v231" />
+        <path fill="#58595b" d="M4143 2999l-61-149l61 35l61-35-61 149z" />
+        <path stroke-width="30" stroke="#1c75bc" d="M4143 3806v519" />
+        <path fill="#1c75bc" d="M4143 4430l-61-149l61 36l61-36-61 149z" />
+        <g fill="#231f20" font-size="130" font-weight="700">
+          <text x="3717" y="3131">State Board of</text>
+          <text x="3746" y="3287">Cosmetology</text>
+          <text x="3747" y="4907">Cosmetology</text>
+          <text x="3912" y="5062">License</text>
+        </g>
+        <path stroke-width="30" stroke="#1c75bc" d="M4962 4962v291" />
+        <rect x="4638" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
       </g>
-      <path stroke-width="30" stroke="#1c75bc" d="M4962 4962v291" />
-      <rect x="4638" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
     </g>
   </g>
   <g transform="scale(.1)">
@@ -399,18 +387,18 @@
       <path d="M4962 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
       <circle cx="4962" cy="4602" r="42" />
       <path d="M4962 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
-    </g>
-    <g fill="none" transform="scale(.1)">
-      <path stroke-width="30" stroke="#58595b" d="M4962 2662v385" />
-      <path fill="#58595b" d="M4962 3153l-61-150l61 36l61-36-61 150z" />
-      <path stroke-width="30" stroke="#1c75bc" d="M4962 3806v519" />
-      <path fill="#1c75bc" d="M4962 4430l-61-149l61 36l61-36-61 149z" />
-      <g fill="#231f20" font-size="130" font-weight="700">
-        <text x="4813" y="3287">DMV</text>
-        <text x="4823" y="4907">mDL</text>
+      <g fill="none">
+        <path stroke-width="30" stroke="#58595b" d="M4962 2662v385" />
+        <path fill="#58595b" d="M4962 3153l-61-150l61 36l61-36-61 150z" />
+        <path stroke-width="30" stroke="#1c75bc" d="M4962 3806v519" />
+        <path fill="#1c75bc" d="M4962 4430l-61-149l61 36l61-36-61 149z" />
+        <g fill="#231f20" font-size="130" font-weight="700">
+          <text x="4813" y="3287">DMV</text>
+          <text x="4823" y="4907">mDL</text>
+        </g>
+        <path stroke-width="30" stroke="#1c75bc" d="M6599 4962v291" />
+        <rect x="6275" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
       </g>
-      <path stroke-width="30" stroke="#1c75bc" d="M6599 4962v291" />
-      <rect x="6275" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
     </g>
   </g>
   <g transform="scale(.1)">
@@ -441,12 +429,12 @@
         <path fill="#58595b" d="M6599 3153l-61-150l61 36l61-36-61 150z" />
         <path stroke-width="30" stroke="#1c75bc" d="M6599 3806v519" />
         <path fill="#1c75bc" d="M6599 4430l-61-149l61 36l61-36-61 149z" />
+        <g fill="#231f20" font-size="130" font-weight="700">
+          <text x="6258" y="3287">State Parks</text>
+          <text x="6240" y="4907">Parks Pass</text>
+        </g>
+        <rect x="7094" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
       </g>
-      <g fill="#231f20" font-size="130" font-weight="700" transform="scale(.1)">
-        <text x="6258" y="3287">State Parks</text>
-        <text x="6240" y="4907">Parks Pass</text>
-      </g>
-      <rect x="7094" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
     </g>
   </g>
   <g transform="scale(.1)">
@@ -480,11 +468,11 @@
         <path stroke-width="30" stroke="#1c75bc" d="M7418 4960v291" />
       </g>
       <g fill="#58595b" font-size="100">
-        <g fill="#231f20" font-size="130" font-weight="700" transform="scale(.1)">
-          <text x="7142" y="3287">Agency X</text>
-          <text x="6999" y="4907">Credential X</text>
-        </g>
         <g font-weight="700">
+          <g fill="#231f20" font-size="130" transform="scale(.1)">
+            <text x="7142" y="3287">Agency X</text>
+            <text x="6999" y="4907">Credential X</text>
+          </g>
           <text font-size="10" x="311" y="540">Digital Credentials</text>
           <g transform="scale(.1)">
             <text x="1093" y="4218">Services &amp; Benefits</text>
@@ -497,14 +485,14 @@
             <text x="733" y="1164">Raw ID Data</text>
             <text x="1106" y="1483">Raw Eligibility</text>
             <text x="1106" y="1603">Data</text>
+            <g fill="#231f20" font-size="130">
+              <text x="3764" y="1942">Login.Gov</text>
+              <text x="2150" y="2189">Calfresh</text>
+              <text x="3000" y="2167">Eligibility</text>
+              <text x="2968" y="2322">Provider X</text>
+              <text x="4572" y="1942">ID Provider X</text>
+            </g>
           </g>
-        </g>
-        <g fill="#231f20" font-size="130" font-weight="700" transform="scale(.1)">
-          <text x="3764" y="1942">Login.Gov</text>
-          <text x="2150" y="2189">Calfresh</text>
-          <text x="3000" y="2167">Eligibility</text>
-          <text x="2968" y="2322">Provider X</text>
-          <text x="4572" y="1942">ID Provider X</text>
         </g>
       </g>
     </g>
@@ -515,11 +503,11 @@
       <path d="M4443 1045h37" />
       <path d="M6889 2662h37" />
       <path d="M7007 2662h37" />
-    </g>
-    <g stroke="#1c75bc" stroke-width="30" stroke-linecap="square" fill="none" transform="scale(.1)">
-      <path d="M6889 4097h37" />
-      <path d="M7007 4097h37" />
-      <path d="M1691 5253h5103" />
+      <g stroke="#1c75bc">
+        <path d="M6889 4097h37" />
+        <path d="M7007 4097h37" />
+        <path d="M1691 5253h5103" />
+      </g>
     </g>
   </g>
   <g fill="#1c75bc">
@@ -603,23 +591,21 @@
             <text x="6334" y="1858">verification sequence</text>
             <text x="7178" y="1457">Services &amp;</text>
             <text x="7178" y="1556">Benefits</text>
-          </g>
-          <g font-size="55" font-weight="700" transform="scale(.1)">
-            <text x="6786" y="589">Included associated functions,</text>
-            <text x="6786" y="655">policies, and digital artifacts</text>
-            <text x="6786" y="721">developed or managed by CDT</text>
-            <text x="6204" y="589">Seeking services or</text>
-            <text x="6204" y="655">benefits from state</text>
-            <text x="6204" y="721">agencies in CA</text>
-          </g>
-          <g font-weight="700" transform="scale(.1)">
+            <g font-size="55">
+              <text x="6786" y="589">Included associated functions,</text>
+              <text x="6786" y="655">policies, and digital artifacts</text>
+              <text x="6786" y="721">developed or managed by CDT</text>
+              <text x="6204" y="589">Seeking services or</text>
+              <text x="6204" y="655">benefits from state</text>
+              <text x="6204" y="721">agencies in CA</text>
+            </g>
             <text x="6242" y="918">State Entity</text>
             <text font-size="55" x="6242" y="984">Website / API / App</text>
             <text x="7008" y="1152">Eligibility Provider</text>
-          </g>
-          <g font-size="55" font-weight="700" transform="scale(.1)">
-            <text x="7008" y="1218">Verifies attributes or</text>
-            <text x="7008" y="1284">enrollment in programs</text>
+            <g font-size="55">
+              <text x="7008" y="1218">Verifies attributes or</text>
+              <text x="7008" y="1284">enrollment in programs</text>
+            </g>
           </g>
         </g>
       </g>

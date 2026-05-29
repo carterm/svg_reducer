@@ -538,31 +538,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   const groupAttributes = () => {
     let didSomething = false;
 
-    /**
-     * Get all ancestor elements of a given element.
-     * @param {Element} element
-     */
-    const getAncestors = element => {
-      const ancestors = [];
-      let current = element.parentElement;
-      while (current) {
-        ancestors.push(current);
-        current = current.parentElement;
-      }
-      return ancestors;
-    };
-
-    /**
-     * Returns the closest ancestor attribute value for a given attribute, searching up the ancestor chain.
-     * @param {Element[]} ancestors
-     * @param {string} attr
-     */
-    const getAncestorAttributeValue = (ancestors, attr) => {
-      for (const ancestor of ancestors)
-        if (ancestor.hasAttribute(attr))
-          return ancestor.getAttribute(attr) || "";
-    };
-
     const tempGroupAttributes = [
       "font-family",
       "stroke",
@@ -594,10 +569,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
         );
 
         if (allMatches.length <= 1) return;
-
-        console.log(
-          `Grouping ${allMatches.length} elements with [${attr}="${value}"]`
-        );
 
         allMatches.forEach(myElement => {
           const myParent = myElement.parentElement;
@@ -986,7 +957,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     //   pushSingleChildGroupsDown() ||
     //   extractCommonAttributesToGs() ||
     //   removeGroupsWithNoAttributes() ||
-    //   pullSiblingsIntoGroup() ||
+    pullSiblingsIntoGroup() ||
     applyScaleToViewBox()
   ) {
     //console.log("extractCommonAttributesToGs");
