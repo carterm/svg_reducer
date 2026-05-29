@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 792 612" stroke="none" fill="#000" stroke-width="1" font-family="Arial-BoldMT, Arial">
-  <g fill="#0e3a5e">
-    <text font-weight="700" font-size="89" x="6667" y="5707" transform="scale(.1)">California Department of</text>
-    <text x="6667" y="5894" font-weight="700" font-size="202" transform="scale(.1)">Technology</text>
+  <g fill="#0e3a5e" font-weight="700">
+    <text font-size="89" x="6667" y="5707" transform="scale(.1)">California Department of</text>
+    <text x="6667" y="5894" font-size="202" transform="scale(.1)">Technology</text>
     <rect x="6274" y="5613" width="323" height="323" rx="28" ry="28" transform="scale(.1)" />
     <circle cx="6435" cy="5775" r="142" fill="#fff" transform="scale(.1)" />
     <path transform="scale(.1)" d="M6390 5715h50v45h-50z" />
@@ -236,9 +236,9 @@
     <path transform="scale(.1)" d="M1290 5412c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
     <circle cx="1290" cy="5454" r="42" transform="scale(.1)" />
     <path transform="scale(.1)" d="M1290 5370c-57 0-102 46-102 102s14 59 36 77c18 15 41 25 67 25s49-10 67-25c22-19 36-47 36-77c0-57-46-102-102-102h-2zm67 170c-2-21-21-38-42-38h-49c-22 0-40 17-42 38-17-17-28-41-28-67c0-52 42-95 95-95s95 42 95 95s-11 50-28 67h-1z" />
-    <g fill="#0e3a5e">
-      <text font-weight="700" font-size="129" x="1092" y="4978" transform="scale(.1)">Mobile</text>
-      <text font-weight="700" font-size="129" x="1092" y="5133" transform="scale(.1)">Wallet</text>
+    <g fill="#0e3a5e" font-weight="700">
+      <text font-size="129" x="1092" y="4978" transform="scale(.1)">Mobile</text>
+      <text font-size="129" x="1092" y="5133" transform="scale(.1)">Wallet</text>
       <path fill="none" stroke-width="30" stroke="#58595b" transform="scale(.1)" d="M679 3407v-435" />
       <path fill="#58595b" transform="scale(.1)" d="M679 2866l61 149-61-35-61 35l61-149z" />
     </g>
@@ -303,11 +303,11 @@
       <path fill="#58595b" transform="scale(.1)" d="M3325 3152l-61-149l61 36l61-36-61 149z" />
       <path stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M3325 3806v518" />
       <path fill="#1c75bc" transform="scale(.1)" d="M3325 4430l-61-149l61 35l61-35-61 149z" />
-      <g fill="#231f20">
-        <text font-weight="700" font-size="130" x="3153" y="3287" transform="scale(.1)">CDPH</text>
-        <text font-weight="700" font-size="130" x="3085" y="4907" transform="scale(.1)">Vaccine</text>
-        <text font-weight="700" font-size="130" x="3121" y="5062" transform="scale(.1)">Record</text>
-        <text font-weight="700" font-size="158" x="460" y="5750" transform="scale(.1)">J. Doe</text>
+      <g fill="#231f20" font-weight="700">
+        <text font-size="130" x="3153" y="3287" transform="scale(.1)">CDPH</text>
+        <text font-size="130" x="3085" y="4907" transform="scale(.1)">Vaccine</text>
+        <text font-size="130" x="3121" y="5062" transform="scale(.1)">Record</text>
+        <text font-size="158" x="460" y="5750" transform="scale(.1)">J. Doe</text>
       </g>
       <path stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M4143 5104v149" />
       <rect x="3819" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
@@ -336,11 +336,11 @@
       <path fill="#58595b" transform="scale(.1)" d="M4143 2999l-61-149l61 35l61-35-61 149z" />
       <path stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M4143 3806v519" />
       <path fill="#1c75bc" transform="scale(.1)" d="M4143 4430l-61-149l61 36l61-36-61 149z" />
-      <g fill="#231f20">
-        <text font-weight="700" font-size="130" x="3717" y="3131" transform="scale(.1)">State Board of</text>
-        <text font-weight="700" font-size="130" x="3746" y="3287" transform="scale(.1)">Cosmetology</text>
-        <text font-weight="700" font-size="130" x="3747" y="4907" transform="scale(.1)">Cosmetology</text>
-        <text font-weight="700" font-size="130" x="3912" y="5062" transform="scale(.1)">License</text>
+      <g fill="#231f20" font-weight="700">
+        <text font-size="130" x="3717" y="3131" transform="scale(.1)">State Board of</text>
+        <text font-size="130" x="3746" y="3287" transform="scale(.1)">Cosmetology</text>
+        <text font-size="130" x="3747" y="4907" transform="scale(.1)">Cosmetology</text>
+        <text font-size="130" x="3912" y="5062" transform="scale(.1)">License</text>
       </g>
       <path stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M4962 4962v291" />
       <rect x="4638" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
@@ -369,9 +369,9 @@
       <path fill="#58595b" transform="scale(.1)" d="M4962 3153l-61-150l61 36l61-36-61 150z" />
       <path stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M4962 3806v519" />
       <path fill="#1c75bc" transform="scale(.1)" d="M4962 4430l-61-149l61 36l61-36-61 149z" />
-      <g fill="#231f20">
-        <text font-weight="700" font-size="130" x="4813" y="3287" transform="scale(.1)">DMV</text>
-        <text font-weight="700" font-size="130" x="4823" y="4907" transform="scale(.1)">mDL</text>
+      <g fill="#231f20" font-weight="700">
+        <text font-size="130" x="4813" y="3287" transform="scale(.1)">DMV</text>
+        <text font-size="130" x="4823" y="4907" transform="scale(.1)">mDL</text>
       </g>
       <path stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M6599 4962v291" />
       <rect x="6275" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
@@ -400,9 +400,9 @@
       <path fill="#58595b" transform="scale(.1)" d="M6599 3153l-61-150l61 36l61-36-61 150z" />
       <path stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M6599 3806v519" />
       <path fill="#1c75bc" transform="scale(.1)" d="M6599 4430l-61-149l61 36l61-36-61 149z" />
-      <g fill="#231f20">
-        <text font-weight="700" font-size="130" x="6258" y="3287" transform="scale(.1)">State Parks</text>
-        <text font-weight="700" font-size="130" x="6240" y="4907" transform="scale(.1)">Parks Pass</text>
+      <g fill="#231f20" font-weight="700">
+        <text font-size="130" x="6258" y="3287" transform="scale(.1)">State Parks</text>
+        <text font-size="130" x="6240" y="4907" transform="scale(.1)">Parks Pass</text>
       </g>
       <rect x="7094" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
     </g>
@@ -432,27 +432,29 @@
       <path fill="#1c75bc" transform="scale(.1)" d="M7418 4430l-61-149l61 36l61-36-61 149z" />
       <path stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M7418 4960v291" />
       <g fill="#58595b">
-        <g fill="#231f20">
-          <text font-weight="700" font-size="130" x="7142" y="3287" transform="scale(.1)">Agency X</text>
-          <text font-weight="700" font-size="130" x="6999" y="4907" transform="scale(.1)">Credential X</text>
+        <g fill="#231f20" font-weight="700">
+          <text font-size="130" x="7142" y="3287" transform="scale(.1)">Agency X</text>
+          <text font-size="130" x="6999" y="4907" transform="scale(.1)">Credential X</text>
         </g>
-        <text font-weight="700" font-size="10" x="311" y="540">Digital Credentials</text>
-        <text font-weight="700" font-size="100" x="1093" y="4218" transform="scale(.1)">Services &amp; Benefits</text>
-        <text font-weight="700" font-size="100" x="880" y="3662" transform="scale(.1)">Application for Services,</text>
-        <text font-weight="700" font-size="100" x="880" y="3782" transform="scale(.1)">Benefits, or Credentials</text>
-        <text font-weight="700" font-size="100" x="890" y="3215" transform="scale(.1)">Request for ID or</text>
-        <text font-weight="700" font-size="100" x="890" y="3335" transform="scale(.1)">Eligibility Data</text>
-        <text font-weight="700" font-size="100" x="2025" y="2493" transform="scale(.1)">Minimized ID &amp;</text>
-        <text font-weight="700" font-size="100" x="2025" y="2613" transform="scale(.1)">Eligibility Data</text>
-        <text font-weight="700" font-size="100" x="733" y="1164" transform="scale(.1)">Raw ID Data</text>
-        <text font-weight="700" font-size="100" x="1106" y="1483" transform="scale(.1)">Raw Eligibility</text>
-        <text font-weight="700" font-size="100" x="1106" y="1603" transform="scale(.1)">Data</text>
-        <g fill="#231f20">
-          <text font-weight="700" font-size="130" x="3764" y="1942" transform="scale(.1)">Login.Gov</text>
-          <text font-weight="700" font-size="130" x="2150" y="2189" transform="scale(.1)">Calfresh</text>
-          <text font-weight="700" font-size="130" x="3000" y="2167" transform="scale(.1)">Eligibility</text>
-          <text font-weight="700" font-size="130" x="2968" y="2322" transform="scale(.1)">Provider X</text>
-          <text font-weight="700" font-size="130" x="4572" y="1942" transform="scale(.1)">ID Provider X</text>
+        <g font-weight="700">
+          <text font-size="10" x="311" y="540">Digital Credentials</text>
+          <text font-size="100" x="1093" y="4218" transform="scale(.1)">Services &amp; Benefits</text>
+          <text font-size="100" x="880" y="3662" transform="scale(.1)">Application for Services,</text>
+          <text font-size="100" x="880" y="3782" transform="scale(.1)">Benefits, or Credentials</text>
+          <text font-size="100" x="890" y="3215" transform="scale(.1)">Request for ID or</text>
+          <text font-size="100" x="890" y="3335" transform="scale(.1)">Eligibility Data</text>
+          <text font-size="100" x="2025" y="2493" transform="scale(.1)">Minimized ID &amp;</text>
+          <text font-size="100" x="2025" y="2613" transform="scale(.1)">Eligibility Data</text>
+          <text font-size="100" x="733" y="1164" transform="scale(.1)">Raw ID Data</text>
+          <text font-size="100" x="1106" y="1483" transform="scale(.1)">Raw Eligibility</text>
+          <text font-size="100" x="1106" y="1603" transform="scale(.1)">Data</text>
+        </g>
+        <g fill="#231f20" font-weight="700">
+          <text font-size="130" x="3764" y="1942" transform="scale(.1)">Login.Gov</text>
+          <text font-size="130" x="2150" y="2189" transform="scale(.1)">Calfresh</text>
+          <text font-size="130" x="3000" y="2167" transform="scale(.1)">Eligibility</text>
+          <text font-size="130" x="2968" y="2322" transform="scale(.1)">Provider X</text>
+          <text font-size="130" x="4572" y="1942" transform="scale(.1)">ID Provider X</text>
         </g>
       </g>
     </g>
@@ -479,9 +481,11 @@
       <rect x="448" y="2382" width="1474" height="429" rx="87" ry="87" fill="#fbae18" stroke="#0e3a5e" transform="scale(.1)" stroke-width="10" />
     </g>
     <g fill="#0e3a5e">
-      <text font-weight="700" font-size="129" x="820" y="2557" transform="scale(.1)">California</text>
-      <text font-weight="700" font-size="129" x="820" y="2712" transform="scale(.1)">Identity Gateway</text>
-      <rect x="490" y="2441" width="311" height="311" rx="36" ry="36" transform="scale(.1)" />
+      <g font-weight="700">
+        <text font-size="129" x="820" y="2557" transform="scale(.1)">California</text>
+        <text font-size="129" x="820" y="2712" transform="scale(.1)">Identity Gateway</text>
+        <rect x="490" y="2441" width="311" height="311" rx="36" ry="36" transform="scale(.1)" />
+      </g>
       <g fill="#fff">
         <path transform="scale(.1)" d="M697 2597c0-5 0-11-4-14-6-5-6-11-5-17v-13c0-15-10-28-25-31-9-2-19-2-28 0-18 2-27 15-27 33v17s-2 4-3 5c-8 5-11 11-11 20v49c0 16 8 23 22 23h61c13 0 22-9 22-22v-50h-2zm-78-50c0-9 7-14 16-15c8-1 17-1 25 0c10 1 17 10 17 20v22h-57v-27zm45 55c0 10-8 18-18 18s-18-8-18-18s8-18 18-18s18 8 18 18zm-19 61c-13 0-25-6-32-15c2-14 13-24 27-24h10c14 0 26 11 27 24-8 9-19 15-32 15z" />
         <path transform="scale(.1)" d="M544 2571c6-51 49-90 101-90s95 39 101 90h16c-6-59-56-105-116-105s-110 46-116 105h15z" />
@@ -497,26 +501,26 @@
       <path stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M2981 3407h-2302" />
     </g>
     <circle cx="676" cy="3748" r="155" transform="scale(.1)" />
-    <g fill="#fff">
-      <text font-weight="700" font-size="216" x="623" y="3823" transform="scale(.1)">1</text>
+    <g fill="#fff" font-weight="700">
+      <text font-size="216" x="623" y="3823" transform="scale(.1)">1</text>
       <circle cx="677" cy="3192" r="155" fill="#1c75bc" transform="scale(.1)" />
-      <text font-weight="700" font-size="216" x="623" y="3267" transform="scale(.1)">2</text>
+      <text font-size="216" x="623" y="3267" transform="scale(.1)">2</text>
       <circle cx="664" cy="1934" r="156" fill="#1c75bc" transform="scale(.1)" />
-      <text font-weight="700" font-size="216" x="563" y="2009" transform="scale(.1)">3</text>
-      <text font-weight="700" font-size="154" x="683" y="2009" transform="scale(.1)">a</text>
+      <text font-size="216" x="563" y="2009" transform="scale(.1)">3</text>
+      <text font-size="154" x="683" y="2009" transform="scale(.1)">a</text>
       <path fill="none" stroke-width="30" stroke="#58595b" transform="scale(.1)" d="M1055 1369v845" />
       <path fill="#58595b" transform="scale(.1)" d="M1055 2319l-61-149l61 36l61-36-61 149z" />
       <circle cx="1044" cy="1934" r="156" fill="#1c75bc" transform="scale(.1)" />
-      <text font-weight="700" font-size="216" x="942" y="2009" transform="scale(.1)">3</text>
-      <text font-weight="700" font-size="154" x="1062" y="2009" transform="scale(.1)">b</text>
+      <text font-size="216" x="942" y="2009" transform="scale(.1)">3</text>
+      <text font-size="154" x="1062" y="2009" transform="scale(.1)">b</text>
       <circle cx="2900" cy="2649" r="155" fill="#1c75bc" transform="scale(.1)" />
-      <text font-weight="700" font-size="216" x="2821" y="2723" transform="scale(.1)">4</text>
+      <text font-size="216" x="2821" y="2723" transform="scale(.1)">4</text>
       <circle cx="2903" cy="4097" r="155" fill="#1c75bc" transform="scale(.1)" />
-      <text font-weight="700" font-size="216" x="2807" y="4172" transform="scale(.1)">5</text>
-      <text font-weight="700" font-size="154" x="2928" y="4172" transform="scale(.1)">a</text>
+      <text font-size="216" x="2807" y="4172" transform="scale(.1)">5</text>
+      <text font-size="154" x="2928" y="4172" transform="scale(.1)">a</text>
       <circle cx="2922" cy="5253" r="155" fill="#1c75bc" transform="scale(.1)" />
-      <text font-weight="700" font-size="216" x="2826" y="5327" transform="scale(.1)">5</text>
-      <text font-weight="700" font-size="154" x="2947" y="5327" transform="scale(.1)">b</text>
+      <text font-size="216" x="2826" y="5327" transform="scale(.1)">5</text>
+      <text font-size="154" x="2947" y="5327" transform="scale(.1)">b</text>
     </g>
     <g stroke="#58595b" fill="none">
       <path stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M2868 1369h390" />
@@ -525,44 +529,46 @@
       <rect x="1938" y="4907" width="672" height="660" rx="38" ry="38" fill="#fbae18" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
     </g>
     <g fill="#0e3a5e">
-      <text font-weight="700" font-size="129" x="1973" y="5525" transform="scale(.1)">API</text>
-      <text font-weight="700" font-size="129" x="1973" y="5383" transform="scale(.1)">Issuance</text>
-      <rect x="1967" y="4938" width="310" height="310" rx="36" ry="36" transform="scale(.1)" />
+      <g font-weight="700">
+        <text font-size="129" x="1973" y="5525" transform="scale(.1)">API</text>
+        <text font-size="129" x="1973" y="5383" transform="scale(.1)">Issuance</text>
+        <rect x="1967" y="4938" width="310" height="310" rx="36" ry="36" transform="scale(.1)" />
+      </g>
       <g fill="#fff">
         <path transform="scale(.1)" d="M2212 4986h-181c-19 0-35 15-35 35v151c0 19 16 35 35 35h181c19 0 35-15 35-35v-151c0-19-16-35-35-35zm-181 12h181c12 0 21 9 23 20-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20zm205 42c-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20h181c12 0 21 9 23 20zm0 87v45c0 13-11 23-23 23h-181c-13 0-23-10-23-23v-106c0-13 11-23 23-23h181c13 0 23 10 23 23v62z" />
         <path transform="scale(.1)" d="M2162 5117c0-4-1-9-4-11-4-4-4-8-4-13v-10c0-12-8-22-19-24-7-1-15-1-22 0-14 2-21 12-21 26v13s-1 3-2 4c-6 4-9 9-9 15v38c0 12 6 18 18 18h47c10 0 17-7 17-17v-39h-1zm-61-38c0-7 6-11 12-12h19c8 1 13 8 13 16v17h-45v-21h1zm36 42c0 8-6 14-14 14s-14-6-14-14s6-14 14-14s14 6 14 14zm-15 48c-10 0-19-5-25-12c1-11 10-19 21-19h8c11 0 20 8 21 19-6 7-15 12-25 12z" />
-        <g fill="#231f20">
-          <text font-weight="700" fill="#58595b" font-size="116" x="6040" y="271" transform="scale(.1)">Legend</text>
-          <text font-weight="700" font-size="82" x="6248" y="479" transform="scale(.1)">Individual</text>
-          <text font-weight="700" font-size="82" x="6244" y="1146" transform="scale(.1)">Digital</text>
-          <text font-weight="700" font-size="82" x="6244" y="1245" transform="scale(.1)">Credential</text>
-          <text font-weight="700" font-size="82" x="6334" y="1445" transform="scale(.1)">Data &amp;</text>
-          <text font-weight="700" font-size="82" x="6334" y="1544" transform="scale(.1)">Information</text>
-          <text font-weight="700" font-size="82" x="6334" y="1759" transform="scale(.1)">Order of interactions in the</text>
-          <text font-weight="700" font-size="82" x="6334" y="1858" transform="scale(.1)">verification sequence</text>
-          <text font-weight="700" font-size="82" x="7178" y="1457" transform="scale(.1)">Services &amp;</text>
-          <text font-weight="700" font-size="82" x="7178" y="1556" transform="scale(.1)">Benefits</text>
-          <text font-weight="700" font-size="55" x="6786" y="589" transform="scale(.1)">Included associated functions,</text>
-          <text font-weight="700" font-size="55" x="6786" y="655" transform="scale(.1)">policies, and digital artifacts</text>
-          <text font-weight="700" font-size="55" x="6786" y="721" transform="scale(.1)">developed or managed by CDT</text>
-          <text font-weight="700" font-size="55" x="6204" y="589" transform="scale(.1)">Seeking services or</text>
-          <text font-weight="700" font-size="55" x="6204" y="655" transform="scale(.1)">benefits from state</text>
-          <text font-weight="700" font-size="55" x="6204" y="721" transform="scale(.1)">agencies in CA</text>
-          <text font-weight="700" font-size="82" x="6242" y="918" transform="scale(.1)">State Entity</text>
-          <text font-weight="700" font-size="55" x="6242" y="984" transform="scale(.1)">Website / API / App</text>
-          <text font-weight="700" font-size="82" x="7008" y="1152" transform="scale(.1)">Eligibility Provider</text>
-          <text font-weight="700" font-size="55" x="7008" y="1218" transform="scale(.1)">Verifies attributes or</text>
-          <text font-weight="700" font-size="55" x="7008" y="1284" transform="scale(.1)">enrollment in programs</text>
+        <g fill="#231f20" font-weight="700">
+          <text fill="#58595b" font-size="116" x="6040" y="271" transform="scale(.1)">Legend</text>
+          <text font-size="82" x="6248" y="479" transform="scale(.1)">Individual</text>
+          <text font-size="82" x="6244" y="1146" transform="scale(.1)">Digital</text>
+          <text font-size="82" x="6244" y="1245" transform="scale(.1)">Credential</text>
+          <text font-size="82" x="6334" y="1445" transform="scale(.1)">Data &amp;</text>
+          <text font-size="82" x="6334" y="1544" transform="scale(.1)">Information</text>
+          <text font-size="82" x="6334" y="1759" transform="scale(.1)">Order of interactions in the</text>
+          <text font-size="82" x="6334" y="1858" transform="scale(.1)">verification sequence</text>
+          <text font-size="82" x="7178" y="1457" transform="scale(.1)">Services &amp;</text>
+          <text font-size="82" x="7178" y="1556" transform="scale(.1)">Benefits</text>
+          <text font-size="55" x="6786" y="589" transform="scale(.1)">Included associated functions,</text>
+          <text font-size="55" x="6786" y="655" transform="scale(.1)">policies, and digital artifacts</text>
+          <text font-size="55" x="6786" y="721" transform="scale(.1)">developed or managed by CDT</text>
+          <text font-size="55" x="6204" y="589" transform="scale(.1)">Seeking services or</text>
+          <text font-size="55" x="6204" y="655" transform="scale(.1)">benefits from state</text>
+          <text font-size="55" x="6204" y="721" transform="scale(.1)">agencies in CA</text>
+          <text font-size="82" x="6242" y="918" transform="scale(.1)">State Entity</text>
+          <text font-size="55" x="6242" y="984" transform="scale(.1)">Website / API / App</text>
+          <text font-size="82" x="7008" y="1152" transform="scale(.1)">Eligibility Provider</text>
+          <text font-size="55" x="7008" y="1218" transform="scale(.1)">Verifies attributes or</text>
+          <text font-size="55" x="7008" y="1284" transform="scale(.1)">enrollment in programs</text>
         </g>
       </g>
     </g>
   </g>
   <path transform="scale(.1)" d="M6100 432c17 0 32-15 32-33s-14-33-32-33s-32 14-32 33s14 33 32 33z" />
   <path transform="scale(.1)" d="M6210 477c-5-5-12-6-18-2l-15 13-4 3c-7-12-5-12-19-35-6-11-17-16-30-16h-49c-11 0-20 4-27 12-5 7-10 15-13 24-9 28-10 57-8 86v7c0 7 6 12 12 12s11-5 11-13c0-20 0-40 2-60c0-9 4-19 6-28h2v215c0 10 7 17 17 17s18-7 18-20v-129c8-2 7 4 7 8v123c0 12 7 19 19 19s17-8 17-20v-211h2c0 4 2 5 5 12c9 19 4 5 10 23c0 2 0 3 2 4c5 5 11 2 17-2l3-2l30-25c5-5 5-10 3-14z" />
-  <g fill="#231f20">
-    <text font-weight="700" font-size="82" x="7008" y="907" transform="scale(.1)">ID Provider</text>
-    <text font-weight="700" font-size="55" x="7008" y="973" transform="scale(.1)">Verifies identity, can be a</text>
-    <text font-weight="700" font-size="55" x="7008" y="1039" transform="scale(.1)">public or private entity</text>
+  <g fill="#231f20" font-weight="700">
+    <text font-size="82" x="7008" y="907" transform="scale(.1)">ID Provider</text>
+    <text font-size="55" x="7008" y="973" transform="scale(.1)">Verifies identity, can be a</text>
+    <text font-size="55" x="7008" y="1039" transform="scale(.1)">public or private entity</text>
   </g>
   <g stroke="#000">
     <g fill="#fff">
