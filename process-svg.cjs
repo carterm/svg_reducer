@@ -568,6 +568,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       "stroke",
       "fill",
       "font",
+      "font-size",
       "font-weight"
     ];
 
