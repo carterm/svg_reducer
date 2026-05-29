@@ -1,688 +1,564 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 792 612">
-  <g transform="scale(.1)">
-    <g fill="#0e3a5e">
-      <g font-family="Arial-BoldMT, Arial" font-weight="700">
-        <text font-size="89" x="6667" y="5707">California Department of</text>
-        <text x="6667" y="5894" font-size="202">Technology</text>
-      </g>
-      <rect x="6274" y="5613" width="323" height="323" rx="28" ry="28" />
-      <circle cx="6435" cy="5775" r="142" fill="#fff" />
-      <path d="M6390 5715h50v45h-50z" />
-      <path d="M6346 5674h34v31h-34z" />
-      <path d="M6410 5788h31v28h-31z" />
-      <path d="M6491 5845h34v29h-34z" />
-      <path d="M6386 5674h16v14h-16z" />
-      <path d="M6407 5674h16v14h-16z" />
-      <path d="M6432 5677h8v7h-8z" />
-      <path d="M6453 5676h10v8h-10z" />
-      <path d="M6432 5696h8v7h-8z" />
-      <path d="M6452 5696h8v7h-8z" />
-      <path d="M6451 5714h10v9h-10z" />
-      <path d="M6471 5714h10v9h-10z" />
-      <path d="M6493 5713h11v9h-11z" />
-      <path d="M6493 5692h12v10h-12z" />
-      <path d="M6471 5694h12v10h-12z" />
-      <path d="M6474 5673h12v10h-12z" />
-      <path d="M6498 5671h12v10h-12z" />
-      <path d="M6518 5691h12v10h-12z" />
-      <path d="M6517 5712h10v9h-10z" />
-      <path d="M6541 5711h10v9h-10z" />
-      <path d="M6536 5731h10v8h-10z" />
-      <path d="M6513 5733h10v8h-10z" />
-      <path d="M6492 5733h10v8h-10z" />
-      <path d="M6471 5733h9v7h-9z" />
-      <path d="M6452 5733h8v7h-8z" />
-      <path d="M6452 5751h8v7h-8z" />
-      <path d="M6472 5751h8v7h-8z" />
-      <path d="M6492 5751h9v8h-9z" />
-      <path d="M6513 5751h9v8h-9z" />
-      <path d="M6535 5751h9v8h-9z" />
-      <path d="M6533 5770h9v8h-9z" />
-      <path d="M6512 5771h7v6h-7z" />
-      <path d="M6472 5770h8v7h-8z" />
-      <path d="M6493 5770h8v7h-8z" />
-      <path d="M6493 5789h8v7h-8z" />
-      <path d="M6513 5789h8v7h-8z" />
-      <path d="M6513 5808h8v7h-8z" />
-      <path d="M6534 5808h8v7h-8z" />
-      <path d="M6534 5790h8v7h-8z" />
-      <path d="M6534 5826h8v7h-8z" />
-      <path d="M6534 5844h8v7h-8z" />
-      <path d="M6472 5864h8v7h-8z" />
-      <path d="M6451 5864h8v7h-8z" />
-      <path d="M6430 5864h8v7h-8z" />
-      <path d="M6407 5864h10v9h-10z" />
-      <path d="M6384 5866h12v10h-12z" />
-      <path d="M6388 5844h12v10h-12z" />
-      <path d="M6411 5845h8v7h-8z" />
-      <path d="M6390 5826h8v7h-8z" />
-      <path d="M6390 5808h8v7h-8z" />
-      <path d="M6370 5789h8v7h-8z" />
-      <path d="M6370 5770h8v7h-8z" />
-      <path d="M6350 5770h8v7h-8z" />
-      <path d="M6350 5790h8v7h-8z" />
-      <path d="M6350 5751h8v7h-8z" />
-      <path d="M6330 5696h8v7h-8z" />
-      <path d="M6330 5715h8v7h-8z" />
-      <path d="M6330 5733h8v7h-8z" />
-      <path d="M6330 5752h8v7h-8z" />
-      <path d="M6330 5770h8v7h-8z" />
-      <path d="M6327 5789h10v9h-10z" />
-      <path d="M6324 5809h10v9h-10z" />
-      <path d="M6319 5828h11v10h-11z" />
-      <path d="M6343 5827h11v10h-11z" />
-      <path d="M6347 5808h10v8h-10z" />
-      <path d="M6369 5808h10v8h-10z" />
-      <path d="M6359 5868h12v10h-12z" />
-      <path d="M6367 5827h10v8h-10z" />
-      <path d="M6365 5846h12v9h-12z" />
-      <path d="M6340 5848h12v9h-12z" />
-      <path d="M6386 5692h16v14h-16z" />
-      <path d="M6407 5692h16v14h-16z" />
-      <path d="M6346 5711h16v14h-16z" />
-      <path d="M6366 5711h16v14h-16z" />
-      <path d="M6346 5729h16v14h-16z" />
-      <path d="M6366 5729h16v14h-16z" />
-      <path d="M6366 5749h16v14h-16z" />
-      <path d="M6448 5767h16v14h-16z" />
-      <path d="M6427 5767h16v14h-16z" />
-      <path d="M6407 5767h16v14h-16z" />
-      <path d="M6387 5767h16v14h-16z" />
-      <path d="M6387 5785h16v14h-16z" />
-      <path d="M6448 5785h16v14h-16z" />
-      <path d="M6448 5805h16v14h-16z" />
-      <path d="M6468 5785h16v14h-16z" />
-      <path d="M6468 5805h16v14h-16z" />
-      <path d="M6488 5805h16v14h-16z" />
-      <path d="M6448 5823h16v14h-16z" />
-      <path d="M6468 5823h16v14h-16z" />
-      <path d="M6407 5823h16v14h-16z" />
-      <path d="M6427 5823h16v14h-16z" />
-      <path d="M6448 5842h16v14h-16z" />
-      <path d="M6468 5842h16v14h-16z" />
-      <path d="M6427 5842h16v14h-16z" />
-      <path d="M6488 5823h16v14h-16z" />
-      <path d="M6508 5823h16v14h-16z" />
-      <g fill="none">
-        <g stroke="#1c75bc" stroke-width="30" stroke-linecap="square">
-          <path d="M7120 4097h298" />
-          <path d="M994 4097h5800" />
-        </g>
-        <path fill="#1c75bc" d="M888 4097l149 61-35-61l35-61-149 61z" />
-      </g>
-      <text font-family="Arial-BoldMT, Arial" font-weight="700" font-size="380" x="635" y="536">Digital ID Framework</text>
-      <path d="M242 250c-3 0-6-1-8-4-4-4-4-11 0-15c18-17 57-46 114-50c62-5 107 23 124 35c5 4 6 10 2 15-3 5-10 6-15 2-15-11-55-35-110-31-50 4-85 29-101 44-2 2-5 3-8 3h2z" />
-      <path d="M238 311c-3 0-5 0-7-3-5-4-5-11-1-15c11-13 24-24 39-33c20-13 43-21 67-24c6 0 12 3 12 9s-3 11-9 12c-21 3-41 10-59 21-13 8-24 18-34 29-2 2-5 4-8 4z" />
-      <path d="M436 279c-3 0-5-1-7-3-7-7-16-12-25-16-9-3-18-5-28-5-6 0-11-5-11-11s5-11 11-11c12 0 24 2 35 6c12 5 23 11 33 20c5 4 5 11 0 15-2 2-5 4-8 4z" />
-      <path d="M199 393c-6 0-11-5-11-11c0-11 0-22 4-33c3-10 7-20 13-30s10-7 15-3s7 10 3 15c-5 7-8 15-11 23-2 8-3 17-3 26s-5 11-11 11v2z" />
-      <path d="M237 560c-3 0-7-2-9-4-17-22-29-46-36-73-6-22-9-44-7-67c0-6 5-11 11-10c6 0 11 5 10 12-1 20 1 41 7 60c6 24 17 45 32 65c4 5 3 12-2 15-2 2-4 2-7 2h1z" />
-      <path d="M264 504c-4 0-8-2-10-6-6-14-11-28-15-43-6-25-7-50-5-76c0-6 6-10 12-10s10 6 10 12c-2 23-1 46 4 69c3 13 8 27 14 39c3 5 0 12-5 15h-5z" />
-      <path d="M275 575c-3 0-6 0-8-3-4-4-4-11 0-15c6-7 39-42 32-85-2-11-6-21-12-31-3-5-2-12 4-15s12-2 15 4c8 12 12 25 14 39c8 52-27 93-38 104s-5 3-8 3z" />
-      <path d="M318 595c-3 0-6 0-8-3-4-4-4-11 0-15c13-12 29-32 35-62c2-12 2-25 0-38c0-6 3-12 9-13s12 3 13 9c2 15 2 30 0 45-7 35-26 60-41 74-2 2-5 3-8 3z" />
-      <path d="M371 596c-3 0-6 0-8-3-4-4-4-11 0-15c10-9 33-35 34-72c0-15-3-30-9-45s0-12 5-15c5-2 12 0 15 5c8 17 12 36 11 54c0 46-29 77-41 88-2 2-5 3-8 3z" />
-      <path d="M431 584c-2 0-5 0-7-2-5-4-6-10-2-15c8-12 15-25 18-39c3-12 3-25 2-38c0-6 3-12 10-12s12 3 12 10c2 15 0 31-2 45-4 17-11 33-21 47-2 3-5 5-9 4z" />
-      <path d="M444 469c-6 0-11-5-11-11s0-13-3-19c-2-7-5-13-9-19-3-5-2-12 3-15s12-2 15 3c5 8 9 16 12 25c3 8 4 17 4 25s-5 11-11 11z" />
-      <path d="M499 522c-6 0-10-4-11-10c0-11-2-23-3-34c0-11 0-23-2-34c0-6 5-11 11-11s11 5 11 11c0 11 0 22 2 33c0 11 2 22 3 33c0 6-4 11-10 12z" />
-      <path d="M474 424c-4 0-8-2-10-6-2-4-4-8-7-11-3-4-6-7-9-10-5-4-5-11 0-15s11-5 15 0c4 4 8 8 12 13l9 15c3 5 0 12-5 15h-5v-2z" />
-      <path d="M520 430c-6 0-11-5-11-10c0-10-2-19-6-28-4-11-10-21-18-30-4-5-4-12 0-15c5-4 12-4 15 0c10 11 17 23 22 36c4 11 7 22 7 34s-4 11-10 12z" />
-      <path d="M522 337c-5 0-10-3-11-9v-3c-2-6 2-12 8-13c6-1 12 2 13 8v3c2 6-2 12-8 13h-2z" />
-      <path d="M402 311c-2 0-5 0-6-2-6-5-20-12-38-12s-25 5-32 10c-5 3-12 2-15-3s-2-12 3-15c9-6 24-13 43-13s42 10 51 16c5 4 6 10 2 15-2 3-5 5-9 5h1z" />
-      <path d="M363 345h-5c-6 0-11-5-11-11s5-11 11-11h5c6 0 11 5 11 11s-5 11-11 11z" />
-      <g fill="#fbae18">
-        <path d="M270 346c3-3 6-6 10-9c5-4 12-4 16 0l50 50s12 5 16 0l128-128c5-5 12-5 16 0c4 4 8 8 12 11c5 5 5 12 0 16l-154 154c-5 5-12 5-16 0l-78-78c-5-5-5-12 0-16z" />
-        <path d="M356 449c-4 0-9-2-12-5l-78-78c-3-3-5-8-5-12s2-9 5-12l10-9c7-6 17-6 24 0l50 50c2 2 6 2 8 0l128-128c3-3 8-5 12-5s9 2 12 5l12 11c7 7 7 17 0 24l-154 154c-3 3-8 5-12 5zm-69-110c-1 0-3 0-4 2l-10 9c-1 0-2 3-2 4s0 3 2 4l78 78c2 2 6 2 8 0l154-154c2-2 2-6 0-8l-12-11c-2-2-6-2-8 0l-128 128c-3 3-8 5-12 5s-9-2-12-5l-50-50c-1 0-3-2-4-2z" />
-      </g>
-    </g>
-    <path d="M681 4347c71 0 131-65 131-142s-58-145-131-146c-74 0-132 62-132 144s57 144 132 144z" />
-    <path d="M1129 4543c-18-23-51-26-72-7l-63 56-14 13c-28-54-22-51-77-152-26-48-68-71-122-70-67 2-134 2-200 0-45-1-83 16-108 53-22 31-41 66-52 103-37 121-40 247-33 374c0 10 3 20 4 29c4 32 24 55 48 51c29-5 44-23 44-56c0-87 0-173 6-260c2-41 15-81 23-121c3 0 7 2 10 2v937c0 45 29 73 71 73s75-32 75-86v-564c34-8 27 17 27 33v535c0 54 29 83 77 82c42 0 69-34 69-88v-922c2 0 5-1 7-2c5 16 8 20 22 53c35 84 16 24 42 101c2 6 5 13 10 19c18 23 45 11 67-8l10-9l120-107c22-20 21-45 12-62h-3z" />
-    <g stroke="#000" stroke-width="10">
-      <g fill="#fff">
-        <path d="M2658 1589h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-        <path d="M2612 1538h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-      </g>
-      <path d="M2309 1478c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
-      <path fill="#fff" d="M2566 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-    </g>
-    <circle cx="2105" cy="1594" r="26" />
-    <path d="M2105 1541c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <circle cx="2105" cy="1772" r="26" />
-    <path d="M2105 1719c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <path d="M2265 1567h234v18h-234z" />
-    <path d="M2265 1599h111v18h-111z" />
-    <path d="M2265 1759h234v18h-234z" />
-    <path d="M2265 1791h111v18h-111z" />
-    <g stroke="#000">
-      <g stroke-width="20" fill="none">
-        <path d="M2181 1589l21 21l40-40" />
-        <path d="M2181 1783l21 21l40-40" />
-      </g>
-      <g stroke-width="10">
-        <g fill="#fff">
-          <path d="M3502 1589h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-          <path d="M3456 1538h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-        </g>
-        <path d="M3153 1478c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
-        <path fill="#fff" d="M3410 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-      </g>
-    </g>
-    <circle cx="2950" cy="1594" r="26" />
-    <path d="M2950 1541c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm41 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <circle cx="2950" cy="1772" r="26" />
-    <path d="M2950 1719c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm41 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <path d="M3110 1567h234v18h-234z" />
-    <path d="M3110 1599h111v18h-111z" />
-    <path d="M3110 1759h234v18h-234z" />
-    <path d="M3110 1791h111v18h-111z" />
-    <g stroke="#000">
-      <g stroke-width="20" fill="none">
-        <path d="M3026 1589l21 21l40-40" />
-        <path d="M3026 1783l21 21l40-40" />
-      </g>
-      <g stroke-width="10">
-        <g fill="#fff">
-          <path d="M4420 1342h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-          <path d="M4375 1291h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-        </g>
-        <path d="M4072 1231c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
-        <path fill="#fff" d="M4329 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-      </g>
-    </g>
-    <circle cx="3868" cy="1347" r="26" />
-    <path d="M3868 1294c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <circle cx="3868" cy="1525" r="26" />
-    <path d="M3868 1472c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 106c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <circle cx="4131" cy="1347" r="26" />
-    <path d="M4131 1294c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm41 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <circle cx="4131" cy="1525" r="26" />
-    <path d="M4131 1472c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm41 106c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <path d="M3948 1320h92v18h-92z" />
-    <path d="M3948 1352h44v18h-44z" />
-    <path d="M4229 1320h92v18h-92z" />
-    <path d="M4229 1352h44v18h-44z" />
-    <path d="M3948 1511h92v18h-92z" />
-    <path d="M3948 1543h44v18h-44z" />
-    <path d="M4229 1511h92v18h-92z" />
-    <path d="M4229 1543h44v18h-44z" />
-    <g stroke="#000" stroke-width="10">
-      <g fill="#fff">
-        <path d="M5236 1342h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-        <path d="M5190 1291h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-      </g>
-      <path d="M4887 1231c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
-      <path fill="#fff" d="M5144 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-    </g>
-    <circle cx="4683" cy="1347" r="26" />
-    <path d="M4683 1294c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <circle cx="4683" cy="1525" r="26" />
-    <path d="M4683 1472c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 106c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <circle cx="4946" cy="1347" r="26" />
-    <path d="M4946 1294c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <circle cx="4946" cy="1525" r="26" />
-    <path d="M4946 1472c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 106c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
-    <path d="M4764 1320h92v18h-92z" />
-    <path d="M4764 1352h44v18h-44z" />
-    <path d="M5044 1320h92v18h-92z" />
-    <path d="M5044 1352h44v18h-44z" />
-    <path d="M4764 1511h92v18h-92z" />
-    <path d="M4764 1543h44v18h-44z" />
-    <path d="M5044 1511h92v18h-92z" />
-    <path d="M5044 1543h44v18h-44z" />
-    <g stroke-width="10" stroke="#000">
-      <path d="M1504 4760h-426c-25 0-45 20-45 45v29h515v-30c0-24-20-44-44-44z" />
-      <path fill="#fbae18" d="M1033 4834v951c0 33 27 60 60 60h396c33 0 60-27 60-60v-951h-516z" />
-      <circle cx="1290" cy="5750" r="46" fill="none" />
-    </g>
-    <g fill="#fff">
-      <circle cx="1179" cy="4797" r="17" />
-      <path d="M1231 4779h169c10 0 17 8 17 17c0 10-8 17-17 17h-169c-10 0-17-8-17-17c0-10 8-17 17-17z" />
-      <g stroke-width="10" stroke="#fbae18" fill="#0e3a5e">
-        <rect x="1073" y="5236" width="435" height="265" rx="38" ry="38" />
-        <rect x="1073" y="5289" width="435" height="265" rx="38" ry="38" />
-        <rect x="1073" y="5340" width="435" height="265" rx="38" ry="38" />
-      </g>
-      <path d="M1290 5412c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
-      <circle cx="1290" cy="5454" r="42" />
-      <path d="M1290 5370c-57 0-102 46-102 102s14 59 36 77c18 15 41 25 67 25s49-10 67-25c22-19 36-47 36-77c0-57-46-102-102-102h-2zm67 170c-2-21-21-38-42-38h-49c-22 0-40 17-42 38-17-17-28-41-28-67c0-52 42-95 95-95s95 42 95 95s-11 50-28 67h-1z" />
-    </g>
-    <g fill="#0e3a5e" font-family="Arial-BoldMT, Arial" font-size="129" font-weight="700">
-      <text x="1092" y="4978">Mobile</text>
-      <text x="1092" y="5133">Wallet</text>
-    </g>
-    <g fill="none">
-      <path stroke-width="30" stroke="#58595b" d="M679 3407v-435" />
-      <path fill="#58595b" d="M679 2866l61 149-61-35-61 35l61-149z" />
-      <g stroke-width="30" stroke="#58595b">
-        <g stroke-linecap="square">
-          <path d="M1922 2662h4872" />
-          <path d="M7120 2662h298" />
-        </g>
-        <path d="M679 1045v1169" />
-      </g>
-      <path fill="#58595b" d="M679 2319l-61-149l61 36l61-36-61 149z" />
-      <g stroke="#58595b" stroke-width="30">
-        <path d="M2402 1369v114" />
-        <path d="M3258 1369v114" />
-        <path d="M4111 1045v195" />
-        <path d="M4973 1045v195" />
-        <g stroke-linecap="square">
-          <path d="M679 1045h3542" />
-          <path d="M1055 1369h1470" />
-          <path d="M4581 1045h390" />
-        </g>
-      </g>
-      <rect x="5457" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
-    </g>
-    <circle cx="5620" cy="3403" r="23" />
-    <circle cx="5563" cy="3403" r="23" />
-    <circle cx="5505" cy="3403" r="23" />
-    <rect x="5660" y="3380" width="414" height="46" rx="20" ry="20" />
-    <path d="M5596 3736h366v23h-366z" />
-    <path d="M5622 3701h314v23h-314z" />
-    <path d="M5651 3563h23v129h-23z" />
-    <path d="M5698 3563h23v129h-23z" />
-    <path d="M5744 3563h23v129h-23z" />
-    <path d="M5790 3563h23v129h-23z" />
-    <path d="M5836 3563h23v129h-23z" />
-    <path d="M5882 3563h23v129h-23z" />
-    <path d="M5649 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
-    <g fill="none">
-      <path stroke-width="30" stroke="#58595b" d="M5781 2662v385" />
-      <path fill="#58595b" d="M5781 3153l-61-150l61 36l61-36-61 150z" />
-      <path stroke-width="30" stroke="#1c75bc" d="M5781 3812v291" />
-      <text font-family="Arial-BoldMT, Arial" font-weight="700" fill="#231f20" font-size="130" x="5665" y="3287">FTB</text>
-      <path stroke-width="30" stroke="#1c75bc" d="M3325 5104v149" />
-      <rect x="3000" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
-    </g>
-    <circle cx="3164" cy="3403" r="23" />
-    <circle cx="3107" cy="3403" r="23" />
-    <circle cx="3049" cy="3403" r="23" />
-    <rect x="3205" y="3380" width="414" height="46" rx="20" ry="20" />
-    <path d="M3140 3736h366v23h-366z" />
-    <path d="M3165 3701h314v23h-314z" />
-    <path d="M3195 3563h23v129h-23z" />
-    <path d="M3241 3563h23v129h-23z" />
-    <path d="M3288 3563h23v129h-23z" />
-    <path d="M3334 3563h23v129h-23z" />
-    <path d="M3380 3563h23v129h-23z" />
-    <path d="M3426 3563h23v129h-23z" />
-    <path d="M3193 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
-    <rect x="3114" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
-    <g fill="#fff">
-      <path d="M3335 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
-      <circle cx="3335" cy="4602" r="42" />
-      <path d="M3335 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
-    </g>
-    <g fill="none">
-      <path stroke-width="30" stroke="#58595b" d="M3325 2662v385" />
-      <path fill="#58595b" d="M3325 3152l-61-149l61 36l61-36-61 149z" />
-      <path stroke-width="30" stroke="#1c75bc" d="M3325 3806v518" />
-      <path fill="#1c75bc" d="M3325 4430l-61-149l61 35l61-35-61 149z" />
-      <g fill="#231f20" font-family="Arial-BoldMT, Arial" font-size="130" font-weight="700">
-        <text x="3153" y="3287">CDPH</text>
-        <text x="3085" y="4907">Vaccine</text>
-        <text x="3121" y="5062">Record</text>
-        <text font-size="158" x="460" y="5750">J. Doe</text>
-      </g>
-      <path stroke-width="30" stroke="#1c75bc" d="M4143 5104v149" />
-      <rect x="3819" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
-    </g>
-    <circle cx="3983" cy="3403" r="23" />
-    <circle cx="3926" cy="3403" r="23" />
-    <circle cx="3868" cy="3403" r="23" />
-    <rect x="4023" y="3380" width="414" height="46" rx="20" ry="20" />
-    <path d="M3958 3736h366v23h-366z" />
-    <path d="M3984 3701h314v23h-314z" />
-    <path d="M4014 3563h23v129h-23z" />
-    <path d="M4060 3563h23v129h-23z" />
-    <path d="M4106 3563h23v129h-23z" />
-    <path d="M4153 3563h23v129h-23z" />
-    <path d="M4199 3563h23v129h-23z" />
-    <path d="M4245 3563h23v129h-23z" />
-    <path d="M4012 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
-    <rect x="3922" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
-    <g fill="#fff">
-      <path d="M4143 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
-      <circle cx="4143" cy="4602" r="42" />
-      <path d="M4143 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
-    </g>
-    <g fill="none">
-      <path stroke-width="30" stroke="#58595b" d="M4143 2662v231" />
-      <path fill="#58595b" d="M4143 2999l-61-149l61 35l61-35-61 149z" />
-      <path stroke-width="30" stroke="#1c75bc" d="M4143 3806v519" />
-      <path fill="#1c75bc" d="M4143 4430l-61-149l61 36l61-36-61 149z" />
-      <g fill="#231f20" font-family="Arial-BoldMT, Arial" font-size="130" font-weight="700">
-        <text x="3717" y="3131">State Board of</text>
-        <text x="3746" y="3287">Cosmetology</text>
-        <text x="3747" y="4907">Cosmetology</text>
-        <text x="3912" y="5062">License</text>
-      </g>
-      <path stroke-width="30" stroke="#1c75bc" d="M4962 4962v291" />
-      <rect x="4638" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
-    </g>
-    <circle cx="4801" cy="3403" r="23" />
-    <circle cx="4744" cy="3403" r="23" />
-    <circle cx="4686" cy="3403" r="23" />
-    <rect x="4842" y="3380" width="414" height="46" rx="20" ry="20" />
-    <path d="M4777 3736h366v23h-366z" />
-    <path d="M4803 3701h314v23h-314z" />
-    <path d="M4833 3563h23v129h-23z" />
-    <path d="M4879 3563h23v129h-23z" />
-    <path d="M4925 3563h23v129h-23z" />
-    <path d="M4971 3563h23v129h-23z" />
-    <path d="M5018 3563h23v129h-23z" />
-    <path d="M5064 3563h23v129h-23z" />
-    <path d="M4831 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
-    <rect x="4741" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
-    <g fill="#fff">
-      <path d="M4962 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
-      <circle cx="4962" cy="4602" r="42" />
-      <path d="M4962 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
-    </g>
-    <g fill="none">
-      <path stroke-width="30" stroke="#58595b" d="M4962 2662v385" />
-      <path fill="#58595b" d="M4962 3153l-61-150l61 36l61-36-61 150z" />
-      <path stroke-width="30" stroke="#1c75bc" d="M4962 3806v519" />
-      <path fill="#1c75bc" d="M4962 4430l-61-149l61 36l61-36-61 149z" />
-      <g fill="#231f20" font-family="Arial-BoldMT, Arial" font-size="130" font-weight="700">
-        <text x="4813" y="3287">DMV</text>
-        <text x="4823" y="4907">mDL</text>
-      </g>
-      <path stroke-width="30" stroke="#1c75bc" d="M6599 4962v291" />
-      <rect x="6275" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
-    </g>
-    <circle cx="6439" cy="3403" r="23" />
-    <circle cx="6382" cy="3403" r="23" />
-    <circle cx="6324" cy="3403" r="23" />
-    <rect x="6479" y="3380" width="414" height="46" rx="20" ry="20" />
-    <path d="M6414 3736h366v23h-366z" />
-    <path d="M6440 3701h314v23h-314z" />
-    <path d="M6470 3563h23v129h-23z" />
-    <path d="M6516 3563h23v129h-23z" />
-    <path d="M6562 3563h23v129h-23z" />
-    <path d="M6609 3563h23v129h-23z" />
-    <path d="M6655 3563h23v129h-23z" />
-    <path d="M6701 3563h23v129h-23z" />
-    <path d="M6468 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
-    <rect x="6378" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
-    <g fill="#fff">
-      <path d="M6599 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
-      <circle cx="6599" cy="4602" r="42" />
-      <path d="M6599 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
-    </g>
-    <g fill="none">
-      <path stroke-width="30" stroke="#58595b" d="M6599 2662v385" />
-      <path fill="#58595b" d="M6599 3153l-61-150l61 36l61-36-61 150z" />
-      <path stroke-width="30" stroke="#1c75bc" d="M6599 3806v519" />
-      <path fill="#1c75bc" d="M6599 4430l-61-149l61 36l61-36-61 149z" />
-      <g fill="#231f20" font-family="Arial-BoldMT, Arial" font-size="130" font-weight="700">
-        <text x="6258" y="3287">State Parks</text>
-        <text x="6240" y="4907">Parks Pass</text>
-      </g>
-      <rect x="7094" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
-    </g>
-    <circle cx="7257" cy="3403" r="23" />
-    <circle cx="7200" cy="3403" r="23" />
-    <circle cx="7142" cy="3403" r="23" />
-    <rect x="7298" y="3380" width="414" height="46" rx="20" ry="20" />
-    <path d="M7233 3736h366v23h-366z" />
-    <path d="M7259 3701h314v23h-314z" />
-    <path d="M7289 3563h23v129h-23z" />
-    <path d="M7335 3563h23v129h-23z" />
-    <path d="M7381 3563h23v129h-23z" />
-    <path d="M7427 3563h23v129h-23z" />
-    <path d="M7474 3563h23v129h-23z" />
-    <path d="M7520 3563h23v129h-23z" />
-    <path d="M7287 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
-    <rect x="7197" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
-    <g fill="#fff">
-      <path d="M7418 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
-      <circle cx="7418" cy="4602" r="42" />
-      <path d="M7418 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
-    </g>
-    <g fill="none">
-      <path stroke-width="30" stroke="#58595b" d="M7418 2662v385" />
-      <path fill="#58595b" d="M7418 3153l-61-150l61 36l61-36-61 150z" />
-      <path stroke-width="30" stroke="#1c75bc" d="M7418 3806v519" />
-      <path fill="#1c75bc" d="M7418 4430l-61-149l61 36l61-36-61 149z" />
-      <path stroke-width="30" stroke="#1c75bc" d="M7418 4960v291" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 792 612" stroke="none" fill="#000" stroke-width="1" font-family="Arial-BoldMT, Arial">
+  <text font-weight="700" fill="#0e3a5e" font-size="89" x="6667" y="5707" transform="scale(.1)">California Department of</text>
+  <text x="6667" y="5894" font-weight="700" fill="#0e3a5e" font-size="202" transform="scale(.1)">Technology</text>
+  <rect x="6274" y="5613" width="323" height="323" rx="28" ry="28" fill="#0e3a5e" transform="scale(.1)" />
+  <circle cx="6435" cy="5775" r="142" fill="#fff" transform="scale(.1)" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6390 5715h50v45h-50z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6346 5674h34v31h-34z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6410 5788h31v28h-31z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6491 5845h34v29h-34z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6386 5674h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6407 5674h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6432 5677h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6453 5676h10v8h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6432 5696h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6452 5696h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6451 5714h10v9h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6471 5714h10v9h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6493 5713h11v9h-11z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6493 5692h12v10h-12z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6471 5694h12v10h-12z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6474 5673h12v10h-12z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6498 5671h12v10h-12z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6518 5691h12v10h-12z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6517 5712h10v9h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6541 5711h10v9h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6536 5731h10v8h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6513 5733h10v8h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6492 5733h10v8h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6471 5733h9v7h-9z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6452 5733h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6452 5751h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6472 5751h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6492 5751h9v8h-9z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6513 5751h9v8h-9z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6535 5751h9v8h-9z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6533 5770h9v8h-9z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6512 5771h7v6h-7z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6472 5770h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6493 5770h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6493 5789h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6513 5789h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6513 5808h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6534 5808h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6534 5790h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6534 5826h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6534 5844h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6472 5864h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6451 5864h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6430 5864h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6407 5864h10v9h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6384 5866h12v10h-12z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6388 5844h12v10h-12z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6411 5845h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6390 5826h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6390 5808h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6370 5789h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6370 5770h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6350 5770h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6350 5790h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6350 5751h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6330 5696h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6330 5715h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6330 5733h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6330 5752h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6330 5770h8v7h-8z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6327 5789h10v9h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6324 5809h10v9h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6319 5828h11v10h-11z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6343 5827h11v10h-11z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6347 5808h10v8h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6369 5808h10v8h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6359 5868h12v10h-12z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6367 5827h10v8h-10z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6365 5846h12v9h-12z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6340 5848h12v9h-12z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6386 5692h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6407 5692h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6346 5711h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6366 5711h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6346 5729h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6366 5729h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6366 5749h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6448 5767h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6427 5767h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6407 5767h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6387 5767h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6387 5785h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6448 5785h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6448 5805h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6468 5785h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6468 5805h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6488 5805h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6448 5823h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6468 5823h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6407 5823h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6427 5823h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6448 5842h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6468 5842h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6427 5842h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6488 5823h16v14h-16z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M6508 5823h16v14h-16z" />
+  <g stroke="#1c75bc">
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M7120 4097h298" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M994 4097h5800" />
+  </g>
+  <path fill="#1c75bc" transform="scale(.1)" d="M888 4097l149 61-35-61l35-61-149 61z" />
+  <text font-weight="700" fill="#0e3a5e" font-size="380" x="635" y="536" transform="scale(.1)">Digital ID Framework</text>
+  <path fill="#0e3a5e" transform="scale(.1)" d="M242 250c-3 0-6-1-8-4-4-4-4-11 0-15c18-17 57-46 114-50c62-5 107 23 124 35c5 4 6 10 2 15-3 5-10 6-15 2-15-11-55-35-110-31-50 4-85 29-101 44-2 2-5 3-8 3h2z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M238 311c-3 0-5 0-7-3-5-4-5-11-1-15c11-13 24-24 39-33c20-13 43-21 67-24c6 0 12 3 12 9s-3 11-9 12c-21 3-41 10-59 21-13 8-24 18-34 29-2 2-5 4-8 4z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M436 279c-3 0-5-1-7-3-7-7-16-12-25-16-9-3-18-5-28-5-6 0-11-5-11-11s5-11 11-11c12 0 24 2 35 6c12 5 23 11 33 20c5 4 5 11 0 15-2 2-5 4-8 4z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M199 393c-6 0-11-5-11-11c0-11 0-22 4-33c3-10 7-20 13-30s10-7 15-3s7 10 3 15c-5 7-8 15-11 23-2 8-3 17-3 26s-5 11-11 11v2z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M237 560c-3 0-7-2-9-4-17-22-29-46-36-73-6-22-9-44-7-67c0-6 5-11 11-10c6 0 11 5 10 12-1 20 1 41 7 60c6 24 17 45 32 65c4 5 3 12-2 15-2 2-4 2-7 2h1z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M264 504c-4 0-8-2-10-6-6-14-11-28-15-43-6-25-7-50-5-76c0-6 6-10 12-10s10 6 10 12c-2 23-1 46 4 69c3 13 8 27 14 39c3 5 0 12-5 15h-5z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M275 575c-3 0-6 0-8-3-4-4-4-11 0-15c6-7 39-42 32-85-2-11-6-21-12-31-3-5-2-12 4-15s12-2 15 4c8 12 12 25 14 39c8 52-27 93-38 104s-5 3-8 3z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M318 595c-3 0-6 0-8-3-4-4-4-11 0-15c13-12 29-32 35-62c2-12 2-25 0-38c0-6 3-12 9-13s12 3 13 9c2 15 2 30 0 45-7 35-26 60-41 74-2 2-5 3-8 3z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M371 596c-3 0-6 0-8-3-4-4-4-11 0-15c10-9 33-35 34-72c0-15-3-30-9-45s0-12 5-15c5-2 12 0 15 5c8 17 12 36 11 54c0 46-29 77-41 88-2 2-5 3-8 3z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M431 584c-2 0-5 0-7-2-5-4-6-10-2-15c8-12 15-25 18-39c3-12 3-25 2-38c0-6 3-12 10-12s12 3 12 10c2 15 0 31-2 45-4 17-11 33-21 47-2 3-5 5-9 4z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M444 469c-6 0-11-5-11-11s0-13-3-19c-2-7-5-13-9-19-3-5-2-12 3-15s12-2 15 3c5 8 9 16 12 25c3 8 4 17 4 25s-5 11-11 11z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M499 522c-6 0-10-4-11-10c0-11-2-23-3-34c0-11 0-23-2-34c0-6 5-11 11-11s11 5 11 11c0 11 0 22 2 33c0 11 2 22 3 33c0 6-4 11-10 12z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M474 424c-4 0-8-2-10-6-2-4-4-8-7-11-3-4-6-7-9-10-5-4-5-11 0-15s11-5 15 0c4 4 8 8 12 13l9 15c3 5 0 12-5 15h-5v-2z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M520 430c-6 0-11-5-11-10c0-10-2-19-6-28-4-11-10-21-18-30-4-5-4-12 0-15c5-4 12-4 15 0c10 11 17 23 22 36c4 11 7 22 7 34s-4 11-10 12z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M522 337c-5 0-10-3-11-9v-3c-2-6 2-12 8-13c6-1 12 2 13 8v3c2 6-2 12-8 13h-2z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M402 311c-2 0-5 0-6-2-6-5-20-12-38-12s-25 5-32 10c-5 3-12 2-15-3s-2-12 3-15c9-6 24-13 43-13s42 10 51 16c5 4 6 10 2 15-2 3-5 5-9 5h1z" />
+  <path fill="#0e3a5e" transform="scale(.1)" d="M363 345h-5c-6 0-11-5-11-11s5-11 11-11h5c6 0 11 5 11 11s-5 11-11 11z" />
+  <path fill="#fbae18" transform="scale(.1)" d="M270 346c3-3 6-6 10-9c5-4 12-4 16 0l50 50s12 5 16 0l128-128c5-5 12-5 16 0c4 4 8 8 12 11c5 5 5 12 0 16l-154 154c-5 5-12 5-16 0l-78-78c-5-5-5-12 0-16z" />
+  <path fill="#fbae18" transform="scale(.1)" d="M356 449c-4 0-9-2-12-5l-78-78c-3-3-5-8-5-12s2-9 5-12l10-9c7-6 17-6 24 0l50 50c2 2 6 2 8 0l128-128c3-3 8-5 12-5s9 2 12 5l12 11c7 7 7 17 0 24l-154 154c-3 3-8 5-12 5zm-69-110c-1 0-3 0-4 2l-10 9c-1 0-2 3-2 4s0 3 2 4l78 78c2 2 6 2 8 0l154-154c2-2 2-6 0-8l-12-11c-2-2-6-2-8 0l-128 128c-3 3-8 5-12 5s-9-2-12-5l-50-50c-1 0-3-2-4-2z" />
+  <path transform="scale(.1)" d="M681 4347c71 0 131-65 131-142s-58-145-131-146c-74 0-132 62-132 144s57 144 132 144z" />
+  <path transform="scale(.1)" d="M1129 4543c-18-23-51-26-72-7l-63 56-14 13c-28-54-22-51-77-152-26-48-68-71-122-70-67 2-134 2-200 0-45-1-83 16-108 53-22 31-41 66-52 103-37 121-40 247-33 374c0 10 3 20 4 29c4 32 24 55 48 51c29-5 44-23 44-56c0-87 0-173 6-260c2-41 15-81 23-121c3 0 7 2 10 2v937c0 45 29 73 71 73s75-32 75-86v-564c34-8 27 17 27 33v535c0 54 29 83 77 82c42 0 69-34 69-88v-922c2 0 5-1 7-2c5 16 8 20 22 53c35 84 16 24 42 101c2 6 5 13 10 19c18 23 45 11 67-8l10-9l120-107c22-20 21-45 12-62h-3z" />
+  <g stroke="#000">
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M2658 1589h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M2612 1538h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+    <path transform="scale(.1)" stroke-width="10" d="M2309 1478c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M2566 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+  </g>
+  <circle cx="2105" cy="1594" r="26" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M2105 1541c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
+  <circle cx="2105" cy="1772" r="26" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M2105 1719c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
+  <path transform="scale(.1)" d="M2265 1567h234v18h-234z" />
+  <path transform="scale(.1)" d="M2265 1599h111v18h-111z" />
+  <path transform="scale(.1)" d="M2265 1759h234v18h-234z" />
+  <path transform="scale(.1)" d="M2265 1791h111v18h-111z" />
+  <g stroke="#000">
+    <path fill="none" stroke-width="20" transform="scale(.1)" d="M2181 1589l21 21l40-40" />
+    <path fill="none" stroke-width="20" transform="scale(.1)" d="M2181 1783l21 21l40-40" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M3502 1589h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M3456 1538h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+    <path transform="scale(.1)" stroke-width="10" d="M3153 1478c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M3410 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+  </g>
+  <circle cx="2950" cy="1594" r="26" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M2950 1541c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm41 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
+  <circle cx="2950" cy="1772" r="26" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M2950 1719c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm41 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
+  <path transform="scale(.1)" d="M3110 1567h234v18h-234z" />
+  <path transform="scale(.1)" d="M3110 1599h111v18h-111z" />
+  <path transform="scale(.1)" d="M3110 1759h234v18h-234z" />
+  <path transform="scale(.1)" d="M3110 1791h111v18h-111z" />
+  <g stroke="#000">
+    <path fill="none" stroke-width="20" transform="scale(.1)" d="M3026 1589l21 21l40-40" />
+    <path fill="none" stroke-width="20" transform="scale(.1)" d="M3026 1783l21 21l40-40" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M4420 1342h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M4375 1291h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+    <path transform="scale(.1)" stroke-width="10" d="M4072 1231c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M4329 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+  </g>
+  <circle cx="3868" cy="1347" r="26" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M3868 1294c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
+  <circle cx="3868" cy="1525" r="26" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M3868 1472c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 106c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
+  <circle cx="4131" cy="1347" r="26" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M4131 1294c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm41 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
+  <circle cx="4131" cy="1525" r="26" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M4131 1472c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm41 106c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
+  <path transform="scale(.1)" d="M3948 1320h92v18h-92z" />
+  <path transform="scale(.1)" d="M3948 1352h44v18h-44z" />
+  <path transform="scale(.1)" d="M4229 1320h92v18h-92z" />
+  <path transform="scale(.1)" d="M4229 1352h44v18h-44z" />
+  <path transform="scale(.1)" d="M3948 1511h92v18h-92z" />
+  <path transform="scale(.1)" d="M3948 1543h44v18h-44z" />
+  <path transform="scale(.1)" d="M4229 1511h92v18h-92z" />
+  <path transform="scale(.1)" d="M4229 1543h44v18h-44z" />
+  <g stroke="#000">
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M5236 1342h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M5190 1291h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+    <path transform="scale(.1)" stroke-width="10" d="M4887 1231c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M5144 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+  </g>
+  <circle cx="4683" cy="1347" r="26" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M4683 1294c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
+  <circle cx="4683" cy="1525" r="26" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M4683 1472c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 106c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
+  <circle cx="4946" cy="1347" r="26" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M4946 1294c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 107c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
+  <circle cx="4946" cy="1525" r="26" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M4946 1472c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 106c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1z" />
+  <path transform="scale(.1)" d="M4764 1320h92v18h-92z" />
+  <path transform="scale(.1)" d="M4764 1352h44v18h-44z" />
+  <path transform="scale(.1)" d="M5044 1320h92v18h-92z" />
+  <path transform="scale(.1)" d="M5044 1352h44v18h-44z" />
+  <path transform="scale(.1)" d="M4764 1511h92v18h-92z" />
+  <path transform="scale(.1)" d="M4764 1543h44v18h-44z" />
+  <path transform="scale(.1)" d="M5044 1511h92v18h-92z" />
+  <path transform="scale(.1)" d="M5044 1543h44v18h-44z" />
+  <g stroke="#000">
+    <path transform="scale(.1)" stroke-width="10" d="M1504 4760h-426c-25 0-45 20-45 45v29h515v-30c0-24-20-44-44-44z" />
+    <path fill="#fbae18" transform="scale(.1)" stroke-width="10" d="M1033 4834v951c0 33 27 60 60 60h396c33 0 60-27 60-60v-951h-516z" />
+    <circle cx="1290" cy="5750" r="46" fill="none" transform="scale(.1)" stroke-width="10" />
+  </g>
+  <circle cx="1179" cy="4797" r="17" fill="#fff" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M1231 4779h169c10 0 17 8 17 17c0 10-8 17-17 17h-169c-10 0-17-8-17-17c0-10 8-17 17-17z" />
+  <g stroke="#fbae18">
+    <rect x="1073" y="5236" width="435" height="265" rx="38" ry="38" fill="#0e3a5e" transform="scale(.1)" stroke-width="10" />
+    <rect x="1073" y="5289" width="435" height="265" rx="38" ry="38" fill="#0e3a5e" transform="scale(.1)" stroke-width="10" />
+    <rect x="1073" y="5340" width="435" height="265" rx="38" ry="38" fill="#0e3a5e" transform="scale(.1)" stroke-width="10" />
+  </g>
+  <path fill="#fff" transform="scale(.1)" d="M1290 5412c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
+  <circle cx="1290" cy="5454" r="42" fill="#fff" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M1290 5370c-57 0-102 46-102 102s14 59 36 77c18 15 41 25 67 25s49-10 67-25c22-19 36-47 36-77c0-57-46-102-102-102h-2zm67 170c-2-21-21-38-42-38h-49c-22 0-40 17-42 38-17-17-28-41-28-67c0-52 42-95 95-95s95 42 95 95s-11 50-28 67h-1z" />
+  <text font-weight="700" font-size="129" fill="#0e3a5e" x="1092" y="4978" transform="scale(.1)">Mobile</text>
+  <text font-weight="700" font-size="129" fill="#0e3a5e" x="1092" y="5133" transform="scale(.1)">Wallet</text>
+  <path fill="none" stroke-width="30" stroke="#58595b" transform="scale(.1)" d="M679 3407v-435" />
+  <path fill="#58595b" transform="scale(.1)" d="M679 2866l61 149-61-35-61 35l61-149z" />
+  <g stroke="#58595b">
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M1922 2662h4872" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M7120 2662h298" />
+    <path fill="none" stroke-width="30" transform="scale(.1)" d="M679 1045v1169" />
+  </g>
+  <path fill="#58595b" transform="scale(.1)" d="M679 2319l-61-149l61 36l61-36-61 149z" />
+  <g stroke="#58595b">
+    <path fill="none" stroke-width="30" transform="scale(.1)" d="M2402 1369v114" />
+    <path fill="none" stroke-width="30" transform="scale(.1)" d="M3258 1369v114" />
+    <path fill="none" stroke-width="30" transform="scale(.1)" d="M4111 1045v195" />
+    <path fill="none" stroke-width="30" transform="scale(.1)" d="M4973 1045v195" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M679 1045h3542" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M1055 1369h1470" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M4581 1045h390" />
+    <rect x="5457" y="3355" width="648" height="451" rx="36" ry="36" fill="none" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
+  </g>
+  <circle cx="5620" cy="3403" r="23" transform="scale(.1)" />
+  <circle cx="5563" cy="3403" r="23" transform="scale(.1)" />
+  <circle cx="5505" cy="3403" r="23" transform="scale(.1)" />
+  <rect x="5660" y="3380" width="414" height="46" rx="20" ry="20" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M5596 3736h366v23h-366z" />
+  <path transform="scale(.1)" d="M5622 3701h314v23h-314z" />
+  <path transform="scale(.1)" d="M5651 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M5698 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M5744 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M5790 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M5836 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M5882 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M5649 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
+  <path fill="none" stroke-width="30" stroke="#58595b" transform="scale(.1)" d="M5781 2662v385" />
+  <path fill="#58595b" transform="scale(.1)" d="M5781 3153l-61-150l61 36l61-36-61 150z" />
+  <path fill="none" stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M5781 3812v291" />
+  <text font-weight="700" fill="#231f20" font-size="130" x="5665" y="3287" transform="scale(.1)">FTB</text>
+  <path fill="none" stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M3325 5104v149" />
+  <rect x="3000" y="3355" width="648" height="451" rx="36" ry="36" fill="none" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
+  <circle cx="3164" cy="3403" r="23" transform="scale(.1)" />
+  <circle cx="3107" cy="3403" r="23" transform="scale(.1)" />
+  <circle cx="3049" cy="3403" r="23" transform="scale(.1)" />
+  <rect x="3205" y="3380" width="414" height="46" rx="20" ry="20" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M3140 3736h366v23h-366z" />
+  <path transform="scale(.1)" d="M3165 3701h314v23h-314z" />
+  <path transform="scale(.1)" d="M3195 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M3241 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M3288 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M3334 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M3380 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M3426 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M3193 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
+  <rect x="3114" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M3335 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
+  <circle cx="3335" cy="4602" r="42" fill="#fff" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M3335 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
+  <path fill="none" stroke-width="30" stroke="#58595b" transform="scale(.1)" d="M3325 2662v385" />
+  <path fill="#58595b" transform="scale(.1)" d="M3325 3152l-61-149l61 36l61-36-61 149z" />
+  <path fill="none" stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M3325 3806v518" />
+  <path fill="#1c75bc" transform="scale(.1)" d="M3325 4430l-61-149l61 35l61-35-61 149z" />
+  <text font-weight="700" fill="#231f20" font-size="130" x="3153" y="3287" transform="scale(.1)">CDPH</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="3085" y="4907" transform="scale(.1)">Vaccine</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="3121" y="5062" transform="scale(.1)">Record</text>
+  <text font-weight="700" fill="#231f20" font-size="158" x="460" y="5750" transform="scale(.1)">J. Doe</text>
+  <path fill="none" stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M4143 5104v149" />
+  <rect x="3819" y="3355" width="648" height="451" rx="36" ry="36" fill="none" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
+  <circle cx="3983" cy="3403" r="23" transform="scale(.1)" />
+  <circle cx="3926" cy="3403" r="23" transform="scale(.1)" />
+  <circle cx="3868" cy="3403" r="23" transform="scale(.1)" />
+  <rect x="4023" y="3380" width="414" height="46" rx="20" ry="20" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M3958 3736h366v23h-366z" />
+  <path transform="scale(.1)" d="M3984 3701h314v23h-314z" />
+  <path transform="scale(.1)" d="M4014 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M4060 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M4106 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M4153 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M4199 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M4245 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M4012 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
+  <rect x="3922" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M4143 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
+  <circle cx="4143" cy="4602" r="42" fill="#fff" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M4143 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
+  <path fill="none" stroke-width="30" stroke="#58595b" transform="scale(.1)" d="M4143 2662v231" />
+  <path fill="#58595b" transform="scale(.1)" d="M4143 2999l-61-149l61 35l61-35-61 149z" />
+  <path fill="none" stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M4143 3806v519" />
+  <path fill="#1c75bc" transform="scale(.1)" d="M4143 4430l-61-149l61 36l61-36-61 149z" />
+  <text font-weight="700" fill="#231f20" font-size="130" x="3717" y="3131" transform="scale(.1)">State Board of</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="3746" y="3287" transform="scale(.1)">Cosmetology</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="3747" y="4907" transform="scale(.1)">Cosmetology</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="3912" y="5062" transform="scale(.1)">License</text>
+  <path fill="none" stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M4962 4962v291" />
+  <rect x="4638" y="3355" width="648" height="451" rx="36" ry="36" fill="none" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
+  <circle cx="4801" cy="3403" r="23" transform="scale(.1)" />
+  <circle cx="4744" cy="3403" r="23" transform="scale(.1)" />
+  <circle cx="4686" cy="3403" r="23" transform="scale(.1)" />
+  <rect x="4842" y="3380" width="414" height="46" rx="20" ry="20" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M4777 3736h366v23h-366z" />
+  <path transform="scale(.1)" d="M4803 3701h314v23h-314z" />
+  <path transform="scale(.1)" d="M4833 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M4879 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M4925 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M4971 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M5018 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M5064 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M4831 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
+  <rect x="4741" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M4962 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
+  <circle cx="4962" cy="4602" r="42" fill="#fff" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M4962 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
+  <path fill="none" stroke-width="30" stroke="#58595b" transform="scale(.1)" d="M4962 2662v385" />
+  <path fill="#58595b" transform="scale(.1)" d="M4962 3153l-61-150l61 36l61-36-61 150z" />
+  <path fill="none" stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M4962 3806v519" />
+  <path fill="#1c75bc" transform="scale(.1)" d="M4962 4430l-61-149l61 36l61-36-61 149z" />
+  <text font-weight="700" fill="#231f20" font-size="130" x="4813" y="3287" transform="scale(.1)">DMV</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="4823" y="4907" transform="scale(.1)">mDL</text>
+  <path fill="none" stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M6599 4962v291" />
+  <rect x="6275" y="3355" width="648" height="451" rx="36" ry="36" fill="none" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
+  <circle cx="6439" cy="3403" r="23" transform="scale(.1)" />
+  <circle cx="6382" cy="3403" r="23" transform="scale(.1)" />
+  <circle cx="6324" cy="3403" r="23" transform="scale(.1)" />
+  <rect x="6479" y="3380" width="414" height="46" rx="20" ry="20" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M6414 3736h366v23h-366z" />
+  <path transform="scale(.1)" d="M6440 3701h314v23h-314z" />
+  <path transform="scale(.1)" d="M6470 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M6516 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M6562 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M6609 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M6655 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M6701 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M6468 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
+  <rect x="6378" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M6599 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
+  <circle cx="6599" cy="4602" r="42" fill="#fff" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M6599 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
+  <path fill="none" stroke-width="30" stroke="#58595b" transform="scale(.1)" d="M6599 2662v385" />
+  <path fill="#58595b" transform="scale(.1)" d="M6599 3153l-61-150l61 36l61-36-61 150z" />
+  <path fill="none" stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M6599 3806v519" />
+  <path fill="#1c75bc" transform="scale(.1)" d="M6599 4430l-61-149l61 36l61-36-61 149z" />
+  <text font-weight="700" fill="#231f20" font-size="130" x="6258" y="3287" transform="scale(.1)">State Parks</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="6240" y="4907" transform="scale(.1)">Parks Pass</text>
+  <rect x="7094" y="3355" width="648" height="451" rx="36" ry="36" fill="none" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
+  <circle cx="7257" cy="3403" r="23" transform="scale(.1)" />
+  <circle cx="7200" cy="3403" r="23" transform="scale(.1)" />
+  <circle cx="7142" cy="3403" r="23" transform="scale(.1)" />
+  <rect x="7298" y="3380" width="414" height="46" rx="20" ry="20" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M7233 3736h366v23h-366z" />
+  <path transform="scale(.1)" d="M7259 3701h314v23h-314z" />
+  <path transform="scale(.1)" d="M7289 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M7335 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M7381 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M7427 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M7474 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M7520 3563h23v129h-23z" />
+  <path transform="scale(.1)" d="M7287 3555h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12z" />
+  <rect x="7197" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M7418 4560c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
+  <circle cx="7418" cy="4602" r="42" fill="#fff" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M7418 4517c-57 0-104 47-104 104s14 60 36 79c18 16 42 25 68 25s50-10 68-25c22-19 36-47 36-79c0-57-47-104-104-104zm68 172c-2-21-21-38-43-38h-50c-22 0-40 17-43 38-18-18-29-42-29-68c0-53 43-96 96-96s96 43 96 96s-11 51-29 68h2z" />
+  <path fill="none" stroke-width="30" stroke="#58595b" transform="scale(.1)" d="M7418 2662v385" />
+  <path fill="#58595b" transform="scale(.1)" d="M7418 3153l-61-150l61 36l61-36-61 150z" />
+  <path fill="none" stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M7418 3806v519" />
+  <path fill="#1c75bc" transform="scale(.1)" d="M7418 4430l-61-149l61 36l61-36-61 149z" />
+  <path fill="none" stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M7418 4960v291" />
+  <text font-weight="700" fill="#231f20" font-size="130" x="7142" y="3287" transform="scale(.1)">Agency X</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="6999" y="4907" transform="scale(.1)">Credential X</text>
+  <text font-weight="700" font-size="10" fill="#58595b" x="311" y="540">Digital Credentials</text>
+  <text font-weight="700" font-size="100" fill="#58595b" x="1093" y="4218" transform="scale(.1)">Services &amp; Benefits</text>
+  <text font-weight="700" font-size="100" fill="#58595b" x="880" y="3662" transform="scale(.1)">Application for Services,</text>
+  <text font-weight="700" font-size="100" fill="#58595b" x="880" y="3782" transform="scale(.1)">Benefits, or Credentials</text>
+  <text font-weight="700" font-size="100" fill="#58595b" x="890" y="3215" transform="scale(.1)">Request for ID or</text>
+  <text font-weight="700" font-size="100" fill="#58595b" x="890" y="3335" transform="scale(.1)">Eligibility Data</text>
+  <text font-weight="700" font-size="100" fill="#58595b" x="2025" y="2493" transform="scale(.1)">Minimized ID &amp;</text>
+  <text font-weight="700" font-size="100" fill="#58595b" x="2025" y="2613" transform="scale(.1)">Eligibility Data</text>
+  <text font-weight="700" font-size="100" fill="#58595b" x="733" y="1164" transform="scale(.1)">Raw ID Data</text>
+  <text font-weight="700" font-size="100" fill="#58595b" x="1106" y="1483" transform="scale(.1)">Raw Eligibility</text>
+  <text font-weight="700" font-size="100" fill="#58595b" x="1106" y="1603" transform="scale(.1)">Data</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="3764" y="1942" transform="scale(.1)">Login.Gov</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="2150" y="2189" transform="scale(.1)">Calfresh</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="3000" y="2167" transform="scale(.1)">Eligibility</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="2968" y="2322" transform="scale(.1)">Provider X</text>
+  <text font-weight="700" fill="#231f20" font-size="130" x="4572" y="1942" transform="scale(.1)">ID Provider X</text>
+  <g stroke="#58595b">
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M4325 1045h37" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M4443 1045h37" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M6889 2662h37" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M7007 2662h37" />
+    <g stroke="#1c75bc">
+      <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M6889 4097h37" />
+      <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M7007 4097h37" />
+      <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M1691 5253h5103" />
     </g>
   </g>
-  <g font-family="Arial-BoldMT, Arial" font-weight="700">
-    <g fill="#58595b" font-size="100">
-      <g font-size="130">
-        <g transform="scale(.1)" fill="#231f20">
-          <text x="7142" y="3287">Agency X</text>
-          <text x="6999" y="4907">Credential X</text>
-        </g>
-        <text font-size="10" x="311" y="540">Digital Credentials</text>
-        <text font-size="100" x="1093" y="4218" transform="scale(.1)">Services &amp; Benefits</text>
-      </g>
-      <g transform="scale(.1)">
-        <text x="880" y="3662">Application for Services,</text>
-        <text x="880" y="3782">Benefits, or Credentials</text>
-        <text x="890" y="3215">Request for ID or</text>
-        <text x="890" y="3335">Eligibility Data</text>
-        <text x="2025" y="2493">Minimized ID &amp;</text>
-        <text x="2025" y="2613">Eligibility Data</text>
-        <text x="733" y="1164">Raw ID Data</text>
-      </g>
-    </g>
-    <g transform="scale(.1)" fill="#231f20" font-size="130">
-      <g fill="#58595b" font-size="100">
-        <text x="1106" y="1483">Raw Eligibility</text>
-        <text x="1106" y="1603">Data</text>
-      </g>
-      <text x="3764" y="1942">Login.Gov</text>
-      <text x="2150" y="2189">Calfresh</text>
-      <text x="3000" y="2167">Eligibility</text>
-      <text x="2968" y="2322">Provider X</text>
-      <text x="4572" y="1942">ID Provider X</text>
-    </g>
+  <path fill="#1c75bc" transform="scale(.1)" d="M1586 5253l149 61-36-61l36-61-149 61z" />
+  <g stroke="#1c75bc">
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M7120 5253h298" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M6889 5253h37" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M7007 5253h37" />
+    <rect x="448" y="2382" width="1474" height="429" rx="87" ry="87" fill="#fbae18" stroke="#0e3a5e" transform="scale(.1)" stroke-width="10" />
   </g>
-  <g transform="scale(.1)">
-    <g fill="none" stroke-linecap="square" stroke-width="30">
-      <g stroke="#58595b">
-        <path d="M4325 1045h37" />
-        <path d="M4443 1045h37" />
-        <path d="M6889 2662h37" />
-        <path d="M7007 2662h37" />
-        <g stroke="#1c75bc">
-          <path d="M6889 4097h37" />
-          <path d="M7007 4097h37" />
-        </g>
-      </g>
-      <path stroke="#1c75bc" d="M1691 5253h5103" />
-    </g>
-    <g fill="#1c75bc">
-      <path d="M1586 5253l149 61-36-61l36-61-149 61z" />
-      <g fill="none">
-        <g stroke="#1c75bc" stroke-width="30" stroke-linecap="square">
-          <path d="M7120 5253h298" />
-          <path d="M6889 5253h37" />
-          <path d="M7007 5253h37" />
-        </g>
-        <rect x="448" y="2382" width="1474" height="429" rx="87" ry="87" fill="#fbae18" stroke="#0e3a5e" stroke-width="10" />
-        <g fill="#0e3a5e" font-family="Arial-BoldMT, Arial" font-size="129" font-weight="700">
-          <text x="820" y="2557">California</text>
-          <text x="820" y="2712">Identity Gateway</text>
-        </g>
-        <g fill="#fff">
-          <rect x="490" y="2441" width="311" height="311" rx="36" ry="36" fill="#0e3a5e" />
-          <path d="M697 2597c0-5 0-11-4-14-6-5-6-11-5-17v-13c0-15-10-28-25-31-9-2-19-2-28 0-18 2-27 15-27 33v17s-2 4-3 5c-8 5-11 11-11 20v49c0 16 8 23 22 23h61c13 0 22-9 22-22v-50h-2zm-78-50c0-9 7-14 16-15c8-1 17-1 25 0c10 1 17 10 17 20v22h-57v-27zm45 55c0 10-8 18-18 18s-18-8-18-18s8-18 18-18s18 8 18 18zm-19 61c-13 0-25-6-32-15c2-14 13-24 27-24h10c14 0 26 11 27 24-8 9-19 15-32 15z" />
-          <path d="M544 2571c6-51 49-90 101-90s95 39 101 90h16c-6-59-56-105-116-105s-110 46-116 105h15z" />
-          <path d="M746 2627c-6 51-49 90-101 90s-95-39-101-90h-15c6 59 56 105 116 105s111-46 116-105h-15z" />
-          <path d="M572 2608h-67c3-3 7-6 10-9-3-2-7-5-10-7h67c3 3 7 5 10 8-3 3-7 6-10 9z" />
-          <path d="M785 2608h-67l9-8c-3-3-6-5-9-8h67l9 7-9 9z" />
-        </g>
-        <path stroke-width="30" stroke="#58595b" d="M679 3523h1320" />
-        <path fill="#58595b" d="M2105 3523l-149 61l35-61-35-61l149 61z" />
-        <g stroke-linecap="square">
-          <g stroke="#58595b" stroke-width="30">
-            <path d="M679 3523v449" />
-            <path d="M2981 3407h-2302" />
-          </g>
-          <circle cx="676" cy="3748" r="155" fill="#1c75bc" />
-        </g>
-        <g fill="#fff" font-weight="700" font-family="Arial-BoldMT, Arial" font-size="216">
-          <text x="623" y="3823">1</text>
-          <circle cx="677" cy="3192" r="155" fill="#1c75bc" />
-          <text x="623" y="3267">2</text>
-          <circle cx="664" cy="1934" r="156" fill="#1c75bc" />
-          <text x="563" y="2009">3</text>
-          <text font-size="154" x="683" y="2009">a</text>
-        </g>
-        <path stroke-width="30" stroke="#58595b" d="M1055 1369v845" />
-        <path fill="#58595b" d="M1055 2319l-61-149l61 36l61-36-61 149z" />
-      </g>
-      <circle cx="1044" cy="1934" r="156" />
-      <g fill="#fff">
-        <g font-weight="700" font-family="Arial-BoldMT, Arial" font-size="216">
-          <text x="942" y="2009">3</text>
-          <text font-size="154" x="1062" y="2009">b</text>
-          <circle cx="2900" cy="2649" r="155" fill="#1c75bc" />
-          <text x="2821" y="2723">4</text>
-          <circle cx="2903" cy="4097" r="155" fill="#1c75bc" />
-          <text x="2807" y="4172">5</text>
-          <text font-size="154" x="2928" y="4172">a</text>
-          <circle cx="2922" cy="5253" r="155" fill="#1c75bc" />
-          <text x="2826" y="5327">5</text>
-          <text font-size="154" x="2947" y="5327">b</text>
-        </g>
-        <g stroke="#58595b" stroke-width="30" stroke-linecap="square" fill="none">
-          <path d="M2868 1369h390" />
-          <path d="M2612 1369h37" />
-          <path d="M2730 1369h37" />
-        </g>
-      </g>
-      <rect x="1938" y="4907" width="672" height="660" rx="38" ry="38" fill="#fbae18" stroke="#231f20" stroke-width="10" />
-      <g fill="#0e3a5e">
-        <g font-family="Arial-BoldMT, Arial" font-size="129" font-weight="700">
-          <text x="1973" y="5525">API</text>
-          <text x="1973" y="5383">Issuance</text>
-        </g>
-        <rect x="1967" y="4938" width="310" height="310" rx="36" ry="36" />
-        <g fill="#fff">
-          <path d="M2212 4986h-181c-19 0-35 15-35 35v151c0 19 16 35 35 35h181c19 0 35-15 35-35v-151c0-19-16-35-35-35zm-181 12h181c12 0 21 9 23 20-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20zm205 42c-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20h181c12 0 21 9 23 20zm0 87v45c0 13-11 23-23 23h-181c-13 0-23-10-23-23v-106c0-13 11-23 23-23h181c13 0 23 10 23 23v62z" />
-          <path d="M2162 5117c0-4-1-9-4-11-4-4-4-8-4-13v-10c0-12-8-22-19-24-7-1-15-1-22 0-14 2-21 12-21 26v13s-1 3-2 4c-6 4-9 9-9 15v38c0 12 6 18 18 18h47c10 0 17-7 17-17v-39h-1zm-61-38c0-7 6-11 12-12h19c8 1 13 8 13 16v17h-45v-21h1zm36 42c0 8-6 14-14 14s-14-6-14-14s6-14 14-14s14 6 14 14zm-15 48c-10 0-19-5-25-12c1-11 10-19 21-19h8c11 0 20 8 21 19-6 7-15 12-25 12z" />
-        </g>
-      </g>
-      <g font-family="Arial-BoldMT, Arial" font-weight="700" fill="#231f20" font-size="82">
-        <text fill="#58595b" font-size="116" x="6040" y="271">Legend</text>
-        <text x="6248" y="479">Individual</text>
-        <text x="6244" y="1146">Digital</text>
-        <text x="6244" y="1245">Credential</text>
-        <text x="6334" y="1445">Data &amp;</text>
-        <text x="6334" y="1544">Information</text>
-        <text x="6334" y="1759">Order of interactions in the</text>
-        <text x="6334" y="1858">verification sequence</text>
-        <text x="7178" y="1457">Services &amp;</text>
-        <text x="7178" y="1556">Benefits</text>
-        <g font-size="55">
-          <text x="6786" y="589">Included associated functions,</text>
-          <text x="6786" y="655">policies, and digital artifacts</text>
-          <text x="6786" y="721">developed or managed by CDT</text>
-          <text x="6204" y="589">Seeking services or</text>
-          <text x="6204" y="655">benefits from state</text>
-          <text x="6204" y="721">agencies in CA</text>
-        </g>
-        <text x="6242" y="918">State Entity</text>
-        <g font-size="55">
-          <text x="6242" y="984">Website / API / App</text>
-          <text font-size="82" x="7008" y="1152">Eligibility Provider</text>
-          <text x="7008" y="1218">Verifies attributes or</text>
-          <text x="7008" y="1284">enrollment in programs</text>
-        </g>
-      </g>
-    </g>
-    <path d="M6100 432c17 0 32-15 32-33s-14-33-32-33s-32 14-32 33s14 33 32 33z" />
-    <path d="M6210 477c-5-5-12-6-18-2l-15 13-4 3c-7-12-5-12-19-35-6-11-17-16-30-16h-49c-11 0-20 4-27 12-5 7-10 15-13 24-9 28-10 57-8 86v7c0 7 6 12 12 12s11-5 11-13c0-20 0-40 2-60c0-9 4-19 6-28h2v215c0 10 7 17 17 17s18-7 18-20v-129c8-2 7 4 7 8v123c0 12 7 19 19 19s17-8 17-20v-211h2c0 4 2 5 5 12c9 19 4 5 10 23c0 2 0 3 2 4c5 5 11 2 17-2l3-2l30-25c5-5 5-10 3-14z" />
-    <g fill="#231f20" font-family="Arial-BoldMT, Arial" font-size="55" font-weight="700">
-      <text font-size="82" x="7008" y="907">ID Provider</text>
-      <text x="7008" y="973">Verifies identity, can be a</text>
-      <text x="7008" y="1039">public or private entity</text>
-    </g>
-    <g stroke="#000" stroke-width="10">
-      <g fill="#fff">
-        <path d="M6954 898h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
-        <path d="M6941 883h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
-      </g>
-      <path d="M6854 866c0-6-5-11-11-11h-68c-6 0-11 5-11 11v3h90v-3z" />
-      <path fill="#fff" d="M6928 869h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
-    </g>
-    <circle cx="6796" cy="899" r="8" />
-    <path d="M6796 884c-10 0-18 8-18 18s2 11 6 14c3 3 7 4 12 4s9-2 12-4c4-3 6-8 6-14c0-10-8-18-18-18zm12 31c0-4-4-7-8-7h-9c-4 0-7 3-8 7-3-3-5-7-5-12c0-9 8-17 17-17s17 8 17 17s-2 9-5 12z" />
-    <circle cx="6796" cy="950" r="8" />
-    <path d="M6796 935c-10 0-18 8-18 18s2 11 6 14c3 3 7 4 12 4s9-2 12-4c4-3 6-8 6-14c0-10-8-18-18-18zm12 31c0-4-4-7-8-7h-9c-4 0-7 3-8 7-3-3-5-7-5-12c0-9 8-17 17-17s17 8 17 17s-2 9-5 12z" />
-    <circle cx="6871" cy="899" r="8" />
-    <path d="M6871 884c-10 0-18 8-18 18s2 11 6 14c3 3 7 4 12 4s9-2 12-4c4-3 6-8 6-14c0-10-8-18-18-18zm12 31c0-4-4-7-8-7h-9c-4 0-7 3-8 7-3-3-5-7-5-12c0-9 8-17 17-17s17 8 17 17s-2 9-5 12z" />
-    <circle cx="6871" cy="950" r="8" />
-    <path d="M6871 935c-10 0-18 8-18 18s2 11 6 14c3 3 7 4 12 4s9-2 12-4c4-3 6-8 6-14c0-10-8-18-18-18zm12 31c0-4-4-7-8-7h-9c-4 0-7 3-8 7-3-3-5-7-5-12c0-9 8-17 17-17s17 8 17 17s-2 9-5 12z" />
-    <path d="M6819 892h26v5h-26z" />
-    <path d="M6819 901h12v5h-12z" />
-    <path d="M6899 892h26v5h-26z" />
-    <path d="M6899 901h12v5h-12z" />
-    <path d="M6819 946h26v5h-26z" />
-    <path d="M6819 956h12v5h-12z" />
-    <path d="M6899 946h26v5h-26z" />
-    <path d="M6899 956h12v5h-12z" />
-    <rect x="6015" y="857" width="197" height="137" rx="18" ry="18" fill="none" stroke="#231f20" stroke-width="10" />
-    <circle cx="6065" cy="872" r="7" />
-    <circle cx="6048" cy="872" r="7" />
-    <circle cx="6030" cy="872" r="7" />
-    <path d="M6084 865h112c4 0 7 3 7 7c0 4-3 7-7 7h-112c-4 0-7-3-7-7c0-4 3-7 7-7z" />
-    <path d="M6058 973h111v7h-111z" />
-    <path d="M6065 962h95v7h-95z" />
-    <path d="M6075 920h7v39h-7z" />
-    <path d="M6089 920h7v39h-7z" />
-    <path d="M6103 920h7v39h-7z" />
-    <path d="M6117 920h7v39h-7z" />
-    <path d="M6131 920h7v39h-7z" />
-    <path d="M6145 920h7v39h-7z" />
-    <path d="M6074 918h78c2 0 3-3 0-4-13-7-26-13-40-19h-2c-13 7-26 13-39 19-2 0 0 4 0 4h3z" />
-    <rect x="6015" y="1103" width="197" height="129" rx="38" ry="38" fill="#0e3a5e" />
-    <g fill="#fff">
-      <path d="M6114 1138c10 0 19 9 19 20s-8 20-19 20s-19-9-19-20s8-20 19-20z" />
-      <ellipse cx="6114" cy="1158" rx="19" ry="20" />
-      <path d="M6114 1117c-26 0-46 22-46 50s6 28 16 38c8 8 19 12 30 12s22-5 30-12c10-9 16-23 16-38c0-27-21-50-46-50zm30 83c0-10-9-18-19-18h-22c-10 0-18 8-19 18-8-8-13-20-13-33c0-25 19-46 43-46s43 21 43 46s-5 24-13 33z" />
-    </g>
-    <g stroke-width="10">
-      <rect x="5963" y="314" width="1773" height="1638" rx="120" ry="120" fill="none" stroke="#58595b" />
-      <rect x="6775" y="382" width="888" height="143" rx="38" ry="38" fill="#fbae18" stroke="#231f20" />
-    </g>
-    <text font-family="Arial-BoldMT, Arial" font-weight="700" fill="#0e3a5e" font-size="82" x="6816" y="479">Technology Services</text>
-    <g fill="none">
-      <g stroke-width="10" stroke="#939598">
-        <path d="M6039 774h1624" />
-        <path d="M6039 1329h1624" />
-        <path d="M6039 1634h1624" />
-      </g>
-      <path stroke-width="30" stroke="#58595b" d="M6027 1469h134" />
-      <path fill="#58595b" d="M6267 1469l-150 61l36-61-36-61l150 61z" />
-      <path stroke-width="30" stroke="#1c75bc" d="M6882 1478h134" />
-      <path fill="#1c75bc" d="M7122 1478l-150 61l36-61-36-61l150 61z" />
-      <path stroke="#939598" stroke-width="10" d="M6731 380v394" />
-      <circle cx="6140" cy="1788" r="104" fill="#1c75bc" />
-    </g>
-    <text font-size="144" font-family="Arial-BoldMT, Arial" font-weight="700" fill="#fff" x="6105" y="1838">1</text>
-    <g stroke="#000" stroke-width="10">
-      <g fill="#fff">
-        <path d="M6952 1136h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
-        <path d="M6939 1121h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
-      </g>
-      <path d="M6852 1104c0-6-5-11-11-11h-68c-6 0-11 5-11 11v3h90v-3z" />
-      <path fill="#fff" d="M6926 1107h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
-    </g>
-    <circle cx="6794" cy="1137" r="8" />
-    <path d="M6794 1122c-10 0-18 8-18 18s2 11 6 14c3 3 7 4 12 4s9-2 12-4c4-3 6-8 6-14c0-10-8-18-18-18zm12 30c0-4-4-7-8-7h-9c-4 0-7 3-8 7-3-3-5-7-5-12c0-9 8-17 17-17s17 8 17 17s-2 9-5 12z" />
-    <circle cx="6794" cy="1188" r="8" />
-    <path d="M6794 1173c-10 0-18 8-18 18s2 11 6 14c3 3 7 4 12 4s9-2 12-4c4-3 6-8 6-14c0-10-8-18-18-18zm12 30c0-4-4-7-8-7h-9c-4 0-7 3-8 7-3-3-5-7-5-12c0-9 8-17 17-17s17 8 17 17s-2 9-5 12z" />
-    <path d="M6840 1129h67v5h-67z" />
-    <path d="M6840 1138h32v5h-32z" />
-    <path d="M6840 1184h67v5h-67z" />
-    <path d="M6840 1193h32v5h-32z" />
-    <g stroke-width="8" stroke="#000" fill="none">
-      <path d="M6816 1135l6 6l12-12" />
-      <path d="M6816 1191l6 6l12-12" />
-    </g>
+  <text font-weight="700" font-size="129" fill="#0e3a5e" x="820" y="2557" transform="scale(.1)">California</text>
+  <text font-weight="700" font-size="129" fill="#0e3a5e" x="820" y="2712" transform="scale(.1)">Identity Gateway</text>
+  <rect x="490" y="2441" width="311" height="311" rx="36" ry="36" fill="#0e3a5e" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M697 2597c0-5 0-11-4-14-6-5-6-11-5-17v-13c0-15-10-28-25-31-9-2-19-2-28 0-18 2-27 15-27 33v17s-2 4-3 5c-8 5-11 11-11 20v49c0 16 8 23 22 23h61c13 0 22-9 22-22v-50h-2zm-78-50c0-9 7-14 16-15c8-1 17-1 25 0c10 1 17 10 17 20v22h-57v-27zm45 55c0 10-8 18-18 18s-18-8-18-18s8-18 18-18s18 8 18 18zm-19 61c-13 0-25-6-32-15c2-14 13-24 27-24h10c14 0 26 11 27 24-8 9-19 15-32 15z" />
+  <path fill="#fff" transform="scale(.1)" d="M544 2571c6-51 49-90 101-90s95 39 101 90h16c-6-59-56-105-116-105s-110 46-116 105h15z" />
+  <path fill="#fff" transform="scale(.1)" d="M746 2627c-6 51-49 90-101 90s-95-39-101-90h-15c6 59 56 105 116 105s111-46 116-105h-15z" />
+  <path fill="#fff" transform="scale(.1)" d="M572 2608h-67c3-3 7-6 10-9-3-2-7-5-10-7h67c3 3 7 5 10 8-3 3-7 6-10 9z" />
+  <path fill="#fff" transform="scale(.1)" d="M785 2608h-67l9-8c-3-3-6-5-9-8h67l9 7-9 9z" />
+  <path fill="none" stroke-width="30" stroke="#58595b" transform="scale(.1)" d="M679 3523h1320" />
+  <path fill="#58595b" transform="scale(.1)" d="M2105 3523l-149 61l35-61-35-61l149 61z" />
+  <g stroke="#58595b">
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M679 3523v449" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M2981 3407h-2302" />
+  </g>
+  <circle cx="676" cy="3748" r="155" fill="#1c75bc" transform="scale(.1)" />
+  <text font-weight="700" fill="#fff" font-size="216" x="623" y="3823" transform="scale(.1)">1</text>
+  <circle cx="677" cy="3192" r="155" fill="#1c75bc" transform="scale(.1)" />
+  <text font-weight="700" fill="#fff" font-size="216" x="623" y="3267" transform="scale(.1)">2</text>
+  <circle cx="664" cy="1934" r="156" fill="#1c75bc" transform="scale(.1)" />
+  <text font-weight="700" fill="#fff" font-size="216" x="563" y="2009" transform="scale(.1)">3</text>
+  <text font-weight="700" fill="#fff" font-size="154" x="683" y="2009" transform="scale(.1)">a</text>
+  <path fill="none" stroke-width="30" stroke="#58595b" transform="scale(.1)" d="M1055 1369v845" />
+  <path fill="#58595b" transform="scale(.1)" d="M1055 2319l-61-149l61 36l61-36-61 149z" />
+  <circle cx="1044" cy="1934" r="156" fill="#1c75bc" transform="scale(.1)" />
+  <text font-weight="700" fill="#fff" font-size="216" x="942" y="2009" transform="scale(.1)">3</text>
+  <text font-weight="700" fill="#fff" font-size="154" x="1062" y="2009" transform="scale(.1)">b</text>
+  <circle cx="2900" cy="2649" r="155" fill="#1c75bc" transform="scale(.1)" />
+  <text font-weight="700" fill="#fff" font-size="216" x="2821" y="2723" transform="scale(.1)">4</text>
+  <circle cx="2903" cy="4097" r="155" fill="#1c75bc" transform="scale(.1)" />
+  <text font-weight="700" fill="#fff" font-size="216" x="2807" y="4172" transform="scale(.1)">5</text>
+  <text font-weight="700" fill="#fff" font-size="154" x="2928" y="4172" transform="scale(.1)">a</text>
+  <circle cx="2922" cy="5253" r="155" fill="#1c75bc" transform="scale(.1)" />
+  <text font-weight="700" fill="#fff" font-size="216" x="2826" y="5327" transform="scale(.1)">5</text>
+  <text font-weight="700" fill="#fff" font-size="154" x="2947" y="5327" transform="scale(.1)">b</text>
+  <g stroke="#58595b">
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M2868 1369h390" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M2612 1369h37" />
+    <path fill="none" stroke-linecap="square" stroke-width="30" transform="scale(.1)" d="M2730 1369h37" />
+    <rect x="1938" y="4907" width="672" height="660" rx="38" ry="38" fill="#fbae18" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
+  </g>
+  <text font-weight="700" font-size="129" fill="#0e3a5e" x="1973" y="5525" transform="scale(.1)">API</text>
+  <text font-weight="700" font-size="129" fill="#0e3a5e" x="1973" y="5383" transform="scale(.1)">Issuance</text>
+  <rect x="1967" y="4938" width="310" height="310" rx="36" ry="36" fill="#0e3a5e" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M2212 4986h-181c-19 0-35 15-35 35v151c0 19 16 35 35 35h181c19 0 35-15 35-35v-151c0-19-16-35-35-35zm-181 12h181c12 0 21 9 23 20-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20zm205 42c-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20h181c12 0 21 9 23 20zm0 87v45c0 13-11 23-23 23h-181c-13 0-23-10-23-23v-106c0-13 11-23 23-23h181c13 0 23 10 23 23v62z" />
+  <path fill="#fff" transform="scale(.1)" d="M2162 5117c0-4-1-9-4-11-4-4-4-8-4-13v-10c0-12-8-22-19-24-7-1-15-1-22 0-14 2-21 12-21 26v13s-1 3-2 4c-6 4-9 9-9 15v38c0 12 6 18 18 18h47c10 0 17-7 17-17v-39h-1zm-61-38c0-7 6-11 12-12h19c8 1 13 8 13 16v17h-45v-21h1zm36 42c0 8-6 14-14 14s-14-6-14-14s6-14 14-14s14 6 14 14zm-15 48c-10 0-19-5-25-12c1-11 10-19 21-19h8c11 0 20 8 21 19-6 7-15 12-25 12z" />
+  <text font-weight="700" fill="#58595b" font-size="116" x="6040" y="271" transform="scale(.1)">Legend</text>
+  <text font-weight="700" fill="#231f20" font-size="82" x="6248" y="479" transform="scale(.1)">Individual</text>
+  <text font-weight="700" fill="#231f20" font-size="82" x="6244" y="1146" transform="scale(.1)">Digital</text>
+  <text font-weight="700" fill="#231f20" font-size="82" x="6244" y="1245" transform="scale(.1)">Credential</text>
+  <text font-weight="700" fill="#231f20" font-size="82" x="6334" y="1445" transform="scale(.1)">Data &amp;</text>
+  <text font-weight="700" fill="#231f20" font-size="82" x="6334" y="1544" transform="scale(.1)">Information</text>
+  <text font-weight="700" fill="#231f20" font-size="82" x="6334" y="1759" transform="scale(.1)">Order of interactions in the</text>
+  <text font-weight="700" fill="#231f20" font-size="82" x="6334" y="1858" transform="scale(.1)">verification sequence</text>
+  <text font-weight="700" fill="#231f20" font-size="82" x="7178" y="1457" transform="scale(.1)">Services &amp;</text>
+  <text font-weight="700" fill="#231f20" font-size="82" x="7178" y="1556" transform="scale(.1)">Benefits</text>
+  <text font-weight="700" font-size="55" fill="#231f20" x="6786" y="589" transform="scale(.1)">Included associated functions,</text>
+  <text font-weight="700" font-size="55" fill="#231f20" x="6786" y="655" transform="scale(.1)">policies, and digital artifacts</text>
+  <text font-weight="700" font-size="55" fill="#231f20" x="6786" y="721" transform="scale(.1)">developed or managed by CDT</text>
+  <text font-weight="700" font-size="55" fill="#231f20" x="6204" y="589" transform="scale(.1)">Seeking services or</text>
+  <text font-weight="700" font-size="55" fill="#231f20" x="6204" y="655" transform="scale(.1)">benefits from state</text>
+  <text font-weight="700" font-size="55" fill="#231f20" x="6204" y="721" transform="scale(.1)">agencies in CA</text>
+  <text font-weight="700" fill="#231f20" font-size="82" x="6242" y="918" transform="scale(.1)">State Entity</text>
+  <text font-weight="700" font-size="55" fill="#231f20" x="6242" y="984" transform="scale(.1)">Website / API / App</text>
+  <text font-weight="700" fill="#231f20" font-size="82" x="7008" y="1152" transform="scale(.1)">Eligibility Provider</text>
+  <text font-weight="700" font-size="55" fill="#231f20" x="7008" y="1218" transform="scale(.1)">Verifies attributes or</text>
+  <text font-weight="700" font-size="55" fill="#231f20" x="7008" y="1284" transform="scale(.1)">enrollment in programs</text>
+  <path transform="scale(.1)" d="M6100 432c17 0 32-15 32-33s-14-33-32-33s-32 14-32 33s14 33 32 33z" />
+  <path transform="scale(.1)" d="M6210 477c-5-5-12-6-18-2l-15 13-4 3c-7-12-5-12-19-35-6-11-17-16-30-16h-49c-11 0-20 4-27 12-5 7-10 15-13 24-9 28-10 57-8 86v7c0 7 6 12 12 12s11-5 11-13c0-20 0-40 2-60c0-9 4-19 6-28h2v215c0 10 7 17 17 17s18-7 18-20v-129c8-2 7 4 7 8v123c0 12 7 19 19 19s17-8 17-20v-211h2c0 4 2 5 5 12c9 19 4 5 10 23c0 2 0 3 2 4c5 5 11 2 17-2l3-2l30-25c5-5 5-10 3-14z" />
+  <text font-weight="700" fill="#231f20" font-size="82" x="7008" y="907" transform="scale(.1)">ID Provider</text>
+  <text font-weight="700" font-size="55" fill="#231f20" x="7008" y="973" transform="scale(.1)">Verifies identity, can be a</text>
+  <text font-weight="700" font-size="55" fill="#231f20" x="7008" y="1039" transform="scale(.1)">public or private entity</text>
+  <g stroke="#000">
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M6954 898h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M6941 883h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+    <path transform="scale(.1)" stroke-width="10" d="M6854 866c0-6-5-11-11-11h-68c-6 0-11 5-11 11v3h90v-3z" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M6928 869h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+  </g>
+  <circle cx="6796" cy="899" r="8" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M6796 884c-10 0-18 8-18 18s2 11 6 14c3 3 7 4 12 4s9-2 12-4c4-3 6-8 6-14c0-10-8-18-18-18zm12 31c0-4-4-7-8-7h-9c-4 0-7 3-8 7-3-3-5-7-5-12c0-9 8-17 17-17s17 8 17 17s-2 9-5 12z" />
+  <circle cx="6796" cy="950" r="8" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M6796 935c-10 0-18 8-18 18s2 11 6 14c3 3 7 4 12 4s9-2 12-4c4-3 6-8 6-14c0-10-8-18-18-18zm12 31c0-4-4-7-8-7h-9c-4 0-7 3-8 7-3-3-5-7-5-12c0-9 8-17 17-17s17 8 17 17s-2 9-5 12z" />
+  <circle cx="6871" cy="899" r="8" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M6871 884c-10 0-18 8-18 18s2 11 6 14c3 3 7 4 12 4s9-2 12-4c4-3 6-8 6-14c0-10-8-18-18-18zm12 31c0-4-4-7-8-7h-9c-4 0-7 3-8 7-3-3-5-7-5-12c0-9 8-17 17-17s17 8 17 17s-2 9-5 12z" />
+  <circle cx="6871" cy="950" r="8" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M6871 935c-10 0-18 8-18 18s2 11 6 14c3 3 7 4 12 4s9-2 12-4c4-3 6-8 6-14c0-10-8-18-18-18zm12 31c0-4-4-7-8-7h-9c-4 0-7 3-8 7-3-3-5-7-5-12c0-9 8-17 17-17s17 8 17 17s-2 9-5 12z" />
+  <path transform="scale(.1)" d="M6819 892h26v5h-26z" />
+  <path transform="scale(.1)" d="M6819 901h12v5h-12z" />
+  <path transform="scale(.1)" d="M6899 892h26v5h-26z" />
+  <path transform="scale(.1)" d="M6899 901h12v5h-12z" />
+  <path transform="scale(.1)" d="M6819 946h26v5h-26z" />
+  <path transform="scale(.1)" d="M6819 956h12v5h-12z" />
+  <path transform="scale(.1)" d="M6899 946h26v5h-26z" />
+  <path transform="scale(.1)" d="M6899 956h12v5h-12z" />
+  <rect x="6015" y="857" width="197" height="137" rx="18" ry="18" fill="none" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
+  <circle cx="6065" cy="872" r="7" transform="scale(.1)" />
+  <circle cx="6048" cy="872" r="7" transform="scale(.1)" />
+  <circle cx="6030" cy="872" r="7" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M6084 865h112c4 0 7 3 7 7c0 4-3 7-7 7h-112c-4 0-7-3-7-7c0-4 3-7 7-7z" />
+  <path transform="scale(.1)" d="M6058 973h111v7h-111z" />
+  <path transform="scale(.1)" d="M6065 962h95v7h-95z" />
+  <path transform="scale(.1)" d="M6075 920h7v39h-7z" />
+  <path transform="scale(.1)" d="M6089 920h7v39h-7z" />
+  <path transform="scale(.1)" d="M6103 920h7v39h-7z" />
+  <path transform="scale(.1)" d="M6117 920h7v39h-7z" />
+  <path transform="scale(.1)" d="M6131 920h7v39h-7z" />
+  <path transform="scale(.1)" d="M6145 920h7v39h-7z" />
+  <path transform="scale(.1)" d="M6074 918h78c2 0 3-3 0-4-13-7-26-13-40-19h-2c-13 7-26 13-39 19-2 0 0 4 0 4h3z" />
+  <rect x="6015" y="1103" width="197" height="129" rx="38" ry="38" fill="#0e3a5e" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M6114 1138c10 0 19 9 19 20s-8 20-19 20s-19-9-19-20s8-20 19-20z" />
+  <ellipse cx="6114" cy="1158" rx="19" ry="20" fill="#fff" transform="scale(.1)" />
+  <path fill="#fff" transform="scale(.1)" d="M6114 1117c-26 0-46 22-46 50s6 28 16 38c8 8 19 12 30 12s22-5 30-12c10-9 16-23 16-38c0-27-21-50-46-50zm30 83c0-10-9-18-19-18h-22c-10 0-18 8-19 18-8-8-13-20-13-33c0-25 19-46 43-46s43 21 43 46s-5 24-13 33z" />
+  <rect x="5963" y="314" width="1773" height="1638" rx="120" ry="120" fill="none" stroke="#58595b" transform="scale(.1)" stroke-width="10" />
+  <rect x="6775" y="382" width="888" height="143" rx="38" ry="38" fill="#fbae18" stroke="#231f20" transform="scale(.1)" stroke-width="10" />
+  <text font-weight="700" fill="#0e3a5e" font-size="82" x="6816" y="479" transform="scale(.1)">Technology Services</text>
+  <g stroke="#939598">
+    <path fill="none" transform="scale(.1)" stroke-width="10" d="M6039 774h1624" />
+    <path fill="none" transform="scale(.1)" stroke-width="10" d="M6039 1329h1624" />
+    <path fill="none" transform="scale(.1)" stroke-width="10" d="M6039 1634h1624" />
+    <path fill="none" stroke-width="30" stroke="#58595b" transform="scale(.1)" d="M6027 1469h134" />
+  </g>
+  <path fill="#58595b" transform="scale(.1)" d="M6267 1469l-150 61l36-61-36-61l150 61z" />
+  <path fill="none" stroke-width="30" stroke="#1c75bc" transform="scale(.1)" d="M6882 1478h134" />
+  <path fill="#1c75bc" transform="scale(.1)" d="M7122 1478l-150 61l36-61-36-61l150 61z" />
+  <path fill="none" stroke="#939598" transform="scale(.1)" stroke-width="10" d="M6731 380v394" />
+  <circle cx="6140" cy="1788" r="104" fill="#1c75bc" transform="scale(.1)" />
+  <text font-size="144" font-weight="700" fill="#fff" x="6105" y="1838" transform="scale(.1)">1</text>
+  <g stroke="#000">
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M6952 1136h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M6939 1121h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+    <path transform="scale(.1)" stroke-width="10" d="M6852 1104c0-6-5-11-11-11h-68c-6 0-11 5-11 11v3h90v-3z" />
+    <path fill="#fff" transform="scale(.1)" stroke-width="10" d="M6926 1107h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+  </g>
+  <circle cx="6794" cy="1137" r="8" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M6794 1122c-10 0-18 8-18 18s2 11 6 14c3 3 7 4 12 4s9-2 12-4c4-3 6-8 6-14c0-10-8-18-18-18zm12 30c0-4-4-7-8-7h-9c-4 0-7 3-8 7-3-3-5-7-5-12c0-9 8-17 17-17s17 8 17 17s-2 9-5 12z" />
+  <circle cx="6794" cy="1188" r="8" transform="scale(.1)" />
+  <path transform="scale(.1)" d="M6794 1173c-10 0-18 8-18 18s2 11 6 14c3 3 7 4 12 4s9-2 12-4c4-3 6-8 6-14c0-10-8-18-18-18zm12 30c0-4-4-7-8-7h-9c-4 0-7 3-8 7-3-3-5-7-5-12c0-9 8-17 17-17s17 8 17 17s-2 9-5 12z" />
+  <path transform="scale(.1)" d="M6840 1129h67v5h-67z" />
+  <path transform="scale(.1)" d="M6840 1138h32v5h-32z" />
+  <path transform="scale(.1)" d="M6840 1184h67v5h-67z" />
+  <path transform="scale(.1)" d="M6840 1193h32v5h-32z" />
+  <g stroke="#000">
+    <path fill="none" stroke-width="8" transform="scale(.1)" d="M6816 1135l6 6l12-12" />
+    <path fill="none" stroke-width="8" transform="scale(.1)" d="M6816 1191l6 6l12-12" />
   </g>
 </svg>

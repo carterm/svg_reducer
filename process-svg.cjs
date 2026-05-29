@@ -563,9 +563,15 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
           return ancestor.getAttribute(attr) || "";
     };
 
+    const tempGroupAttributes = ["font-family", "stroke"];
+
     // Process each attribute that can be grouped (e.g., fill, stroke, opacity)
-    groupAbleAttributes.forEach(attr => {
-      const allWithAttribute = [...document.querySelectorAll(`[${attr}]`)];
+    tempGroupAttributes.forEach(attr => {
+      const allWithAttribute = [
+        ...svgElement.querySelectorAll(
+          `text[${attr}],path[${attr}],circle[${attr}],rect[${attr}],ellipse[${attr}],line[${attr}],polyline[${attr}],polygon[${attr}]`
+        )
+      ];
       const distinctValues = [
         ...new Set([...allWithAttribute].map(el => el.getAttribute(attr) || ""))
       ];
@@ -583,10 +589,9 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
           `Grouping ${allMatches.length} elements with [${attr}="${value}"]`
         );
 
-        for (let i = 0; i < allMatches.length - 1; i++) {
-          const myElement = allMatches[i];
+        allMatches.forEach(myElement => {
           const myParent = myElement.parentElement;
-          if (!myParent) continue;
+          if (!myParent || myElement.getAttribute(attr) !== value) return;
 
           //const myAncestors = getAncestors(myElement);
           //const ancestorValue = getAncestorAttributeValue(myAncestors, attr);
@@ -644,15 +649,34 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
               didSomething = true;
               myParent.setAttribute(attr, value);
               matches.forEach(match => match.removeAttribute(attr));
-            }
 
-            if (matches.length > 1) {
+              console.log(
+                `Applied to parent of ${siblingsBetween.length}/${myParent.childElementCount} elements with [${attr}="${value}"]`
+              );
+            } else if (matches.length > 1) {
               // Make a group with the siblings between.
 
-              let foo = 1;
+              didSomething = true;
+              const newG = document.createElementNS(SVG_NS, "g");
+              newG.setAttribute(attr, value);
+              myParent.insertBefore(newG, myElement);
+
+              console.log(
+                `Grouped ${matches.length}/${siblingsBetween.length}/${myParent.childElementCount} elements into a new <g> element with [${attr}="${value}"]`
+              );
+
+              siblingsBetween.forEach(sibling2 => {
+                if (
+                  sibling2.hasAttribute(attr) &&
+                  sibling2.getAttribute(attr) === value
+                )
+                  sibling2.removeAttribute(attr);
+
+                newG.appendChild(sibling2);
+              });
             }
           }
-        }
+        });
       });
     });
     return didSomething;
@@ -945,6 +969,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   // Grouping phase
 
   while (
+    removeGroupsWithNoAttributes() ||
     groupAttributes() ||
     //   extractCommonAttributesToGs() ||
     //   mergeSiblingGs() ||
