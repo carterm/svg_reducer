@@ -614,6 +614,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
             }
 
             if (
+              (attributeIsOverrideable ||
+                myParent.tagName.toLowerCase() !== "svg") &&
               siblingsBetween.length === myParent.childElementCount &&
               (!myParent.hasAttribute(attr) ||
                 myParent.getAttribute(attr) === value)
