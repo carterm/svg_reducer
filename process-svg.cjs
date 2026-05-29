@@ -621,7 +621,11 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
             while (sibling) {
               const siblingHasAttribute = sibling.hasAttribute(attr);
 
-              if (mySiblingMatches.includes(sibling)) {
+              if (
+                sibling.hasAttribute(attr) &&
+                sibling.getAttribute(attr) === value
+              ) {
+                //(mySiblingMatches.includes(sibling)) {
                 // This is one of our target matches!  Now it is worth making a group.
                 matches.push(sibling);
               } else if (!elementHasAttribute(sibling.tagName, attr)) {
@@ -686,9 +690,9 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
               });
             }
           }
-        });
-      });
-    });
+        }); // End loop through matches with the same attribute value
+      }); // End loop through distinct attribute values
+    }); // End loop through groupable attributes
     return didSomething;
   };
 
