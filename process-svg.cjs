@@ -566,6 +566,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     const tempGroupAttributes = [
       "font-family",
       "stroke",
+      "stroke-width",
+      "stroke-linecap",
       "fill",
       "font",
       "font-size",

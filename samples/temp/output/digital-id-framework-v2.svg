@@ -101,9 +101,9 @@
     <path d="M6488 5823h16v14h-16z" />
     <path d="M6508 5823h16v14h-16z" />
   </g>
-  <g stroke="#1c75bc" fill="none" transform="scale(.1)">
-    <path stroke-linecap="square" stroke-width="30" d="M7120 4097h298" />
-    <path stroke-linecap="square" stroke-width="30" d="M994 4097h5800" />
+  <g stroke="#1c75bc" stroke-width="30" stroke-linecap="square" fill="none" transform="scale(.1)">
+    <path d="M7120 4097h298" />
+    <path d="M994 4097h5800" />
   </g>
   <path fill="#1c75bc" transform="scale(.1)" d="M888 4097l149 61-35-61l35-61-149 61z" />
   <g fill="#0e3a5e">
@@ -136,14 +136,14 @@
     <path d="M681 4347c71 0 131-65 131-142s-58-145-131-146c-74 0-132 62-132 144s57 144 132 144z" />
     <path d="M1129 4543c-18-23-51-26-72-7l-63 56-14 13c-28-54-22-51-77-152-26-48-68-71-122-70-67 2-134 2-200 0-45-1-83 16-108 53-22 31-41 66-52 103-37 121-40 247-33 374c0 10 3 20 4 29c4 32 24 55 48 51c29-5 44-23 44-56c0-87 0-173 6-260c2-41 15-81 23-121c3 0 7 2 10 2v937c0 45 29 73 71 73s75-32 75-86v-564c34-8 27 17 27 33v535c0 54 29 83 77 82c42 0 69-34 69-88v-922c2 0 5-1 7-2c5 16 8 20 22 53c35 84 16 24 42 101c2 6 5 13 10 19c18 23 45 11 67-8l10-9l120-107c22-20 21-45 12-62h-3z" />
   </g>
-  <g stroke="#000">
+  <g stroke="#000" stroke-width="10">
     <g fill="#fff" transform="scale(.1)">
-      <path stroke-width="10" d="M2658 1589h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-      <path stroke-width="10" d="M2612 1538h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      <path d="M2658 1589h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      <path d="M2612 1538h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
     </g>
     <g transform="scale(.1)">
-      <path stroke-width="10" d="M2309 1478c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
-      <path fill="#fff" stroke-width="10" d="M2566 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      <path d="M2309 1478c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
+      <path fill="#fff" d="M2566 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
     </g>
   </g>
   <g transform="scale(.1)">
@@ -156,20 +156,18 @@
     <path d="M2265 1759h234v18h-234z" />
     <path d="M2265 1791h111v18h-111z" />
   </g>
-  <g stroke="#000">
-    <g fill="none">
-      <g transform="scale(.1)">
-        <path stroke-width="20" d="M2181 1589l21 21l40-40" />
-        <path stroke-width="20" d="M2181 1783l21 21l40-40" />
-      </g>
-      <g fill="#fff" transform="scale(.1)">
-        <path stroke-width="10" d="M3502 1589h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-        <path stroke-width="10" d="M3456 1538h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-      </g>
+  <g stroke="#000" stroke-width="10">
+    <g stroke-width="20" fill="none" transform="scale(.1)">
+      <path d="M2181 1589l21 21l40-40" />
+      <path d="M2181 1783l21 21l40-40" />
+    </g>
+    <g fill="#fff" transform="scale(.1)">
+      <path d="M3502 1589h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      <path d="M3456 1538h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
     </g>
     <g transform="scale(.1)">
-      <path stroke-width="10" d="M3153 1478c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
-      <path fill="#fff" stroke-width="10" d="M3410 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      <path d="M3153 1478c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
+      <path fill="#fff" d="M3410 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
     </g>
   </g>
   <g transform="scale(.1)">
@@ -182,20 +180,18 @@
     <path d="M3110 1759h234v18h-234z" />
     <path d="M3110 1791h111v18h-111z" />
   </g>
-  <g stroke="#000">
-    <g fill="none">
-      <g transform="scale(.1)">
-        <path stroke-width="20" d="M3026 1589l21 21l40-40" />
-        <path stroke-width="20" d="M3026 1783l21 21l40-40" />
-      </g>
-      <g fill="#fff" transform="scale(.1)">
-        <path stroke-width="10" d="M4420 1342h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-        <path stroke-width="10" d="M4375 1291h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-      </g>
+  <g stroke="#000" stroke-width="10">
+    <g stroke-width="20" fill="none" transform="scale(.1)">
+      <path d="M3026 1589l21 21l40-40" />
+      <path d="M3026 1783l21 21l40-40" />
+    </g>
+    <g fill="#fff" transform="scale(.1)">
+      <path d="M4420 1342h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      <path d="M4375 1291h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
     </g>
     <g transform="scale(.1)">
-      <path stroke-width="10" d="M4072 1231c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
-      <path fill="#fff" stroke-width="10" d="M4329 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      <path d="M4072 1231c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
+      <path fill="#fff" d="M4329 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
     </g>
   </g>
   <g transform="scale(.1)">
@@ -216,14 +212,14 @@
     <path d="M4229 1511h92v18h-92z" />
     <path d="M4229 1543h44v18h-44z" />
   </g>
-  <g stroke="#000">
+  <g stroke="#000" stroke-width="10">
     <g fill="#fff" transform="scale(.1)">
-      <path stroke-width="10" d="M5236 1342h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
-      <path stroke-width="10" d="M5190 1291h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      <path d="M5236 1342h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      <path d="M5190 1291h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
     </g>
     <g transform="scale(.1)">
-      <path stroke-width="10" d="M4887 1231c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
-      <path fill="#fff" stroke-width="10" d="M5144 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
+      <path d="M4887 1231c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9z" />
+      <path fill="#fff" d="M5144 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46z" />
     </g>
   </g>
   <g transform="scale(.1)">
@@ -244,20 +240,20 @@
     <path d="M5044 1511h92v18h-92z" />
     <path d="M5044 1543h44v18h-44z" />
   </g>
-  <g stroke="#000" transform="scale(.1)">
-    <path stroke-width="10" d="M1504 4760h-426c-25 0-45 20-45 45v29h515v-30c0-24-20-44-44-44z" />
-    <path fill="#fbae18" stroke-width="10" d="M1033 4834v951c0 33 27 60 60 60h396c33 0 60-27 60-60v-951h-516z" />
-    <circle cx="1290" cy="5750" r="46" fill="none" stroke-width="10" />
+  <g stroke="#000" stroke-width="10" transform="scale(.1)">
+    <path d="M1504 4760h-426c-25 0-45 20-45 45v29h515v-30c0-24-20-44-44-44z" />
+    <path fill="#fbae18" d="M1033 4834v951c0 33 27 60 60 60h396c33 0 60-27 60-60v-951h-516z" />
+    <circle cx="1290" cy="5750" r="46" fill="none" />
   </g>
   <g fill="#fff">
     <g transform="scale(.1)">
       <circle cx="1179" cy="4797" r="17" />
       <path d="M1231 4779h169c10 0 17 8 17 17c0 10-8 17-17 17h-169c-10 0-17-8-17-17c0-10 8-17 17-17z" />
     </g>
-    <g stroke="#fbae18" fill="#0e3a5e" transform="scale(.1)">
-      <rect x="1073" y="5236" width="435" height="265" rx="38" ry="38" stroke-width="10" />
-      <rect x="1073" y="5289" width="435" height="265" rx="38" ry="38" stroke-width="10" />
-      <rect x="1073" y="5340" width="435" height="265" rx="38" ry="38" stroke-width="10" />
+    <g stroke="#fbae18" stroke-width="10" fill="#0e3a5e" transform="scale(.1)">
+      <rect x="1073" y="5236" width="435" height="265" rx="38" ry="38" />
+      <rect x="1073" y="5289" width="435" height="265" rx="38" ry="38" />
+      <rect x="1073" y="5340" width="435" height="265" rx="38" ry="38" />
     </g>
     <g transform="scale(.1)">
       <path d="M1290 5412c23 0 42 19 42 42s-19 42-42 42s-42-19-42-42s19-42 42-42z" />
@@ -271,21 +267,27 @@
       <path fill="#58595b" d="M679 2866l61 149-61-35-61 35l61-149z" />
     </g>
   </g>
-  <g stroke="#58595b" fill="none" transform="scale(.1)">
-    <path stroke-linecap="square" stroke-width="30" d="M1922 2662h4872" />
-    <path stroke-linecap="square" stroke-width="30" d="M7120 2662h298" />
-    <path stroke-width="30" d="M679 1045v1169" />
+  <g stroke="#58595b" stroke-width="30">
+    <g stroke-linecap="square" fill="none" transform="scale(.1)">
+      <path d="M1922 2662h4872" />
+      <path d="M7120 2662h298" />
+    </g>
+    <path fill="none" transform="scale(.1)" d="M679 1045v1169" />
   </g>
   <path fill="#58595b" transform="scale(.1)" d="M679 2319l-61-149l61 36l61-36-61 149z" />
-  <g stroke="#58595b" fill="none" transform="scale(.1)">
-    <path stroke-width="30" d="M2402 1369v114" />
-    <path stroke-width="30" d="M3258 1369v114" />
-    <path stroke-width="30" d="M4111 1045v195" />
-    <path stroke-width="30" d="M4973 1045v195" />
-    <path stroke-linecap="square" stroke-width="30" d="M679 1045h3542" />
-    <path stroke-linecap="square" stroke-width="30" d="M1055 1369h1470" />
-    <path stroke-linecap="square" stroke-width="30" d="M4581 1045h390" />
-    <rect x="5457" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
+  <g stroke="#58595b" stroke-width="30">
+    <g fill="none" transform="scale(.1)">
+      <path d="M2402 1369v114" />
+      <path d="M3258 1369v114" />
+      <path d="M4111 1045v195" />
+      <path d="M4973 1045v195" />
+    </g>
+    <g stroke-linecap="square" fill="none" transform="scale(.1)">
+      <path d="M679 1045h3542" />
+      <path d="M1055 1369h1470" />
+      <path d="M4581 1045h390" />
+      <rect x="5457" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
+    </g>
   </g>
   <g transform="scale(.1)">
     <circle cx="5620" cy="3403" r="23" />
@@ -528,24 +530,24 @@
     </g>
   </g>
   <g stroke="#58595b">
-    <g fill="none" transform="scale(.1)">
-      <path stroke-linecap="square" stroke-width="30" d="M4325 1045h37" />
-      <path stroke-linecap="square" stroke-width="30" d="M4443 1045h37" />
-      <path stroke-linecap="square" stroke-width="30" d="M6889 2662h37" />
-      <path stroke-linecap="square" stroke-width="30" d="M7007 2662h37" />
+    <g stroke-width="30" stroke-linecap="square" fill="none" transform="scale(.1)">
+      <path d="M4325 1045h37" />
+      <path d="M4443 1045h37" />
+      <path d="M6889 2662h37" />
+      <path d="M7007 2662h37" />
     </g>
-    <g stroke="#1c75bc" fill="none" transform="scale(.1)">
-      <path stroke-linecap="square" stroke-width="30" d="M6889 4097h37" />
-      <path stroke-linecap="square" stroke-width="30" d="M7007 4097h37" />
-      <path stroke-linecap="square" stroke-width="30" d="M1691 5253h5103" />
+    <g stroke="#1c75bc" stroke-width="30" stroke-linecap="square" fill="none" transform="scale(.1)">
+      <path d="M6889 4097h37" />
+      <path d="M7007 4097h37" />
+      <path d="M1691 5253h5103" />
     </g>
   </g>
   <g fill="#1c75bc">
     <path transform="scale(.1)" d="M1586 5253l149 61-36-61l36-61-149 61z" />
-    <g stroke="#1c75bc" fill="none" transform="scale(.1)">
-      <path stroke-linecap="square" stroke-width="30" d="M7120 5253h298" />
-      <path stroke-linecap="square" stroke-width="30" d="M6889 5253h37" />
-      <path stroke-linecap="square" stroke-width="30" d="M7007 5253h37" />
+    <g stroke="#1c75bc" stroke-width="30" stroke-linecap="square" fill="none" transform="scale(.1)">
+      <path d="M7120 5253h298" />
+      <path d="M6889 5253h37" />
+      <path d="M7007 5253h37" />
       <rect x="448" y="2382" width="1474" height="429" rx="87" ry="87" fill="#fbae18" stroke="#0e3a5e" stroke-width="10" />
     </g>
     <g fill="#0e3a5e">
@@ -564,9 +566,9 @@
         <path fill="#58595b" d="M2105 3523l-149 61l35-61-35-61l149 61z" />
       </g>
     </g>
-    <g stroke="#58595b" fill="none" transform="scale(.1)">
-      <path stroke-linecap="square" stroke-width="30" d="M679 3523v449" />
-      <path stroke-linecap="square" stroke-width="30" d="M2981 3407h-2302" />
+    <g stroke="#58595b" stroke-width="30" stroke-linecap="square" fill="none" transform="scale(.1)">
+      <path d="M679 3523v449" />
+      <path d="M2981 3407h-2302" />
     </g>
     <circle cx="676" cy="3748" r="155" transform="scale(.1)" />
     <g fill="#fff" font-size="216" font-weight="700" transform="scale(.1)">
@@ -590,10 +592,10 @@
       <text x="2826" y="5327">5</text>
       <text font-size="154" x="2947" y="5327">b</text>
     </g>
-    <g stroke="#58595b" fill="none" transform="scale(.1)">
-      <path stroke-linecap="square" stroke-width="30" d="M2868 1369h390" />
-      <path stroke-linecap="square" stroke-width="30" d="M2612 1369h37" />
-      <path stroke-linecap="square" stroke-width="30" d="M2730 1369h37" />
+    <g stroke="#58595b" stroke-width="30" stroke-linecap="square" fill="none" transform="scale(.1)">
+      <path d="M2868 1369h390" />
+      <path d="M2612 1369h37" />
+      <path d="M2730 1369h37" />
       <rect x="1938" y="4907" width="672" height="660" rx="38" ry="38" fill="#fbae18" stroke="#231f20" stroke-width="10" />
     </g>
     <g fill="#0e3a5e">
@@ -650,14 +652,14 @@
     <text x="7008" y="973">Verifies identity, can be a</text>
     <text x="7008" y="1039">public or private entity</text>
   </g>
-  <g stroke="#000">
+  <g stroke="#000" stroke-width="10">
     <g fill="#fff" transform="scale(.1)">
-      <path stroke-width="10" d="M6954 898h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
-      <path stroke-width="10" d="M6941 883h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+      <path d="M6954 898h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+      <path d="M6941 883h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
     </g>
     <g transform="scale(.1)">
-      <path stroke-width="10" d="M6854 866c0-6-5-11-11-11h-68c-6 0-11 5-11 11v3h90v-3z" />
-      <path fill="#fff" stroke-width="10" d="M6928 869h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+      <path d="M6854 866c0-6-5-11-11-11h-68c-6 0-11 5-11 11v3h90v-3z" />
+      <path fill="#fff" d="M6928 869h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
     </g>
   </g>
   <g transform="scale(.1)">
@@ -691,22 +693,22 @@
     <path d="M6131 920h7v39h-7z" />
     <path d="M6145 920h7v39h-7z" />
     <path d="M6074 918h78c2 0 3-3 0-4-13-7-26-13-40-19h-2c-13 7-26 13-39 19-2 0 0 4 0 4h3z" />
+    <rect x="6015" y="1103" width="197" height="129" rx="38" ry="38" fill="#0e3a5e" />
   </g>
-  <g fill="#0e3a5e">
-    <rect x="6015" y="1103" width="197" height="129" rx="38" ry="38" transform="scale(.1)" />
-    <g fill="#fff" transform="scale(.1)">
-      <path d="M6114 1138c10 0 19 9 19 20s-8 20-19 20s-19-9-19-20s8-20 19-20z" />
-      <ellipse cx="6114" cy="1158" rx="19" ry="20" />
-      <path d="M6114 1117c-26 0-46 22-46 50s6 28 16 38c8 8 19 12 30 12s22-5 30-12c10-9 16-23 16-38c0-27-21-50-46-50zm30 83c0-10-9-18-19-18h-22c-10 0-18 8-19 18-8-8-13-20-13-33c0-25 19-46 43-46s43 21 43 46s-5 24-13 33z" />
-      <rect x="5963" y="314" width="1773" height="1638" rx="120" ry="120" fill="none" stroke="#58595b" stroke-width="10" />
-      <rect x="6775" y="382" width="888" height="143" rx="38" ry="38" fill="#fbae18" stroke="#231f20" stroke-width="10" />
-    </g>
-    <text font-weight="700" font-size="82" x="6816" y="479" transform="scale(.1)">Technology Services</text>
+  <g fill="#fff" transform="scale(.1)">
+    <path d="M6114 1138c10 0 19 9 19 20s-8 20-19 20s-19-9-19-20s8-20 19-20z" />
+    <ellipse cx="6114" cy="1158" rx="19" ry="20" />
+    <path d="M6114 1117c-26 0-46 22-46 50s6 28 16 38c8 8 19 12 30 12s22-5 30-12c10-9 16-23 16-38c0-27-21-50-46-50zm30 83c0-10-9-18-19-18h-22c-10 0-18 8-19 18-8-8-13-20-13-33c0-25 19-46 43-46s43 21 43 46s-5 24-13 33z" />
   </g>
-  <g stroke="#939598" fill="none" transform="scale(.1)">
-    <path stroke-width="10" d="M6039 774h1624" />
-    <path stroke-width="10" d="M6039 1329h1624" />
-    <path stroke-width="10" d="M6039 1634h1624" />
+  <g stroke-width="10" transform="scale(.1)">
+    <rect x="5963" y="314" width="1773" height="1638" rx="120" ry="120" fill="none" stroke="#58595b" />
+    <rect x="6775" y="382" width="888" height="143" rx="38" ry="38" fill="#fbae18" stroke="#231f20" />
+  </g>
+  <text font-weight="700" fill="#0e3a5e" font-size="82" x="6816" y="479" transform="scale(.1)">Technology Services</text>
+  <g stroke="#939598" stroke-width="10" fill="none" transform="scale(.1)">
+    <path d="M6039 774h1624" />
+    <path d="M6039 1329h1624" />
+    <path d="M6039 1634h1624" />
     <path stroke-width="30" stroke="#58595b" d="M6027 1469h134" />
   </g>
   <path fill="#58595b" transform="scale(.1)" d="M6267 1469l-150 61l36-61-36-61l150 61z" />
@@ -717,14 +719,14 @@
     <circle cx="6140" cy="1788" r="104" fill="#1c75bc" />
     <text font-size="144" font-weight="700" fill="#fff" x="6105" y="1838">1</text>
   </g>
-  <g stroke="#000">
+  <g stroke="#000" stroke-width="10">
     <g fill="#fff" transform="scale(.1)">
-      <path stroke-width="10" d="M6952 1136h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
-      <path stroke-width="10" d="M6939 1121h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+      <path d="M6952 1136h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+      <path d="M6939 1121h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
     </g>
     <g transform="scale(.1)">
-      <path stroke-width="10" d="M6852 1104c0-6-5-11-11-11h-68c-6 0-11 5-11 11v3h90v-3z" />
-      <path fill="#fff" stroke-width="10" d="M6926 1107h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+      <path d="M6852 1104c0-6-5-11-11-11h-68c-6 0-11 5-11 11v3h90v-3z" />
+      <path fill="#fff" d="M6926 1107h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
     </g>
   </g>
   <g transform="scale(.1)">
@@ -737,8 +739,8 @@
     <path d="M6840 1184h67v5h-67z" />
     <path d="M6840 1193h32v5h-32z" />
   </g>
-  <g stroke="#000" fill="none" transform="scale(.1)">
-    <path stroke-width="8" d="M6816 1135l6 6l12-12" />
-    <path stroke-width="8" d="M6816 1191l6 6l12-12" />
+  <g stroke="#000" stroke-width="8" fill="none" transform="scale(.1)">
+    <path d="M6816 1135l6 6l12-12" />
+    <path d="M6816 1191l6 6l12-12" />
   </g>
 </svg>
