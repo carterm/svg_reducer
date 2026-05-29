@@ -621,11 +621,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
             while (sibling) {
               const siblingHasAttribute = sibling.hasAttribute(attr);
 
-              if (
-                sibling.hasAttribute(attr) &&
-                sibling.getAttribute(attr) === value
-              ) {
-                //(mySiblingMatches.includes(sibling)) {
+              if (siblingHasAttribute && sibling.getAttribute(attr) === value) {
                 // This is one of our target matches!  Now it is worth making a group.
                 matches.push(sibling);
               } else if (!elementHasAttribute(sibling.tagName, attr)) {
