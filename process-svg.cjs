@@ -508,15 +508,15 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     .querySelectorAll("[data-scaled]")
     .forEach(e => e.removeAttribute("data-scaled"));
 
-  // Extract any scale transforms that aren't ".1" into multiple "g" elements.
-  svgElement.querySelectorAll("[transform='scale(.01)']").forEach(e => {
-    // add a "g" tag around the element with the scale transform, and reduce the scale transform on the element
-    const newG = document.createElementNS(SVG_NS, "g");
-    newG.setAttribute("transform", "scale(.1)");
-    e.parentElement?.insertBefore(newG, e);
-    e.setAttribute("transform", "scale(.1)");
-    newG.appendChild(e);
-  });
+  // // Extract any scale transforms that aren't ".1" into multiple "g" elements.
+  //  svgElement.querySelectorAll("[transform='scale(.01)']").forEach(e => {
+  //   // add a "g" tag around the element with the scale transform, and reduce the scale transform on the element
+  //   const newG = document.createElementNS(SVG_NS, "g");
+  //   newG.setAttribute("transform", "scale(.1)");
+  //   e.parentElement?.insertBefore(newG, e);
+  //   e.setAttribute("transform", "scale(.1)");
+  //   newG.appendChild(e);
+  // });
 
   // BEGIN grouping phase, where we attempt to group elements together based on shared attributes
   const groupAttributes = () => {
