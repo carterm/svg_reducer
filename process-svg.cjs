@@ -563,7 +563,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
           return ancestor.getAttribute(attr) || "";
     };
 
-    const tempGroupAttributes = ["font-family", "stroke"];
+    const tempGroupAttributes = ["font-family", "stroke", "fill"];
 
     // Process each attribute that can be grouped (e.g., fill, stroke, opacity)
     tempGroupAttributes.forEach(attr => {
