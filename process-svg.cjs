@@ -538,6 +538,130 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   const groupAttributes = () => {
     let didSomething = false;
 
+    /**
+     * Get all ancestor elements of a given element.
+     * @param {Element} element
+     */
+    const getAncestors = element => {
+      const ancestors = [];
+      let current = element.parentElement;
+      while (current) {
+        ancestors.push(current);
+        current = current.parentElement;
+      }
+      return ancestors;
+    };
+
+    /**
+     * Returns the closest ancestor attribute value for a given attribute, searching up the ancestor chain.
+     * @param {Element[]} ancestors
+     * @param {string} attr
+     */
+    const getAncestorAttributeValue = (ancestors, attr) => {
+      for (const ancestor of ancestors)
+        if (ancestor.hasAttribute(attr))
+          return ancestor.getAttribute(attr) || "";
+    };
+
+    // Process each attribute that can be grouped (e.g., fill, stroke, opacity)
+    groupAbleAttributes.forEach(attr => {
+      const allWithAttribute = [...document.querySelectorAll(`[${attr}]`)];
+      const distinctValues = [
+        ...new Set([...allWithAttribute].map(el => el.getAttribute(attr) || ""))
+      ];
+
+      const attributeIsOverrideable = !["transform", "opacity"].includes(attr);
+
+      distinctValues.forEach(value => {
+        const allMatches = allWithAttribute.filter(
+          el => el.getAttribute(attr) === value
+        );
+
+        if (allMatches.length <= 1) return;
+
+        console.log(
+          `Grouping ${allMatches.length} elements with [${attr}="${value}"]`
+        );
+
+        for (let i = 0; i < allMatches.length - 1; i++) {
+          const myElement = allMatches[i];
+          const myParent = myElement.parentElement;
+          if (!myParent) continue;
+
+          //const myAncestors = getAncestors(myElement);
+          //const ancestorValue = getAncestorAttributeValue(myAncestors, attr);
+
+          const mySiblingMatches = allMatches.filter(
+            e => e !== myElement && e.parentElement === myParent
+          );
+
+          if (mySiblingMatches.length) {
+            // Try to group each sibling match.  Must also consider the other sibling elements between and make sure the grouping doesn't affect them.
+
+            const siblingsBetween = [myElement];
+            const matches = [myElement];
+            let sibling = myElement.nextElementSibling;
+            let directionForward = true;
+
+            while (sibling) {
+              const siblingHasAttribute = sibling.hasAttribute(attr);
+
+              if (mySiblingMatches.includes(sibling)) {
+                // This is one of our target matches!  Now it is worth making a group.
+                matches.push(sibling);
+              } else if (!elementHasAttribute(sibling.tagName, attr)) {
+                // This attribute is irrelavant to the tag, so it is safe to include in the group
+              } else if (attributeIsOverrideable && siblingHasAttribute) {
+                // This sibling is specifying an override for the attribute, so it is safe to include in the group
+              } else {
+                // Not sure if sibling could be affected by the grouping, so we have to stop here and not include it in the group
+                //TODO: recursively check if this is a group
+
+                sibling = null;
+                break;
+              }
+
+              if (directionForward) {
+                siblingsBetween.push(sibling);
+                sibling = sibling.nextElementSibling;
+                if (!sibling) {
+                  directionForward = false;
+                  sibling = myElement.previousElementSibling;
+                }
+              } else {
+                siblingsBetween.unshift(sibling);
+                sibling = sibling.previousElementSibling;
+              }
+            }
+
+            if (
+              siblingsBetween.length === myParent.childElementCount &&
+              (!myParent.hasAttribute(attr) ||
+                myParent.getAttribute(attr) === value)
+            ) {
+              // All siblings are safe to group, which means we can just apply the attribute to the parent and remove it from all the children, without needing to create a new group element.
+
+              didSomething = true;
+              myParent.setAttribute(attr, value);
+              matches.forEach(match => match.removeAttribute(attr));
+            }
+
+            if (matches.length > 1) {
+              // Make a group with the siblings between.
+
+              let foo = 1;
+            }
+          }
+        }
+      });
+    });
+    return didSomething;
+  };
+
+  const groupAttributesOld = () => {
+    let didSomething = false;
+
+    // Process each attribute that can be grouped (e.g., fill, stroke, opacity)
     groupAbleAttributes.forEach(attr => {
       const allWithAttribute = [...document.querySelectorAll(`[${attr}]`)];
       const distinctValues = [
@@ -822,12 +946,12 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
   while (
     groupAttributes() ||
-    extractCommonAttributesToGs() ||
-    mergeSiblingGs() ||
-    pushSingleChildGroupsDown() ||
-    extractCommonAttributesToGs() ||
-    removeGroupsWithNoAttributes() ||
-    pullSiblingsIntoGroup() ||
+    //   extractCommonAttributesToGs() ||
+    //   mergeSiblingGs() ||
+    //   pushSingleChildGroupsDown() ||
+    //   extractCommonAttributesToGs() ||
+    //   removeGroupsWithNoAttributes() ||
+    //   pullSiblingsIntoGroup() ||
     applyScaleToViewBox()
   ) {
     //console.log("extractCommonAttributesToGs");
