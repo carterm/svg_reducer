@@ -569,7 +569,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       "fill",
       "font",
       "font-size",
-      "font-weight"
+      "font-weight",
+      "transform"
     ];
 
     // Process each attribute that can be grouped (e.g., fill, stroke, opacity)
