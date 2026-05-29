@@ -952,11 +952,11 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   while (
     removeGroupsWithNoAttributes() ||
     groupAttributes() ||
-    //   extractCommonAttributesToGs() ||
-    //   mergeSiblingGs() ||
-    //   pushSingleChildGroupsDown() ||
-    //   extractCommonAttributesToGs() ||
-    //   removeGroupsWithNoAttributes() ||
+    extractCommonAttributesToGs() ||
+    mergeSiblingGs() ||
+    pushSingleChildGroupsDown() ||
+    extractCommonAttributesToGs() ||
+    removeGroupsWithNoAttributes() ||
     pullSiblingsIntoGroup() ||
     applyScaleToViewBox()
   ) {
