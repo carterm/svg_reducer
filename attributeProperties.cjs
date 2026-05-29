@@ -191,8 +191,13 @@ const elementHasAttribute = (element, attribute) =>
 const attributeIsOverrideable = attribute =>
   attributeProperties[attribute].overrideable;
 
+const groupAbleAttributes = Object.keys(attributeProperties).filter(attr =>
+  Object.keys(attributeProperties[attr])
+);
+
 module.exports = {
   attributeProperties,
   elementHasAttribute,
-  attributeIsOverrideable
+  attributeIsOverrideable,
+  groupAbleAttributes
 };

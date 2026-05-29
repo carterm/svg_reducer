@@ -30,7 +30,10 @@ const shortenIds = true;
 const removeStyles = true;
 const styleToAttributes = true;
 
-const { elementHasAttribute } = require("./attributeProperties.cjs");
+const {
+  elementHasAttribute,
+  groupAbleAttributes
+} = require("./attributeProperties.cjs");
 
 const shareableAttributes = [
   "fill",
@@ -532,6 +535,65 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   });
 
   // BEGIN grouping phase, where we attempt to group elements together based on shared attributes
+  const groupAttributes = () => {
+    let didSomething = false;
+
+    groupAbleAttributes.forEach(attr => {
+      const allWithAttribute = [...document.querySelectorAll(`[${attr}]`)];
+      const distinctValues = [
+        ...new Set([...allWithAttribute].map(el => el.getAttribute(attr) || ""))
+      ];
+
+      const attributeIsOverrideable = !["transform", "opacity"].includes(attr);
+
+      distinctValues.forEach(value => {
+        const allWithValue = allWithAttribute.filter(
+          el => el.getAttribute(attr) === value
+        );
+
+        if (allWithValue.length <= 1) return;
+
+        console.log(
+          `Grouping ${allWithValue.length} elements with [${attr}="${value}"]`
+        );
+
+        for (let i = 0; i < allWithValue.length - 1; i++) {
+          const myElement = allWithValue[i];
+          const nextElement = allWithValue[i + 1];
+          const parentElement = myElement.parentElement;
+          if (
+            parentElement &&
+            parentElement === nextElement.parentElement &&
+            !parentElement.hasAttribute(attr)
+          ) {
+            // They share a parent. See if applying the attribute to the parent would cause any issues with sibling elements that don't have the attribute.
+
+            if (
+              [...parentElement.children]
+                .filter(
+                  sibling => sibling !== myElement && sibling !== nextElement
+                )
+                .every(
+                  sibling =>
+                    !elementHasAttribute(sibling.tagName, attr) ||
+                    (!attributeIsOverrideable &&
+                      sibling.getAttribute(attr) === value) ||
+                    (attributeIsOverrideable && sibling.hasAttribute(attr))
+                )
+            ) {
+              parentElement.setAttribute(attr, value);
+              console.log(`Grouped into parent <${parentElement.tagName}>`);
+              [...parentElement.children]
+                .filter(sibling => sibling.getAttribute(attr) === value)
+                .forEach(sibling => sibling.removeAttribute(attr));
+              didSomething = true;
+            }
+          }
+        }
+      });
+    });
+    return didSomething;
+  };
 
   const extractCommonAttributesToGs = () => {
     let didSomething = false;
@@ -757,7 +819,9 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   };
 
   // Grouping phase
+
   while (
+    groupAttributes() ||
     extractCommonAttributesToGs() ||
     mergeSiblingGs() ||
     pushSingleChildGroupsDown() ||
