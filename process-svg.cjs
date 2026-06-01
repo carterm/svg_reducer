@@ -32,19 +32,6 @@ const styleToAttributes = true;
 
 const { elementHasAttribute } = require("./attributeProperties.cjs");
 
-const shareableAttributes = [
-  "fill",
-  "font-family",
-  "font-size",
-  "font-weight",
-  "opacity",
-  "stroke",
-  "stroke-linecap",
-  "stroke-miterlimit",
-  "stroke-width",
-  "transform"
-];
-
 const globalReplacements = [
   { from: /#ffffff/gim, to: "#fff" },
   { from: /#000000/gim, to: "#000" }
@@ -521,87 +508,140 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     .querySelectorAll("[data-scaled]")
     .forEach(e => e.removeAttribute("data-scaled"));
 
-  // Extract any scale transforms that aren't ".1" into multiple "g" elements.
-  svgElement.querySelectorAll("[transform='scale(.01)']").forEach(e => {
-    // add a "g" tag around the element with the scale transform, and reduce the scale transform on the element
-    const newG = document.createElementNS(SVG_NS, "g");
-    newG.setAttribute("transform", "scale(.1)");
-    e.parentElement?.insertBefore(newG, e);
-    e.setAttribute("transform", "scale(.1)");
-    newG.appendChild(e);
-  });
+  // // Extract any scale transforms that aren't ".1" into multiple "g" elements.
+  //  svgElement.querySelectorAll("[transform='scale(.01)']").forEach(e => {
+  //   // add a "g" tag around the element with the scale transform, and reduce the scale transform on the element
+  //   const newG = document.createElementNS(SVG_NS, "g");
+  //   newG.setAttribute("transform", "scale(.1)");
+  //   e.parentElement?.insertBefore(newG, e);
+  //   e.setAttribute("transform", "scale(.1)");
+  //   newG.appendChild(e);
+  // });
 
-  const extractCommonAttributesToGs = () => {
+  // BEGIN grouping phase, where we attempt to group elements together based on shared attributes
+  const groupAttributes = () => {
     let didSomething = false;
-    // extract common attributes to new parent "g" elements
-    svgElement.querySelectorAll("*").forEach(targetElement => {
-      [...targetElement.attributes]
-        .filter(attr => shareableAttributes.includes(attr.name))
-        .forEach(attr => {
-          // Search for a sibling with the same attribute value
-          const matchingSiblings = [];
-          let sibling = targetElement.nextElementSibling;
 
-          while (sibling?.getAttribute(attr.name) === attr.value) {
-            matchingSiblings.push(sibling);
-            sibling = sibling.nextElementSibling;
-          }
+    const tempGroupAttributes = [
+      "font-family",
+      "stroke",
+      "stroke-width",
+      "stroke-linecap",
+      "fill",
+      "font",
+      "font-size",
+      "font-weight",
+      "transform"
+    ];
 
-          if (matchingSiblings.length) {
-            didSomething = true;
-            const newG = document.createElementNS(SVG_NS, "g");
-            newG.setAttribute(attr.name, attr.value);
-            targetElement.parentElement?.insertBefore(newG, targetElement);
+    // Process each attribute that can be grouped (e.g., fill, stroke, opacity)
+    tempGroupAttributes.forEach(attr => {
+      const allWithAttribute = [...svgElement.querySelectorAll(`[${attr}]`)];
+      const distinctValues = [
+        ...new Set([...allWithAttribute].map(el => el.getAttribute(attr) || ""))
+      ];
 
-            [targetElement, ...matchingSiblings].forEach(sibling2 => {
-              sibling2.removeAttribute(attr.name);
+      const attributeIsOverrideable = !["transform", "opacity"].includes(attr);
 
-              newG.appendChild(sibling2);
-            });
-          }
-        });
-    }); //End push to common attributes
+      distinctValues.forEach(value => {
+        const allMatches = allWithAttribute.filter(
+          el => el.getAttribute(attr) === value
+        );
 
-    return didSomething;
-  };
+        if (allMatches.length <= 1) return;
 
-  const mergeSiblingGs = () => {
-    // Merge sibling "g" elements with the same attributes
-    let didSomething = false;
-    svgElement.querySelectorAll("g + g").forEach(gElement => {
-      const gElementSibling = gElement.previousElementSibling;
-      if (gElementSibling) {
-        const gElementAttributes = [...gElement.attributes];
-        const gElementSiblingAttributes = [...gElementSibling.attributes];
+        allMatches.forEach(myElement => {
+          const myParent = myElement.parentElement;
+          if (!myParent || myElement.getAttribute(attr) !== value) return;
 
-        const distinctAttributes = [
-          ...new Set(
-            [...gElementAttributes, ...gElementSiblingAttributes].map(
-              attr => attr.name
-            )
-          )
-        ];
+          //const myAncestors = getAncestors(myElement);
+          //const ancestorValue = getAncestorAttributeValue(myAncestors, attr);
 
-        if (
-          distinctAttributes.length === gElementAttributes.length &&
-          distinctAttributes.length === gElementSiblingAttributes.length &&
-          gElementAttributes.every(attr =>
-            gElementSiblingAttributes.find(
-              attr2 => attr2.name === attr.name && attr2.value === attr.value
-            )
-          )
-        ) {
-          // Pull the sibling (from before/above) into the current element
-          [...gElement.children].forEach(child =>
-            gElementSibling.appendChild(child)
+          const mySiblingMatches = allMatches.filter(
+            e => e !== myElement && e.parentElement === myParent
           );
 
-          gElement.remove();
+          if (mySiblingMatches.length) {
+            // Try to group each sibling match.  Must also consider the other sibling elements between and make sure the grouping doesn't affect them.
 
-          didSomething = true;
-        }
-      }
-    });
+            const siblingsBetween = [myElement];
+            const matches = [myElement];
+            let sibling = myElement.nextElementSibling;
+            let directionForward = true;
+
+            while (sibling) {
+              const siblingHasAttribute = sibling.hasAttribute(attr);
+
+              if (siblingHasAttribute && sibling.getAttribute(attr) === value) {
+                // This is one of our target matches!  Now it is worth making a group.
+                matches.push(sibling);
+              } else if (!elementHasAttribute(sibling.tagName, attr)) {
+                // This attribute is irrelavant to the tag, so it is safe to include in the group
+              } else if (attributeIsOverrideable && siblingHasAttribute) {
+                // This sibling is specifying an override for the attribute, so it is safe to include in the group
+              } else {
+                // Not sure if sibling could be affected by the grouping, so we have to stop here and not include it in the group
+                //TODO: recursively check if this is a group
+
+                sibling = null;
+                break;
+              }
+
+              if (directionForward) {
+                siblingsBetween.push(sibling);
+                sibling = sibling.nextElementSibling;
+                if (!sibling) {
+                  directionForward = false;
+                  sibling = myElement.previousElementSibling;
+                }
+              } else {
+                siblingsBetween.unshift(sibling);
+                sibling = sibling.previousElementSibling;
+              }
+            }
+
+            if (
+              (attributeIsOverrideable ||
+                myParent.tagName.toLowerCase() !== "svg") &&
+              siblingsBetween.length === myParent.childElementCount &&
+              (!myParent.hasAttribute(attr) ||
+                myParent.getAttribute(attr) === value)
+            ) {
+              // All siblings are safe to group, which means we can just apply the attribute to the parent and remove it from all the children, without needing to create a new group element.
+
+              didSomething = true;
+              myParent.setAttribute(attr, value);
+              matches.forEach(match => match.removeAttribute(attr));
+
+              //console.log(
+              //  `Applied to parent of ${siblingsBetween.length}/${myParent.childElementCount} elements with [${attr}="${value}"]`
+              //);
+            } else if (matches.length > 1) {
+              // Make a group with the siblings between.
+
+              didSomething = true;
+              const newG = document.createElementNS(SVG_NS, "g");
+              newG.setAttribute(attr, value);
+              myParent.insertBefore(newG, myElement);
+
+              //console.log(
+              //  `Grouped ${matches.length}/${siblingsBetween.length}/${myParent.childElementCount} elements into a new <g> element with [${attr}="${value}"]`
+              //);
+
+              siblingsBetween.forEach(sibling2 => {
+                if (
+                  sibling2.hasAttribute(attr) &&
+                  sibling2.getAttribute(attr) === value
+                )
+                  sibling2.removeAttribute(attr);
+
+                newG.appendChild(sibling2);
+              });
+            }
+          }
+        }); // End loop through matches with the same attribute value
+      }); // End loop through distinct attribute values
+    }); // End loop through groupable attributes
     return didSomething;
   };
 
@@ -617,37 +657,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
         );
         gElement.remove();
       });
-    return didSomething;
-  };
-
-  const pushSingleChildGroupsDown = () => {
-    let didSomething = false;
-
-    // Remove "g" elements with only one child by pushing all their attributes down to their child
-    svgElement.querySelectorAll("g > *:only-child").forEach(onlychild => {
-      const gElement = onlychild.parentElement;
-      if (gElement?.parentElement) {
-        [...gElement.attributes].forEach(attr => {
-          const childAttr = onlychild.getAttribute(attr.name);
-          if (
-            !childAttr ||
-            (attr.name.toLowerCase() !== "transform" &&
-              childAttr === attr.value)
-          ) {
-            didSomething = true;
-            onlychild.setAttribute(attr.name, attr.value);
-            gElement.removeAttribute(attr.name);
-          }
-        });
-
-        if (gElement.attributes.length === 0) {
-          didSomething = true;
-          gElement.parentElement.insertBefore(onlychild, gElement);
-          gElement.remove();
-        }
-      }
-    });
-
     return didSomething;
   };
 
@@ -689,45 +698,13 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     }
   };
 
-  const pullSiblingsIntoGroup = () => {
-    // Pull siblings with explicit attributes into groups that they already override
-    let didSomething = false;
-
-    [...svgElement.querySelectorAll("g + *")].forEach(gSibling => {
-      let gElement = /** @type {SVGGElement} */ (
-        gSibling.previousElementSibling
-      );
-
-      // Make sure every gSibling attribute is already applied by the gElement
-      if (
-        !gElement.hasAttribute("transform") &&
-        !gElement.hasAttribute("opacity") &&
-        !gSibling.hasAttribute("transform") &&
-        !gSibling.hasAttribute("opacity") &&
-        [...gElement.attributes]
-          .map(attr => attr.name)
-          .filter(name => !["transform"].includes(name))
-          .every(attrName => gSibling.hasAttribute(attrName))
-      ) {
-        didSomething = true;
-        // Move the sibling into the group
-        gElement.appendChild(gSibling);
-      }
-    });
-    return didSomething;
-  };
-
   // Grouping phase
+
   while (
-    extractCommonAttributesToGs() ||
-    mergeSiblingGs() ||
-    pushSingleChildGroupsDown() ||
-    extractCommonAttributesToGs() ||
     removeGroupsWithNoAttributes() ||
-    pullSiblingsIntoGroup() ||
+    groupAttributes() ||
     applyScaleToViewBox()
   ) {
-    //console.log("extractCommonAttributesToGs");
     // Keep extracting common attributes until no more extractions
   }
 
