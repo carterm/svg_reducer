@@ -613,9 +613,9 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
               myParent.setAttribute(attr, value);
               matches.forEach(match => match.removeAttribute(attr));
 
-              console.log(
-                `Applied to parent of ${siblingsBetween.length}/${myParent.childElementCount} elements with [${attr}="${value}"]`
-              );
+              //console.log(
+              //  `Applied to parent of ${siblingsBetween.length}/${myParent.childElementCount} elements with [${attr}="${value}"]`
+              //);
             } else if (matches.length > 1) {
               // Make a group with the siblings between.
 
@@ -624,9 +624,9 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
               newG.setAttribute(attr, value);
               myParent.insertBefore(newG, myElement);
 
-              console.log(
-                `Grouped ${matches.length}/${siblingsBetween.length}/${myParent.childElementCount} elements into a new <g> element with [${attr}="${value}"]`
-              );
+              //console.log(
+              //  `Grouped ${matches.length}/${siblingsBetween.length}/${myParent.childElementCount} elements into a new <g> element with [${attr}="${value}"]`
+              //);
 
               siblingsBetween.forEach(sibling2 => {
                 if (
