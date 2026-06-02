@@ -217,6 +217,32 @@ const placeUseElement = (pathTarget, id) => {
 };
 
 /**
+ * @param {Element} sourceUse
+ * @param {Element | null} element
+ */
+const convertToRelativeElement = (sourceUse, element) => {
+  if (!element) return null;
+  switch (element.tagName.toLowerCase()) {
+    case "circle": {
+      const oldCircle = /** @type {SVGCircleElement} */ (element);
+      const newCx =
+        parseFloat(oldCircle.getAttribute("cx") || "0") -
+        parseFloat(sourceUse.getAttribute("x") || "0");
+      const newCy =
+        parseFloat(oldCircle.getAttribute("cy") || "0") -
+        parseFloat(sourceUse.getAttribute("y") || "0");
+      const newCircle = element.ownerDocument.createElementNS(SVG_NS, "circle");
+      newCircle.setAttribute("cx", newCx.toString());
+      newCircle.setAttribute("cy", newCy.toString());
+      newCircle.setAttribute("r", element.getAttribute("r") || "0");
+      return newCircle;
+    }
+    default:
+      return null;
+  }
+};
+
+/**
  * @param {SVGSVGElement} svgElement
  */
 const ConvertCommonElementstoUseElements = svgElement => {
@@ -288,6 +314,72 @@ const ConvertCommonElementstoUseElements = svgElement => {
       }
     } else {
       seen.set(key, path);
+    }
+  });
+
+  // Now look at every USE element and see if there are any siblings that can be pulled in.
+  defSection?.querySelectorAll("[id^='use-']").forEach(definition => {
+    const href = `#${definition.id}`;
+    const useElements = [...svgElement.querySelectorAll(`use[href="${href}"]`)];
+    if (!useElements.length) return;
+
+    const previousSibling = useElements[0].previousElementSibling;
+
+    if (
+      previousSibling &&
+      useElements.every(
+        useEl =>
+          previousSibling.tagName == useEl.previousElementSibling?.tagName
+      )
+    ) {
+      // All use elements reference the same type of element, so we can pull them into a group and apply shared attributes to the group.;
+      const candidate = convertToRelativeElement(
+        useElements[0],
+        useElements[0].previousElementSibling
+      );
+
+      // Make sure all the use elements will have this same relative element.
+      if (
+        candidate &&
+        useElements.every(useEl => {
+          const relativeElement = convertToRelativeElement(
+            useEl,
+            useEl.previousElementSibling
+          );
+          return (
+            relativeElement &&
+            relativeElement.getAttribute("r") === candidate.getAttribute("r") &&
+            relativeElement.getAttribute("cx") ===
+              candidate.getAttribute("cx") &&
+            relativeElement.getAttribute("cy") === candidate.getAttribute("cy")
+          );
+        })
+      ) {
+        // All use elements have the same relative element, so we can add one to the defs and remove the relative element
+
+        // Add the candidate element to the definition.
+        // If the definition is not a group, wrap it in a new group and move the id to the group.
+        let definitionGroup = definition;
+        if (definition.tagName.toLowerCase() !== "g") {
+          const newGroup = svgElement.ownerDocument.createElementNS(
+            SVG_NS,
+            "g"
+          );
+          newGroup.id = definition.id;
+          definition.removeAttribute("id");
+          definition.parentElement?.insertBefore(newGroup, definition);
+          newGroup.appendChild(definition);
+          definitionGroup = newGroup;
+        }
+
+        // insert the cadidate element as the first child of the definition group.
+        definitionGroup.insertBefore(candidate, definitionGroup.firstChild);
+
+        // Remove the relative elements before each use element, since they are now represented in the definition.
+        useElements.forEach(useEl => useEl.previousElementSibling?.remove());
+
+        didSomething = true;
+      }
     }
   });
 
