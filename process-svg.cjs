@@ -506,42 +506,38 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   if (!options.noPathsMerge) {
     const mergeSiblingPaths = () => {
       let didsomething = false;
-      [...svgElement.querySelectorAll("path + path")]
-        .filter(
-          path => !path.closest("defs") // ignore anything in defs
-        )
-        .forEach(currentPath => {
-          const prevPath = currentPath.previousElementSibling;
-          if (!prevPath) return;
-          if (
-            // Do both paths have the same attributes? Except for d
-            [
-              ...new Set(
-                [...prevPath.attributes, ...currentPath.attributes].map(
-                  attr => attr.name
-                )
+      [...svgElement.querySelectorAll("path + path")].forEach(currentPath => {
+        const prevPath = currentPath.previousElementSibling;
+        if (!prevPath) return;
+        if (
+          // Do both paths have the same attributes? Except for d
+          [
+            ...new Set(
+              [...prevPath.attributes, ...currentPath.attributes].map(
+                attr => attr.name
               )
-            ]
-              .filter(name => name !== "d")
-              .every(
-                name =>
-                  currentPath.getAttribute(name) === prevPath.getAttribute(name)
-              )
-          ) {
-            //Make sure the first M command is uppercase when merging
-            const nextD = (prevPath.getAttribute("d") || "").replace(
-              /^\s*m/,
-              "M"
-            );
+            )
+          ]
+            .filter(name => name !== "d")
+            .every(
+              name =>
+                currentPath.getAttribute(name) === prevPath.getAttribute(name)
+            )
+        ) {
+          //Make sure the first M command is uppercase when merging
+          const nextD = (prevPath.getAttribute("d") || "").replace(
+            /^\s*m/,
+            "M"
+          );
 
-            prevPath.setAttribute(
-              "d",
-              `${currentPath.getAttribute("d")}\n${nextD}`
-            );
-            currentPath.remove();
-            didsomething = true;
-          }
-        });
+          prevPath.setAttribute(
+            "d",
+            `${currentPath.getAttribute("d")}\n${nextD}`
+          );
+          currentPath.remove();
+          didsomething = true;
+        }
+      });
 
       return didsomething;
     };
@@ -551,16 +547,12 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     }
 
     // Process all path statements again
-    [...svgElement.querySelectorAll("path")]
-      .filter(
-        path => !path.closest("defs") // ignore anything in defs
+    [...svgElement.querySelectorAll("path")].forEach(pathElement =>
+      pathElement.setAttribute(
+        "d",
+        processPathD(pathElement.getAttribute("d") || "", options)
       )
-      .forEach(pathElement =>
-        pathElement.setAttribute(
-          "d",
-          processPathD(pathElement.getAttribute("d") || "", options)
-        )
-      );
+    );
   }
 
   // Remove empty tags from dom
