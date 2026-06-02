@@ -727,6 +727,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     //  <path d="M6939 1121  h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />;
 
     const dAttributeMinLengthForUse = 15; // Only convert to use elements if the "d" attribute is at least this long, to avoid creating use elements for very simple paths that don't benefit much from reuse.
+    const ignoredAttributesForUse = ["d", "id", "href", "x", "y"]; // Attributes to ignore when comparing elements for reuse, since these will be different for each instance of the element.
 
     // compare every path element to every other path element and find ones with matching "d" attributes (ignoring the first "M" command and any whitespace), and matching attributes except for "d", and convert them to use elements
     const pathElements = [...svgElement.querySelectorAll("path")];
@@ -735,8 +736,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     let defSection = svgElement.querySelector("defs");
 
     pathElements.forEach(path => {
-      if (path.attributes.length > 1) return; // Only consider paths with no attributes other than "d" for now, to avoid complications with grouping and attribute overrides.  This can be improved in the future by allowing attributes as long as they match, but it would require more complex logic to handle grouping and overrides.
-
       const d = path.getAttribute("d") || "";
 
       // Remove the initial "M{x} {y}" command and its coordinates for comparison
@@ -750,6 +749,25 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       if (seen.has(key)) {
         const existing = seen.get(key);
         if (existing) {
+          // Check for matching attributes except for "d","id","href","x","y"
+          const existingAttributes = [...existing.attributes].filter(
+            attr => !ignoredAttributesForUse.includes(attr.name)
+          );
+          const currentAttributes = [...path.attributes].filter(
+            attr => !ignoredAttributesForUse.includes(attr.name)
+          );
+
+          const attributesMatch =
+            existingAttributes.length === currentAttributes.length &&
+            existingAttributes.every(attr => {
+              const matchingAttr = currentAttributes.find(
+                a => a.name === attr.name && a.value === attr.value
+              );
+              return !!matchingAttr;
+            });
+
+          if (!attributesMatch) return;
+
           // Make sure we have a defs section to put the reusable element in
           if (!defSection) {
             defSection = document.createElementNS(SVG_NS, "defs");
