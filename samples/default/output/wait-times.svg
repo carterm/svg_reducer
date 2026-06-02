@@ -409,8 +409,7 @@ c0-60-13-107-37-140
 -22 36-33 82-33 136
 c0 35 5 67 14 97
 c10 30 25 55 45 73
-c20 18 45 28 75 28
-z"/><path fill="#3B3A48" d="
+c20 18 45 28 75 28"/><path fill="#3B3A48" d="
 M11464 21075
 v-691
 h-167
@@ -558,8 +557,7 @@ c0-71-15-127-44-169
 -29 43-44 98-44 167
 c0 44 6 85 20 121
 c13 37 32 66 58 87
-c26 22 59 33 97 33
-z"/><g fill="#82B5CC"><rect x="6550" y="14775" width="1400" height="3900" rx="400"/><rect x="8950" y="12875" width="1400" height="5800" rx="400"/><rect x="4150" y="16275" width="1400" height="2400" rx="400"/><rect x="11350" y="11575" width="1400" height="7100" rx="400"/><rect x="16150" y="11575" width="1400" height="7100" rx="400"/><rect x="13750" y="11575" width="1400" height="7100" rx="400"/><rect x="18550" y="12375" width="1400" height="6300" rx="400"/><rect x="20950" y="14275" width="1400" height="4400" rx="400"/><g fill="#D4D4D7"><rect x="23350" y="15775" width="1400" height="3000" rx="400"/><rect x="25750" y="15775" width="1400" height="3000" rx="400"/></g></g><path stroke="#D4D4D7" stroke-width="100" d="
+c26 22 59 33 97 33"/><g fill="#82B5CC"><rect x="6550" y="14775" width="1400" height="3900" rx="400"/><rect x="8950" y="12875" width="1400" height="5800" rx="400"/><rect x="4150" y="16275" width="1400" height="2400" rx="400"/><rect x="11350" y="11575" width="1400" height="7100" rx="400"/><rect x="16150" y="11575" width="1400" height="7100" rx="400"/><rect x="13750" y="11575" width="1400" height="7100" rx="400"/><rect x="18550" y="12375" width="1400" height="6300" rx="400"/><rect x="20950" y="14275" width="1400" height="4400" rx="400"/><g fill="#D4D4D7"><rect x="23350" y="15775" width="1400" height="3000" rx="400"/><rect x="25750" y="15775" width="1400" height="3000" rx="400"/></g></g><path stroke="#D4D4D7" stroke-width="100" d="
 M12100 7275
 v3800
 m11950-3800
@@ -685,8 +683,7 @@ m0 527
 v-163
 h154
 v163
-h-154
-z"/><path fill="#3B3A48" d="
+h-154"/><path fill="#3B3A48" d="
 M6622 2675
 V1663
 h325
@@ -1100,8 +1097,7 @@ c-7-4-17-6-28-7
 -19 13-34 30-45 52
 -11 21-16 47-16 77
 v450
-h-129
-z"/><rect x="1200" y="125" width="13400" height="6600" rx="350" stroke="#D4D4D7" stroke-width="100"/><path fill="#046B99" d="
+h-129"/><rect x="1200" y="125" width="13400" height="6600" rx="350" stroke="#D4D4D7" stroke-width="100"/><path fill="#046B99" d="
 M21839 2690
 c-67 0-128-10-185-30
 -57-21-106-49-148-84
@@ -1213,8 +1209,7 @@ m0 527
 v-163
 h155
 v163
-h-155
-z"/><path fill="#3B3A48" d="
+h-155"/><path fill="#3B3A48" d="
 M25179 2675
 l1-1012
 h132
@@ -1624,8 +1619,7 @@ c0-42-7-79-21-112
 -29-20-64-30-108-30
 -45 0-83 11-113 33
 -29 22-52 49-66 83
--15 34-22 69-21 105
-z"/><g stroke-width="100"><rect x="20300" y="125" width="13400" height="6600" rx="350" stroke="#D4D4D7"/><path stroke="#3B3A48" d="
+-15 34-22 69-21 105"/><g stroke-width="100"><rect x="20300" y="125" width="13400" height="6600" rx="350" stroke="#D4D4D7"/><path stroke="#3B3A48" d="
 M2500 19175
 v300
 m2400-300
