@@ -217,25 +217,86 @@ const placeUseElement = (pathTarget, id) => {
 };
 
 /**
+ *
+ * @param {Element} sourceElement
+ * @param {Element} targetElement
+ */
+const copyAllAttributes = (sourceElement, targetElement) => {
+  [...sourceElement.attributes]
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .forEach(attr => targetElement.setAttribute(attr.name, attr.value));
+};
+
+/**
+ *
+ * @param {Element} element
+ * @param {string} attributeName
+ * @returns
+ */
+const getAttributeNumberValue = (element, attributeName) => {
+  const value = element.getAttribute(attributeName);
+  return value ? parseFloat(value) : 0;
+};
+
+/**
  * @param {Element} sourceUse
  * @param {Element | null} element
  */
 const convertToRelativeElement = (sourceUse, element) => {
   if (!element) return null;
+  const sourceX = getAttributeNumberValue(sourceUse, "x");
+  const sourceY = getAttributeNumberValue(sourceUse, "y");
+
   switch (element.tagName.toLowerCase()) {
     case "circle": {
-      const oldCircle = /** @type {SVGCircleElement} */ (element);
-      const newCx =
-        parseFloat(oldCircle.getAttribute("cx") || "0") -
-        parseFloat(sourceUse.getAttribute("x") || "0");
-      const newCy =
-        parseFloat(oldCircle.getAttribute("cy") || "0") -
-        parseFloat(sourceUse.getAttribute("y") || "0");
-      const newCircle = element.ownerDocument.createElementNS(SVG_NS, "circle");
-      if (newCx !== 0) newCircle.setAttribute("cx", newCx.toString());
-      if (newCy !== 0) newCircle.setAttribute("cy", newCy.toString());
-      newCircle.setAttribute("r", element.getAttribute("r") || "0");
-      return newCircle;
+      const newElement = element.ownerDocument.createElementNS(
+        SVG_NS,
+        "circle"
+      );
+      copyAllAttributes(element, newElement);
+
+      const newCx = getAttributeNumberValue(element, "cx") - sourceX;
+      const newCy = getAttributeNumberValue(element, "cy") - sourceY;
+
+      if (newCx !== 0) newElement.setAttribute("cx", newCx.toString());
+      else newElement.removeAttribute("cx");
+      if (newCy !== 0) newElement.setAttribute("cy", newCy.toString());
+      else newElement.removeAttribute("cy");
+
+      return newElement;
+    }
+    case "rect": {
+      const newElement = element.ownerDocument.createElementNS(SVG_NS, "rect");
+      copyAllAttributes(element, newElement);
+
+      const newX = getAttributeNumberValue(element, "x") - sourceX;
+      const newY = getAttributeNumberValue(element, "y") - sourceY;
+
+      if (newX !== 0) newElement.setAttribute("x", newX.toString());
+      else newElement.removeAttribute("x");
+      if (newY !== 0) newElement.setAttribute("y", newY.toString());
+      else newElement.removeAttribute("y");
+
+      return newElement;
+    }
+    case "path": {
+      const newElement = element.ownerDocument.createElementNS(SVG_NS, "path");
+      copyAllAttributes(element, newElement);
+
+      // Get the X and Y coordinates from the first "M" command in the "d" attribute, and convert them to relative coordinates based on the sourceUse's "x" and "y" attributes, then update the "d" attribute with the new relative coordinates.  If there is no "M" command, just return the element with copied attributes.
+      const dAttribute = element.getAttribute("d") || "";
+      const mCommandMatch = dAttribute.match(/^\s*M\s*([-\d.]+)[ ,]([-\d.]+)/);
+      if (!mCommandMatch) return null;
+
+      const mX = parseFloat(mCommandMatch[1]);
+      const mY = parseFloat(mCommandMatch[2]);
+      const newD = dAttribute.replace(
+        /^\s*M\s*([-\d.]+)[ ,]([-\d.]+)/,
+        `M${mX - sourceX} ${mY - sourceY}`
+      );
+      newElement.setAttribute("d", newD);
+
+      return newElement;
     }
     default:
       return null;
@@ -357,13 +418,15 @@ const ConvertCommonElementstoUseElements = svgElement => {
               siblingFunction(useEl)
             );
             return (
+              // Make sure all attributes match
+
               relativeElement &&
-              relativeElement.getAttribute("r") ===
-                candidate.getAttribute("r") &&
-              relativeElement.getAttribute("cx") ===
-                candidate.getAttribute("cx") &&
-              relativeElement.getAttribute("cy") ===
-                candidate.getAttribute("cy")
+              [...candidate.attributes].every(attr => {
+                const matchingAttr = [...relativeElement.attributes].find(
+                  a => a.name === attr.name && a.value === attr.value
+                );
+                return !!matchingAttr;
+              })
             );
           })
         ) {
