@@ -186,6 +186,7 @@ const processPathD = (pathD, options, pathElement) => {
           if (point.x !== undefined) point.x = Math.round(point.x * scale);
           if (point.y !== undefined) point.y = Math.round(point.y * scale);
         } else {
+          if (options.maxDecimalPlaces === 0) return;
           const scaleFactor = Math.pow(options.maxDecimalPlaces, 10);
 
           if (point.x !== undefined)

@@ -357,40 +357,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       element.remove();
   });
 
-  if (!options.noPathsMerge) {
-    // Merge all path elements with matching attributes (ignore "d" attribute) and first letter in "d" attribute is uppercase
-    const pathsToMerge = [...svgElement.querySelectorAll("path")];
-    for (let i = 0; i < pathsToMerge.length - 1; i++) {
-      const nextPath = pathsToMerge[i + 1];
-      const currentPath = pathsToMerge[i];
-
-      if (
-        // Do both paths have the same attributes? Except for d
-        [
-          ...new Set(
-            [...nextPath.attributes, ...currentPath.attributes].map(
-              attr => attr.name
-            )
-          )
-        ]
-          .filter(name => name !== "d")
-          .every(
-            name =>
-              currentPath.getAttribute(name) === nextPath.getAttribute(name)
-          )
-      ) {
-        //Make sure the first M command is uppercase when merging
-        const nextD = (nextPath.getAttribute("d") || "").replace(/^\s*m/, "M");
-
-        nextPath.setAttribute(
-          "d",
-          `${currentPath.getAttribute("d")}\n${nextD}`
-        );
-        currentPath.remove();
-      }
-    }
-  }
-
   // Process all path statements
   svgElement
     .querySelectorAll("path")
@@ -534,6 +500,67 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     ConvertCommonElementstoUseElements(svgElement)
   ) {
     // Keep extracting common attributes until no more extractions
+  }
+
+  // Merge paths after grouping, since grouping may cause some paths to have the same attributes
+  if (!options.noPathsMerge) {
+    const mergeSiblingPaths = () => {
+      let didsomething = false;
+      [...svgElement.querySelectorAll("path + path")]
+        .filter(
+          path => !path.closest("defs") // ignore anything in defs
+        )
+        .forEach(currentPath => {
+          const prevPath = currentPath.previousElementSibling;
+          if (!prevPath) return;
+          if (
+            // Do both paths have the same attributes? Except for d
+            [
+              ...new Set(
+                [...prevPath.attributes, ...currentPath.attributes].map(
+                  attr => attr.name
+                )
+              )
+            ]
+              .filter(name => name !== "d")
+              .every(
+                name =>
+                  currentPath.getAttribute(name) === prevPath.getAttribute(name)
+              )
+          ) {
+            //Make sure the first M command is uppercase when merging
+            const nextD = (prevPath.getAttribute("d") || "").replace(
+              /^\s*m/,
+              "M"
+            );
+
+            prevPath.setAttribute(
+              "d",
+              `${currentPath.getAttribute("d")}\n${nextD}`
+            );
+            currentPath.remove();
+            didsomething = true;
+          }
+        });
+
+      return didsomething;
+    };
+
+    while (mergeSiblingPaths()) {
+      // Keep merging sibling paths until no more merges
+    }
+
+    // Process all path statements again
+    [...svgElement.querySelectorAll("path")]
+      .filter(
+        path => !path.closest("defs") // ignore anything in defs
+      )
+      .forEach(pathElement =>
+        pathElement.setAttribute(
+          "d",
+          processPathD(pathElement.getAttribute("d") || "", options)
+        )
+      );
   }
 
   // Remove empty tags from dom
