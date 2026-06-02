@@ -232,8 +232,8 @@ const convertToRelativeElement = (sourceUse, element) => {
         parseFloat(oldCircle.getAttribute("cy") || "0") -
         parseFloat(sourceUse.getAttribute("y") || "0");
       const newCircle = element.ownerDocument.createElementNS(SVG_NS, "circle");
-      newCircle.setAttribute("cx", newCx.toString());
-      newCircle.setAttribute("cy", newCy.toString());
+      if (newCx !== 0) newCircle.setAttribute("cx", newCx.toString());
+      if (newCy !== 0) newCircle.setAttribute("cy", newCy.toString());
       newCircle.setAttribute("r", element.getAttribute("r") || "0");
       return newCircle;
     }
