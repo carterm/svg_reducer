@@ -220,6 +220,7 @@ const placeUseElement = (pathTarget, id) => {
  * @param {SVGSVGElement} svgElement
  */
 const ConvertCommonElementstoUseElements = svgElement => {
+  let didSomething = false;
   // Find elements that are used more than once with the same attributes and convert them to use elements with a single definition in defs.  This can reduce file size by reusing the same element instead of repeating it multiple times.
   // example: if we have multiple path elements with identical paths, after the initial "M" command, we can convert these to USE elements.
   //  <path d="M6952 1136  h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
@@ -282,14 +283,13 @@ const ConvertCommonElementstoUseElements = svgElement => {
           defSection.appendChild(existing);
         }
         placeUseElement(path, existing.id);
+        didSomething = true;
         path.remove();
       }
     } else {
       seen.set(key, path);
     }
   });
-
-  let didSomething = false;
 
   return didSomething;
 };

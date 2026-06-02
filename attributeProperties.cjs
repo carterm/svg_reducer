@@ -181,7 +181,7 @@ const attributeProperties = {
  * @param {string} attribute
  */
 const elementHasAttribute = (element, attribute) =>
-  ["g"].includes(element.toLowerCase()) ||
+  ["g", "use"].includes(element.toLowerCase()) ||
   attributeProperties[attribute]?.tags.includes(element.toLowerCase());
 
 /**
