@@ -758,7 +758,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
           // Move the existing element to defs if it's not already there and replace it with a use element
           if (existing.parentElement !== defSection) {
-            const id = `use-${defSection.childElementCount}`;
+            const id = `use-${defSection.querySelectorAll("[id^='use-']").length}`;
             placeUseElement(existing, id);
             existing.id = id;
             existing.setAttribute("d", `M0 0${key}`);
