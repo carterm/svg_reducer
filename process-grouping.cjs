@@ -1,8 +1,60 @@
 //@ts-check
 
 const { elementHasAttribute } = require("./attributeProperties.cjs");
+const { getVisibilityProperties } = require("./process-path-d.cjs");
 
 const SVG_NS = "http://www.w3.org/2000/svg";
+
+/**
+ *
+ * @param {Element} element
+ * @param {string} attr
+ * @param {string} value
+ * @returns {boolean}
+ */
+const attributeWillNotEffectElement = (element, attr, value) => {
+  const attributeIsOverrideable = !["transform", "opacity"].includes(attr);
+
+  // Check if the attribute is safe to apply to the element (or group).
+  const siblingHasAttribute = element.hasAttribute(attr);
+
+  if (false && element.tagName.toLowerCase() === "g") {
+    // This is a group, recurse
+
+    if (
+      ![...element.children].every(child =>
+        attributeWillNotEffectElement(child, attr, value)
+      )
+    )
+      return false;
+  }
+
+  if (siblingHasAttribute && element.getAttribute(attr) === value) {
+    return true;
+    // This sibling already has the attribute with the same value, so it won't be affected by grouping
+  } else if (!elementHasAttribute(element.tagName, attr)) {
+    // This element doesn't support the attribute, so it won't be affected by grouping
+    return true;
+  } else if (attributeIsOverrideable && siblingHasAttribute) {
+    // This sibling is specifying an override for the attribute, so it is safe to include in the group
+    return true;
+  } else if (
+    [
+      "stroke-linecap",
+      "stroke-linejoin",
+      "stroke-miterlimit",
+      "stroke-dasharray",
+      "stroke-dashoffset"
+    ].includes(attr)
+  ) {
+    // This sibling does not have a stroke so it doesn't care about any stroke attributes
+    const props = getVisibilityProperties(element);
+    if (props.stroke === "none") {
+      return true;
+    }
+  }
+  return false;
+};
 
 // BEGIN grouping phase, where we attempt to group elements together based on shared attributes
 /**
@@ -64,18 +116,10 @@ const groupAttributes = svgElement => {
           let directionForward = true;
 
           while (sibling) {
-            const siblingHasAttribute = sibling.hasAttribute(attr);
-
-            if (siblingHasAttribute && sibling.getAttribute(attr) === value) {
-              // This is one of our target matches!  Now it is worth making a group.
-              matches.push(sibling);
-            } else if (!elementHasAttribute(sibling.tagName, attr)) {
-              // This attribute is irrelavant to the tag, so it is safe to include in the group
-            } else if (attributeIsOverrideable && siblingHasAttribute) {
-              // This sibling is specifying an override for the attribute, so it is safe to include in the group
+            if (attributeWillNotEffectElement(sibling, attr, value)) {
+              if (sibling.getAttribute(attr) === value) matches.push(sibling);
             } else {
               // Not sure if sibling could be affected by the grouping, so we have to stop here and not include it in the group
-              //TODO: recursively check if this is a group
 
               sibling = null;
               break;

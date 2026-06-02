@@ -298,316 +298,320 @@
         </g>
       </g>
     </g>
-    <use href="#use-3" x="5649" y="3555" />
-    <g fill="none">
-      <use href="#use-7" x="5781" y="3153" />
-      <path stroke-width="30" stroke="#1c75bc" d="M5781 3812v291" />
-      <text font-weight="700" fill="#231f20" font-size="130" x="5665" y="3287">FTB</text>
-      <path stroke-width="30" stroke="#1c75bc" d="M3325 5104v149" />
-      <rect x="3000" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
-    </g>
-    <use href="#use-3" x="3193" y="3555" />
-    <rect x="3114" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
-    <g fill="#fff">
-      <use href="#use-4" x="3335" y="4560" />
-      <use href="#use-6" x="3335" y="4517" />
-      <g fill="none">
-        <path stroke-width="30" stroke="#58595b" d="M3325 2662v385" />
-        <use href="#use-5" x="3325" y="3152" />
-        <path stroke-width="30" stroke="#1c75bc" d="M3325 3806v518" />
-        <path fill="#1c75bc" d="M3325 4430l-61-149l61 35l61-35-61 149" />
-        <g fill="#231f20" font-size="130" font-weight="700">
-          <text x="3153" y="3287">CDPH</text>
-          <text x="3085" y="4907">Vaccine</text>
-          <text x="3121" y="5062">Record</text>
-          <text font-size="158" x="460" y="5750">J. Doe</text>
-        </g>
-        <path stroke-width="30" stroke="#1c75bc" d="M4143 5104v149" />
-        <rect x="3819" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
-      </g>
-    </g>
-    <use href="#use-3" x="4012" y="3555" />
-    <rect x="3922" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
-    <g fill="#fff">
-      <use href="#use-4" x="4143" y="4560" />
-      <use href="#use-6" x="4143" y="4517" />
-      <g fill="none">
-        <path stroke-width="30" stroke="#58595b" d="M4143 2662v231" />
-        <path fill="#58595b" d="M4143 2999l-61-149l61 35l61-35-61 149" />
-        <use href="#use-11" x="4143" y="4430" />
-        <g fill="#231f20" font-size="130" font-weight="700">
-          <text x="3717" y="3131">State Board of</text>
-          <text x="3746" y="3287">Cosmetology</text>
-          <text x="3747" y="4907">Cosmetology</text>
-          <text x="3912" y="5062">License</text>
-        </g>
-        <path stroke-width="30" stroke="#1c75bc" d="M4962 4962v291" />
-        <rect x="4638" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
-      </g>
-    </g>
-    <use href="#use-3" x="4831" y="3555" />
-    <rect x="4741" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
-    <g fill="#fff">
-      <use href="#use-4" x="4962" y="4560" />
-      <use href="#use-6" x="4962" y="4517" />
-      <g fill="none">
-        <use href="#use-7" x="4962" y="3153" />
-        <use href="#use-11" x="4962" y="4430" />
-        <g fill="#231f20" font-size="130" font-weight="700">
-          <text x="4813" y="3287">DMV</text>
-          <text x="4823" y="4907">mDL</text>
-        </g>
-        <path stroke-width="30" stroke="#1c75bc" d="M6599 4962v291" />
-        <rect x="6275" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
-      </g>
-    </g>
-    <use href="#use-3" x="6468" y="3555" />
-    <rect x="6378" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
-    <g fill="#fff">
-      <use href="#use-4" x="6599" y="4560" />
-      <use href="#use-6" x="6599" y="4517" />
-      <g fill="none">
-        <use href="#use-7" x="6599" y="3153" />
-        <use href="#use-11" x="6599" y="4430" />
-        <g fill="#231f20" font-size="130" font-weight="700">
-          <text x="6258" y="3287">State Parks</text>
-          <text x="6240" y="4907">Parks Pass</text>
-        </g>
-        <rect x="7094" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
-      </g>
-    </g>
-    <use href="#use-3" x="7287" y="3555" />
-    <rect x="7197" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
   </g>
-  <g fill="#fff">
+  <g stroke-linecap="square">
     <g transform="scale(.1)">
-      <use href="#use-4" x="7418" y="4560" />
-      <use href="#use-6" x="7418" y="4517" />
-    </g>
-    <g fill="none">
-      <g transform="scale(.1)">
-        <use href="#use-7" x="7418" y="3153" />
-        <use href="#use-11" x="7418" y="4430" />
-        <path stroke-width="30" stroke="#1c75bc" d="M7418 4960v291" />
+      <use href="#use-3" x="5649" y="3555" />
+      <g fill="none">
+        <use href="#use-7" x="5781" y="3153" />
+        <path stroke-width="30" stroke="#1c75bc" d="M5781 3812v291" />
+        <text font-weight="700" fill="#231f20" font-size="130" x="5665" y="3287">FTB</text>
+        <path stroke-width="30" stroke="#1c75bc" d="M3325 5104v149" />
+        <rect x="3000" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
       </g>
-      <g fill="#58595b" font-size="100" font-weight="700">
-        <g fill="#231f20" font-size="130" transform="scale(.1)">
-          <text x="7142" y="3287">Agency X</text>
-          <text x="6999" y="4907">Credential X</text>
+      <use href="#use-3" x="3193" y="3555" />
+      <rect x="3114" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
+      <g fill="#fff">
+        <use href="#use-4" x="3335" y="4560" />
+        <use href="#use-6" x="3335" y="4517" />
+        <g fill="none">
+          <path stroke-width="30" stroke="#58595b" d="M3325 2662v385" />
+          <use href="#use-5" x="3325" y="3152" />
+          <path stroke-width="30" stroke="#1c75bc" d="M3325 3806v518" />
+          <path fill="#1c75bc" d="M3325 4430l-61-149l61 35l61-35-61 149" />
+          <g fill="#231f20" font-size="130" font-weight="700">
+            <text x="3153" y="3287">CDPH</text>
+            <text x="3085" y="4907">Vaccine</text>
+            <text x="3121" y="5062">Record</text>
+            <text font-size="158" x="460" y="5750">J. Doe</text>
+          </g>
+          <path stroke-width="30" stroke="#1c75bc" d="M4143 5104v149" />
+          <rect x="3819" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
         </g>
-        <text font-size="10" x="311" y="540">Digital Credentials</text>
+      </g>
+      <use href="#use-3" x="4012" y="3555" />
+      <rect x="3922" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
+      <g fill="#fff">
+        <use href="#use-4" x="4143" y="4560" />
+        <use href="#use-6" x="4143" y="4517" />
+        <g fill="none">
+          <path stroke-width="30" stroke="#58595b" d="M4143 2662v231" />
+          <path fill="#58595b" d="M4143 2999l-61-149l61 35l61-35-61 149" />
+          <use href="#use-11" x="4143" y="4430" />
+          <g fill="#231f20" font-size="130" font-weight="700">
+            <text x="3717" y="3131">State Board of</text>
+            <text x="3746" y="3287">Cosmetology</text>
+            <text x="3747" y="4907">Cosmetology</text>
+            <text x="3912" y="5062">License</text>
+          </g>
+          <path stroke-width="30" stroke="#1c75bc" d="M4962 4962v291" />
+          <rect x="4638" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
+        </g>
+      </g>
+      <use href="#use-3" x="4831" y="3555" />
+      <rect x="4741" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
+      <g fill="#fff">
+        <use href="#use-4" x="4962" y="4560" />
+        <use href="#use-6" x="4962" y="4517" />
+        <g fill="none">
+          <use href="#use-7" x="4962" y="3153" />
+          <use href="#use-11" x="4962" y="4430" />
+          <g fill="#231f20" font-size="130" font-weight="700">
+            <text x="4813" y="3287">DMV</text>
+            <text x="4823" y="4907">mDL</text>
+          </g>
+          <path stroke-width="30" stroke="#1c75bc" d="M6599 4962v291" />
+          <rect x="6275" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
+        </g>
+      </g>
+      <use href="#use-3" x="6468" y="3555" />
+      <rect x="6378" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
+      <g fill="#fff">
+        <use href="#use-4" x="6599" y="4560" />
+        <use href="#use-6" x="6599" y="4517" />
+        <g fill="none">
+          <use href="#use-7" x="6599" y="3153" />
+          <use href="#use-11" x="6599" y="4430" />
+          <g fill="#231f20" font-size="130" font-weight="700">
+            <text x="6258" y="3287">State Parks</text>
+            <text x="6240" y="4907">Parks Pass</text>
+          </g>
+          <rect x="7094" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
+        </g>
+      </g>
+      <use href="#use-3" x="7287" y="3555" />
+      <rect x="7197" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
+    </g>
+    <g fill="#fff">
+      <g transform="scale(.1)">
+        <use href="#use-4" x="7418" y="4560" />
+        <use href="#use-6" x="7418" y="4517" />
+      </g>
+      <g fill="none">
         <g transform="scale(.1)">
-          <text x="1093" y="4218">Services &amp; Benefits</text>
-          <text x="880" y="3662">Application for Services,</text>
-          <text x="880" y="3782">Benefits, or Credentials</text>
-          <text x="890" y="3215">Request for ID or</text>
-          <text x="890" y="3335">Eligibility Data</text>
-          <text x="2025" y="2493">Minimized ID &amp;</text>
-          <text x="2025" y="2613">Eligibility Data</text>
-          <text x="733" y="1164">Raw ID Data</text>
-          <text x="1106" y="1483">Raw Eligibility</text>
-          <text x="1106" y="1603">Data</text>
-          <g fill="#231f20" font-size="130">
-            <text x="3764" y="1942">Login.Gov</text>
-            <text x="2150" y="2189">Calfresh</text>
-            <text x="3000" y="2167">Eligibility</text>
-            <text x="2968" y="2322">Provider X</text>
-            <text x="4572" y="1942">ID Provider X</text>
+          <use href="#use-7" x="7418" y="3153" />
+          <use href="#use-11" x="7418" y="4430" />
+          <path stroke-width="30" stroke="#1c75bc" d="M7418 4960v291" />
+        </g>
+        <g fill="#58595b" font-size="100" font-weight="700">
+          <g fill="#231f20" font-size="130" transform="scale(.1)">
+            <text x="7142" y="3287">Agency X</text>
+            <text x="6999" y="4907">Credential X</text>
+          </g>
+          <text font-size="10" x="311" y="540">Digital Credentials</text>
+          <g transform="scale(.1)">
+            <text x="1093" y="4218">Services &amp; Benefits</text>
+            <text x="880" y="3662">Application for Services,</text>
+            <text x="880" y="3782">Benefits, or Credentials</text>
+            <text x="890" y="3215">Request for ID or</text>
+            <text x="890" y="3335">Eligibility Data</text>
+            <text x="2025" y="2493">Minimized ID &amp;</text>
+            <text x="2025" y="2613">Eligibility Data</text>
+            <text x="733" y="1164">Raw ID Data</text>
+            <text x="1106" y="1483">Raw Eligibility</text>
+            <text x="1106" y="1603">Data</text>
+            <g fill="#231f20" font-size="130">
+              <text x="3764" y="1942">Login.Gov</text>
+              <text x="2150" y="2189">Calfresh</text>
+              <text x="3000" y="2167">Eligibility</text>
+              <text x="2968" y="2322">Provider X</text>
+              <text x="4572" y="1942">ID Provider X</text>
+            </g>
           </g>
         </g>
       </g>
     </g>
-  </g>
-  <g transform="scale(.1)">
-    <g stroke="#58595b" stroke-width="30" stroke-linecap="square" fill="none">
-      <path d="M4325 1045h37" />
-      <path d="M4443 1045h37" />
-      <path d="M6889 2662h37" />
-      <path d="M7007 2662h37" />
-      <g stroke="#1c75bc">
-        <path d="M6889 4097h37" />
-        <path d="M7007 4097h37" />
-        <path d="M1691 5253h5103" />
+    <g transform="scale(.1)">
+      <g stroke="#58595b" stroke-width="30" fill="none">
+        <path d="M4325 1045h37" />
+        <path d="M4443 1045h37" />
+        <path d="M6889 2662h37" />
+        <path d="M7007 2662h37" />
+        <g stroke="#1c75bc">
+          <path d="M6889 4097h37" />
+          <path d="M7007 4097h37" />
+          <path d="M1691 5253h5103" />
+        </g>
       </g>
-    </g>
-    <g fill="#1c75bc">
-      <path d="M1586 5253l149 61-36-61l36-61-149 61" />
-      <g fill="none">
-        <g stroke="#1c75bc" stroke-width="30" stroke-linecap="square">
-          <path d="M7120 5253h298" />
-          <path d="M6889 5253h37" />
-          <path d="M7007 5253h37" />
-          <rect x="448" y="2382" width="1474" height="429" rx="87" ry="87" fill="#fbae18" stroke="#0e3a5e" stroke-width="10" />
+      <g fill="#1c75bc">
+        <path d="M1586 5253l149 61-36-61l36-61-149 61" />
+        <g fill="none">
+          <g stroke="#1c75bc" stroke-width="30">
+            <path d="M7120 5253h298" />
+            <path d="M6889 5253h37" />
+            <path d="M7007 5253h37" />
+            <rect x="448" y="2382" width="1474" height="429" rx="87" ry="87" fill="#fbae18" stroke="#0e3a5e" stroke-width="10" />
+          </g>
+          <g fill="#0e3a5e">
+            <g font-size="129" font-weight="700">
+              <text x="820" y="2557">California</text>
+              <text x="820" y="2712">Identity Gateway</text>
+              <rect x="490" y="2441" width="311" height="311" rx="36" ry="36" />
+            </g>
+            <g fill="#fff">
+              <path d="M697 2597c0-5 0-11-4-14-6-5-6-11-5-17v-13c0-15-10-28-25-31-9-2-19-2-28 0-18 2-27 15-27 33v17s-2 4-3 5c-8 5-11 11-11 20v49c0 16 8 23 22 23h61c13 0 22-9 22-22v-50h-2zm-78-50c0-9 7-14 16-15c8-1 17-1 25 0c10 1 17 10 17 20v22h-57v-27zm45 55c0 10-8 18-18 18s-18-8-18-18s8-18 18-18s18 8 18 18zm-19 61c-13 0-25-6-32-15c2-14 13-24 27-24h10c14 0 26 11 27 24-8 9-19 15-32 15" />
+              <path d="M544 2571c6-51 49-90 101-90s95 39 101 90h16c-6-59-56-105-116-105s-110 46-116 105h15" />
+              <path d="M746 2627c-6 51-49 90-101 90s-95-39-101-90h-15c6 59 56 105 116 105s111-46 116-105h-15" />
+              <path d="M572 2608h-67c3-3 7-6 10-9-3-2-7-5-10-7h67c3 3 7 5 10 8-3 3-7 6-10 9" />
+              <path d="M785 2608h-67l9-8c-3-3-6-5-9-8h67l9 7-9 9" />
+              <path fill="none" stroke-width="30" stroke="#58595b" d="M679 3523h1320" />
+              <path fill="#58595b" d="M2105 3523l-149 61l35-61-35-61l149 61" />
+            </g>
+          </g>
+          <g stroke="#58595b" stroke-width="30">
+            <path d="M679 3523v449" />
+            <path d="M2981 3407h-2302" />
+          </g>
+        </g>
+        <circle cx="676" cy="3748" r="155" />
+        <g fill="#fff" font-size="216" font-weight="700">
+          <text x="623" y="3823">1</text>
+          <circle cx="677" cy="3192" r="155" fill="#1c75bc" />
+          <text x="623" y="3267">2</text>
+          <circle cx="664" cy="1934" r="156" fill="#1c75bc" />
+          <text x="563" y="2009">3</text>
+          <text font-size="154" x="683" y="2009">a</text>
+          <path fill="none" stroke-width="30" stroke="#58595b" d="M1055 1369v845" />
+          <use href="#use-5" x="1055" y="2319" />
+          <circle cx="1044" cy="1934" r="156" fill="#1c75bc" />
+          <text x="942" y="2009">3</text>
+          <text font-size="154" x="1062" y="2009">b</text>
+          <circle cx="2900" cy="2649" r="155" fill="#1c75bc" />
+          <text x="2821" y="2723">4</text>
+          <circle cx="2903" cy="4097" r="155" fill="#1c75bc" />
+          <text x="2807" y="4172">5</text>
+          <text font-size="154" x="2928" y="4172">a</text>
+          <circle cx="2922" cy="5253" r="155" fill="#1c75bc" />
+          <text x="2826" y="5327">5</text>
+          <text font-size="154" x="2947" y="5327">b</text>
+        </g>
+        <g stroke="#58595b" stroke-width="30" fill="none">
+          <path d="M2868 1369h390" />
+          <path d="M2612 1369h37" />
+          <path d="M2730 1369h37" />
+          <rect x="1938" y="4907" width="672" height="660" rx="38" ry="38" fill="#fbae18" stroke="#231f20" stroke-width="10" />
         </g>
         <g fill="#0e3a5e">
           <g font-size="129" font-weight="700">
-            <text x="820" y="2557">California</text>
-            <text x="820" y="2712">Identity Gateway</text>
-            <rect x="490" y="2441" width="311" height="311" rx="36" ry="36" />
+            <text x="1973" y="5525">API</text>
+            <text x="1973" y="5383">Issuance</text>
+            <rect x="1967" y="4938" width="310" height="310" rx="36" ry="36" />
           </g>
           <g fill="#fff">
-            <path d="M697 2597c0-5 0-11-4-14-6-5-6-11-5-17v-13c0-15-10-28-25-31-9-2-19-2-28 0-18 2-27 15-27 33v17s-2 4-3 5c-8 5-11 11-11 20v49c0 16 8 23 22 23h61c13 0 22-9 22-22v-50h-2zm-78-50c0-9 7-14 16-15c8-1 17-1 25 0c10 1 17 10 17 20v22h-57v-27zm45 55c0 10-8 18-18 18s-18-8-18-18s8-18 18-18s18 8 18 18zm-19 61c-13 0-25-6-32-15c2-14 13-24 27-24h10c14 0 26 11 27 24-8 9-19 15-32 15" />
-            <path d="M544 2571c6-51 49-90 101-90s95 39 101 90h16c-6-59-56-105-116-105s-110 46-116 105h15" />
-            <path d="M746 2627c-6 51-49 90-101 90s-95-39-101-90h-15c6 59 56 105 116 105s111-46 116-105h-15" />
-            <path d="M572 2608h-67c3-3 7-6 10-9-3-2-7-5-10-7h67c3 3 7 5 10 8-3 3-7 6-10 9" />
-            <path d="M785 2608h-67l9-8c-3-3-6-5-9-8h67l9 7-9 9" />
-            <path fill="none" stroke-width="30" stroke="#58595b" d="M679 3523h1320" />
-            <path fill="#58595b" d="M2105 3523l-149 61l35-61-35-61l149 61" />
+            <path d="M2212 4986h-181c-19 0-35 15-35 35v151c0 19 16 35 35 35h181c19 0 35-15 35-35v-151c0-19-16-35-35-35zm-181 12h181c12 0 21 9 23 20-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20zm205 42c-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20h181c12 0 21 9 23 20zm0 87v45c0 13-11 23-23 23h-181c-13 0-23-10-23-23v-106c0-13 11-23 23-23h181c13 0 23 10 23 23v62" />
+            <path d="M2162 5117c0-4-1-9-4-11-4-4-4-8-4-13v-10c0-12-8-22-19-24-7-1-15-1-22 0-14 2-21 12-21 26v13s-1 3-2 4c-6 4-9 9-9 15v38c0 12 6 18 18 18h47c10 0 17-7 17-17v-39h-1zm-61-38c0-7 6-11 12-12h19c8 1 13 8 13 16v17h-45v-21h1zm36 42c0 8-6 14-14 14s-14-6-14-14s6-14 14-14s14 6 14 14zm-15 48c-10 0-19-5-25-12c1-11 10-19 21-19h8c11 0 20 8 21 19-6 7-15 12-25 12" />
+            <g fill="#231f20" font-size="82" font-weight="700">
+              <text fill="#58595b" font-size="116" x="6040" y="271">Legend</text>
+              <text x="6248" y="479">Individual</text>
+              <text x="6244" y="1146">Digital</text>
+              <text x="6244" y="1245">Credential</text>
+              <text x="6334" y="1445">Data &amp;</text>
+              <text x="6334" y="1544">Information</text>
+              <text x="6334" y="1759">Order of interactions in the</text>
+              <text x="6334" y="1858">verification sequence</text>
+              <text x="7178" y="1457">Services &amp;</text>
+              <text x="7178" y="1556">Benefits</text>
+              <g font-size="55">
+                <text x="6786" y="589">Included associated functions,</text>
+                <text x="6786" y="655">policies, and digital artifacts</text>
+                <text x="6786" y="721">developed or managed by CDT</text>
+                <text x="6204" y="589">Seeking services or</text>
+                <text x="6204" y="655">benefits from state</text>
+                <text x="6204" y="721">agencies in CA</text>
+              </g>
+              <text x="6242" y="918">State Entity</text>
+              <text font-size="55" x="6242" y="984">Website / API / App</text>
+              <text x="7008" y="1152">Eligibility Provider</text>
+              <g font-size="55">
+                <text x="7008" y="1218">Verifies attributes or</text>
+                <text x="7008" y="1284">enrollment in programs</text>
+              </g>
+            </g>
           </g>
         </g>
-        <g stroke="#58595b" stroke-width="30" stroke-linecap="square">
-          <path d="M679 3523v449" />
-          <path d="M2981 3407h-2302" />
-        </g>
       </g>
-      <circle cx="676" cy="3748" r="155" />
-      <g fill="#fff" font-size="216" font-weight="700">
-        <text x="623" y="3823">1</text>
-        <circle cx="677" cy="3192" r="155" fill="#1c75bc" />
-        <text x="623" y="3267">2</text>
-        <circle cx="664" cy="1934" r="156" fill="#1c75bc" />
-        <text x="563" y="2009">3</text>
-        <text font-size="154" x="683" y="2009">a</text>
-        <path fill="none" stroke-width="30" stroke="#58595b" d="M1055 1369v845" />
-        <use href="#use-5" x="1055" y="2319" />
-        <circle cx="1044" cy="1934" r="156" fill="#1c75bc" />
-        <text x="942" y="2009">3</text>
-        <text font-size="154" x="1062" y="2009">b</text>
-        <circle cx="2900" cy="2649" r="155" fill="#1c75bc" />
-        <text x="2821" y="2723">4</text>
-        <circle cx="2903" cy="4097" r="155" fill="#1c75bc" />
-        <text x="2807" y="4172">5</text>
-        <text font-size="154" x="2928" y="4172">a</text>
-        <circle cx="2922" cy="5253" r="155" fill="#1c75bc" />
-        <text x="2826" y="5327">5</text>
-        <text font-size="154" x="2947" y="5327">b</text>
+      <path d="M6100 432c17 0 32-15 32-33s-14-33-32-33s-32 14-32 33s14 33 32 33" />
+      <path d="M6210 477c-5-5-12-6-18-2l-15 13-4 3c-7-12-5-12-19-35-6-11-17-16-30-16h-49c-11 0-20 4-27 12-5 7-10 15-13 24-9 28-10 57-8 86v7c0 7 6 12 12 12s11-5 11-13c0-20 0-40 2-60c0-9 4-19 6-28h2v215c0 10 7 17 17 17s18-7 18-20v-129c8-2 7 4 7 8v123c0 12 7 19 19 19s17-8 17-20v-211h2c0 4 2 5 5 12c9 19 4 5 10 23c0 2 0 3 2 4c5 5 11 2 17-2l3-2l30-25c5-5 5-10 3-14" />
+      <g fill="#231f20" font-size="55" font-weight="700">
+        <text font-size="82" x="7008" y="907">ID Provider</text>
+        <text x="7008" y="973">Verifies identity, can be a</text>
+        <text x="7008" y="1039">public or private entity</text>
       </g>
-      <g stroke="#58595b" stroke-width="30" stroke-linecap="square" fill="none">
-        <path d="M2868 1369h390" />
-        <path d="M2612 1369h37" />
-        <path d="M2730 1369h37" />
-        <rect x="1938" y="4907" width="672" height="660" rx="38" ry="38" fill="#fbae18" stroke="#231f20" stroke-width="10" />
-      </g>
-      <g fill="#0e3a5e">
-        <g font-size="129" font-weight="700">
-          <text x="1973" y="5525">API</text>
-          <text x="1973" y="5383">Issuance</text>
-          <rect x="1967" y="4938" width="310" height="310" rx="36" ry="36" />
-        </g>
+      <g stroke="#000" stroke-width="10">
         <g fill="#fff">
-          <path d="M2212 4986h-181c-19 0-35 15-35 35v151c0 19 16 35 35 35h181c19 0 35-15 35-35v-151c0-19-16-35-35-35zm-181 12h181c12 0 21 9 23 20-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20zm205 42c-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20h181c12 0 21 9 23 20zm0 87v45c0 13-11 23-23 23h-181c-13 0-23-10-23-23v-106c0-13 11-23 23-23h181c13 0 23 10 23 23v62" />
-          <path d="M2162 5117c0-4-1-9-4-11-4-4-4-8-4-13v-10c0-12-8-22-19-24-7-1-15-1-22 0-14 2-21 12-21 26v13s-1 3-2 4c-6 4-9 9-9 15v38c0 12 6 18 18 18h47c10 0 17-7 17-17v-39h-1zm-61-38c0-7 6-11 12-12h19c8 1 13 8 13 16v17h-45v-21h1zm36 42c0 8-6 14-14 14s-14-6-14-14s6-14 14-14s14 6 14 14zm-15 48c-10 0-19-5-25-12c1-11 10-19 21-19h8c11 0 20 8 21 19-6 7-15 12-25 12" />
-          <g fill="#231f20" font-size="82" font-weight="700">
-            <text fill="#58595b" font-size="116" x="6040" y="271">Legend</text>
-            <text x="6248" y="479">Individual</text>
-            <text x="6244" y="1146">Digital</text>
-            <text x="6244" y="1245">Credential</text>
-            <text x="6334" y="1445">Data &amp;</text>
-            <text x="6334" y="1544">Information</text>
-            <text x="6334" y="1759">Order of interactions in the</text>
-            <text x="6334" y="1858">verification sequence</text>
-            <text x="7178" y="1457">Services &amp;</text>
-            <text x="7178" y="1556">Benefits</text>
-            <g font-size="55">
-              <text x="6786" y="589">Included associated functions,</text>
-              <text x="6786" y="655">policies, and digital artifacts</text>
-              <text x="6786" y="721">developed or managed by CDT</text>
-              <text x="6204" y="589">Seeking services or</text>
-              <text x="6204" y="655">benefits from state</text>
-              <text x="6204" y="721">agencies in CA</text>
-            </g>
-            <text x="6242" y="918">State Entity</text>
-            <text font-size="55" x="6242" y="984">Website / API / App</text>
-            <text x="7008" y="1152">Eligibility Provider</text>
-            <g font-size="55">
-              <text x="7008" y="1218">Verifies attributes or</text>
-              <text x="7008" y="1284">enrollment in programs</text>
-            </g>
-          </g>
+          <use href="#use-8" x="6954" y="898" />
+          <use href="#use-8" x="6941" y="883" />
         </g>
+        <use href="#use-10" x="6854" y="866" />
       </g>
-    </g>
-    <path d="M6100 432c17 0 32-15 32-33s-14-33-32-33s-32 14-32 33s14 33 32 33" />
-    <path d="M6210 477c-5-5-12-6-18-2l-15 13-4 3c-7-12-5-12-19-35-6-11-17-16-30-16h-49c-11 0-20 4-27 12-5 7-10 15-13 24-9 28-10 57-8 86v7c0 7 6 12 12 12s11-5 11-13c0-20 0-40 2-60c0-9 4-19 6-28h2v215c0 10 7 17 17 17s18-7 18-20v-129c8-2 7 4 7 8v123c0 12 7 19 19 19s17-8 17-20v-211h2c0 4 2 5 5 12c9 19 4 5 10 23c0 2 0 3 2 4c5 5 11 2 17-2l3-2l30-25c5-5 5-10 3-14" />
-    <g fill="#231f20" font-size="55" font-weight="700">
-      <text font-size="82" x="7008" y="907">ID Provider</text>
-      <text x="7008" y="973">Verifies identity, can be a</text>
-      <text x="7008" y="1039">public or private entity</text>
-    </g>
-    <g stroke="#000" stroke-width="10">
+      <use href="#use-9" x="6796" y="884" />
+      <use href="#use-9" x="6796" y="935" />
+      <use href="#use-9" x="6871" y="884" />
+      <use href="#use-9" x="6871" y="935" />
+      <path d="M6819 892h26v5h-26" />
+      <path d="M6819 901h12v5h-12" />
+      <path d="M6899 892h26v5h-26" />
+      <path d="M6899 901h12v5h-12" />
+      <path d="M6819 946h26v5h-26" />
+      <path d="M6819 956h12v5h-12" />
+      <path d="M6899 946h26v5h-26" />
+      <path d="M6899 956h12v5h-12" />
+      <rect x="6015" y="857" width="197" height="137" rx="18" ry="18" fill="none" stroke="#231f20" stroke-width="10" />
+      <circle cx="6065" cy="872" r="7" />
+      <circle cx="6048" cy="872" r="7" />
+      <circle cx="6030" cy="872" r="7" />
+      <path d="M6084 865h112c4 0 7 3 7 7c0 4-3 7-7 7h-112c-4 0-7-3-7-7c0-4 3-7 7-7" />
+      <path d="M6058 973h111v7h-111" />
+      <path d="M6065 962h95v7h-95" />
+      <path d="M6075 920h7v39h-7" />
+      <path d="M6089 920h7v39h-7" />
+      <path d="M6103 920h7v39h-7" />
+      <path d="M6117 920h7v39h-7" />
+      <path d="M6131 920h7v39h-7" />
+      <path d="M6145 920h7v39h-7" />
+      <path d="M6074 918h78c2 0 3-3 0-4-13-7-26-13-40-19h-2c-13 7-26 13-39 19-2 0 0 4 0 4h3" />
+      <rect x="6015" y="1103" width="197" height="129" rx="38" ry="38" fill="#0e3a5e" />
       <g fill="#fff">
-        <use href="#use-8" x="6954" y="898" />
-        <use href="#use-8" x="6941" y="883" />
+        <path d="M6114 1138c10 0 19 9 19 20s-8 20-19 20s-19-9-19-20s8-20 19-20" />
+        <ellipse cx="6114" cy="1158" rx="19" ry="20" />
+        <path d="M6114 1117c-26 0-46 22-46 50s6 28 16 38c8 8 19 12 30 12s22-5 30-12c10-9 16-23 16-38c0-27-21-50-46-50zm30 83c0-10-9-18-19-18h-22c-10 0-18 8-19 18-8-8-13-20-13-33c0-25 19-46 43-46s43 21 43 46s-5 24-13 33" />
       </g>
-      <use href="#use-10" x="6854" y="866" />
-    </g>
-    <use href="#use-9" x="6796" y="884" />
-    <use href="#use-9" x="6796" y="935" />
-    <use href="#use-9" x="6871" y="884" />
-    <use href="#use-9" x="6871" y="935" />
-    <path d="M6819 892h26v5h-26" />
-    <path d="M6819 901h12v5h-12" />
-    <path d="M6899 892h26v5h-26" />
-    <path d="M6899 901h12v5h-12" />
-    <path d="M6819 946h26v5h-26" />
-    <path d="M6819 956h12v5h-12" />
-    <path d="M6899 946h26v5h-26" />
-    <path d="M6899 956h12v5h-12" />
-    <rect x="6015" y="857" width="197" height="137" rx="18" ry="18" fill="none" stroke="#231f20" stroke-width="10" />
-    <circle cx="6065" cy="872" r="7" />
-    <circle cx="6048" cy="872" r="7" />
-    <circle cx="6030" cy="872" r="7" />
-    <path d="M6084 865h112c4 0 7 3 7 7c0 4-3 7-7 7h-112c-4 0-7-3-7-7c0-4 3-7 7-7" />
-    <path d="M6058 973h111v7h-111" />
-    <path d="M6065 962h95v7h-95" />
-    <path d="M6075 920h7v39h-7" />
-    <path d="M6089 920h7v39h-7" />
-    <path d="M6103 920h7v39h-7" />
-    <path d="M6117 920h7v39h-7" />
-    <path d="M6131 920h7v39h-7" />
-    <path d="M6145 920h7v39h-7" />
-    <path d="M6074 918h78c2 0 3-3 0-4-13-7-26-13-40-19h-2c-13 7-26 13-39 19-2 0 0 4 0 4h3" />
-    <rect x="6015" y="1103" width="197" height="129" rx="38" ry="38" fill="#0e3a5e" />
-    <g fill="#fff">
-      <path d="M6114 1138c10 0 19 9 19 20s-8 20-19 20s-19-9-19-20s8-20 19-20" />
-      <ellipse cx="6114" cy="1158" rx="19" ry="20" />
-      <path d="M6114 1117c-26 0-46 22-46 50s6 28 16 38c8 8 19 12 30 12s22-5 30-12c10-9 16-23 16-38c0-27-21-50-46-50zm30 83c0-10-9-18-19-18h-22c-10 0-18 8-19 18-8-8-13-20-13-33c0-25 19-46 43-46s43 21 43 46s-5 24-13 33" />
-    </g>
-    <g stroke-width="10">
-      <rect x="5963" y="314" width="1773" height="1638" rx="120" ry="120" fill="none" stroke="#58595b" />
-      <rect x="6775" y="382" width="888" height="143" rx="38" ry="38" fill="#fbae18" stroke="#231f20" />
-    </g>
-    <text font-weight="700" fill="#0e3a5e" font-size="82" x="6816" y="479">Technology Services</text>
-    <g fill="none">
-      <g stroke="#939598" stroke-width="10">
-        <path d="M6039 774h1624" />
-        <path d="M6039 1329h1624" />
-        <path d="M6039 1634h1624" />
-        <path stroke-width="30" stroke="#58595b" d="M6027 1469h134" />
+      <g stroke-width="10">
+        <rect x="5963" y="314" width="1773" height="1638" rx="120" ry="120" fill="none" stroke="#58595b" />
+        <rect x="6775" y="382" width="888" height="143" rx="38" ry="38" fill="#fbae18" stroke="#231f20" />
       </g>
-      <path fill="#58595b" d="M6267 1469l-150 61l36-61-36-61l150 61" />
-      <path stroke-width="30" stroke="#1c75bc" d="M6882 1478h134" />
-      <path fill="#1c75bc" d="M7122 1478l-150 61l36-61-36-61l150 61" />
-      <path stroke="#939598" stroke-width="10" d="M6731 380v394" />
-      <circle cx="6140" cy="1788" r="104" fill="#1c75bc" />
-      <text font-size="144" font-weight="700" fill="#fff" x="6105" y="1838">1</text>
-    </g>
-    <g stroke="#000" stroke-width="10">
-      <g fill="#fff">
-        <use href="#use-8" x="6952" y="1136" />
-        <use href="#use-8" x="6939" y="1121" />
+      <text font-weight="700" fill="#0e3a5e" font-size="82" x="6816" y="479">Technology Services</text>
+      <g fill="none">
+        <g stroke="#939598" stroke-width="10">
+          <path d="M6039 774h1624" />
+          <path d="M6039 1329h1624" />
+          <path d="M6039 1634h1624" />
+          <path stroke-width="30" stroke="#58595b" d="M6027 1469h134" />
+        </g>
+        <path fill="#58595b" d="M6267 1469l-150 61l36-61-36-61l150 61" />
+        <path stroke-width="30" stroke="#1c75bc" d="M6882 1478h134" />
+        <path fill="#1c75bc" d="M7122 1478l-150 61l36-61-36-61l150 61" />
+        <path stroke="#939598" stroke-width="10" d="M6731 380v394" />
+        <circle cx="6140" cy="1788" r="104" fill="#1c75bc" />
+        <text font-size="144" font-weight="700" fill="#fff" x="6105" y="1838">1</text>
       </g>
-      <use href="#use-10" x="6852" y="1104" />
-    </g>
-    <use href="#use-9" x="6794" y="1122" />
-    <use href="#use-9" x="6794" y="1173" />
-    <path d="M6840 1129h67v5h-67" />
-    <path d="M6840 1138h32v5h-32" />
-    <path d="M6840 1184h67v5h-67" />
-    <path d="M6840 1193h32v5h-32" />
-    <g stroke="#000" stroke-width="8" fill="none">
-      <path d="M6816 1135l6 6l12-12" />
-      <path d="M6816 1191l6 6l12-12" />
+      <g stroke="#000" stroke-width="10">
+        <g fill="#fff">
+          <use href="#use-8" x="6952" y="1136" />
+          <use href="#use-8" x="6939" y="1121" />
+        </g>
+        <use href="#use-10" x="6852" y="1104" />
+      </g>
+      <use href="#use-9" x="6794" y="1122" />
+      <use href="#use-9" x="6794" y="1173" />
+      <path d="M6840 1129h67v5h-67" />
+      <path d="M6840 1138h32v5h-32" />
+      <path d="M6840 1184h67v5h-67" />
+      <path d="M6840 1193h32v5h-32" />
+      <g stroke="#000" stroke-width="8" fill="none">
+        <path d="M6816 1135l6 6l12-12" />
+        <path d="M6816 1191l6 6l12-12" />
+      </g>
     </g>
   </g>
 </svg>
