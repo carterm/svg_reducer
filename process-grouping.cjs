@@ -26,7 +26,11 @@ const groupAttributes = svgElement => {
 
   // Process each attribute that can be grouped (e.g., fill, stroke, opacity)
   tempGroupAttributes.forEach(attr => {
-    const allWithAttribute = [...svgElement.querySelectorAll(`[${attr}]`)];
+    const allWithAttribute = [
+      ...svgElement.querySelectorAll(`[${attr}]`)
+    ].filter(
+      el => !el.closest("defs") // ignore anything in defs
+    );
     const distinctValues = [
       ...new Set([...allWithAttribute].map(el => el.getAttribute(attr) || ""))
     ];
@@ -141,6 +145,9 @@ const groupAttributes = svgElement => {
 const removeGroupsWithNoAttributes = svgElement => {
   let didSomething = false;
   [...svgElement.querySelectorAll("g")]
+    .filter(
+      el => !el.closest("defs") // ignore anything in defs
+    )
     .filter(gElement => gElement.attributes.length === 0)
     .forEach(gElement => {
       didSomething = true;
@@ -434,8 +441,9 @@ const ConvertCommonElementstoUseElements = svgElement => {
   });
 
   // Now look at every USE element and see if there are any siblings that can be pulled in.
-  defSection?.querySelectorAll("[id^='use-']").forEach(definition => {
-    const href = `#${definition.id}`;
+  defSection?.querySelectorAll("defs > [id^='use-']").forEach(definition => {
+    let definitionGroup = definition;
+    const href = `#${definitionGroup.id}`;
     const useElements = [...svgElement.querySelectorAll(`use[href="${href}"]`)];
     if (!useElements.length) return;
 
@@ -478,12 +486,13 @@ const ConvertCommonElementstoUseElements = svgElement => {
 
           // Add the candidate element to the definition.
           // If the definition is not a group, wrap it in a new group and move the id to the group.
-          let definitionGroup = definition;
-          if (definition.tagName.toLowerCase() !== "g") {
+
+          if (definitionGroup.tagName.toLowerCase() !== "g") {
             const newGroup = svgElement.ownerDocument.createElementNS(
               SVG_NS,
               "g"
             );
+
             newGroup.id = definition.id;
             definition.removeAttribute("id");
             definition.parentElement?.insertBefore(newGroup, definition);

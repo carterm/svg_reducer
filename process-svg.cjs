@@ -432,9 +432,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     });
 
   // Scale CIRCLE and RECT elements to attempt to remove decimal points and apply a scale transform
-  svgElement
-    .querySelectorAll("circle, rect, text, ellipse")
-    .forEach(Element => {
+  [...svgElement.querySelectorAll("circle, rect, text, ellipse")].forEach(
+    Element => {
       // Extract numeric attributes
       const attrs = [
         "cx",
@@ -491,7 +490,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
           (props.strokeWidth * scale).toString()
         );
       }
-    });
+    }
+  );
 
   //Remove X and Y attributes with a value of 0, since they don't affect the rendering and just take up space
   document.querySelectorAll("[x='0']").forEach(e => e.removeAttribute("x"));
