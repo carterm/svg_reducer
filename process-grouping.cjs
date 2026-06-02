@@ -421,12 +421,11 @@ const ConvertCommonElementstoUseElements = svgElement => {
               // Make sure all attributes match
 
               relativeElement &&
-              [...candidate.attributes].every(attr => {
-                const matchingAttr = [...relativeElement.attributes].find(
+              [...candidate.attributes].every(attr =>
+                [...relativeElement.attributes].find(
                   a => a.name === attr.name && a.value === attr.value
-                );
-                return !!matchingAttr;
-              })
+                )
+              )
             );
           })
         ) {
