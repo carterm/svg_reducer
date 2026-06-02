@@ -698,12 +698,92 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     }
   };
 
+  /**
+   * support function for ConvertCommonElementstoUseElements
+   * @param {SVGPathElement} pathTarget
+   * @param {string} id
+   */
+  const placeUseElement = (pathTarget, id) => {
+    const useElement = document.createElementNS(SVG_NS, "use");
+    useElement.setAttribute("href", `#${id}`);
+
+    // Extract the new "x" and "y" attributes from the "M" command in the "d" attribute, and set them as attributes on the use element
+    const dAttribute = pathTarget.getAttribute("d") || "";
+    const mCommandMatch = dAttribute.match(/^\s*M\s*([-\d.]+)[ ,]([-\d.]+)/);
+    if (mCommandMatch) {
+      const x = mCommandMatch[1];
+      const y = mCommandMatch[2];
+      useElement.setAttribute("x", x);
+      useElement.setAttribute("y", y);
+    }
+
+    pathTarget.parentElement?.insertBefore(useElement, pathTarget);
+  };
+
+  const ConvertCommonElementstoUseElements = () => {
+    // Find elements that are used more than once with the same attributes and convert them to use elements with a single definition in defs.  This can reduce file size by reusing the same element instead of repeating it multiple times.
+    // example: if we have multiple path elements with identical paths, after the initial "M" command, we can convert these to USE elements.
+    //  <path d="M6952 1136  h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
+    //  <path d="M6939 1121  h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />;
+
+    const dAttributeMinLengthForUse = 15; // Only convert to use elements if the "d" attribute is at least this long, to avoid creating use elements for very simple paths that don't benefit much from reuse.
+
+    // compare every path element to every other path element and find ones with matching "d" attributes (ignoring the first "M" command and any whitespace), and matching attributes except for "d", and convert them to use elements
+    const pathElements = [...svgElement.querySelectorAll("path")];
+    const seen = new Map(); // Map to track seen paths with their attributes (excluding "d")
+
+    let defSection = svgElement.querySelector("defs");
+
+    pathElements.forEach(path => {
+      if (path.attributes.length > 1) return; // Only consider paths with no attributes other than "d" for now, to avoid complications with grouping and attribute overrides.  This can be improved in the future by allowing attributes as long as they match, but it would require more complex logic to handle grouping and overrides.
+
+      const d = path.getAttribute("d") || "";
+
+      // Remove the initial "M{x} {y}" command and its coordinates for comparison
+      const dForComparison = d.replace(/^\s*M\s*([-\d.]+)[ ,]([-\d.]+)/, "");
+
+      if (dForComparison.length < dAttributeMinLengthForUse) return; // Skip short paths
+
+      const key = `${dForComparison}`;
+
+      // Check if we've seen an identical path before. If this is the first time we see this path, store it in the map. If we've seen it before, replace this path with a use element referencing the first one.  Also move the first one to defs if it isn't already, since use elements need to reference elements in defs.
+      if (seen.has(key)) {
+        const existing = seen.get(key);
+        if (existing) {
+          // Make sure we have a defs section to put the reusable element in
+          if (!defSection) {
+            defSection = document.createElementNS(SVG_NS, "defs");
+            svgElement.insertBefore(defSection, svgElement.firstChild);
+          }
+
+          // Move the existing element to defs if it's not already there and replace it with a use element
+          if (existing.parentElement !== defSection) {
+            const id = `use-${defSection.childElementCount}`;
+            placeUseElement(existing, id);
+            existing.id = id;
+            existing.setAttribute("d", `M0 0${key}`);
+            defSection.appendChild(existing);
+          }
+          placeUseElement(path, existing.id);
+          path.remove();
+        }
+      } else {
+        seen.set(key, path);
+      }
+    });
+
+    let didSomething = false;
+
+    return didSomething;
+  };
+
   // Grouping phase
 
   while (
     removeGroupsWithNoAttributes() ||
     groupAttributes() ||
-    applyScaleToViewBox()
+    applyScaleToViewBox() ||
+    ConvertCommonElementstoUseElements()
   ) {
     // Keep extracting common attributes until no more extractions
   }
