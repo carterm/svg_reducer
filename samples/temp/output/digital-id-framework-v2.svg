@@ -43,6 +43,10 @@
       <path d="M0 0c0-6-5-11-11-11h-68c-6 0-11 5-11 11v3h90v-3" />
       <path fill="#fff" d="M74 3h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13" />
     </g>
+    <g id="use-11">
+      <path stroke="#1c75bc" stroke-width="30" d="M0 -624v519" />
+      <path fill="#1c75bc" d="M0 0l-61-149l61 36l61-36-61 149" />
+    </g>
   </defs>
   <g transform="scale(.1)">
     <g fill="#0e3a5e">
@@ -330,8 +334,7 @@
       <g fill="none">
         <path stroke-width="30" stroke="#58595b" d="M4143 2662v231" />
         <path fill="#58595b" d="M4143 2999l-61-149l61 35l61-35-61 149" />
-        <path stroke-width="30" stroke="#1c75bc" d="M4143 3806v519" />
-        <path fill="#1c75bc" d="M4143 4430l-61-149l61 36l61-36-61 149" />
+        <use href="#use-11" x="4143" y="4430" />
         <g fill="#231f20" font-size="130" font-weight="700">
           <text x="3717" y="3131">State Board of</text>
           <text x="3746" y="3287">Cosmetology</text>
@@ -349,8 +352,7 @@
       <use href="#use-6" x="4962" y="4517" />
       <g fill="none">
         <use href="#use-7" x="4962" y="3153" />
-        <path stroke-width="30" stroke="#1c75bc" d="M4962 3806v519" />
-        <path fill="#1c75bc" d="M4962 4430l-61-149l61 36l61-36-61 149" />
+        <use href="#use-11" x="4962" y="4430" />
         <g fill="#231f20" font-size="130" font-weight="700">
           <text x="4813" y="3287">DMV</text>
           <text x="4823" y="4907">mDL</text>
@@ -366,8 +368,7 @@
       <use href="#use-6" x="6599" y="4517" />
       <g fill="none">
         <use href="#use-7" x="6599" y="3153" />
-        <path stroke-width="30" stroke="#1c75bc" d="M6599 3806v519" />
-        <path fill="#1c75bc" d="M6599 4430l-61-149l61 36l61-36-61 149" />
+        <use href="#use-11" x="6599" y="4430" />
         <g fill="#231f20" font-size="130" font-weight="700">
           <text x="6258" y="3287">State Parks</text>
           <text x="6240" y="4907">Parks Pass</text>
@@ -386,8 +387,7 @@
     <g fill="none">
       <g transform="scale(.1)">
         <use href="#use-7" x="7418" y="3153" />
-        <path stroke-width="30" stroke="#1c75bc" d="M7418 3806v519" />
-        <path fill="#1c75bc" d="M7418 4430l-61-149l61 36l61-36-61 149" />
+        <use href="#use-11" x="7418" y="4430" />
         <path stroke-width="30" stroke="#1c75bc" d="M7418 4960v291" />
       </g>
       <g fill="#58595b" font-size="100" font-weight="700">

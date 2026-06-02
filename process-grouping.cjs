@@ -364,10 +364,18 @@ const ConvertCommonElementstoUseElements = svgElement => {
   const ignoredAttributesForUse = ["d", "id", "href", "x", "y"]; // Attributes to ignore when comparing elements for reuse, since these will be different for each instance of the element.
 
   // compare every path element to every other path element and find ones with matching "d" attributes (ignoring the first "M" command and any whitespace), and matching attributes except for "d", and convert them to use elements
-  const pathElements = [...svgElement.querySelectorAll("path")];
+  const pathElements = [...svgElement.querySelectorAll("path")].filter(
+    path => !path.closest("defs") // ignore anything in defs
+  );
   const seen = new Map(); // Map to track seen paths with their attributes (excluding "d")
 
   let defSection = svgElement.querySelector("defs");
+
+  pathElements
+    .filter(path => path.closest("defs"))
+    .forEach(path => {
+      console.log(`Skipping path in defs with d="${path.getAttribute("d")}"`);
+    });
 
   pathElements.forEach(path => {
     const d = path.getAttribute("d") || "";
