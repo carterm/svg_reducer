@@ -25,6 +25,13 @@ const {
   getVisibilityProperties
 } = require("./process-path-d.cjs");
 
+const {
+  removeGroupsWithNoAttributes,
+  groupAttributes,
+  ConvertCommonElementstoUseElements,
+  applyScaleToViewBox
+} = require("./process-grouping.cjs");
+
 const ConvertLinesToPaths = true;
 const shortenIds = true;
 const removeStyles = true;
@@ -518,290 +525,13 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   //   newG.appendChild(e);
   // });
 
-  // BEGIN grouping phase, where we attempt to group elements together based on shared attributes
-  const groupAttributes = () => {
-    let didSomething = false;
-
-    const tempGroupAttributes = [
-      "font-family",
-      "stroke",
-      "stroke-width",
-      "stroke-linecap",
-      "fill",
-      "font",
-      "font-size",
-      "font-weight",
-      "transform"
-    ];
-
-    // Process each attribute that can be grouped (e.g., fill, stroke, opacity)
-    tempGroupAttributes.forEach(attr => {
-      const allWithAttribute = [...svgElement.querySelectorAll(`[${attr}]`)];
-      const distinctValues = [
-        ...new Set([...allWithAttribute].map(el => el.getAttribute(attr) || ""))
-      ];
-
-      const attributeIsOverrideable = !["transform", "opacity"].includes(attr);
-
-      distinctValues.forEach(value => {
-        const allMatches = allWithAttribute.filter(
-          el => el.getAttribute(attr) === value
-        );
-
-        if (allMatches.length <= 1) return;
-
-        allMatches.forEach(myElement => {
-          const myParent = myElement.parentElement;
-          if (!myParent || myElement.getAttribute(attr) !== value) return;
-
-          //const myAncestors = getAncestors(myElement);
-          //const ancestorValue = getAncestorAttributeValue(myAncestors, attr);
-
-          const mySiblingMatches = allMatches.filter(
-            e => e !== myElement && e.parentElement === myParent
-          );
-
-          if (mySiblingMatches.length) {
-            // Try to group each sibling match.  Must also consider the other sibling elements between and make sure the grouping doesn't affect them.
-
-            const siblingsBetween = [myElement];
-            const matches = [myElement];
-            let sibling = myElement.nextElementSibling;
-            let directionForward = true;
-
-            while (sibling) {
-              const siblingHasAttribute = sibling.hasAttribute(attr);
-
-              if (siblingHasAttribute && sibling.getAttribute(attr) === value) {
-                // This is one of our target matches!  Now it is worth making a group.
-                matches.push(sibling);
-              } else if (!elementHasAttribute(sibling.tagName, attr)) {
-                // This attribute is irrelavant to the tag, so it is safe to include in the group
-              } else if (attributeIsOverrideable && siblingHasAttribute) {
-                // This sibling is specifying an override for the attribute, so it is safe to include in the group
-              } else {
-                // Not sure if sibling could be affected by the grouping, so we have to stop here and not include it in the group
-                //TODO: recursively check if this is a group
-
-                sibling = null;
-                break;
-              }
-
-              if (directionForward) {
-                siblingsBetween.push(sibling);
-                sibling = sibling.nextElementSibling;
-                if (!sibling) {
-                  directionForward = false;
-                  sibling = myElement.previousElementSibling;
-                }
-              } else {
-                siblingsBetween.unshift(sibling);
-                sibling = sibling.previousElementSibling;
-              }
-            }
-
-            if (
-              (attributeIsOverrideable ||
-                myParent.tagName.toLowerCase() !== "svg") &&
-              siblingsBetween.length === myParent.childElementCount &&
-              (!myParent.hasAttribute(attr) ||
-                myParent.getAttribute(attr) === value)
-            ) {
-              // All siblings are safe to group, which means we can just apply the attribute to the parent and remove it from all the children, without needing to create a new group element.
-
-              didSomething = true;
-              myParent.setAttribute(attr, value);
-              matches.forEach(match => match.removeAttribute(attr));
-
-              //console.log(
-              //  `Applied to parent of ${siblingsBetween.length}/${myParent.childElementCount} elements with [${attr}="${value}"]`
-              //);
-            } else if (matches.length > 1) {
-              // Make a group with the siblings between.
-
-              didSomething = true;
-              const newG = document.createElementNS(SVG_NS, "g");
-              newG.setAttribute(attr, value);
-              myParent.insertBefore(newG, myElement);
-
-              //console.log(
-              //  `Grouped ${matches.length}/${siblingsBetween.length}/${myParent.childElementCount} elements into a new <g> element with [${attr}="${value}"]`
-              //);
-
-              siblingsBetween.forEach(sibling2 => {
-                if (
-                  sibling2.hasAttribute(attr) &&
-                  sibling2.getAttribute(attr) === value
-                )
-                  sibling2.removeAttribute(attr);
-
-                newG.appendChild(sibling2);
-              });
-            }
-          }
-        }); // End loop through matches with the same attribute value
-      }); // End loop through distinct attribute values
-    }); // End loop through groupable attributes
-    return didSomething;
-  };
-
-  const removeGroupsWithNoAttributes = () => {
-    let didSomething = false;
-    [...svgElement.querySelectorAll("g")]
-      .filter(gElement => gElement.attributes.length === 0)
-      .forEach(gElement => {
-        didSomething = true;
-        //move all child elements to the parent
-        [...gElement.children].forEach(child =>
-          gElement.parentElement?.insertBefore(child, gElement)
-        );
-        gElement.remove();
-      });
-    return didSomething;
-  };
-
-  const applyScaleToViewBox = () => {
-    // if the dom has a single child with a scale transform, apply the scale to the viewBox and remove the transform
-
-    const directChildren = svgElement.querySelectorAll(
-      "svg > g,svg > path,svg > rect,svg > circle,svg > ellipse,svg > line,svg > polyline,svg > polygon"
-    );
-    if (directChildren.length !== 1) return;
-
-    const firstChild = directChildren[0];
-    const transform = firstChild.getAttribute("transform");
-    if (!transform) return;
-    const scaleMatch = transform.match(/scale\((?<val>[^)]+)\)/);
-    if (!scaleMatch) return;
-
-    // Check if the transform is only a scale transform
-    const viewbox = svgElement.getAttribute("viewBox");
-    const val = scaleMatch.groups?.val;
-    if (val && viewbox) {
-      const [x, y, width, height] = viewbox.split(" ").map(parseFloat);
-
-      // Update the viewBox to reflect the new scale
-      const scale = parseFloat(val);
-      const divScale = (/** @type {number} */ topPart) =>
-        Number((topPart / scale).toFixed(6)).toString(); // prevents 43.4 / 0.1 = 433.99999999999994
-
-      svgElement.setAttribute(
-        "viewBox",
-        `${divScale(x)} ${divScale(y)} ${divScale(width)} ${divScale(height)}`
-      );
-
-      const newTransform = transform.replace(scaleMatch[0], "").trim();
-      if (newTransform.length === 0) firstChild.removeAttribute("transform");
-      else firstChild.setAttribute("transform", newTransform);
-
-      return true;
-    }
-  };
-
-  /**
-   * support function for ConvertCommonElementstoUseElements
-   * @param {SVGPathElement} pathTarget
-   * @param {string} id
-   */
-  const placeUseElement = (pathTarget, id) => {
-    const useElement = document.createElementNS(SVG_NS, "use");
-    useElement.setAttribute("href", `#${id}`);
-
-    // Extract the new "x" and "y" attributes from the "M" command in the "d" attribute, and set them as attributes on the use element
-    const dAttribute = pathTarget.getAttribute("d") || "";
-    const mCommandMatch = dAttribute.match(/^\s*M\s*([-\d.]+)[ ,]([-\d.]+)/);
-    if (mCommandMatch) {
-      const x = mCommandMatch[1];
-      const y = mCommandMatch[2];
-      useElement.setAttribute("x", x);
-      useElement.setAttribute("y", y);
-    }
-
-    pathTarget.parentElement?.insertBefore(useElement, pathTarget);
-  };
-
-  const ConvertCommonElementstoUseElements = () => {
-    // Find elements that are used more than once with the same attributes and convert them to use elements with a single definition in defs.  This can reduce file size by reusing the same element instead of repeating it multiple times.
-    // example: if we have multiple path elements with identical paths, after the initial "M" command, we can convert these to USE elements.
-    //  <path d="M6952 1136  h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />
-    //  <path d="M6939 1121  h-163v109c0 7 6 13 13 13h150c7 0 13-6 13-13v-96c0-7-6-13-13-13z" />;
-
-    const dAttributeMinLengthForUse = 15; // Only convert to use elements if the "d" attribute is at least this long, to avoid creating use elements for very simple paths that don't benefit much from reuse.
-    const ignoredAttributesForUse = ["d", "id", "href", "x", "y"]; // Attributes to ignore when comparing elements for reuse, since these will be different for each instance of the element.
-
-    // compare every path element to every other path element and find ones with matching "d" attributes (ignoring the first "M" command and any whitespace), and matching attributes except for "d", and convert them to use elements
-    const pathElements = [...svgElement.querySelectorAll("path")];
-    const seen = new Map(); // Map to track seen paths with their attributes (excluding "d")
-
-    let defSection = svgElement.querySelector("defs");
-
-    pathElements.forEach(path => {
-      const d = path.getAttribute("d") || "";
-
-      // Remove the initial "M{x} {y}" command and its coordinates for comparison
-      const dForComparison = d.replace(/^\s*M\s*([-\d.]+)[ ,]([-\d.]+)/, "");
-
-      if (dForComparison.length < dAttributeMinLengthForUse) return; // Skip short paths
-
-      const key = `${dForComparison}`;
-
-      // Check if we've seen an identical path before. If this is the first time we see this path, store it in the map. If we've seen it before, replace this path with a use element referencing the first one.  Also move the first one to defs if it isn't already, since use elements need to reference elements in defs.
-      if (seen.has(key)) {
-        const existing = seen.get(key);
-        if (existing) {
-          // Check for matching attributes except for "d","id","href","x","y"
-          const existingAttributes = [...existing.attributes].filter(
-            attr => !ignoredAttributesForUse.includes(attr.name)
-          );
-          const currentAttributes = [...path.attributes].filter(
-            attr => !ignoredAttributesForUse.includes(attr.name)
-          );
-
-          const attributesMatch =
-            existingAttributes.length === currentAttributes.length &&
-            existingAttributes.every(attr => {
-              const matchingAttr = currentAttributes.find(
-                a => a.name === attr.name && a.value === attr.value
-              );
-              return !!matchingAttr;
-            });
-
-          if (!attributesMatch) return;
-
-          // Make sure we have a defs section to put the reusable element in
-          if (!defSection) {
-            defSection = document.createElementNS(SVG_NS, "defs");
-            svgElement.insertBefore(defSection, svgElement.firstChild);
-          }
-
-          // Move the existing element to defs if it's not already there and replace it with a use element
-          if (existing.parentElement !== defSection) {
-            const id = `use-${defSection.querySelectorAll("[id^='use-']").length}`;
-            placeUseElement(existing, id);
-            existing.id = id;
-            existing.setAttribute("d", `M0 0${key}`);
-            defSection.appendChild(existing);
-          }
-          placeUseElement(path, existing.id);
-          path.remove();
-        }
-      } else {
-        seen.set(key, path);
-      }
-    });
-
-    let didSomething = false;
-
-    return didSomething;
-  };
-
   // Grouping phase
 
   while (
-    removeGroupsWithNoAttributes() ||
-    groupAttributes() ||
-    applyScaleToViewBox() ||
-    ConvertCommonElementstoUseElements()
+    removeGroupsWithNoAttributes(svgElement) ||
+    groupAttributes(svgElement) ||
+    applyScaleToViewBox(svgElement) ||
+    ConvertCommonElementstoUseElements(svgElement)
   ) {
     // Keep extracting common attributes until no more extractions
   }
@@ -830,7 +560,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
   // Final cleanup of empty "g" elements, removing transforms may cause this
 
-  while (removeGroupsWithNoAttributes()) {
+  while (removeGroupsWithNoAttributes(svgElement)) {
     // console.log("removeUselessGs");
     // Keep removing empty "g" elements until no more removals
   }
