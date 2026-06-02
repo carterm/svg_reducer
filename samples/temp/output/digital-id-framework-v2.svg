@@ -5,8 +5,21 @@
       <circle cy="53" r="26" />
       <path d="M0 0c-35 0-64 29-64 64s9 37 22 49c11 10 26 16 42 16s31-6 42-16c14-12 22-29 22-49c0-35-29-64-64-64zm42 106c-1-13-13-24-26-24h-31c-14 0-25 10-26 24-11-11-18-26-18-42c0-33 27-59 59-59s59 27 59 59s-7 31-18 42h1" />
     </g>
-    <path id="use-2" d="M0 0c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9" />
+    <g id="use-2">
+      <path d="M0 0c0-21-17-38-38-38h-239c-21 0-38 17-38 38v9h315v-9" />
+      <path fill="#fff" d="M257 10h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46" />
+    </g>
     <g id="use-3">
+      <circle cx="-29" cy="-152" r="23" />
+      <circle cx="-86" cy="-152" r="23" />
+      <circle cx="-144" cy="-152" r="23" />
+      <rect height="46" rx="20" ry="20" width="414" x="11" y="-175" />
+      <path d="M-53 181h366v23h-366" />
+      <path d="M-27 146h314v23h-314" />
+      <path d="M2 8h23v129h-23" />
+      <path d="M49 8h23v129h-23" />
+      <path d="M95 8h23v129h-23" />
+      <path d="M141 8h23v129h-23" />
       <path d="M187 8h23v129h-23" />
       <path d="M233 8h23v129h-23" />
       <path d="M0 0h258c7 0 9-10 3-13-43-21-87-43-130-64h-6c-43 21-85 43-128 64-6 3-4 12 3 12" />
@@ -171,7 +184,6 @@
         <use href="#use-0" x="2612" y="1538" />
       </g>
       <use href="#use-2" x="2309" y="1478" />
-      <path fill="#fff" d="M2566 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46" />
     </g>
     <use href="#use-1" x="2105" y="1541" />
     <use href="#use-1" x="2105" y="1719" />
@@ -189,7 +201,6 @@
         <use href="#use-0" x="3456" y="1538" />
       </g>
       <use href="#use-2" x="3153" y="1478" />
-      <path fill="#fff" d="M3410 1488h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46" />
     </g>
     <use href="#use-1" x="2950" y="1541" />
     <use href="#use-1" x="2950" y="1719" />
@@ -207,7 +218,6 @@
         <use href="#use-0" x="4375" y="1291" />
       </g>
       <use href="#use-2" x="4072" y="1231" />
-      <path fill="#fff" d="M4329 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46" />
     </g>
     <use href="#use-1" x="3868" y="1294" />
     <use href="#use-1" x="3868" y="1472" />
@@ -227,7 +237,6 @@
         <use href="#use-0" x="5190" y="1291" />
       </g>
       <use href="#use-2" x="4887" y="1231" />
-      <path fill="#fff" d="M5144 1240h-572v381c0 25 21 46 46 46h526c25 0 46-21 46-46v-335c0-25-21-46-46-46" />
     </g>
     <use href="#use-1" x="4683" y="1294" />
     <use href="#use-1" x="4683" y="1472" />
@@ -285,16 +294,6 @@
         </g>
       </g>
     </g>
-    <circle cx="5620" cy="3403" r="23" />
-    <circle cx="5563" cy="3403" r="23" />
-    <circle cx="5505" cy="3403" r="23" />
-    <rect x="5660" y="3380" width="414" height="46" rx="20" ry="20" />
-    <path d="M5596 3736h366v23h-366" />
-    <path d="M5622 3701h314v23h-314" />
-    <path d="M5651 3563h23v129h-23" />
-    <path d="M5698 3563h23v129h-23" />
-    <path d="M5744 3563h23v129h-23" />
-    <path d="M5790 3563h23v129h-23" />
     <use href="#use-3" x="5649" y="3555" />
     <g fill="none">
       <use href="#use-7" x="5781" y="3153" />
@@ -303,16 +302,6 @@
       <path stroke-width="30" stroke="#1c75bc" d="M3325 5104v149" />
       <rect x="3000" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
     </g>
-    <circle cx="3164" cy="3403" r="23" />
-    <circle cx="3107" cy="3403" r="23" />
-    <circle cx="3049" cy="3403" r="23" />
-    <rect x="3205" y="3380" width="414" height="46" rx="20" ry="20" />
-    <path d="M3140 3736h366v23h-366" />
-    <path d="M3165 3701h314v23h-314" />
-    <path d="M3195 3563h23v129h-23" />
-    <path d="M3241 3563h23v129h-23" />
-    <path d="M3288 3563h23v129h-23" />
-    <path d="M3334 3563h23v129h-23" />
     <use href="#use-3" x="3193" y="3555" />
     <rect x="3114" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
     <g fill="#fff">
@@ -333,16 +322,6 @@
         <rect x="3819" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
       </g>
     </g>
-    <circle cx="3983" cy="3403" r="23" />
-    <circle cx="3926" cy="3403" r="23" />
-    <circle cx="3868" cy="3403" r="23" />
-    <rect x="4023" y="3380" width="414" height="46" rx="20" ry="20" />
-    <path d="M3958 3736h366v23h-366" />
-    <path d="M3984 3701h314v23h-314" />
-    <path d="M4014 3563h23v129h-23" />
-    <path d="M4060 3563h23v129h-23" />
-    <path d="M4106 3563h23v129h-23" />
-    <path d="M4153 3563h23v129h-23" />
     <use href="#use-3" x="4012" y="3555" />
     <rect x="3922" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
     <g fill="#fff">
@@ -363,16 +342,6 @@
         <rect x="4638" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
       </g>
     </g>
-    <circle cx="4801" cy="3403" r="23" />
-    <circle cx="4744" cy="3403" r="23" />
-    <circle cx="4686" cy="3403" r="23" />
-    <rect x="4842" y="3380" width="414" height="46" rx="20" ry="20" />
-    <path d="M4777 3736h366v23h-366" />
-    <path d="M4803 3701h314v23h-314" />
-    <path d="M4833 3563h23v129h-23" />
-    <path d="M4879 3563h23v129h-23" />
-    <path d="M4925 3563h23v129h-23" />
-    <path d="M4971 3563h23v129h-23" />
     <use href="#use-3" x="4831" y="3555" />
     <rect x="4741" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
     <g fill="#fff">
@@ -390,16 +359,6 @@
         <rect x="6275" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
       </g>
     </g>
-    <circle cx="6439" cy="3403" r="23" />
-    <circle cx="6382" cy="3403" r="23" />
-    <circle cx="6324" cy="3403" r="23" />
-    <rect x="6479" y="3380" width="414" height="46" rx="20" ry="20" />
-    <path d="M6414 3736h366v23h-366" />
-    <path d="M6440 3701h314v23h-314" />
-    <path d="M6470 3563h23v129h-23" />
-    <path d="M6516 3563h23v129h-23" />
-    <path d="M6562 3563h23v129h-23" />
-    <path d="M6609 3563h23v129h-23" />
     <use href="#use-3" x="6468" y="3555" />
     <rect x="6378" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
     <g fill="#fff">
@@ -416,16 +375,6 @@
         <rect x="7094" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
       </g>
     </g>
-    <circle cx="7257" cy="3403" r="23" />
-    <circle cx="7200" cy="3403" r="23" />
-    <circle cx="7142" cy="3403" r="23" />
-    <rect x="7298" y="3380" width="414" height="46" rx="20" ry="20" />
-    <path d="M7233 3736h366v23h-366" />
-    <path d="M7259 3701h314v23h-314" />
-    <path d="M7289 3563h23v129h-23" />
-    <path d="M7335 3563h23v129h-23" />
-    <path d="M7381 3563h23v129h-23" />
-    <path d="M7427 3563h23v129h-23" />
     <use href="#use-3" x="7287" y="3555" />
     <rect x="7197" y="4486" width="442" height="269" rx="38" ry="38" fill="#0e3a5e" />
   </g>

@@ -241,6 +241,7 @@ const getAttributeNumberValue = (element, attributeName) => {
 /**
  * @param {Element} sourceUse
  * @param {Element | null} element
+ * @returns {Element | null}
  */
 const convertToRelativeElement = (sourceUse, element) => {
   if (!element) return null;
@@ -301,6 +302,52 @@ const convertToRelativeElement = (sourceUse, element) => {
     default:
       return null;
   }
+};
+
+/**
+ * @param {Element} element1
+ * @param {Element | null} element2
+ */
+const relativelyCloseElements = (element1, element2) => {
+  if (!element2) return false;
+  const threshold = 5; // Define a threshold for how close the coordinates need to be to be considered the same
+
+  /** @param {Element} element */
+  const getCoordinates = element => {
+    switch (element.tagName.toLowerCase()) {
+      case "circle":
+        return [
+          getAttributeNumberValue(element, "cx"),
+          getAttributeNumberValue(element, "cy")
+        ];
+      case "rect":
+        return [
+          getAttributeNumberValue(element, "x"),
+          getAttributeNumberValue(element, "y")
+        ];
+      case "path": {
+        const dAttribute = element.getAttribute("d") || "";
+        const mCommandMatch = dAttribute.match(
+          /^\s*M\s*([-\d.]+)[ ,]([-\d.]+)/
+        );
+        if (!mCommandMatch) return null;
+        return [parseFloat(mCommandMatch[1]), parseFloat(mCommandMatch[2])];
+      }
+      default:
+        return null;
+    }
+  };
+
+  const coords1 = getCoordinates(element1);
+  const coords2 = getCoordinates(element2);
+
+  if (!coords1 || !coords2) return false;
+
+  const distance = Math.sqrt(
+    Math.pow(coords1[0] - coords2[0], 2) + Math.pow(coords1[1] - coords2[1], 2)
+  );
+
+  return distance <= threshold;
 };
 
 /**
@@ -412,22 +459,12 @@ const ConvertCommonElementstoUseElements = svgElement => {
         // Make sure all the use elements will have this same relative element.
         if (
           candidate &&
-          useElements.every(useEl => {
-            const relativeElement = convertToRelativeElement(
-              useEl,
-              siblingFunction(useEl)
-            );
-            return (
-              // Make sure all attributes match
-
-              relativeElement &&
-              [...candidate.attributes].every(attr =>
-                [...relativeElement.attributes].find(
-                  a => a.name === attr.name && a.value === attr.value
-                )
-              )
-            );
-          })
+          useElements.every(useEl =>
+            relativelyCloseElements(
+              candidate,
+              convertToRelativeElement(useEl, siblingFunction(useEl))
+            )
+          )
         ) {
           // All use elements have the same relative element, so we can add one to the defs and remove the relative element
 
