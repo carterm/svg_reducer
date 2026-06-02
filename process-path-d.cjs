@@ -460,6 +460,12 @@ const processPathD = (pathD, options, pathElement) => {
   // Remove "m" at the end of the path
   pathD = pathD.replace(/m[^clshva]+$/gim, "");
 
+  if (pathElement && (pathD.endsWith("z") || pathD.endsWith("Z"))) {
+    // remove final z if the path has no stroke
+    const props = getVisibilityProperties(pathElement);
+    if (props.stroke === "none") pathD = pathD.replace(/z$/i, "");
+  }
+
   if (options.devmode) pathD = pathD.replace(/([a-zA-z])/gim, "\n$1"); // Add newline before commands
 
   if (removeExtraCs) {
