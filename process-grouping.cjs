@@ -378,12 +378,6 @@ const ConvertCommonElementstoUseElements = svgElement => {
 
   let defSection = svgElement.querySelector("defs");
 
-  pathElements
-    .filter(path => path.closest("defs"))
-    .forEach(path => {
-      console.log(`Skipping path in defs with d="${path.getAttribute("d")}"`);
-    });
-
   pathElements.forEach(path => {
     const d = path.getAttribute("d") || "";
 

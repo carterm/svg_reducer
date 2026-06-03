@@ -577,6 +577,13 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     }
   });
 
+  defsElement?.querySelectorAll("path").forEach(pathElement => {
+    const d = pathElement.getAttribute("d");
+    if (d?.includes(" -")) {
+      pathElement.setAttribute("d", d.replace(/ -/g, "-"));
+    }
+  });
+
   // Final cleanup of empty "g" elements, removing transforms may cause this
 
   while (removeGroupsWithNoAttributes(svgElement)) {
