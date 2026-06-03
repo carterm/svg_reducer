@@ -498,10 +498,13 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   while (
     removeGroupsWithNoAttributes(svgElement) ||
     groupAttributes(svgElement) ||
-    applyScaleToViewBox(svgElement) ||
-    ConvertCommonElementstoUseElements(svgElement)
+    applyScaleToViewBox(svgElement)
   ) {
     // Keep extracting common attributes until no more extractions
+  }
+
+  while (ConvertCommonElementstoUseElements(svgElement)) {
+    // keep converting common elements to use elements until no more conversions
   }
 
   // Merge paths after grouping, since grouping may cause some paths to have the same attributes
