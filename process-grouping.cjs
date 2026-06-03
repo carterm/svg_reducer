@@ -293,14 +293,14 @@ const convertToRelativeElement = (sourceUse, element) => {
 
       // Get the X and Y coordinates from the first "M" command in the "d" attribute, and convert them to relative coordinates based on the sourceUse's "x" and "y" attributes, then update the "d" attribute with the new relative coordinates.  If there is no "M" command, just return the element with copied attributes.
       const dAttribute = element.getAttribute("d") || "";
-      const mCommandMatch = dAttribute.match(/^\s*M\s*([-\d.]+)[ ,]([-\d.]+)/);
+      const mCommandMatch = dAttribute.match(/^\s*M\s*([-\d.]+)[ ,]?([-\d.]+)/);
       if (!mCommandMatch) return null;
 
       const mX = parseFloat(mCommandMatch[1]);
       const mY = parseFloat(mCommandMatch[2]);
       const newD = dAttribute.replace(
-        /^\s*M\s*([-\d.]+)[ ,]([-\d.]+)/,
-        `M${mX - sourceX} ${mY - sourceY}`
+        /^\s*M\s*([-\d.]+)[ ,]?([-\d.]+)/,
+        `M${mX - sourceX} ${mY - sourceY}`.replace(/ -/g, "-")
       );
       newElement.setAttribute("d", newD);
 
@@ -335,7 +335,7 @@ const relativelyCloseElements = (element1, element2) => {
       case "path": {
         const dAttribute = element.getAttribute("d") || "";
         const mCommandMatch = dAttribute.match(
-          /^\s*M\s*([-\d.]+)[ ,]([-\d.]+)/
+          /^\s*M\s*([-\d.]+)[ ,]?([-\d.]+)/
         );
         if (!mCommandMatch) return null;
         return [parseFloat(mCommandMatch[1]), parseFloat(mCommandMatch[2])];
@@ -382,7 +382,7 @@ const ConvertCommonElementstoUseElements = svgElement => {
     const d = path.getAttribute("d") || "";
 
     // Remove the initial "M{x} {y}" command and its coordinates for comparison
-    const dForComparison = d.replace(/^\s*M\s*([-\d.]+)[ ,]([-\d.]+)/, "");
+    const dForComparison = d.replace(/^\s*M\s*([-\d.]+)[ ,]?([-\d.]+)/, "");
 
     if (dForComparison.length < dAttributeMinLengthForUse) return; // Skip short paths
 
@@ -506,13 +506,6 @@ const ConvertCommonElementstoUseElements = svgElement => {
         }
       }
     });
-  });
-
-  // Remove spaces before negative signs in path "d" attributes
-  // TODO; figure out how to do this when the D attribute is added in defs
-  defSection?.querySelectorAll("path").forEach(pathElement => {
-    const d = pathElement.getAttribute("d");
-    if (d?.includes(" -")) pathElement.setAttribute("d", d.replace(/ -/g, "-"));
   });
 
   return didSomething;
