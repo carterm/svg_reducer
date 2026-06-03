@@ -577,13 +577,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     }
   });
 
-  // Remove spaces before negative signs in path "d" attributes
-  // TODO; figure out how to do this when the D attribute is added in defs
-  defsElement?.querySelectorAll("path").forEach(pathElement => {
-    const d = pathElement.getAttribute("d");
-    if (d?.includes(" -")) pathElement.setAttribute("d", d.replace(/ -/g, "-"));
-  });
-
   // Final cleanup of empty "g" elements, removing transforms may cause this
 
   while (removeGroupsWithNoAttributes(svgElement)) {

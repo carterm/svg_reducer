@@ -508,6 +508,13 @@ const ConvertCommonElementstoUseElements = svgElement => {
     });
   });
 
+  // Remove spaces before negative signs in path "d" attributes
+  // TODO; figure out how to do this when the D attribute is added in defs
+  defSection?.querySelectorAll("path").forEach(pathElement => {
+    const d = pathElement.getAttribute("d");
+    if (d?.includes(" -")) pathElement.setAttribute("d", d.replace(/ -/g, "-"));
+  });
+
   return didSomething;
 };
 
