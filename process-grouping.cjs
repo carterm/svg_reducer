@@ -26,6 +26,8 @@ const groupAttributes = svgElement => {
 
   // Process each attribute that can be grouped (e.g., fill, stroke, opacity)
   tempGroupAttributes.forEach(attr => {
+    //Check for a global match above this to allow us to remove the attribute.
+
     const allWithAttribute = [
       ...svgElement.querySelectorAll(`[${attr}]`)
     ].filter(
@@ -48,8 +50,13 @@ const groupAttributes = svgElement => {
         const myParent = myElement.parentElement;
         if (!myParent || myElement.getAttribute(attr) !== value) return;
 
-        //const myAncestors = getAncestors(myElement);
-        //const ancestorValue = getAncestorAttributeValue(myAncestors, attr);
+        // Check up the parent chain to see if the next attribute matches that would make this attribute unecessary on this eleemnt.
+        if (myParent.closest(`[${attr}]`)?.getAttribute(attr) === value) {
+          // This element is already inheriting the attribute from a parent, so we don't need to group it with its siblings, since we can just remove the attribute from this element and it will still have the same appearance.
+          didSomething = true;
+          myElement.removeAttribute(attr);
+          return;
+        }
 
         const mySiblingMatches = allMatches.filter(
           e => e !== myElement && e.parentElement === myParent

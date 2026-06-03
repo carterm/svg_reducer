@@ -50,114 +50,112 @@
   </defs>
   <g transform="scale(.1)">
     <g fill="#0e3a5e">
-      <g font-weight="700">
-        <text font-size="89" x="6667" y="5707">California Department of</text>
-        <text x="6667" y="5894" font-size="202">Technology</text>
-        <rect x="6274" y="5613" width="323" height="323" rx="28" ry="28" />
-        <circle cx="6435" cy="5775" r="142" fill="#fff" />
-        <path d="M6390 5715h50v45h-50" />
-        <path d="M6346 5674h34v31h-34" />
-        <path d="M6410 5788h31v28h-31" />
-        <path d="M6491 5845h34v29h-34" />
-        <path d="M6386 5674h16v14h-16" />
-        <path d="M6407 5674h16v14h-16" />
-        <path d="M6432 5677h8v7h-8" />
-        <path d="M6453 5676h10v8h-10" />
-        <path d="M6432 5696h8v7h-8" />
-        <path d="M6452 5696h8v7h-8" />
-        <path d="M6451 5714h10v9h-10" />
-        <path d="M6471 5714h10v9h-10" />
-        <path d="M6493 5713h11v9h-11" />
-        <path d="M6493 5692h12v10h-12" />
-        <path d="M6471 5694h12v10h-12" />
-        <path d="M6474 5673h12v10h-12" />
-        <path d="M6498 5671h12v10h-12" />
-        <path d="M6518 5691h12v10h-12" />
-        <path d="M6517 5712h10v9h-10" />
-        <path d="M6541 5711h10v9h-10" />
-        <path d="M6536 5731h10v8h-10" />
-        <path d="M6513 5733h10v8h-10" />
-        <path d="M6492 5733h10v8h-10" />
-        <path d="M6471 5733h9v7h-9" />
-        <path d="M6452 5733h8v7h-8" />
-        <path d="M6452 5751h8v7h-8" />
-        <path d="M6472 5751h8v7h-8" />
-        <path d="M6492 5751h9v8h-9" />
-        <path d="M6513 5751h9v8h-9" />
-        <path d="M6535 5751h9v8h-9" />
-        <path d="M6533 5770h9v8h-9" />
-        <path d="M6512 5771h7v6h-7" />
-        <path d="M6472 5770h8v7h-8" />
-        <path d="M6493 5770h8v7h-8" />
-        <path d="M6493 5789h8v7h-8" />
-        <path d="M6513 5789h8v7h-8" />
-        <path d="M6513 5808h8v7h-8" />
-        <path d="M6534 5808h8v7h-8" />
-        <path d="M6534 5790h8v7h-8" />
-        <path d="M6534 5826h8v7h-8" />
-        <path d="M6534 5844h8v7h-8" />
-        <path d="M6472 5864h8v7h-8" />
-        <path d="M6451 5864h8v7h-8" />
-        <path d="M6430 5864h8v7h-8" />
-        <path d="M6407 5864h10v9h-10" />
-        <path d="M6384 5866h12v10h-12" />
-        <path d="M6388 5844h12v10h-12" />
-        <path d="M6411 5845h8v7h-8" />
-        <path d="M6390 5826h8v7h-8" />
-        <path d="M6390 5808h8v7h-8" />
-        <path d="M6370 5789h8v7h-8" />
-        <path d="M6370 5770h8v7h-8" />
-        <path d="M6350 5770h8v7h-8" />
-        <path d="M6350 5790h8v7h-8" />
-        <path d="M6350 5751h8v7h-8" />
-        <path d="M6330 5696h8v7h-8" />
-        <path d="M6330 5715h8v7h-8" />
-        <path d="M6330 5733h8v7h-8" />
-        <path d="M6330 5752h8v7h-8" />
-        <path d="M6330 5770h8v7h-8" />
-        <path d="M6327 5789h10v9h-10" />
-        <path d="M6324 5809h10v9h-10" />
-        <path d="M6319 5828h11v10h-11" />
-        <path d="M6343 5827h11v10h-11" />
-        <path d="M6347 5808h10v8h-10" />
-        <path d="M6369 5808h10v8h-10" />
-        <path d="M6359 5868h12v10h-12" />
-        <path d="M6367 5827h10v8h-10" />
-        <path d="M6365 5846h12v9h-12" />
-        <path d="M6340 5848h12v9h-12" />
-        <path d="M6386 5692h16v14h-16" />
-        <path d="M6407 5692h16v14h-16" />
-        <path d="M6346 5711h16v14h-16" />
-        <path d="M6366 5711h16v14h-16" />
-        <path d="M6346 5729h16v14h-16" />
-        <path d="M6366 5729h16v14h-16" />
-        <path d="M6366 5749h16v14h-16" />
-        <path d="M6448 5767h16v14h-16" />
-        <path d="M6427 5767h16v14h-16" />
-        <path d="M6407 5767h16v14h-16" />
-        <path d="M6387 5767h16v14h-16" />
-        <path d="M6387 5785h16v14h-16" />
-        <path d="M6448 5785h16v14h-16" />
-        <path d="M6448 5805h16v14h-16" />
-        <path d="M6468 5785h16v14h-16" />
-        <path d="M6468 5805h16v14h-16" />
-        <path d="M6488 5805h16v14h-16" />
-        <path d="M6448 5823h16v14h-16" />
-        <path d="M6468 5823h16v14h-16" />
-        <path d="M6407 5823h16v14h-16" />
-        <path d="M6427 5823h16v14h-16" />
-        <path d="M6448 5842h16v14h-16" />
-        <path d="M6468 5842h16v14h-16" />
-        <path d="M6427 5842h16v14h-16" />
-        <path d="M6488 5823h16v14h-16" />
-        <path d="M6508 5823h16v14h-16" />
-      </g>
+      <text font-size="89" x="6667" y="5707">California Department of</text>
+      <text x="6667" y="5894" font-size="202">Technology</text>
+      <rect x="6274" y="5613" width="323" height="323" rx="28" ry="28" />
+      <circle cx="6435" cy="5775" r="142" fill="#fff" />
+      <path d="M6390 5715h50v45h-50" />
+      <path d="M6346 5674h34v31h-34" />
+      <path d="M6410 5788h31v28h-31" />
+      <path d="M6491 5845h34v29h-34" />
+      <path d="M6386 5674h16v14h-16" />
+      <path d="M6407 5674h16v14h-16" />
+      <path d="M6432 5677h8v7h-8" />
+      <path d="M6453 5676h10v8h-10" />
+      <path d="M6432 5696h8v7h-8" />
+      <path d="M6452 5696h8v7h-8" />
+      <path d="M6451 5714h10v9h-10" />
+      <path d="M6471 5714h10v9h-10" />
+      <path d="M6493 5713h11v9h-11" />
+      <path d="M6493 5692h12v10h-12" />
+      <path d="M6471 5694h12v10h-12" />
+      <path d="M6474 5673h12v10h-12" />
+      <path d="M6498 5671h12v10h-12" />
+      <path d="M6518 5691h12v10h-12" />
+      <path d="M6517 5712h10v9h-10" />
+      <path d="M6541 5711h10v9h-10" />
+      <path d="M6536 5731h10v8h-10" />
+      <path d="M6513 5733h10v8h-10" />
+      <path d="M6492 5733h10v8h-10" />
+      <path d="M6471 5733h9v7h-9" />
+      <path d="M6452 5733h8v7h-8" />
+      <path d="M6452 5751h8v7h-8" />
+      <path d="M6472 5751h8v7h-8" />
+      <path d="M6492 5751h9v8h-9" />
+      <path d="M6513 5751h9v8h-9" />
+      <path d="M6535 5751h9v8h-9" />
+      <path d="M6533 5770h9v8h-9" />
+      <path d="M6512 5771h7v6h-7" />
+      <path d="M6472 5770h8v7h-8" />
+      <path d="M6493 5770h8v7h-8" />
+      <path d="M6493 5789h8v7h-8" />
+      <path d="M6513 5789h8v7h-8" />
+      <path d="M6513 5808h8v7h-8" />
+      <path d="M6534 5808h8v7h-8" />
+      <path d="M6534 5790h8v7h-8" />
+      <path d="M6534 5826h8v7h-8" />
+      <path d="M6534 5844h8v7h-8" />
+      <path d="M6472 5864h8v7h-8" />
+      <path d="M6451 5864h8v7h-8" />
+      <path d="M6430 5864h8v7h-8" />
+      <path d="M6407 5864h10v9h-10" />
+      <path d="M6384 5866h12v10h-12" />
+      <path d="M6388 5844h12v10h-12" />
+      <path d="M6411 5845h8v7h-8" />
+      <path d="M6390 5826h8v7h-8" />
+      <path d="M6390 5808h8v7h-8" />
+      <path d="M6370 5789h8v7h-8" />
+      <path d="M6370 5770h8v7h-8" />
+      <path d="M6350 5770h8v7h-8" />
+      <path d="M6350 5790h8v7h-8" />
+      <path d="M6350 5751h8v7h-8" />
+      <path d="M6330 5696h8v7h-8" />
+      <path d="M6330 5715h8v7h-8" />
+      <path d="M6330 5733h8v7h-8" />
+      <path d="M6330 5752h8v7h-8" />
+      <path d="M6330 5770h8v7h-8" />
+      <path d="M6327 5789h10v9h-10" />
+      <path d="M6324 5809h10v9h-10" />
+      <path d="M6319 5828h11v10h-11" />
+      <path d="M6343 5827h11v10h-11" />
+      <path d="M6347 5808h10v8h-10" />
+      <path d="M6369 5808h10v8h-10" />
+      <path d="M6359 5868h12v10h-12" />
+      <path d="M6367 5827h10v8h-10" />
+      <path d="M6365 5846h12v9h-12" />
+      <path d="M6340 5848h12v9h-12" />
+      <path d="M6386 5692h16v14h-16" />
+      <path d="M6407 5692h16v14h-16" />
+      <path d="M6346 5711h16v14h-16" />
+      <path d="M6366 5711h16v14h-16" />
+      <path d="M6346 5729h16v14h-16" />
+      <path d="M6366 5729h16v14h-16" />
+      <path d="M6366 5749h16v14h-16" />
+      <path d="M6448 5767h16v14h-16" />
+      <path d="M6427 5767h16v14h-16" />
+      <path d="M6407 5767h16v14h-16" />
+      <path d="M6387 5767h16v14h-16" />
+      <path d="M6387 5785h16v14h-16" />
+      <path d="M6448 5785h16v14h-16" />
+      <path d="M6448 5805h16v14h-16" />
+      <path d="M6468 5785h16v14h-16" />
+      <path d="M6468 5805h16v14h-16" />
+      <path d="M6488 5805h16v14h-16" />
+      <path d="M6448 5823h16v14h-16" />
+      <path d="M6468 5823h16v14h-16" />
+      <path d="M6407 5823h16v14h-16" />
+      <path d="M6427 5823h16v14h-16" />
+      <path d="M6448 5842h16v14h-16" />
+      <path d="M6468 5842h16v14h-16" />
+      <path d="M6427 5842h16v14h-16" />
+      <path d="M6488 5823h16v14h-16" />
+      <path d="M6508 5823h16v14h-16" />
       <g stroke="#1c75bc" stroke-width="30" stroke-linecap="square" fill="none">
         <path d="M7120 4097h298" />
         <path d="M994 4097h5800" />
       </g>
       <path fill="#1c75bc" d="M888 4097l149 61-35-61l35-61-149 61" />
-      <text font-weight="700" font-size="380" x="635" y="536">Digital ID Framework</text>
+      <text font-size="380" x="635" y="536">Digital ID Framework</text>
       <path d="M242 250c-3 0-6-1-8-4-4-4-4-11 0-15c18-17 57-46 114-50c62-5 107 23 124 35c5 4 6 10 2 15-3 5-10 6-15 2-15-11-55-35-110-31-50 4-85 29-101 44-2 2-5 3-8 3h2" />
       <path d="M238 311c-3 0-5 0-7-3-5-4-5-11-1-15c11-13 24-24 39-33c20-13 43-21 67-24c6 0 12 3 12 9s-3 11-9 12c-21 3-41 10-59 21-13 8-24 18-34 29-2 2-5 4-8 4" />
       <path d="M436 279c-3 0-5-1-7-3-7-7-16-12-25-16-9-3-18-5-28-5-6 0-11-5-11-11s5-11 11-11c12 0 24 2 35 6c12 5 23 11 33 20c5 4 5 11 0 15-2 2-5 4-8 4" />
@@ -269,7 +267,7 @@
       </g>
       <use href="#use-4" x="1290" y="5412" />
       <path d="M1290 5370c-57 0-102 46-102 102s14 59 36 77c18 15 41 25 67 25s49-10 67-25c22-19 36-47 36-77c0-57-46-102-102-102h-2zm67 170c-2-21-21-38-42-38h-49c-22 0-40 17-42 38-17-17-28-41-28-67c0-52 42-95 95-95s95 42 95 95s-11 50-28 67h-1" />
-      <g fill="#0e3a5e" font-size="129" font-weight="700">
+      <g fill="#0e3a5e" font-size="129">
         <text x="1092" y="4978">Mobile</text>
         <text x="1092" y="5133">Wallet</text>
         <path fill="none" stroke-width="30" stroke="#58595b" d="M679 3407v-435" />
@@ -302,7 +300,7 @@
     <g fill="none">
       <use href="#use-7" x="5781" y="3153" />
       <path stroke-width="30" stroke="#1c75bc" d="M5781 3812v291" />
-      <text font-weight="700" fill="#231f20" font-size="130" x="5665" y="3287">FTB</text>
+      <text fill="#231f20" font-size="130" x="5665" y="3287">FTB</text>
       <path stroke-width="30" stroke="#1c75bc" d="M3325 5104v149" />
       <rect x="3000" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
     </g>
@@ -316,7 +314,7 @@
         <use href="#use-5" x="3325" y="3152" />
         <path stroke-width="30" stroke="#1c75bc" d="M3325 3806v518" />
         <path fill="#1c75bc" d="M3325 4430l-61-149l61 35l61-35-61 149" />
-        <g fill="#231f20" font-size="130" font-weight="700">
+        <g fill="#231f20" font-size="130">
           <text x="3153" y="3287">CDPH</text>
           <text x="3085" y="4907">Vaccine</text>
           <text x="3121" y="5062">Record</text>
@@ -335,7 +333,7 @@
         <path stroke-width="30" stroke="#58595b" d="M4143 2662v231" />
         <path fill="#58595b" d="M4143 2999l-61-149l61 35l61-35-61 149" />
         <use href="#use-11" x="4143" y="4430" />
-        <g fill="#231f20" font-size="130" font-weight="700">
+        <g fill="#231f20" font-size="130">
           <text x="3717" y="3131">State Board of</text>
           <text x="3746" y="3287">Cosmetology</text>
           <text x="3747" y="4907">Cosmetology</text>
@@ -353,7 +351,7 @@
       <g fill="none">
         <use href="#use-7" x="4962" y="3153" />
         <use href="#use-11" x="4962" y="4430" />
-        <g fill="#231f20" font-size="130" font-weight="700">
+        <g fill="#231f20" font-size="130">
           <text x="4813" y="3287">DMV</text>
           <text x="4823" y="4907">mDL</text>
         </g>
@@ -369,7 +367,7 @@
       <g fill="none">
         <use href="#use-7" x="6599" y="3153" />
         <use href="#use-11" x="6599" y="4430" />
-        <g fill="#231f20" font-size="130" font-weight="700">
+        <g fill="#231f20" font-size="130">
           <text x="6258" y="3287">State Parks</text>
           <text x="6240" y="4907">Parks Pass</text>
         </g>
@@ -390,7 +388,7 @@
         <use href="#use-11" x="7418" y="4430" />
         <path stroke-width="30" stroke="#1c75bc" d="M7418 4960v291" />
       </g>
-      <g fill="#58595b" font-size="100" font-weight="700">
+      <g fill="#58595b" font-size="100">
         <g fill="#231f20" font-size="130" transform="scale(.1)">
           <text x="7142" y="3287">Agency X</text>
           <text x="6999" y="4907">Credential X</text>
@@ -440,7 +438,7 @@
           <rect x="448" y="2382" width="1474" height="429" rx="87" ry="87" fill="#fbae18" stroke="#0e3a5e" stroke-width="10" />
         </g>
         <g fill="#0e3a5e">
-          <g font-size="129" font-weight="700">
+          <g font-size="129">
             <text x="820" y="2557">California</text>
             <text x="820" y="2712">Identity Gateway</text>
             <rect x="490" y="2441" width="311" height="311" rx="36" ry="36" />
@@ -461,7 +459,7 @@
         </g>
       </g>
       <circle cx="676" cy="3748" r="155" />
-      <g fill="#fff" font-size="216" font-weight="700">
+      <g fill="#fff" font-size="216">
         <text x="623" y="3823">1</text>
         <circle cx="677" cy="3192" r="155" fill="#1c75bc" />
         <text x="623" y="3267">2</text>
@@ -489,7 +487,7 @@
         <rect x="1938" y="4907" width="672" height="660" rx="38" ry="38" fill="#fbae18" stroke="#231f20" stroke-width="10" />
       </g>
       <g fill="#0e3a5e">
-        <g font-size="129" font-weight="700">
+        <g font-size="129">
           <text x="1973" y="5525">API</text>
           <text x="1973" y="5383">Issuance</text>
           <rect x="1967" y="4938" width="310" height="310" rx="36" ry="36" />
@@ -497,7 +495,7 @@
         <g fill="#fff">
           <path d="M2212 4986h-181c-19 0-35 15-35 35v151c0 19 16 35 35 35h181c19 0 35-15 35-35v-151c0-19-16-35-35-35zm-181 12h181c12 0 21 9 23 20-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20zm205 42c-6-5-14-9-23-9h-181c-9 0-17 4-23 9c2-11 11-20 23-20h181c12 0 21 9 23 20zm0 87v45c0 13-11 23-23 23h-181c-13 0-23-10-23-23v-106c0-13 11-23 23-23h181c13 0 23 10 23 23v62" />
           <path d="M2162 5117c0-4-1-9-4-11-4-4-4-8-4-13v-10c0-12-8-22-19-24-7-1-15-1-22 0-14 2-21 12-21 26v13s-1 3-2 4c-6 4-9 9-9 15v38c0 12 6 18 18 18h47c10 0 17-7 17-17v-39h-1zm-61-38c0-7 6-11 12-12h19c8 1 13 8 13 16v17h-45v-21h1zm36 42c0 8-6 14-14 14s-14-6-14-14s6-14 14-14s14 6 14 14zm-15 48c-10 0-19-5-25-12c1-11 10-19 21-19h8c11 0 20 8 21 19-6 7-15 12-25 12" />
-          <g fill="#231f20" font-size="82" font-weight="700">
+          <g fill="#231f20" font-size="82">
             <text fill="#58595b" font-size="116" x="6040" y="271">Legend</text>
             <text x="6248" y="479">Individual</text>
             <text x="6244" y="1146">Digital</text>
@@ -529,7 +527,7 @@
     </g>
     <path d="M6100 432c17 0 32-15 32-33s-14-33-32-33s-32 14-32 33s14 33 32 33" />
     <path d="M6210 477c-5-5-12-6-18-2l-15 13-4 3c-7-12-5-12-19-35-6-11-17-16-30-16h-49c-11 0-20 4-27 12-5 7-10 15-13 24-9 28-10 57-8 86v7c0 7 6 12 12 12s11-5 11-13c0-20 0-40 2-60c0-9 4-19 6-28h2v215c0 10 7 17 17 17s18-7 18-20v-129c8-2 7 4 7 8v123c0 12 7 19 19 19s17-8 17-20v-211h2c0 4 2 5 5 12c9 19 4 5 10 23c0 2 0 3 2 4c5 5 11 2 17-2l3-2l30-25c5-5 5-10 3-14" />
-    <g fill="#231f20" font-size="55" font-weight="700">
+    <g fill="#231f20" font-size="55">
       <text font-size="82" x="7008" y="907">ID Provider</text>
       <text x="7008" y="973">Verifies identity, can be a</text>
       <text x="7008" y="1039">public or private entity</text>
@@ -577,7 +575,7 @@
       <rect x="5963" y="314" width="1773" height="1638" rx="120" ry="120" fill="none" stroke="#58595b" />
       <rect x="6775" y="382" width="888" height="143" rx="38" ry="38" fill="#fbae18" stroke="#231f20" />
     </g>
-    <text font-weight="700" fill="#0e3a5e" font-size="82" x="6816" y="479">Technology Services</text>
+    <text fill="#0e3a5e" font-size="82" x="6816" y="479">Technology Services</text>
     <g fill="none">
       <g stroke="#939598" stroke-width="10">
         <path d="M6039 774h1624" />
@@ -590,7 +588,7 @@
       <path fill="#1c75bc" d="M7122 1478l-150 61l36-61-36-61l150 61" />
       <path stroke="#939598" stroke-width="10" d="M6731 380v394" />
       <circle cx="6140" cy="1788" r="104" fill="#1c75bc" />
-      <text font-size="144" font-weight="700" fill="#fff" x="6105" y="1838">1</text>
+      <text font-size="144" fill="#fff" x="6105" y="1838">1</text>
     </g>
     <g stroke="#000" stroke-width="10">
       <g fill="#fff">
