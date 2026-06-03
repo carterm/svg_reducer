@@ -25,6 +25,13 @@ const {
   getVisibilityProperties
 } = require("./process-path-d.cjs");
 
+const {
+  removeGroupsWithNoAttributes,
+  groupAttributes,
+  ConvertCommonElementstoUseElements,
+  applyScaleToViewBox
+} = require("./process-grouping.cjs");
+
 const ConvertLinesToPaths = true;
 const shortenIds = true;
 const removeStyles = true;
@@ -350,40 +357,6 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       element.remove();
   });
 
-  if (!options.noPathsMerge) {
-    // Merge all path elements with matching attributes (ignore "d" attribute) and first letter in "d" attribute is uppercase
-    const pathsToMerge = [...svgElement.querySelectorAll("path")];
-    for (let i = 0; i < pathsToMerge.length - 1; i++) {
-      const nextPath = pathsToMerge[i + 1];
-      const currentPath = pathsToMerge[i];
-
-      if (
-        // Do both paths have the same attributes? Except for d
-        [
-          ...new Set(
-            [...nextPath.attributes, ...currentPath.attributes].map(
-              attr => attr.name
-            )
-          )
-        ]
-          .filter(name => name !== "d")
-          .every(
-            name =>
-              currentPath.getAttribute(name) === nextPath.getAttribute(name)
-          )
-      ) {
-        //Make sure the first M command is uppercase when merging
-        const nextD = (nextPath.getAttribute("d") || "").replace(/^\s*m/, "M");
-
-        nextPath.setAttribute(
-          "d",
-          `${currentPath.getAttribute("d")}\n${nextD}`
-        );
-        currentPath.remove();
-      }
-    }
-  }
-
   // Process all path statements
   svgElement
     .querySelectorAll("path")
@@ -425,9 +398,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
     });
 
   // Scale CIRCLE and RECT elements to attempt to remove decimal points and apply a scale transform
-  svgElement
-    .querySelectorAll("circle, rect, text, ellipse")
-    .forEach(Element => {
+  [...svgElement.querySelectorAll("circle, rect, text, ellipse")].forEach(
+    Element => {
       // Extract numeric attributes
       const attrs = [
         "cx",
@@ -484,7 +456,8 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
           (props.strokeWidth * scale).toString()
         );
       }
-    });
+    }
+  );
 
   //Remove X and Y attributes with a value of 0, since they don't affect the rendering and just take up space
   document.querySelectorAll("[x='0']").forEach(e => e.removeAttribute("x"));
@@ -518,194 +491,68 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   //   newG.appendChild(e);
   // });
 
-  // BEGIN grouping phase, where we attempt to group elements together based on shared attributes
-  const groupAttributes = () => {
-    let didSomething = false;
-
-    const tempGroupAttributes = [
-      "font-family",
-      "stroke",
-      "stroke-width",
-      "stroke-linecap",
-      "fill",
-      "font",
-      "font-size",
-      "font-weight",
-      "transform"
-    ];
-
-    // Process each attribute that can be grouped (e.g., fill, stroke, opacity)
-    tempGroupAttributes.forEach(attr => {
-      const allWithAttribute = [...svgElement.querySelectorAll(`[${attr}]`)];
-      const distinctValues = [
-        ...new Set([...allWithAttribute].map(el => el.getAttribute(attr) || ""))
-      ];
-
-      const attributeIsOverrideable = !["transform", "opacity"].includes(attr);
-
-      distinctValues.forEach(value => {
-        const allMatches = allWithAttribute.filter(
-          el => el.getAttribute(attr) === value
-        );
-
-        if (allMatches.length <= 1) return;
-
-        allMatches.forEach(myElement => {
-          const myParent = myElement.parentElement;
-          if (!myParent || myElement.getAttribute(attr) !== value) return;
-
-          //const myAncestors = getAncestors(myElement);
-          //const ancestorValue = getAncestorAttributeValue(myAncestors, attr);
-
-          const mySiblingMatches = allMatches.filter(
-            e => e !== myElement && e.parentElement === myParent
-          );
-
-          if (mySiblingMatches.length) {
-            // Try to group each sibling match.  Must also consider the other sibling elements between and make sure the grouping doesn't affect them.
-
-            const siblingsBetween = [myElement];
-            const matches = [myElement];
-            let sibling = myElement.nextElementSibling;
-            let directionForward = true;
-
-            while (sibling) {
-              const siblingHasAttribute = sibling.hasAttribute(attr);
-
-              if (siblingHasAttribute && sibling.getAttribute(attr) === value) {
-                // This is one of our target matches!  Now it is worth making a group.
-                matches.push(sibling);
-              } else if (!elementHasAttribute(sibling.tagName, attr)) {
-                // This attribute is irrelavant to the tag, so it is safe to include in the group
-              } else if (attributeIsOverrideable && siblingHasAttribute) {
-                // This sibling is specifying an override for the attribute, so it is safe to include in the group
-              } else {
-                // Not sure if sibling could be affected by the grouping, so we have to stop here and not include it in the group
-                //TODO: recursively check if this is a group
-
-                sibling = null;
-                break;
-              }
-
-              if (directionForward) {
-                siblingsBetween.push(sibling);
-                sibling = sibling.nextElementSibling;
-                if (!sibling) {
-                  directionForward = false;
-                  sibling = myElement.previousElementSibling;
-                }
-              } else {
-                siblingsBetween.unshift(sibling);
-                sibling = sibling.previousElementSibling;
-              }
-            }
-
-            if (
-              (attributeIsOverrideable ||
-                myParent.tagName.toLowerCase() !== "svg") &&
-              siblingsBetween.length === myParent.childElementCount &&
-              (!myParent.hasAttribute(attr) ||
-                myParent.getAttribute(attr) === value)
-            ) {
-              // All siblings are safe to group, which means we can just apply the attribute to the parent and remove it from all the children, without needing to create a new group element.
-
-              didSomething = true;
-              myParent.setAttribute(attr, value);
-              matches.forEach(match => match.removeAttribute(attr));
-
-              //console.log(
-              //  `Applied to parent of ${siblingsBetween.length}/${myParent.childElementCount} elements with [${attr}="${value}"]`
-              //);
-            } else if (matches.length > 1) {
-              // Make a group with the siblings between.
-
-              didSomething = true;
-              const newG = document.createElementNS(SVG_NS, "g");
-              newG.setAttribute(attr, value);
-              myParent.insertBefore(newG, myElement);
-
-              //console.log(
-              //  `Grouped ${matches.length}/${siblingsBetween.length}/${myParent.childElementCount} elements into a new <g> element with [${attr}="${value}"]`
-              //);
-
-              siblingsBetween.forEach(sibling2 => {
-                if (
-                  sibling2.hasAttribute(attr) &&
-                  sibling2.getAttribute(attr) === value
-                )
-                  sibling2.removeAttribute(attr);
-
-                newG.appendChild(sibling2);
-              });
-            }
-          }
-        }); // End loop through matches with the same attribute value
-      }); // End loop through distinct attribute values
-    }); // End loop through groupable attributes
-    return didSomething;
-  };
-
-  const removeGroupsWithNoAttributes = () => {
-    let didSomething = false;
-    [...svgElement.querySelectorAll("g")]
-      .filter(gElement => gElement.attributes.length === 0)
-      .forEach(gElement => {
-        didSomething = true;
-        //move all child elements to the parent
-        [...gElement.children].forEach(child =>
-          gElement.parentElement?.insertBefore(child, gElement)
-        );
-        gElement.remove();
-      });
-    return didSomething;
-  };
-
-  const applyScaleToViewBox = () => {
-    // if the dom has a single child with a scale transform, apply the scale to the viewBox and remove the transform
-
-    const directChildren = svgElement.querySelectorAll(
-      "svg > g,svg > path,svg > rect,svg > circle,svg > ellipse,svg > line,svg > polyline,svg > polygon"
-    );
-    if (directChildren.length !== 1) return;
-
-    const firstChild = directChildren[0];
-    const transform = firstChild.getAttribute("transform");
-    if (!transform) return;
-    const scaleMatch = transform.match(/scale\((?<val>[^)]+)\)/);
-    if (!scaleMatch) return;
-
-    // Check if the transform is only a scale transform
-    const viewbox = svgElement.getAttribute("viewBox");
-    const val = scaleMatch.groups?.val;
-    if (val && viewbox) {
-      const [x, y, width, height] = viewbox.split(" ").map(parseFloat);
-
-      // Update the viewBox to reflect the new scale
-      const scale = parseFloat(val);
-      const divScale = (/** @type {number} */ topPart) =>
-        Number((topPart / scale).toFixed(6)).toString(); // prevents 43.4 / 0.1 = 433.99999999999994
-
-      svgElement.setAttribute(
-        "viewBox",
-        `${divScale(x)} ${divScale(y)} ${divScale(width)} ${divScale(height)}`
-      );
-
-      const newTransform = transform.replace(scaleMatch[0], "").trim();
-      if (newTransform.length === 0) firstChild.removeAttribute("transform");
-      else firstChild.setAttribute("transform", newTransform);
-
-      return true;
-    }
-  };
-
   // Grouping phase
 
   while (
-    removeGroupsWithNoAttributes() ||
-    groupAttributes() ||
-    applyScaleToViewBox()
+    removeGroupsWithNoAttributes(svgElement) ||
+    groupAttributes(svgElement) ||
+    applyScaleToViewBox(svgElement) ||
+    ConvertCommonElementstoUseElements(svgElement)
   ) {
     // Keep extracting common attributes until no more extractions
+  }
+
+  // Merge paths after grouping, since grouping may cause some paths to have the same attributes
+  if (!options.noPathsMerge) {
+    const mergeSiblingPaths = () => {
+      let didsomething = false;
+      [...svgElement.querySelectorAll("path + path")].forEach(currentPath => {
+        const prevPath = currentPath.previousElementSibling;
+        if (!prevPath) return;
+        if (
+          // Do both paths have the same attributes? Except for d
+          [
+            ...new Set(
+              [...prevPath.attributes, ...currentPath.attributes].map(
+                attr => attr.name
+              )
+            )
+          ]
+            .filter(name => name !== "d")
+            .every(
+              name =>
+                currentPath.getAttribute(name) === prevPath.getAttribute(name)
+            )
+        ) {
+          //Make sure the first M command is uppercase when merging
+          const nextD = (prevPath.getAttribute("d") || "").replace(
+            /^\s*m/,
+            "M"
+          );
+
+          prevPath.setAttribute(
+            "d",
+            `${currentPath.getAttribute("d")}\n${nextD}`
+          );
+          currentPath.remove();
+          didsomething = true;
+        }
+      });
+
+      return didsomething;
+    };
+
+    while (mergeSiblingPaths()) {
+      // Keep merging sibling paths until no more merges
+    }
+
+    // Process all path statements again
+    [...svgElement.querySelectorAll("path")].forEach(pathElement =>
+      pathElement.setAttribute(
+        "d",
+        processPathD(pathElement.getAttribute("d") || "", options)
+      )
+    );
   }
 
   // Remove empty tags from dom
@@ -732,7 +579,7 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
 
   // Final cleanup of empty "g" elements, removing transforms may cause this
 
-  while (removeGroupsWithNoAttributes()) {
+  while (removeGroupsWithNoAttributes(svgElement)) {
     // console.log("removeUselessGs");
     // Keep removing empty "g" elements until no more removals
   }
