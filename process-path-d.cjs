@@ -96,8 +96,8 @@ const processPathD = (pathD, options, pathElement) => {
 
   if (scalepoints) {
     // find scale
-    let scale = 1;
-    if (pathElement)
+    let scale = options.scaleAll || 1;
+    if (pathElement && scale === 1)
       pathData.forEach(command =>
         // If the element is specified, scale the path data and stroke width
 

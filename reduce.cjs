@@ -27,6 +27,12 @@ const argv = yargs
     description: "Set the maximum number of decimal places",
     default: 2 // Default value
   })
+  .option("scaleAll", {
+    alias: "s",
+    type: "number",
+    description: "Set the scaling factor for all SVG dimensions",
+    default: 1 // Default value
+  })
   .option("input", {
     alias: "i",
     type: "string",
@@ -48,6 +54,7 @@ const processOptions = {
   devmode: argv["dev"],
   maxDecimalPlaces: argv["maxDecimalPlaces"],
   noPathsMerge: argv["noPathsMerge"],
+  scaleAll: argv["scaleAll"],
   optionsPath: argv["options"]
 };
 

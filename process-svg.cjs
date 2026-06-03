@@ -12,6 +12,7 @@
  * @typedef {object} processDataOptions
  * @property {boolean} devmode - Whether to enable development mode.
  * @property {number} maxDecimalPlaces - The maximum number of decimal places to retain.
+ * @property {number} scaleAll - A scaling factor to apply to the SVG dimensions.
  * @property {boolean} noPathsMerge - Whether to merge paths with matching attributes.
  * @property {string} optionsPath - conversion options
  * @property {fileOptions[]} [fileOptions] - individual data for each file
@@ -416,21 +417,22 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       const values = attrs.map(a => Element.getAttribute(a));
 
       // Determine max decimal places across attributes
+      let scale = options.scaleAll || 1;
       let maxDecimals = 0;
+      if (scale === 1) {
+        values.forEach(val => {
+          if (!val) return;
+          const match = val.match(/\.(\d+)/);
+          if (match) {
+            const decimals = match[1].length;
+            if (decimals > maxDecimals) maxDecimals = decimals;
+          }
+        });
 
-      values.forEach(val => {
-        if (!val) return;
-        const match = val.match(/\.(\d+)/);
-        if (match) {
-          const decimals = match[1].length;
-          if (decimals > maxDecimals) maxDecimals = decimals;
-        }
-      });
-
-      // If no decimals, no scaling needed
-      if (maxDecimals === 0) return;
-
-      const scale = Math.pow(10, maxDecimals);
+        // If no decimals, no scaling needed
+        if (maxDecimals === 0) return;
+        scale = Math.pow(10, maxDecimals);
+      } else maxDecimals = Math.log10(scale);
 
       // Apply scaling + rounding
       attrs.forEach(attr => {
