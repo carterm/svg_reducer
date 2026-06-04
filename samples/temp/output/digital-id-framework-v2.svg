@@ -266,9 +266,9 @@
     </g>
     <use href="#use-4" x="1290" y="5412" />
     <path d="M1290 5370c-57 0-102 46-102 102s14 59 36 77c18 15 41 25 67 25s49-10 67-25c22-19 36-47 36-77c0-57-46-102-102-102h-2zm67 170c-2-21-21-38-42-38h-49c-22 0-40 17-42 38-17-17-28-41-28-67c0-52 42-95 95-95s95 42 95 95s-11 50-28 67h-1" />
-    <g fill="#0e3a5e" font-size="129">
-      <text x="1092" y="4978">Mobile</text>
-      <text x="1092" y="5133">Wallet</text>
+    <g fill="#0e3a5e" font-size="129" text-anchor="middle">
+      <text x="1292" y="4978">Mobile</text>
+      <text x="1292" y="5133">Wallet</text>
       <path fill="none" stroke-width="30" stroke="#58595b" d="M679 3407v-435" />
       <path fill="#58595b" d="M679 2866l61 149-61-35-61 35l61-149" />
     </g>
@@ -299,7 +299,7 @@
   <g fill="none">
     <use href="#use-7" x="5781" y="3153" />
     <path stroke-width="30" stroke="#1c75bc" d="M5781 3812v291" />
-    <text fill="#231f20" font-size="130" x="5665" y="3287">FTB</text>
+    <text text-anchor="middle" fill="#231f20" font-size="130" x="5781" y="3287">FTB</text>
     <path stroke-width="30" stroke="#1c75bc" d="M3325 5104v149" />
     <rect x="3000" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
   </g>
@@ -313,11 +313,11 @@
       <use href="#use-5" x="3325" y="3152" />
       <path stroke-width="30" stroke="#1c75bc" d="M3325 3806v518" />
       <path fill="#1c75bc" d="M3325 4430l-61-149l61 35l61-35-61 149" />
-      <g fill="#231f20" font-size="130">
-        <text x="3153" y="3287">CDPH</text>
-        <text x="3085" y="4907">Vaccine</text>
-        <text x="3121" y="5062">Record</text>
-        <text font-size="158" x="460" y="5750">J. Doe</text>
+      <g fill="#231f20" font-size="130" text-anchor="middle">
+        <text x="3325" y="3287">CDPH</text>
+        <text x="3325" y="4907">Vaccine</text>
+        <text x="3325" y="5062">Record</text>
+        <text font-size="158" x="660" y="5750">J. Doe</text>
       </g>
       <path stroke-width="30" stroke="#1c75bc" d="M4143 5104v149" />
       <rect x="3819" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
@@ -332,11 +332,11 @@
       <path stroke-width="30" stroke="#58595b" d="M4143 2662v231" />
       <path fill="#58595b" d="M4143 2999l-61-149l61 35l61-35-61 149" />
       <use href="#use-11" x="4143" y="4430" />
-      <g fill="#231f20" font-size="130">
-        <text x="3717" y="3131">State Board of</text>
-        <text x="3746" y="3287">Cosmetology</text>
-        <text x="3747" y="4907">Cosmetology</text>
-        <text x="3912" y="5062">License</text>
+      <g fill="#231f20" font-size="130" text-anchor="middle">
+        <text x="4143" y="3131">State Board of</text>
+        <text x="4143" y="3287">Cosmetology</text>
+        <text x="4143" y="4907">Cosmetology</text>
+        <text x="4143" y="5062">License</text>
       </g>
       <path stroke-width="30" stroke="#1c75bc" d="M4962 4962v291" />
       <rect x="4638" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
@@ -366,9 +366,9 @@
     <g fill="none">
       <use href="#use-7" x="6599" y="3153" />
       <use href="#use-11" x="6599" y="4430" />
-      <g fill="#231f20" font-size="130">
-        <text x="6258" y="3287">State Parks</text>
-        <text x="6240" y="4907">Parks Pass</text>
+      <g fill="#231f20" font-size="130" text-anchor="middle">
+        <text x="6599" y="3287">State Parks</text>
+        <text x="6599" y="4907">Parks Pass</text>
       </g>
       <rect x="7094" y="3355" width="648" height="451" rx="36" ry="36" stroke="#231f20" stroke-width="10" />
     </g>
@@ -384,8 +384,8 @@
       <path stroke-width="30" stroke="#1c75bc" d="M7418 4960v291" />
       <g fill="#58595b" font-size="100">
         <g fill="#231f20" font-size="130">
-          <text x="7142" y="3287">Agency X</text>
-          <text x="6999" y="4907">Credential X</text>
+          <text text-anchor="middle" x="7418" y="3287">Agency X</text>
+          <text x="7059" y="4907">Credential X</text>
         </g>
         <text x="3110" y="5400">Digital Credentials</text>
         <text x="1093" y="4218">Services &amp; Benefits</text>
@@ -399,10 +399,12 @@
         <text x="1106" y="1483">Raw Eligibility</text>
         <text x="1106" y="1603">Data</text>
         <g fill="#231f20" font-size="130">
-          <text x="3764" y="1942">Login.Gov</text>
+          <text text-anchor="middle" x="4103" y="1942">Login.Gov</text>
           <text x="2150" y="2189">Calfresh</text>
-          <text x="3000" y="2167">Eligibility</text>
-          <text x="2968" y="2322">Provider X</text>
+          <g text-anchor="middle">
+            <text x="3200" y="2167">Eligibility</text>
+            <text x="3200" y="2322">Provider X</text>
+          </g>
           <text x="4572" y="1942">ID Provider X</text>
         </g>
       </g>

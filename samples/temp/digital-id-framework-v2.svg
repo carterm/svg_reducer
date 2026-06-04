@@ -429,10 +429,10 @@
           </g>
           <g class="cls-24">
             <g class="cls-24">
-              <text class="cls-20" transform="translate(109.2 497.8)"><tspan x="0" y="0">Mobile</tspan></text>
+              <text class="cls-20" transform="translate(129.2 497.8)" text-anchor="middle"><tspan x="0" y="0">Mobile</tspan></text>
             </g>
             <g class="cls-24">
-              <text class="cls-20" transform="translate(109.2 513.3)"><tspan x="0" y="0">Wallet</tspan></text>
+              <text class="cls-20" transform="translate(129.2 513.3)" text-anchor="middle"><tspan x="0" y="0">Wallet</tspan></text>
             </g>
           </g>
         </g>
@@ -482,7 +482,7 @@
         <line class="cls-11" x1="578.1" y1="381.2" x2="578.1" y2="410.3" />
         <g class="cls-24">
           <g class="cls-24">
-            <text class="cls-27" transform="translate(566.5 328.7)"><tspan x="0" y="0">FTB</tspan></text>
+            <text class="cls-27" transform="translate(578.1 328.7)" text-anchor="middle"><tspan x="0" y="0">FTB</tspan></text>
           </g>
         </g>
         <line class="cls-11" x1="332.5" y1="510.4" x2="332.5" y2="525.3" />
@@ -526,20 +526,20 @@
         </g>
         <g class="cls-24">
           <g class="cls-24">
-            <text class="cls-27" transform="translate(315.3 328.7)"><tspan x="0" y="0">CDPH</tspan></text>
+            <text class="cls-27" transform="translate(332.5 328.7)" text-anchor="middle"><tspan x="0" y="0">CDPH</tspan></text>
           </g>
         </g>
         <g class="cls-24">
           <g class="cls-24">
-            <text class="cls-27" transform="translate(308.5 490.7)"><tspan x="0" y="0">Vaccine</tspan></text>
+            <text class="cls-27" transform="translate(332.5 490.7)" text-anchor="middle"><tspan x="0" y="0">Vaccine</tspan></text>
           </g>
           <g class="cls-24">
-            <text class="cls-27" transform="translate(312.1 506.2)"><tspan x="0" y="0">Record</tspan></text>
+            <text class="cls-27" transform="translate(332.5 506.2)" text-anchor="middle"><tspan x="0" y="0">Record</tspan></text>
           </g>
         </g>
         <g class="cls-24">
           <g class="cls-24">
-            <text class="cls-33" transform="translate(46 575)"><tspan x="0" y="0">J. Doe</tspan></text>
+            <text class="cls-33" transform="translate(66 575)" text-anchor="middle"><tspan x="0" y="0">J. Doe</tspan></text>
           </g>
         </g>
         <line class="cls-11" x1="414.3" y1="510.4" x2="414.3" y2="525.3" />
@@ -583,20 +583,20 @@
         </g>
         <g class="cls-24">
           <g class="cls-24">
-            <text class="cls-27" transform="translate(371.7 313.1)"><tspan x="0" y="0">State Board of</tspan></text>
+            <text class="cls-27" transform="translate(414.3 313.1)" text-anchor="middle"><tspan x="0" y="0">State Board of</tspan></text>
           </g>
 
           <g class="cls-24">
-            <text class="cls-27" transform="translate(374.6 328.7)"><tspan x="0" y="0">Cosmetology</tspan></text>
+            <text class="cls-27" transform="translate(414.3 328.7)" text-anchor="middle"><tspan x="0" y="0">Cosmetology</tspan></text>
           </g>
         </g>
         <g class="cls-24">
           <g class="cls-24">
-            <text class="cls-27" transform="translate(374.7 490.7)"><tspan x="0" y="0">Cosmetology</tspan></text>
+            <text class="cls-27" transform="translate(414.3 490.7)" text-anchor="middle"><tspan x="0" y="0">Cosmetology</tspan></text>
           </g>
 
           <g class="cls-24">
-            <text class="cls-27" transform="translate(391.2 506.2)"><tspan x="0" y="0">License</tspan></text>
+            <text class="cls-27" transform="translate(414.3 506.2)" text-anchor="middle"><tspan x="0" y="0">License</tspan></text>
           </g>
         </g>
         <line class="cls-11" x1="496.2" y1="496.2" x2="496.2" y2="525.3" />
@@ -689,12 +689,12 @@
         </g>
         <g class="cls-24">
           <g class="cls-24">
-            <text class="cls-27" transform="translate(625.8 328.7)"><tspan x="0" y="0">State Parks</tspan></text>
+            <text class="cls-27" transform="translate(659.9 328.7)" text-anchor="middle"><tspan x="0" y="0">State Parks</tspan></text>
           </g>
         </g>
         <g class="cls-24">
           <g class="cls-24">
-            <text class="cls-27" transform="translate(624 490.7)"><tspan x="0" y="0">Parks Pass</tspan></text>
+            <text class="cls-27" transform="translate(659.9 490.7)" text-anchor="middle"><tspan x="0" y="0">Parks Pass</tspan></text>
           </g>
         </g>
         <g>
@@ -738,12 +738,12 @@
         <line class="cls-11" x1="741.8" y1="496" x2="741.8" y2="525.1" />
         <g class="cls-24">
           <g class="cls-24">
-            <text class="cls-27" transform="translate(714.2 328.7)"><tspan x="0" y="0">Agency X</tspan></text>
+            <text class="cls-27" transform="translate(741.8 328.7)" text-anchor="middle"><tspan x="0" y="0">Agency X</tspan></text>
           </g>
         </g>
         <g class="cls-24">
           <g class="cls-24">
-            <text class="cls-27" transform="translate(699.9 490.7)"><tspan x="0" y="0">Credential X</tspan></text>
+            <text class="cls-27" transform="translate(705.9 490.7)"><tspan x="0" y="0">Credential X</tspan></text>
           </g>
         </g>
         <g class="cls-24">
@@ -796,7 +796,7 @@
         </g>
         <g class="cls-24">
           <g class="cls-24">
-            <text class="cls-27" transform="translate(376.4 194.2)"><tspan x="0" y="0">Login.Gov</tspan></text>
+            <text class="cls-27" transform="translate(410.3 194.2)" text-anchor="middle"><tspan x="0" y="0">Login.Gov</tspan></text>
           </g>
         </g>
         <g class="cls-24">
@@ -806,10 +806,10 @@
         </g>
         <g class="cls-24">
           <g class="cls-24">
-            <text class="cls-27" transform="translate(300 216.7)"><tspan x="0" y="0">Eligibility</tspan></text>
+            <text class="cls-27" transform="translate(320 216.7)" text-anchor="middle"><tspan x="0" y="0">Eligibility</tspan></text>
           </g>
           <g class="cls-24">
-            <text class="cls-27" transform="translate(296.8 232.2)"><tspan x="0" y="0">Provider X</tspan></text>
+            <text class="cls-27" transform="translate(320 232.2)" text-anchor="middle"><tspan x="0" y="0">Provider X</tspan></text>
           </g>
         </g>
         <g class="cls-24">

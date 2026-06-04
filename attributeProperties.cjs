@@ -156,6 +156,13 @@ const attributeProperties = {
     ]
   },
 
+  "text-anchor": {
+    overrideable: true,
+    inherited: true,
+    stacking: false,
+    tags: ["text", "tspan", "textPath"]
+  },
+
   transform: {
     overrideable: false,
     inherited: false,

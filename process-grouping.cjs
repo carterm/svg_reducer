@@ -21,6 +21,7 @@ const groupAttributes = svgElement => {
     "font",
     "font-size",
     "font-weight",
+    "text-anchor",
     "transform"
   ];
 
