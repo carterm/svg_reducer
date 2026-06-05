@@ -359,14 +359,15 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
   });
 
   // Process all path statements
-  svgElement
-    .querySelectorAll("path")
-    .forEach(pathElement =>
-      pathElement.setAttribute(
-        "d",
-        processPathD(pathElement.getAttribute("d") || "", options, pathElement)
-      )
+  svgElement.querySelectorAll("path").forEach(pathElement => {
+    const newD = processPathD(
+      pathElement.getAttribute("d") || "",
+      options,
+      pathElement
     );
+    if (newD.length) pathElement.setAttribute("d", newD);
+    else pathElement.remove();
+  });
 
   // Round transform attributes to the specified number of decimal places
   svgElement.querySelectorAll("linearGradient").forEach(element => {
