@@ -13,6 +13,7 @@
     "run_json": "node reduce.cjs --input 'samples/json/*' --m 1",
     "run_1": "node reduce.cjs --input 'samples/default/recovery-lineart.svg' --dev",
     "run_no_merge": "node reduce.cjs --input 'samples/no_merge/*.svg' --np",
+    "run_svgo": "node svgo.cjs",
     "GIT cleanup": "git clean -fd"
   },
   "repository": {
@@ -34,6 +35,7 @@
   "dependencies": {
     "glob": "^11.0.1",
     "jsdom": "^26.0.0",
+    "svgo": "^4.0.1",
     "yargs": "^17.7.2"
   }
 }
