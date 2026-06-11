@@ -417,21 +417,21 @@ const processPathD = (pathD, options, pathElement) => {
   )
     pathData.pop();
 
-  // Merge consecutive movetos
+  // Sum consecutive movetos
   for (let i = 1; i < pathData.length; i++) {
     const prev = pathData[i - 1];
     const curr = pathData[i];
-    const prevCoord =
-      /** @type {{x: number, y: number, absx?: number, absy?: number}} */ (
-        prev.coordinates[0]
-      );
-    const currCoord =
-      /** @type {{x: number, y: number, absx?: number, absy?: number}} */ (
-        curr.coordinates[0]
-      );
 
     //  m followed by m → sum them
     if (prev.code === "m" && curr.code === "m") {
+      const prevCoord =
+        /** @type {{x: number, y: number, absx?: number, absy?: number}} */ (
+          prev.coordinates[0]
+        );
+      const currCoord =
+        /** @type {{x: number, y: number, absx?: number, absy?: number}} */ (
+          curr.coordinates[0]
+        );
       prevCoord.x += currCoord.x;
       prevCoord.y += currCoord.y;
       pathData.splice(i, 1);
