@@ -471,7 +471,7 @@ const processPathD = (pathD, options, pathElement) => {
     .join("");
 
   // Remove "m" at the end of the path
-  pathD = pathD.replace(/m[^clshva]+$/gim, "");
+  pathD = pathD.replace(/m[^clshvaq]+$/gim, "");
 
   if (pathElement && (pathD.endsWith("z") || pathD.endsWith("Z"))) {
     // remove final z if the path has no stroke
