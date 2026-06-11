@@ -488,6 +488,9 @@ const processPathD = (pathD, options, pathElement) => {
     pathD = pathD.replace(/c([^lshvzqmaA-Z]*)/gms, match =>
       `c${match.replace(/c-/gms, "-")}`.replace(/cc/gms, "c")
     ); // Combine consecutive "c-" command codes
+    pathD = pathD.replace(/q([^cshvzlmaA-Z]*)/gms, match =>
+      `q${match.replace(/q-/gms, "-")}`.replace(/qq/gms, "q")
+    );
     pathD = pathD.replace(/l([^cshvzqmaA-Z]*)/gms, match =>
       `l${match.replace(/l-/gms, "-")}`.replace(/ll/gms, "l")
     ); // Combine consecutive "l-" command codes
