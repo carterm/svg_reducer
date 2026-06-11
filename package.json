@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "reduce svgs",
   "scripts": {
-    "run_temp": "node reduce.cjs --input 'samples/temp/*.svg' --np --s 10",
+    "run_temp": "node reduce.cjs --input 'samples/temp/*.svg' --np",
     "start": "npm run run_full_no_dev && npm run run_default && npm run run_zero_decimals && npm run run_json && npm run run_no_merge  && npm run run_noscale",
     "special": "node reduce.cjs --input 'samples/default/ca175*.svg' --o 'svg_options.json'",
     "run_noscale": "node reduce.cjs --input 'samples/noscale/*.svg' --np --s 1 --m 0",
@@ -13,6 +13,7 @@
     "run_json": "node reduce.cjs --input 'samples/json/*' --m 1",
     "run_1": "node reduce.cjs --input 'samples/default/recovery-lineart.svg' --dev",
     "run_no_merge": "node reduce.cjs --input 'samples/no_merge/*.svg' --np",
+    "run_svgo": "node svgo.cjs",
     "GIT cleanup": "git clean -fd"
   },
   "repository": {
@@ -34,6 +35,7 @@
   "dependencies": {
     "glob": "^11.0.1",
     "jsdom": "^26.0.0",
+    "svgo": "^4.0.1",
     "yargs": "^17.7.2"
   }
 }

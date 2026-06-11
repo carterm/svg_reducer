@@ -63,7 +63,7 @@ const processPathD = (pathD, options, pathElement) => {
             coordinates.push({ x: digits[i], y: digits[i + 1] });
     }
 
-    return { code, coordinates, z: false, abs: /[A-Z]/.test(code) };
+    return { code, coordinates, z: false };
   });
 
   /** @type {Record<string, number>} */
@@ -72,7 +72,7 @@ const processPathD = (pathD, options, pathElement) => {
   //Split "c" commands into groups of 3
   for (let i = 0; i < pathData.length; i++) {
     const command = pathData[i];
-    const code = command.code;
+    let code = command.code;
 
     /** @type {number?} */
     const commandsize = commandsizes[code.toLowerCase()];
@@ -85,9 +85,14 @@ const processPathD = (pathD, options, pathElement) => {
           newCommands.push({
             code,
             coordinates: coordinates.slice(j, j + commandsize),
-            z: false,
-            abs: command.abs
+            z: false
           });
+
+        if (newCommands.length > 1 && code.toLowerCase() === "m")
+          // convert subsequent movetos to linetos
+          for (let k = 1; k < newCommands.length; k++) {
+            newCommands[k].code = code === "m" ? "l" : "L";
+          }
 
         pathData.splice(i, 1, ...newCommands);
       }
@@ -207,7 +212,7 @@ const processPathD = (pathD, options, pathElement) => {
         pointLocation.y = startLocation.y;
       } else {
         // Convert absolute commands, except the first one, to relative
-        if (command.abs && i > 0) {
+        if (command.code === command.code.toUpperCase() && i > 0) {
           command.code = command.code.toLowerCase();
 
           command.coordinates
@@ -400,21 +405,28 @@ const processPathD = (pathD, options, pathElement) => {
     }
   }
 
-  // Merge consecutive movetos
+  // remove "m" and "M" at the end of the path, as they have no effect
+  while (
+    pathData.length > 0 &&
+    pathData[pathData.length - 1].code.toLowerCase() === "m"
+  )
+    pathData.pop();
+
+  // Sum consecutive movetos
   for (let i = 1; i < pathData.length; i++) {
     const prev = pathData[i - 1];
     const curr = pathData[i];
-    const prevCoord =
-      /** @type {{x: number, y: number, absx?: number, absy?: number}} */ (
-        prev.coordinates[0]
-      );
-    const currCoord =
-      /** @type {{x: number, y: number, absx?: number, absy?: number}} */ (
-        curr.coordinates[0]
-      );
 
     //  m followed by m → sum them
     if (prev.code === "m" && curr.code === "m") {
+      const prevCoord =
+        /** @type {{x: number, y: number, absx?: number, absy?: number}} */ (
+          prev.coordinates[0]
+        );
+      const currCoord =
+        /** @type {{x: number, y: number, absx?: number, absy?: number}} */ (
+          curr.coordinates[0]
+        );
       prevCoord.x += currCoord.x;
       prevCoord.y += currCoord.y;
       pathData.splice(i, 1);
@@ -443,7 +455,7 @@ const processPathD = (pathD, options, pathElement) => {
         "-"
       ); // Remove space before negative numbers
 
-      if (command.abs && keepSmallerCommand) {
+      if (keepSmallerCommand) {
         const absCoordinates = command.coordinates.map(point =>
           `${point.absx ?? point.x ?? ""} ${point.absy ?? point.y ?? ""}`.trim()
         ); // Convert coordinates back to string
@@ -458,9 +470,6 @@ const processPathD = (pathD, options, pathElement) => {
     })
     .join("");
 
-  // Remove "m" at the end of the path
-  pathD = pathD.replace(/m[^clshva]+$/gim, "");
-
   if (pathElement && (pathD.endsWith("z") || pathD.endsWith("Z"))) {
     // remove final z if the path has no stroke
     const props = getVisibilityProperties(pathElement);
@@ -474,9 +483,15 @@ const processPathD = (pathD, options, pathElement) => {
     pathD = pathD.replace(/c([^lshvzqmaA-Z]*)/gms, match =>
       `c${match.replace(/c-/gms, "-")}`.replace(/cc/gms, "c")
     ); // Combine consecutive "c-" command codes
+    pathD = pathD.replace(/q([^cshvzlmaA-Z]*)/gms, match =>
+      `q${match.replace(/q-/gms, "-")}`.replace(/qq/gms, "q")
+    ); // Combine consecutive "q-" command codes
     pathD = pathD.replace(/l([^cshvzqmaA-Z]*)/gms, match =>
       `l${match.replace(/l-/gms, "-")}`.replace(/ll/gms, "l")
     ); // Combine consecutive "l-" command codes
+    pathD = pathD.replace(/m([^cshvzqmaA-Z]*)/gms, match =>
+      `l${match.replace(/l-/gms, "-")}`.replace(/lm/gms, "m")
+    ); // Combine consecutive "l-" command codes after m
   }
 
   if (!options.devmode) pathD = pathD.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers, after removing extra cs
