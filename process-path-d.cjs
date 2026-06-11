@@ -489,10 +489,9 @@ const processPathD = (pathD, options, pathElement) => {
     pathD = pathD.replace(/l([^cshvzqmaA-Z]*)/gms, match =>
       `l${match.replace(/l-/gms, "-")}`.replace(/ll/gms, "l")
     ); // Combine consecutive "l-" command codes
-
     pathD = pathD.replace(/m([^cshvzqmaA-Z]*)/gms, match =>
       `l${match.replace(/l-/gms, "-")}`.replace(/lm/gms, "m")
-    ); // Combine consecutive "l-" command codes
+    ); // Combine consecutive "l-" command codes after m
   }
 
   if (!options.devmode) pathD = pathD.replace(/\s+-/gm, "-"); // Remove whitespace before negative numbers, after removing extra cs
