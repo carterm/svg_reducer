@@ -412,6 +412,13 @@ const processPathD = (pathD, options, pathElement) => {
     }
   }
 
+  // remove "m" and "M" at the end of the path, as they have no effect
+  while (
+    pathData.length > 0 &&
+    pathData[pathData.length - 1].code.toLowerCase() === "m"
+  )
+    pathData.pop();
+
   // Merge consecutive movetos
   for (let i = 1; i < pathData.length; i++) {
     const prev = pathData[i - 1];
@@ -469,9 +476,6 @@ const processPathD = (pathD, options, pathElement) => {
       } else return newCommand;
     })
     .join("");
-
-  // Remove "m" at the end of the path
-  pathD = pathD.replace(/m[^clshvaq]+$/gim, "");
 
   if (pathElement && (pathD.endsWith("z") || pathD.endsWith("Z"))) {
     // remove final z if the path has no stroke
