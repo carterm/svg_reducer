@@ -63,7 +63,7 @@ const processPathD = (pathD, options, pathElement) => {
             coordinates.push({ x: digits[i], y: digits[i + 1] });
     }
 
-    return { code, coordinates, z: false, abs: /[A-Z]/.test(code) };
+    return { code, coordinates, z: false };
   });
 
   /** @type {Record<string, number>} */
@@ -85,8 +85,7 @@ const processPathD = (pathD, options, pathElement) => {
           newCommands.push({
             code,
             coordinates: coordinates.slice(j, j + commandsize),
-            z: false,
-            abs: command.abs
+            z: false
           });
 
         if (newCommands.length > 1 && code.toLowerCase() === "m")
@@ -103,7 +102,6 @@ const processPathD = (pathD, options, pathElement) => {
   if (pathData[0].code === "m") {
     // If the first command is a moveto, ensure it's absolute to simplify processing
     pathData[0].code = "M";
-    pathData[0].abs = true;
   }
 
   if (scalepoints) {
@@ -219,7 +217,7 @@ const processPathD = (pathD, options, pathElement) => {
         pointLocation.y = startLocation.y;
       } else {
         // Convert absolute commands, except the first one, to relative
-        if (command.abs && i > 0) {
+        if (command.code === command.code.toUpperCase() && i > 0) {
           command.code = command.code.toLowerCase();
 
           command.coordinates
@@ -462,7 +460,7 @@ const processPathD = (pathD, options, pathElement) => {
         "-"
       ); // Remove space before negative numbers
 
-      if (command.abs && keepSmallerCommand) {
+      if (keepSmallerCommand) {
         const absCoordinates = command.coordinates.map(point =>
           `${point.absx ?? point.x ?? ""} ${point.absy ?? point.y ?? ""}`.trim()
         ); // Convert coordinates back to string
