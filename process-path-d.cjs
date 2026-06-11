@@ -94,6 +94,12 @@ const processPathD = (pathD, options, pathElement) => {
     }
   }
 
+  if (pathData[0].code === "m") {
+    // If the first command is a moveto, ensure it's absolute to simplify processing
+    pathData[0].code = "M";
+    pathData[0].abs = true;
+  }
+
   if (scalepoints) {
     // find scale
     let scale = options.scaleAll || 1;
@@ -398,6 +404,11 @@ const processPathD = (pathD, options, pathElement) => {
       i--;
       continue;
     }
+  }
+
+  if (pathD.includes("m658")) {
+    //m658 93 2-2 25-11q52-21 106 0 27 12 58 29 12 6 28 11
+    let foo = 1;
   }
 
   // Merge consecutive movetos
