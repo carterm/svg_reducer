@@ -99,11 +99,6 @@ const processPathD = (pathD, options, pathElement) => {
     }
   }
 
-  if (pathData[0].code === "m") {
-    // If the first command is a moveto, ensure it's absolute to simplify processing
-    pathData[0].code = "M";
-  }
-
   if (scalepoints) {
     // find scale
     let scale = options.scaleAll || 1;
@@ -493,6 +488,10 @@ const processPathD = (pathD, options, pathElement) => {
     ); // Combine consecutive "q-" command codes
     pathD = pathD.replace(/l([^cshvzqmaA-Z]*)/gms, match =>
       `l${match.replace(/l-/gms, "-")}`.replace(/ll/gms, "l")
+    ); // Combine consecutive "l-" command codes
+
+    pathD = pathD.replace(/m([^cshvzqmaA-Z]*)/gms, match =>
+      `l${match.replace(/l-/gms, "-")}`.replace(/lm/gms, "m")
     ); // Combine consecutive "l-" command codes
   }
 
