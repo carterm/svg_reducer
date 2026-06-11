@@ -72,7 +72,7 @@ const processPathD = (pathD, options, pathElement) => {
   //Split "c" commands into groups of 3
   for (let i = 0; i < pathData.length; i++) {
     const command = pathData[i];
-    const code = command.code;
+    let code = command.code;
 
     /** @type {number?} */
     const commandsize = commandsizes[code.toLowerCase()];
@@ -88,6 +88,12 @@ const processPathD = (pathD, options, pathElement) => {
             z: false,
             abs: command.abs
           });
+
+        if (newCommands.length > 1 && code.toLowerCase() === "m")
+          // convert subsequent movetos to linetos
+          for (let k = 1; k < newCommands.length; k++) {
+            newCommands[k].code = code === "m" ? "l" : "L";
+          }
 
         pathData.splice(i, 1, ...newCommands);
       }
@@ -404,11 +410,6 @@ const processPathD = (pathD, options, pathElement) => {
       i--;
       continue;
     }
-  }
-
-  if (pathD.includes("m658")) {
-    //m658 93 2-2 25-11q52-21 106 0 27 12 58 29 12 6 28 11
-    let foo = 1;
   }
 
   // Merge consecutive movetos
