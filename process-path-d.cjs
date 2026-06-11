@@ -490,7 +490,7 @@ const processPathD = (pathD, options, pathElement) => {
     ); // Combine consecutive "c-" command codes
     pathD = pathD.replace(/q([^cshvzlmaA-Z]*)/gms, match =>
       `q${match.replace(/q-/gms, "-")}`.replace(/qq/gms, "q")
-    );
+    ); // Combine consecutive "q-" command codes
     pathD = pathD.replace(/l([^cshvzqmaA-Z]*)/gms, match =>
       `l${match.replace(/l-/gms, "-")}`.replace(/ll/gms, "l")
     ); // Combine consecutive "l-" command codes
