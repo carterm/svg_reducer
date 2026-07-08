@@ -453,12 +453,11 @@ const processSvg = (/** @type {string} */ data, options, inputFile) => {
       );
 
       const props = getVisibilityProperties(Element);
-      if (props.stroke !== "none" || Element.hasAttribute("stroke-width")) {
+      if (props.stroke !== "none" || Element.hasAttribute("stroke-width"))
         Element.setAttribute(
           "stroke-width",
           (props.strokeWidth * scale).toString()
         );
-      }
     }
   );
 

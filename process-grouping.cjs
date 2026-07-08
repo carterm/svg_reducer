@@ -74,10 +74,10 @@ const groupAttributes = svgElement => {
           while (sibling) {
             const siblingHasAttribute = sibling.hasAttribute(attr);
 
-            if (siblingHasAttribute && sibling.getAttribute(attr) === value) {
+            if (siblingHasAttribute && sibling.getAttribute(attr) === value)
               // This is one of our target matches!  Now it is worth making a group.
               matches.push(sibling);
-            } else if (!elementHasAttribute(sibling.tagName, attr)) {
+            else if (!elementHasAttribute(sibling.tagName, attr)) {
               // This attribute is irrelavant to the tag, so it is safe to include in the group
             } else if (attributeIsOverrideable && siblingHasAttribute) {
               // This sibling is specifying an override for the attribute, so it is safe to include in the group
@@ -437,9 +437,7 @@ const ConvertCommonElementstoUseElements = svgElement => {
         didSomething = true;
         path.remove();
       }
-    } else {
-      seen.set(key, path);
-    }
+    } else seen.set(key, path);
   });
 
   // Now look at every USE element and see if there are any siblings that can be pulled in.

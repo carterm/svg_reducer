@@ -17,11 +17,10 @@ const processJson = (/** @type {string} */ data, options) => {
       const d = [...icon.icon.paths].join("");
       const newd = processPathD(d, options);
       icon.icon.paths = [newd];
-    } else {
+    } else
       [...icon.icon.paths].forEach((path, i) => {
         icon.icon.paths[i] = processPathD(path, options);
       });
-    }
 
     //console.log(`${icon.properties.name} saved ${icon.icon.paths.length - newd.length}`);
   });

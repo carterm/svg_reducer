@@ -43,7 +43,7 @@ const processPathD = (pathD, options, pathElement) => {
         coordinates = digits.map(y => ({ y }));
         break;
       case "a":
-        for (let i = 0; i < digits.length; i += 7) {
+        for (let i = 0; i < digits.length; i += 7)
           coordinates.push(
             { x: digits[i + 0], y: digits[i + 1], notxy: true },
             { x: digits[i + 2], noscale: true, notxy: true },
@@ -51,7 +51,7 @@ const processPathD = (pathD, options, pathElement) => {
             { x: digits[i + 4], noscale: true, notxy: true },
             { x: digits[i + 5], y: digits[i + 6] }
           );
-        }
+
         break;
       case "z":
         // Nothing to do, "z" has no coordinates
@@ -90,9 +90,8 @@ const processPathD = (pathD, options, pathElement) => {
 
         if (newCommands.length > 1 && code.toLowerCase() === "m")
           // convert subsequent movetos to linetos
-          for (let k = 1; k < newCommands.length; k++) {
+          for (let k = 1; k < newCommands.length; k++)
             newCommands[k].code = code === "m" ? "l" : "L";
-          }
 
         pathData.splice(i, 1, ...newCommands);
       }

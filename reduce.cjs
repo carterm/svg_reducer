@@ -8,54 +8,57 @@ const { processSvg } = require("./process-svg.cjs");
 const { processJson } = require("./process-json.cjs");
 
 // Configure your command-line options
-const argv = yargs
-  .option("dev", {
-    alias: "d",
-    type: "boolean",
-    description: "Enable developer mode",
-    default: false // Default is `false`
-  })
-  .option("noPathsMerge", {
-    alias: "np",
-    type: "boolean",
-    description: "No merge paths",
-    default: false // Default is `false`
-  })
-  .option("maxDecimalPlaces", {
-    alias: "m",
-    type: "number",
-    description: "Set the maximum number of decimal places",
-    default: 2 // Default value
-  })
-  .option("scaleAll", {
-    alias: "s",
-    type: "number",
-    description: "Set the scaling factor for all SVG dimensions",
-    default: 1 // Default value
-  })
-  .option("input", {
-    alias: "i",
-    type: "string",
-    description: "Input file pattern (glob)",
-    demandOption: true,
-    requiresArg: true
-  })
-  .option("options", {
-    alias: "o",
-    type: "string",
-    description: "conversion options",
-    requiresArg: true
-  })
-  .help() // Add the --help flag
-  .alias("help", "h").argv; // Shortcut for help
+
+const argv = /** @type {import("yargs").Arguments} */ (
+  yargs
+    .option("dev", {
+      alias: "d",
+      type: "boolean",
+      description: "Enable developer mode",
+      default: false // Default is `false`
+    })
+    .option("noPathsMerge", {
+      alias: "np",
+      type: "boolean",
+      description: "No merge paths",
+      default: false // Default is `false`
+    })
+    .option("maxDecimalPlaces", {
+      alias: "m",
+      type: "number",
+      description: "Set the maximum number of decimal places",
+      default: 2 // Default value
+    })
+    .option("scaleAll", {
+      alias: "s",
+      type: "number",
+      description: "Set the scaling factor for all SVG dimensions",
+      default: 1 // Default value
+    })
+    .option("input", {
+      alias: "i",
+      type: "string",
+      description: "Input file pattern (glob)",
+      demandOption: true,
+      requiresArg: true
+    })
+    .option("options", {
+      alias: "o",
+      type: "string",
+      description: "conversion options",
+      requiresArg: true
+    })
+    .help() // Add the --help flag
+    .alias("help", "h").argv
+); // Shortcut for help
 
 /** @type {import("./process-svg.cjs").processDataOptions} */
 const processOptions = {
-  devmode: argv["dev"],
-  maxDecimalPlaces: argv["maxDecimalPlaces"],
-  noPathsMerge: argv["noPathsMerge"],
-  scaleAll: argv["scaleAll"],
-  optionsPath: argv["options"]
+  devmode: /** @type {boolean} */ (argv["dev"]),
+  maxDecimalPlaces: /** @type {number} */ (argv["maxDecimalPlaces"]),
+  noPathsMerge: /** @type {boolean} */ (argv["noPathsMerge"]),
+  scaleAll: /** @type {number} */ (argv["scaleAll"]),
+  optionsPath: /** @type {string} */ (argv["options"])
 };
 
 if (processOptions.optionsPath) {
@@ -64,8 +67,8 @@ if (processOptions.optionsPath) {
 }
 
 // Use glob to find matching files
-/** @type {string} */
-const inputPattern = argv["input"];
+
+const inputPattern = /** @type {string} */ (argv["input"]);
 
 const globOptions = {
   cwd: process.cwd(), // Current working directory
